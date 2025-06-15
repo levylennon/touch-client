@@ -90,7 +90,7 @@ export interface GUI extends TypedEmitter<GUIEvents> {
   isConnected: boolean
   loginScreen: {
     _connectMethod: 'manual' | 'lastCharacter' | 'lastServer'
-    _login: (login: string, password: string, unknownParam: boolean) => void
+    _login: ({ accessKey, refreshKey, save }: { accessKey: string; refreshKey: string; save: boolean }) => void
   }
   shopFloatingToolbar: {
     hide: () => void

@@ -32,6 +32,9 @@ export interface DofusWindow extends Window {
   }
   findSingleton: (name: string, window: DofusWindow) => unknown
   npcDialogUi: NpcDialogUi
+  $_authManager: {
+    requestWebAuthToken: (code: string, callback: (error: any, accessKey: string, refreshKey: string) => void) => void
+  }
 }
 
 export interface HTMLIFrameElementWithDofus extends HTMLIFrameElement {

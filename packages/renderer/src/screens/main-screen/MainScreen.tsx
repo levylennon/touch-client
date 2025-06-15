@@ -46,7 +46,7 @@ export const MainScreen = () => {
                       }}
                       key={game.id}
                     >
-                      <GameScreen key={game.id} game={game} />
+                      <GameScreen currentId={() => gameStore.selectedGame?.id} key={game.id} game={game} />
                     </div>
                   )
                 })}

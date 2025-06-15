@@ -88,3 +88,4 @@ release
 dist-ssr
 *.local
 .vscode/settings.json
+/.idea

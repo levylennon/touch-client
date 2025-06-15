@@ -84,6 +84,7 @@ export class GameWindow extends (EventEmitter as new () => TypedEmitter<GameWind
       (details, callback) => {
         const requestHeaders = { ...(details.requestHeaders ?? {}) }
         delete requestHeaders.Referer
+        requestHeaders['Origin'] = 'http://localhost'; // Add this header, for bypass cloudflare
         const beforeSendResponse: BeforeSendResponse = { requestHeaders }
         callback(beforeSendResponse)
       }
@@ -92,12 +93,15 @@ export class GameWindow extends (EventEmitter as new () => TypedEmitter<GameWind
     // remove sec headers on requests
     this._win.webContents.session.webRequest.onBeforeSendHeaders((details, callback) => {
       const requestHeaders = { ...(details.requestHeaders ?? {}) }
-      delete requestHeaders['sec-ch-ua']
-      delete requestHeaders['sec-ch-ua-mobile']
-      delete requestHeaders['sec-ch-ua-platform']
+      delete requestHeaders['Referer']; // Remove this header, because cloudflare is block the request
+      // delete requestHeaders['sec-ch-ua']
+      // delete requestHeaders['sec-ch-ua-mobile']
+      // delete requestHeaders['sec-ch-ua-platform']
       delete requestHeaders['Sec-Fetch-Site']
       delete requestHeaders['Sec-Fetch-Mode']
       delete requestHeaders['Sec-Fetch-Dest']
+      requestHeaders["Origin"] = "http://localhost"
+      requestHeaders["Priority"] = "u=1, i"
       const beforeSendResponse: BeforeSendResponse = { requestHeaders }
       callback(beforeSendResponse)
     })
@@ -115,7 +119,7 @@ export class GameWindow extends (EventEmitter as new () => TypedEmitter<GameWind
 
     this._win.webContents.setAudioMuted(this._store.optionStore.window.audioMuted)
 
-    this._win.on('close', (event) => {
+    this._win.on('close', (event: any) => {
       logger.debug('GameWindow -> close')
       this._close(event)
     })
@@ -218,5 +222,9 @@ export class GameWindow extends (EventEmitter as new () => TypedEmitter<GameWind
 
   clearCache() {
     return this._win.webContents.session.clearCache()
+  }
+
+  get Win(){
+    return this._win
   }
 }

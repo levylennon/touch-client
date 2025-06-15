@@ -314,4 +314,10 @@ export class Application {
       })
     })
   }
+
+  processLoginCode(r: string) {
+    return this._gWindows[0]?.Win.webContents.executeJavaScript(`window.parent.$appSchemeLinkCalled('${r}')`)
+
+  }
+
 }

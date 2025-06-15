@@ -35,5 +35,6 @@ export const generateUserArgent = async (appVersion: string) => {
     ua = storage.get('userAgent').ua
   }
 
-  return ua + ' DofusTouch Client ' + appVersion
+  return 'DOFUS Touch/1 CFNetwork/1498.0.2 Darwin/23.6.0';
+  // return ua + ' DofusTouch Client ' + appVersion
 }
