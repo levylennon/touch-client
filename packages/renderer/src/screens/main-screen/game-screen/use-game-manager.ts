@@ -47,11 +47,11 @@ export const useGameManager = ({ game, rootStore, LL }: GameManagerProps) => {
         const gameIndex = rootStore.gameStore.games.indexOf(game)
         setTimeout(async () => {
           dWindow.gui.loginScreen._connectMethod = 'lastServer'
-          dWindow.gui.loginScreen._login(
-            character.account,
-            await window.lindoAPI.decryptCharacterPassword(character.password),
-            false
-          )
+          dWindow.gui.loginScreen._login({
+            accessKey: character.account,
+            refreshKey: await window.lindoAPI.decryptCharacterPassword(character.password),
+            save: false
+          })
           game.removeLogin()
         }, gameIndex * 1500 + 1500)
       }

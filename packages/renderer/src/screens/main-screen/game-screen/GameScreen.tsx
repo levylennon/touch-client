@@ -131,7 +131,6 @@ export const GameScreen = memo(({ game, currentId: getCurrentId }: GameScreenPro
       ref={iframeGameRef}
       onLoad={handleLoad}
       style={{ border: 'none', width: '100%', height: '100%' }}
-      // src={gameContext.gameSrc}
       src={gameContext.gameSrc + '?id=' + game.id}
     />
   )
