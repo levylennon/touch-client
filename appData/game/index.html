@@ -69,6 +69,119 @@
             })();
         }
 
+        // Intercept requests to localhost:5555 and redirect through proxy
+        // This fixes CORS issues when running in web browser
+        (function() {
+            var originalFetch = window.fetch;
+            var originalXHROpen = XMLHttpRequest.prototype.open;
+            var originalCreateElement = document.createElement;
+            
+            // Function to replace any localhost:5555 or 127.0.0.1:5555 URL with proxy
+            // Also handles subdomains like haapi.localhost:5555
+            // Also handles port 443 (127.0.0.1:443)
+            function replaceDofusUrl(url) {
+                if (typeof url !== 'string') return url;
+                // Skip if URL already contains /dofus-proxy (already processed)
+                if (url.includes('/dofus-proxy')) return url;
+                // Skip if URL is already a relative path or same-origin
+                if (!url.match(/^https?:\/\//)) return url;
+                // First handle port 443 (127.0.0.1:443)
+                if (url.includes(':443')) {
+                    var proxyUrl = url.replace(/https?:\/\/127\.0\.0\.1:443(\/.*)?/g, function(match, path) {
+                        return window.location.origin + '/dofus-proxy' + (path || '');
+                    });
+                    return proxyUrl;
+                }
+                // Match various forms for port 5555:
+                // - localhost:5555/path
+                // - haapi.localhost:5555/path (subdomains)
+                // - *.localhost:5555/path (any subdomain)
+                // - 127.0.0.1:5555/path
+                // - 127.0.0.1.com:5555/path
+                var proxyUrl = url.replace(/https?:\/\/(?:([a-zA-Z0-9-]+)\.)?(?:localhost|127\.0\.0\.1(?:\.com)?):5555(\/.*)?/g, function(match, subdomain, path) {
+                    var basePath = window.location.origin + '/dofus-proxy';
+                    if (subdomain) {
+                        // Preserve subdomain in the proxy path: /dofus-proxy/haapi/path
+                        return basePath + '/' + subdomain + (path || '');
+                    }
+                    // No subdomain: /dofus-proxy/path
+                    return basePath + (path || '');
+                });
+                return proxyUrl;
+            }
+            
+            // Intercept fetch requests
+            window.fetch = function(url, options) {
+                var newUrl = replaceDofusUrl(url);
+                if (newUrl !== url) {
+                    return originalFetch.call(this, newUrl, options);
+                }
+                return originalFetch.apply(this, arguments);
+            };
+            
+            // Intercept XMLHttpRequest
+            XMLHttpRequest.prototype.open = function(method, url, async, user, password) {
+                var newUrl = replaceDofusUrl(url);
+                return originalXHROpen.call(this, method, newUrl, async, user, password);
+            };
+            
+            // Intercept script and img tag creation to proxy loads
+            document.createElement = function(tagName, options) {
+                var element = originalCreateElement.call(this, tagName, options);
+                var tagLower = tagName.toLowerCase();
+                
+                if (tagLower === 'script' || tagLower === 'img') {
+                    var originalSetAttribute = element.setAttribute;
+                    element.setAttribute = function(name, value) {
+                        if (name === 'src') {
+                            value = replaceDofusUrl(value);
+                        }
+                        return originalSetAttribute.call(this, name, value);
+                    };
+                    // Also intercept direct property assignment
+                    Object.defineProperty(element, 'src', {
+                        set: function(value) {
+                            value = replaceDofusUrl(value);
+                            this.setAttribute('src', value);
+                        },
+                        get: function() {
+                            return this.getAttribute('src');
+                        }
+                    });
+                }
+                return element;
+            };
+            
+            // Also intercept Image constructor (used for programmatic image loading)
+            var originalImage = window.Image;
+            window.Image = function(width, height) {
+                var img = new originalImage(width, height);
+                var originalSrcSetter = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src') || 
+                                       Object.getOwnPropertyDescriptor(Image.prototype, 'src');
+                if (originalSrcSetter && originalSrcSetter.set) {
+                    Object.defineProperty(img, 'src', {
+                        set: function(value) {
+                            value = replaceDofusUrl(value);
+                            originalSrcSetter.set.call(this, value);
+                        },
+                        get: function() {
+                            return originalSrcSetter.get ? originalSrcSetter.get.call(this) : this.getAttribute('src');
+                        }
+                    });
+                } else {
+                    // Fallback: intercept setAttribute
+                    var originalSetAttribute = img.setAttribute;
+                    img.setAttribute = function(name, value) {
+                        if (name === 'src') {
+                            value = replaceDofusUrl(value);
+                        }
+                        return originalSetAttribute.call(this, name, value);
+                    };
+                }
+                return img;
+            };
+        })();
+
         window.initDofus = function(cb) {
             var head = document.getElementsByTagName('head')[0];
 

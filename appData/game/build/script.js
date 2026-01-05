@@ -27,7 +27,10 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
     i(1), i(2), i(3), i(4), i(5), i(6);
     var a = i(7);
-    window.developmentMode = !1, window.buildVersion = "1.68.17", window.envName = "", console.log("Production variant is active");
+    window.developmentMode = true,
+    window.buildVersion = "1.68.17",
+    window.envName = "",
+    console.log("Production variant is active");
     for (var r = window.location.search.slice(1)
             .split(";"), s = 0, c = r.length; s < c; s += 1) {
         var l = r[s],
@@ -2055,11 +2058,80 @@ return t.m = e, t.c = i, t.p = "", t(0)
     var n = i(7),
         o = i(14),
         a = o();
-    t.MAP_PATH = "maps/", t.IMG_PATH = "gfx/world/", t.SKIN_PATH = "skins/", t.BONE_PATH = "bones/", t.ICON_PATH = "gfx/icons/", t.ORNAMENT_PATH = "gfx/ornaments/", t.EMBEDDED_PATH = "ui/embedded/", t.BACKGROUND_PATH = "backgrounds/", t.FOREGROUND_PATH = "foregrounds/", t.BITMAP_FONTS = "ui/bitmapFonts/", t.WORLDMAP_PATH = "gfx/maps/", t.LOADER_PATH = "ui/loader/", t.MISSING_ANIM_PATH = "bones/missingAnimList.json", t.CDV_PATH = "../assets", t.CDV_PATH_ANDROID = "file:///__cdvfile_persistent__/data/assets", t.ITEM_DIR = "gfx/items/", t.SPELL_DIR = "gfx/spells/", t.MAX_NUMBER = 2e9, t.MAX_NUMBER_LEN = 13, t.MAP_SCENE_WIDTH_IN_CELLS = 14.5, t.MAP_SCENE_HEIGHT_IN_CELLS = 20.5, t.CELL_WIDTH = 86, t.CELL_HEIGHT = 43, t.CELL_SIDE = Math.sqrt(2 * t.CELL_HEIGHT * t.CELL_HEIGHT), t.NB_CELLS = 560, t.MAP_WIDTH = 14, t.MAP_HEIGHT = 20, t.ELEMENT_TYPE_ID = {
+    // Contants Game 
+    t.MAP_PATH = "maps/",
+    t.IMG_PATH = "gfx/world/",
+    t.SKIN_PATH = "skins/",
+    t.BONE_PATH = "bones/",
+    t.ICON_PATH = "gfx/icons/",
+    t.ORNAMENT_PATH = "gfx/ornaments/",
+    t.EMBEDDED_PATH = "ui/embedded/",
+    t.BACKGROUND_PATH = "backgrounds/",
+    t.FOREGROUND_PATH = "foregrounds/",
+    t.BITMAP_FONTS = "ui/bitmapFonts/",
+    t.WORLDMAP_PATH = "gfx/maps/",
+    t.LOADER_PATH = "ui/loader/",
+    t.MISSING_ANIM_PATH = "bones/missingAnimList.json",
+    t.CDV_PATH = "../assets",
+    t.CDV_PATH_ANDROID = "file:///__cdvfile_persistent__/data/assets", 
+    t.ITEM_DIR = "gfx/items/",
+    t.SPELL_DIR = "gfx/spells/",
+    t.MAX_NUMBER = 2e9,
+    t.MAX_NUMBER_LEN = 13,
+    t.MAP_SCENE_WIDTH_IN_CELLS = 14.5,
+    t.MAP_SCENE_HEIGHT_IN_CELLS = 20.5,
+    t.CELL_WIDTH = 86,
+    t.CELL_HEIGHT = 43,
+    t.CELL_SIDE = Math.sqrt(2 * t.CELL_HEIGHT * t.CELL_HEIGHT),
+    t.NB_CELLS = 560,
+    t.MAP_WIDTH = 14,
+    t.MAP_HEIGHT = 20,
+    t.ELEMENT_TYPE_ID = {
         UNSPECIFIED: -1,
         ZAAP: 16,
         PADDOCK: 120
-    }, t.BETA_SUFFIX = "beta.", t.BETA_CACHE_FOLDER = "beta/", t.HORIZONTAL_OFFSET = 53, t.VERTICAL_OFFSET = 15, t.WIDTH_PADDING = 20, t.HEIGHT_PADDING = -16, t.MAP_BORDER_H = 30, t.MAP_BORDER_V = 20, t.GRID_ALTITUDE_OFFSET = 22, t.ICONBAR_CORNER_HEIGHT = 19, t.ICONBAR_CORNER_WIDTH = 36, t.ICONBAR_TAB_WIDTH = 42, t.ICONBAR_TAB_HEIGHT = 35, t.SHORTCUT_ICON_SIZE = 50, t.MENU_ICON_SIZE = 42, t.SHORTCUT_GAUGE_SIZE = 13, t.IPAD_SCREEN_RATIO = 1.5, t.CHAT_BTN_MIN_WIDTH = 68, t.CHAT_BTN_MIN_HEIGHT = 50, t.BONUS_PACK_XP = 150, t.BONUS_PACK_DROP = 150, t.BONUS_PACK_XPJOB = 50, t.MARKETING_POPUP_LEVEL_LIMIT = 25, t.BP_ELITE_LATAM = 14158, t.BP_ELITE_ROW = 14346, t.CATALYST_ITEM = 18516, t.ALBUERA_VILLAGE_ACHIEVEMENT = 1250, t.ALBUERA_FOREST_ACHIEVEMENT = 1252, t.BELLADONNA_ISLAND_ACHIEVEMENT = 1254, t.ALBUERA_DUNGEON_ACHIEVEMENT = 1258, t.ASTRUB_EXPLORED_ACHIEVEMENT = 1344, t.DEFAULT_ACTOR_X = 5 * -t.CELL_WIDTH, t.DEFAULT_ACTOR_Y = 5 * -t.CELL_HEIGHT, t.DEFAULT_ACTOR_SPEED = 5, t.MAX_CHARACTER_LEVEL_FOR_TUTORIAL = 49, t.FAKEBIDHOUSE_CATEGORIES = [1227, 1231, 1233, 1245, 1249], t.CATEGORY_TUTORIAL = 1233, t.SUBCATEGORY_TUTORIAL = 33, t.ITEM_TUTORIAL = 19342, t.ITEM_TUTORIAL_UID = 1, t.FAKE_INSTANCED_ITEM = {
+    }, 
+    t.BETA_SUFFIX = "beta.",
+    t.BETA_CACHE_FOLDER = "beta/",
+    t.HORIZONTAL_OFFSET = 53,
+    t.VERTICAL_OFFSET = 15,
+    t.WIDTH_PADDING = 20,
+    t.HEIGHT_PADDING = -16,
+    t.MAP_BORDER_H = 30,
+    t.MAP_BORDER_V = 20,
+    t.GRID_ALTITUDE_OFFSET = 22,
+    t.ICONBAR_CORNER_HEIGHT = 19,
+    t.ICONBAR_CORNER_WIDTH = 36,
+    t.ICONBAR_TAB_WIDTH = 42,
+    t.ICONBAR_TAB_HEIGHT = 35,
+    t.SHORTCUT_ICON_SIZE = 50,
+    t.MENU_ICON_SIZE = 42,
+    t.SHORTCUT_GAUGE_SIZE = 13,
+    t.IPAD_SCREEN_RATIO = 1.5,
+    t.CHAT_BTN_MIN_WIDTH = 68,
+    t.CHAT_BTN_MIN_HEIGHT = 50,
+    t.BONUS_PACK_XP = 150,
+    t.BONUS_PACK_DROP = 150,
+    t.BONUS_PACK_XPJOB = 50,
+    t.MARKETING_POPUP_LEVEL_LIMIT = 25,
+    t.BP_ELITE_LATAM = 14158,
+    t.BP_ELITE_ROW = 14346,
+    t.CATALYST_ITEM = 18516,
+    t.ALBUERA_VILLAGE_ACHIEVEMENT = 1250,
+    t.ALBUERA_FOREST_ACHIEVEMENT = 1252,
+    t.BELLADONNA_ISLAND_ACHIEVEMENT = 1254,
+    t.ALBUERA_DUNGEON_ACHIEVEMENT = 1258,
+    t.ASTRUB_EXPLORED_ACHIEVEMENT = 1344,
+    t.DEFAULT_ACTOR_X = 5 * -t.CELL_WIDTH,
+    t.DEFAULT_ACTOR_Y = 5 * -t.CELL_HEIGHT,
+    t.DEFAULT_ACTOR_SPEED = 5,
+    t.MAX_CHARACTER_LEVEL_FOR_TUTORIAL = 49,
+    t.FAKEBIDHOUSE_CATEGORIES = [1227,1231,1233,1245,1249],
+    t.CATEGORY_TUTORIAL = 1233,
+    t.SUBCATEGORY_TUTORIAL = 33,
+    t.ITEM_TUTORIAL = 19342,
+    t.ITEM_TUTORIAL_UID = 1,
+    t.FAKE_INSTANCED_ITEM = {
         objectUID: 1,
         effects: [{
             _type: "ObjectEffectInteger",
@@ -2069,15 +2141,53 @@ return t.m = e, t.c = i, t.p = "", t(0)
         }],
         tutorialPrice: !0,
         prices: [90, 0, 0]
-    }, t.TUTORIAL_CRAFT_INGREDIENT_ITEMS = {
+    },
+    t.TUTORIAL_CRAFT_INGREDIENT_ITEMS = {
         0: [289, 380, 1782],
         1: [303, 312]
-    }, t.SPECIAL_TUTO_STOP_VALUE = -99, t.TUTORIAL_NPC_FAKE_PLAYER_ITEM = 19464, t.TUTORIAL_NPC_FAKE_NPC_ITEM = 19474, t.WEAPON_SPELL_ID = 0, t.INFINITE_CHARACTER = "∞", t.EFFECTSHAPE_DEFAULT = {
+    },
+    t.SPECIAL_TUTO_STOP_VALUE = -99,
+    t.TUTORIAL_NPC_FAKE_PLAYER_ITEM = 19464,
+    t.TUTORIAL_NPC_FAKE_NPC_ITEM = 19474,
+    t.WEAPON_SPELL_ID = 0,
+    t.INFINITE_CHARACTER = "∞",
+    t.EFFECTSHAPE_DEFAULT = {
         AREA_SIZE: 1,
         MIN_AREA_SIZE: 0,
         EFFICIENCY: 10,
         MAX_EFFICIENCY_APPLY: 4
-    }, t.DEFAULT_TACTICAL_THEME_MAP = 4624, t.PING_EMOTE_BTN_NARROW_MIN_WIDTH = 50, t.PING_EMOTE_BTN_WIDE_MIN_HEIGHT = 50, t.PING_EMOTE_BTN_WIDE_MIN_WIDTH = 60, t.MAP_SCENE_WIDTH = t.CELL_WIDTH * t.MAP_SCENE_WIDTH_IN_CELLS + t.WIDTH_PADDING, t.MAP_SCENE_HEIGHT = t.CELL_HEIGHT * t.MAP_SCENE_HEIGHT_IN_CELLS + t.HEIGHT_PADDING, t.STARTER_WORLD_ID = 13, t.STARTER_AREA_ID = 56, t.DEBUG_AREA_ID = 10, t.PIXEL_RATIO = a.devicePixelRatio ? Math.min(a.devicePixelRatio, 2) : 1, t.CHARACTER_COLORS = 5, t.FPS = 60, t.TIME_UNITS_PER_SECOND = 25, t.ANIM_SYMETRY = [!1, !1, !1, !0, !0, !1, !1, !0], t.ANIM_SYMBOLS = [0, 1, 2, 1, 0, 5, 6, 5], t.ANGLE_PER_DIRECTION = [0, Math.PI / 8, Math.PI / 2, Math.PI - Math.PI / 8, Math.PI, Math.PI + Math.PI / 8, -Math.PI / 2, -Math.PI / 8], t.MISSING_TEXTURE_IMAGE_SRC = "data:image/gif;base64,R0lGODlhAQABAIAAAOAv/wAAACwAAAAAAQABAAACAkQBADs=", t.EMPTY_IMAGE = new a.Image, t.EMPTY_IMAGE.src = t.MISSING_TEXTURE_IMAGE_SRC, t.EMPTY_JSON = {}, t.MAP_LAYER_BACKGROUND = -1, t.MAP_LAYER_PLAYGROUND = 0, t.MAP_LAYER_FOREGROUND = 1, t.MAP_LAYER_TRANSPARENT = 2, t.MAP_LAYER_ICONS = 3, t.MAP_LAYER_POINT_LABELS = 4, t.MAP_LAYER_TAP_FEEDBACK = 5, t.MAP_LAYER_TARGET_INDICATOR = 6, t.TRANSPARENT_MODE_ALPHA = .725, t.MOVEMENT_PREVIEW_ALPHA = .5, t.MOVEMENT_PREVIEW_SWAP_ALPHA = .3;
+    }, 
+    t.DEFAULT_TACTICAL_THEME_MAP = 4624,
+    t.PING_EMOTE_BTN_NARROW_MIN_WIDTH = 50,
+    t.PING_EMOTE_BTN_WIDE_MIN_HEIGHT = 50,
+    t.PING_EMOTE_BTN_WIDE_MIN_WIDTH = 60,
+    t.MAP_SCENE_WIDTH = t.CELL_WIDTH * t.MAP_SCENE_WIDTH_IN_CELLS + t.WIDTH_PADDING,
+    t.MAP_SCENE_HEIGHT = t.CELL_HEIGHT * t.MAP_SCENE_HEIGHT_IN_CELLS + t.HEIGHT_PADDING,
+    t.STARTER_WORLD_ID = 13,
+    t.STARTER_AREA_ID = 56,
+    t.DEBUG_AREA_ID = 10,
+    t.PIXEL_RATIO = a.devicePixelRatio ? Math.min(a.devicePixelRatio, 2) : 1,
+    t.CHARACTER_COLORS = 5,
+    t.FPS = 60,
+    t.TIME_UNITS_PER_SECOND = 25,
+    t.ANIM_SYMETRY = [!1, !1, !1, !0, !0, !1, !1, !0],
+    t.ANIM_SYMBOLS = [0, 1, 2, 1, 0, 5, 6, 5],
+    t.ANGLE_PER_DIRECTION = [0, Math.PI / 8, Math.PI / 2, Math.PI - Math.PI / 8, Math.PI, Math.PI + Math.PI / 8, -Math.PI / 2, -Math.PI / 8],
+    t.MISSING_TEXTURE_IMAGE_SRC = "data:image/gif;base64,R0lGODlhAQABAIAAAOAv/wAAACwAAAAAAQABAAACAkQBADs=",
+    t.EMPTY_IMAGE = new a.Image,
+    t.EMPTY_IMAGE.src = t.MISSING_TEXTURE_IMAGE_SRC,
+    t.EMPTY_JSON = {},
+    t.MAP_LAYER_BACKGROUND = -1,
+    t.MAP_LAYER_PLAYGROUND = 0,
+    t.MAP_LAYER_FOREGROUND = 1,
+    t.MAP_LAYER_TRANSPARENT = 2,
+    t.MAP_LAYER_ICONS = 3,
+    t.MAP_LAYER_POINT_LABELS = 4,
+    t.MAP_LAYER_TAP_FEEDBACK = 5,
+    t.MAP_LAYER_TARGET_INDICATOR = 6,
+    t.TRANSPARENT_MODE_ALPHA = .725,
+    t.MOVEMENT_PREVIEW_ALPHA = .5,
+    t.MOVEMENT_PREVIEW_SWAP_ALPHA = .3;
     var r = 153600,
         s = 1024e3,
         c = 120;
@@ -2085,29 +2195,137 @@ return t.m = e, t.c = i, t.p = "", t(0)
         var l = n.capacity || 1073741824,
             d = n.isAndroid ? .3 : .5,
             u = l * d * .4;
-        t.MAX_MUSIC_SFX_MEMORY = Math.round(.43 * u / r), t.MAX_TEXTURE_MEMORY_MAP = Math.round(.25 * u), t.MAX_TEXTURE_MEMORY_WORLDMAP = Math.round(.1 * u), t.MAX_TEXTURE_MEMORY_CHARACTER_DISPLAY = Math.round(.05 * u), t.MAX_SPRITES_BUFFER_MAP = Math.max(Math.round(.04 * u / c), 2e4), t.MAX_SPRITES_BUFFER_WORLDMAP = Math.max(Math.round(.005 * u / c), 1e4), t.MAX_SPRITES_BUFFER_CHARACTER_DISPLAY = Math.max(Math.round(.005 * u / c), 4e3), t.MAX_ANIMATIONS = Math.round(.12 * u / s)
-    } else t.MAX_MUSIC_SFX_MEMORY = 1e3, t.MAX_TEXTURE_MEMORY_MAP = 104857600, t.MAX_TEXTURE_MEMORY_WORLDMAP = 52428800, t.MAX_TEXTURE_MEMORY_CHARACTER_DISPLAY = 20971520, t.MAX_SPRITES_BUFFER_MAP = 8e4, t.MAX_SPRITES_BUFFER_WORLDMAP = 1e4, t.MAX_SPRITES_BUFFER_CHARACTER_DISPLAY = 9e3, t.MAX_ANIMATIONS = 30;
-    t.MAX_ZOOM_MAP = 1.1, t.PRERENDER_RATIO_MAP = t.PIXEL_RATIO, t.PRERENDER_RATIO_WORLDMAP = t.PIXEL_RATIO, t.PRERENDER_RATIO_CHARACTER_DISPLAY = 2 * t.PIXEL_RATIO, t.TOTAL_MAP_ASSETS_SIZE_IN_GB = 2, t.GRANDAPAN_SERVERID = 401, t.OSHIMO_SERVERID = 403, t.TERRA_COGITA_SERVERID = 404, t.HERDEGRIZE_SERVERID = 405, t.DODGE_SERVERID = 406, t.BRUTAS_SERVERID = 407, t.TOURNAMENT_TEST_SERVERID = 310, t.TOURNAMENT_PROD_SERVERID = 411, t.NEXT_SERVERID = 300, t.FACTORY_SERVER_ID = 343, t.LAB_SERVER_ID = 347, t.FUSE_SERVERID = 349, t.BETA_SERVERID = 900, t.TILIWAN_1_SERVERID = 501, t.TALOK_1_SERVERID = 502, t.EPSILON_1_SERVERID = 503, t.TILIWAN_2_SERVERID = 504, t.FUSION_SERVERID = 505;
+        t.MAX_MUSIC_SFX_MEMORY = Math.round(.43 * u / r),
+        t.MAX_TEXTURE_MEMORY_MAP = Math.round(.25 * u),
+        t.MAX_TEXTURE_MEMORY_WORLDMAP = Math.round(.1 * u),
+        t.MAX_TEXTURE_MEMORY_CHARACTER_DISPLAY = Math.round(.05 * u),
+        t.MAX_SPRITES_BUFFER_MAP = Math.max(Math.round(.04 * u / c), 2e4),
+        t.MAX_SPRITES_BUFFER_WORLDMAP = Math.max(Math.round(.005 * u / c), 1e4),
+        t.MAX_SPRITES_BUFFER_CHARACTER_DISPLAY = Math.max(Math.round(.005 * u / c), 4e3),
+        t.MAX_ANIMATIONS = Math.round(.12 * u / s)
+    } 
+    else {
+        t.MAX_MUSIC_SFX_MEMORY = 1e3,
+        t.MAX_TEXTURE_MEMORY_MAP = 104857600,
+        t.MAX_TEXTURE_MEMORY_WORLDMAP = 52428800,
+        t.MAX_TEXTURE_MEMORY_CHARACTER_DISPLAY = 20971520,
+        t.MAX_SPRITES_BUFFER_MAP = 8e4,
+        t.MAX_SPRITES_BUFFER_WORLDMAP = 1e4,
+        t.MAX_SPRITES_BUFFER_CHARACTER_DISPLAY = 9e3,
+        t.MAX_ANIMATIONS = 30;
+    }
+
+    t.MAX_ZOOM_MAP = 1.1,
+    t.PRERENDER_RATIO_MAP = t.PIXEL_RATIO,
+    t.PRERENDER_RATIO_WORLDMAP = t.PIXEL_RATIO,
+    t.PRERENDER_RATIO_CHARACTER_DISPLAY = 2 * t.PIXEL_RATIO,
+    t.TOTAL_MAP_ASSETS_SIZE_IN_GB = 2,
+    // Servers IDS 
+    t.GRANDAPAN_SERVERID = 401,
+    t.OSHIMO_SERVERID = 403,
+    t.TERRA_COGITA_SERVERID = 404,
+    t.HERDEGRIZE_SERVERID = 405,
+    t.DODGE_SERVERID = 406,
+    t.BRUTAS_SERVERID = 407,
+    t.TOURNAMENT_TEST_SERVERID = 310,
+    t.TOURNAMENT_PROD_SERVERID = 411,
+    t.NEXT_SERVERID = 300,
+    t.FACTORY_SERVER_ID = 343,
+    t.LAB_SERVER_ID = 347,
+    t.FUSE_SERVERID = 349,
+    t.BETA_SERVERID = 900,
+    t.TILIWAN_1_SERVERID = 501,
+    t.TALOK_1_SERVERID = 502,
+    t.EPSILON_1_SERVERID = 503,
+    t.TILIWAN_2_SERVERID = 504,
+    t.FUSION_SERVERID = 505;
     var p = {
-        S1: [t.OSHIMO_SERVERID, t.TERRA_COGITA_SERVERID, t.TILIWAN_1_SERVERID, t.BRUTAS_SERVERID, t.GRANDAPAN_SERVERID, t.EPSILON_1_SERVERID],
-        S2: [t.OSHIMO_SERVERID, t.HERDEGRIZE_SERVERID, t.TILIWAN_2_SERVERID, t.TALOK_1_SERVERID, t.GRANDAPAN_SERVERID, t.DODGE_SERVERID],
-        S3: [t.HERDEGRIZE_SERVERID, t.TERRA_COGITA_SERVERID, t.TILIWAN_1_SERVERID, t.BRUTAS_SERVERID, t.DODGE_SERVERID, t.EPSILON_1_SERVERID],
-        S4: [t.OSHIMO_SERVERID, t.TERRA_COGITA_SERVERID, t.TILIWAN_2_SERVERID, t.TALOK_1_SERVERID, t.GRANDAPAN_SERVERID, t.EPSILON_1_SERVERID],
-        S5: [t.OSHIMO_SERVERID, t.HERDEGRIZE_SERVERID, t.TILIWAN_1_SERVERID, t.BRUTAS_SERVERID, t.GRANDAPAN_SERVERID, t.DODGE_SERVERID],
-        S6: [t.HERDEGRIZE_SERVERID, t.TERRA_COGITA_SERVERID, t.TILIWAN_2_SERVERID, t.TALOK_1_SERVERID, t.DODGE_SERVERID, t.EPSILON_1_SERVERID]
+        S1: [
+                t.OSHIMO_SERVERID,
+                t.TERRA_COGITA_SERVERID,
+                t.TILIWAN_1_SERVERID,
+                t.BRUTAS_SERVERID,
+                t.GRANDAPAN_SERVERID,
+                t.EPSILON_1_SERVERID
+        ],
+        S2: [
+                t.OSHIMO_SERVERID,
+                t.HERDEGRIZE_SERVERID,
+                t.TILIWAN_2_SERVERID,
+                t.TALOK_1_SERVERID,
+                t.GRANDAPAN_SERVERID,
+                t.DODGE_SERVERID
+            ],
+        S3: [
+                t.HERDEGRIZE_SERVERID,
+                t.TERRA_COGITA_SERVERID,
+                t.TILIWAN_1_SERVERID,
+                t.BRUTAS_SERVERID,
+                t.DODGE_SERVERID,
+                t.EPSILON_1_SERVERID
+        ],
+        S4: [
+                t.OSHIMO_SERVERID,
+                t.TERRA_COGITA_SERVERID,
+                t.TILIWAN_2_SERVERID,
+                t.TALOK_1_SERVERID,
+                t.GRANDAPAN_SERVERID,
+                t.EPSILON_1_SERVERID
+        ],
+        S5: [
+                t.OSHIMO_SERVERID,
+                t.HERDEGRIZE_SERVERID,
+                t.TILIWAN_1_SERVERID,
+                t.BRUTAS_SERVERID,
+                t.GRANDAPAN_SERVERID,
+                t.DODGE_SERVERID
+        ],
+        S6: [
+                t.HERDEGRIZE_SERVERID,
+                t.TERRA_COGITA_SERVERID,
+                t.TILIWAN_2_SERVERID,
+                t.TALOK_1_SERVERID,
+                t.DODGE_SERVERID,
+                t.EPSILON_1_SERVERID
+        ]
     };
-    t.RESTRICTED_SERVER_IDS = p.S6, t.INVISIBLE_SERVER_IDS = [530, 531, 532, 533, t.FUSE_SERVERID], t.NEW_SERVER_IDS = [], t.WARN_INVENTORY_YELLOW_MIN = .75, t.WARN_INVENTORY_RED_MIN = 1, t.TOA_RETRY_HC_PRICE = 200, t.REROLL_DQ_HC_PRICE = 100, t.REROLL_DQ_PACK_ID = 12827, t.REROLL_DQ_ITEM_ID = 17890, t.TOA_RETRY_TIMEOUT = 6e4, t.TOA_RETRY_ITEM_ID = 15824, t.TOA_QUEST_ID = 1496, t.NB_PLAYER_PER_LADDER_PAGE = 50, t.BASE_MONSTER_LEVEL = 75, t.MAX_MONSTER_LEVEL = 325, t.NB_SCALE_LEVEL = 100, t.JOB_NPC_ID = 1502, t.JOB_FM_NPC_ID = 176, t.JOB_NPC_IDS = [t.JOB_NPC_ID, t.JOB_FM_NPC_ID], t.MAX_MONSTERS_TARGETED = 3, t.ICON_CATEGORY_ENUM = {
+    t.RESTRICTED_SERVER_IDS = p.S6,
+    t.INVISIBLE_SERVER_IDS = [530, 531, 532, 533, t.FUSE_SERVERID],
+    t.NEW_SERVER_IDS = [],
+    t.WARN_INVENTORY_YELLOW_MIN = .75,
+    t.WARN_INVENTORY_RED_MIN = 1,
+    t.TOA_RETRY_HC_PRICE = 200,
+    t.REROLL_DQ_HC_PRICE = 100,
+    t.REROLL_DQ_PACK_ID = 12827,
+    t.REROLL_DQ_ITEM_ID = 17890,
+    t.TOA_RETRY_TIMEOUT = 6e4,
+    t.TOA_RETRY_ITEM_ID = 15824,
+    t.TOA_QUEST_ID = 1496,
+    t.NB_PLAYER_PER_LADDER_PAGE = 50,
+    t.BASE_MONSTER_LEVEL = 75,
+    t.MAX_MONSTER_LEVEL = 325,
+    t.NB_SCALE_LEVEL = 100,
+    t.JOB_NPC_ID = 1502,
+    t.JOB_FM_NPC_ID = 176,
+    t.JOB_NPC_IDS = [
+        t.JOB_NPC_ID,
+        t.JOB_FM_NPC_ID
+    ],
+    t.MAX_MONSTERS_TARGETED = 3,
+    t.ICON_CATEGORY_ENUM = {
         QUEST: 1,
         DEFAULT: 2,
         AVA: 3,
         SMILEY: 4,
         UI: 5
     }
-}, function(e, t) {
+},
+function(e, t) {
     e.exports = function() {
         return window
     }
-}, function(e, t, i) {
+},
+function(e, t, i) {
     var n = i(16),
         o = i(14),
         a = o();
@@ -2119,14 +2337,16 @@ return t.m = e, t.c = i, t.p = "", t(0)
         return e && (e = e.map(function(e) {
             return n.getCacheFolder() + e
         })), a.wizAssets.deleteFiles(e, t, i)
-    }, t.downloadFile = function(e, t, i, o) {
+    },
+    t.downloadFile = function(e, t, i, o) {
         if (!a.wizAssets) {
             var r = new Error("downloadFile called despite wizAssets not available");
             return o ? o(r) : console.error(r)
         }
         return a.wizAssets.downloadFile(e, n.getCacheFolder() + t, i, o)
     }
-}, function(e, t, i) {
+},
+function(e, t, i) {
     function n(e) {
         return e.replace(/([.*+?^=!:${}()|[\]\/\\])/g, "\\$1")
     }
@@ -2405,7 +2625,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
             mozTransform: t,
             webkitTransform: t
         })
-    }, t.cssTransition = function(e, t) {
+    }, 
+    t.cssTransition = function(e, t) {
         e.setStyles({
             transition: t,
             oTransition: t,
@@ -2413,25 +2634,32 @@ return t.m = e, t.c = i, t.p = "", t(0)
             mozTransition: t,
             webkitTransition: t
         })
-    }, t.createPropertyNameCompareFunc = function(e) {
+    }, 
+    t.createPropertyNameCompareFunc = function(e) {
         return function(t, i) {
             return t[e] < i[e] ? -1 : t[e] > i[e] ? 1 : 0
         }
-    }, t.createStringCompareFunc = function(e) {
+    }, 
+    t.createStringCompareFunc = function(e) {
         e = e || "nameId";
         var t = window.Config.language;
         return function(i, n) {
             var o = i[e];
             return "string" != typeof o ? -1 : o.localeCompare(n[e], t)
         }
-    }, t.jeffVersionDowngrader = function(e, i) {
+    }, 
+    t.jeffVersionDowngrader = function(e, i) {
         if (i || e.meta && e.meta.version) {
             if (void 0 !== e.x && (e.x *= -1), void 0 !== e.y && (e.y *= -1), void 0 !== e.transforms && (e.matrices = e.transforms, delete e.transforms), void 0 !== e.isAnimation && (e.isAnim = e.isAnimation, delete e.isAnimation), e.symbols)
                 for (var n in e.symbols) t.jeffVersionDowngrader(e.symbols[n], !0);
             if (e.children)
                 for (var o in e.children) t.jeffVersionDowngrader(e.children[o], !0)
         }
-    }, t.checkBidHouseCategoriesAddendumIntegrity = o, t.randomIntFromInterval = a, t.getXpPreview = r, t.isConnectedToDom = s
+    }, 
+    t.checkBidHouseCategoriesAddendumIntegrity = o,
+    t.randomIntFromInterval = a,
+    t.getXpPreview = r,
+    t.isConnectedToDom = s
 }, function(e, t) {
     function i(e, t, i, n, o) {
         for (var r = "", s = 1, c = Object.keys(i)
@@ -4293,11 +4521,14 @@ return t.m = e, t.c = i, t.p = "", t(0)
         return o === a || !i.isInvisible
     }
 }, function(e, t) {
+    // #EntityLook Class
     function i(e, t, i, n, o) {
         var a = parseInt(i, 10);
         return isNaN(a) ? (e.error(new Error(t + " for " + n + " is not a number, caller: " + o)), -1) : a
     }
     e.exports = function(e, t, n) {
+        // t = "{1|1664||160}"
+        // n = "Breed: 15 sex: 1"
         var o = e,
             a = {
                 bone: -1,
@@ -4306,9 +4537,15 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 skin: ""
             };
         if (!n) return o.error(new Error("PL need a caller")), a;
-        var r = t.substring(1, t.length - 1)
-            .split("|");
-        return a.bone = i(o, "bone", r[0], t, n), a.scale = i(o, "scale", r[3] || "100", t, n), a.skin = r[1] || "", a.color = r[2] || "", a
+        var r = t.substring(1, t.length - 1).split("|"); 
+        // 1|1664||160
+        // [1, 1664, , 160]
+        a.bone = i(o, "bone", r[0], t, n), // 1
+        a.scale = i(o, "scale", r[3] || "100", t, n), // 160
+        a.skin = r[1] || "", // 1664
+        a.color = r[2] || ""; // 0
+
+        return a;
     }
 }, function(e, t) {
     function i(e, t, i) {
@@ -5202,7 +5439,7 @@ return t.m = e, t.c = i, t.p = "", t(0)
     function r() {
         if (P) return P;
         var e = window.appInfo || {};
-        return e.server ? e.server : "https://dt-proxy-production-login.ankama-games.com"
+        return e.server ? e.server : window.developmentMode ? "http://localhost:5555" : "https://dt-proxy-production-login.ankama-games.com" 
     }
 
     function s(e) {
@@ -5331,8 +5568,13 @@ return t.m = e, t.c = i, t.p = "", t(0)
             key: null
         };
     t.setCredentials = function(e, t, i) {
-        K.username = e, K.token = t, K.forcedAccount = i, K.salt = null, K.key = null
-    }, t.login = function(e) {
+        K.username = e,
+        K.token = t,
+        K.forcedAccount = i,
+        K.salt = null,
+        K.key = null
+    },
+    t.login = function(e) {
         if (Q === Y) return console.warn("Already logged in"), e();
         if (Q === j) return console.warn("Already logging in"), t.once("loginEnd", e);
         Q === V && _.disconnect("SWITCHING_TO_LOGIN"), Q = j, K.salt = null, K.key = null, k = !1, F = !1;
@@ -5344,16 +5586,23 @@ return t.m = e, t.c = i, t.p = "", t(0)
         i("disconnect", function(e) {
             if (k = !0, "NICKNAME_CLOSING" !== e) throw new Error("Disconnect during login");
             F = !0, i.done()
-        }), i("open", function() {
-            this.send("connecting", f("login"))
-        }), i("serverDisconnecting", function(e) {
+        }),
+            i("open", function() {
+            this.send("connecting",f("login"))
+        }),
+            i("serverDisconnecting", function(e) {
             k || (k = !0, i.done(e))
-        }), i("ProtocolRequired", function(e) {
+        }),
+            i("ProtocolRequired", function(e) {
             console.log("[Login server protocol] requiredVersion:", e.requiredVersion, "currentVersion:", e.currentVersion)
-        }), i("HelloConnectMessage", function(e) {
-            K.salt = e.salt, K.key = e.key, this.send("login", K)
-        }), i("IdentificationSuccessMessage", "IdentificationSuccessWithLoginTokenMessage", function(e) {
-            var o = e.uniqueNickname,
+        }),
+            i("HelloConnectMessage", function(e) {
+                K.salt = e.salt,
+                K.key = e.key,
+                this.send("login", K)
+        }),
+            i("IdentificationSuccessMessage", "IdentificationSuccessWithLoginTokenMessage", function(msg) {
+            var o = msg.uniqueNickname,
                 a = window.gui.playerData.loginName;
             if (a) {
                 if (/^\[GUEST]/.test(a)) {
@@ -5362,12 +5611,17 @@ return t.m = e, t.c = i, t.p = "", t(0)
                     r.nickname = o.toString()
                 }
             } else console.error("dofus.login: loginName is empty");
-            A.setAccount(o.toString()), u(), w.start(), e.wasAlreadyConnected && t.emit("wasAlreadyConnected"), n()
-        }), i("ConnectionFailedMessage", "IdentificationFailedMessage", "IdentificationFailedForBadVersionMessage", "IdentificationFailedBannedMessage", function(e) {
-            i.done(e)
-        }), i("ServersListMessage", function(e) {
-            o(), W = e.servers, i.done()
-        }), _.connect(t.logger, a(r()))
+            A.setAccount(o.toString()), u(), w.start(), msg.wasAlreadyConnected && t.emit("wasAlreadyConnected"), n()
+        }),
+            i("ConnectionFailedMessage", "IdentificationFailedMessage", "IdentificationFailedForBadVersionMessage", "IdentificationFailedBannedMessage", function(e) {
+                i.done(e)
+        }),
+            i("ServersListMessage", function(e) {
+                o(), 
+                W = e.servers,
+                i.done()
+        }), 
+        _.connect(t.logger, a(r()))
     }, t.accessGameServer = function(e, i) {
         if (Q === j) return console.warn("WARN: Login not finished yet."), t.once("loginEnd", function(n) {
             return n ? i(n) : void t.accessGameServer(e, i)
@@ -7416,9 +7670,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
             i = !1;
         p.indexOf(t) !== -1 && (i = !0), e < c || (this.isInactive ? e >= l && !window.gui.playerData.isModeratorOrMore() && window.dofus.disconnect("INACTIVITY") : this._isInQueue || i || this._enterInactiveMode())
     }, n.prototype._pingServer = function() {
-        this.hasSeenActivity && (this.hasSeenActivity = !1, window.dofus.sendMessage("BasicPingMessage", {
-            quiet: !0
-        }))
+        this.hasSeenActivity && (this.hasSeenActivity = !1,
+            window.dofus.sendMessage("BasicPingMessage", { quiet: !0 }))
     }, n.prototype._enterInactiveMode = function() {
         this.isInactive = !0, this.isConnected && this.emit("inactive", !0), window.gui.openSimplePopup(a("ui.common.inactivityWarning"), a("ui.popup.warning"))
     }, n.prototype._leaveInactiveMode = function() {
@@ -7834,13 +8087,22 @@ return t.m = e, t.c = i, t.p = "", t(0)
         return n
     }
 
+    // (DOM) UI Engine
     function a(e, t) {
-        s.call(this), this._elementIsVisible = !0, this._currentTextContent = null, this.rootElement = null, this._text = null, this._name = null, this._childrenList = [], this._childrenMap = {}, this._contentType = l.EMPTY, this._parent = null, e && this._assign(e, t)
+        s.call(this),
+        this._elementIsVisible = !0,
+        this._currentTextContent = null,
+        this.rootElement = null,
+        this._text = null,
+        this._name = null,
+        this._childrenList = [],
+        this._childrenMap = {},
+        this._contentType = l.EMPTY,
+        this._parent = null,
+        e && this._assign(e, t)
     }
-    var r = i(73)
-        .inherits,
-        s = i(76)
-        .EventEmitter,
+    var r = i(73).inherits,
+        s = i(76).EventEmitter,
         c = i(77);
     i(78);
     var l = {
@@ -7858,19 +8120,24 @@ return t.m = e, t.c = i, t.p = "", t(0)
             this.rootElement = e
         }
         t = t || {}, t.hidden && this.hide(), "name" in t && (this._name = String(t.name)), "className" in t && this.addClassNames(t.className), "style" in t && this.setStyles(t.style || {})
-    }, a.prototype.assign = function(e, t) {
+    },
+    a.prototype.assign = function(e, t) {
         this._assign(e, t)
-    }, a.prototype.getWuiName = function() {
+    },
+    a.prototype.getWuiName = function() {
         return this._name
-    }, a.prototype.removeChild = function(e) {
+    },
+    a.prototype.removeChild = function(e) {
         var t = e instanceof a;
         if (!t && (e = this._childrenMap[e], !e)) throw new Error("WuiDom: Given name is not a current child");
         var i = this._childrenList.indexOf(e);
         if (i === -1) throw new Error("WuiDom: Not a current child");
         return this.rootElement.removeChild(e.rootElement), this._childrenList.splice(i, 1), this._childrenMap.hasOwnProperty(e._name) && delete this._childrenMap[e._name], e._parent = null, e
-    }, a.prototype._unsetParent = function() {
+    },
+    a.prototype._unsetParent = function() {
         this._parent && this._parent.removeChild(this)
-    }, a.prototype._setParent = function(e) {
+    },
+    a.prototype._setParent = function(e) {
         if (e !== this._parent) {
             if (this._name) {
                 if (e._childrenMap[this._name]) throw new Error("WuiDom: Parent already has a child with this name");
@@ -7878,19 +8145,24 @@ return t.m = e, t.c = i, t.p = "", t(0)
             }
             this._parent = e
         }
-    }, a.prototype.getParent = function() {
+    },
+    a.prototype.getParent = function() {
         return this._parent
-    }, a.prototype.appendChild = function(e) {
+    },
+    a.prototype.appendChild = function(e) {
         if (this._contentType && this._contentType !== l.WUI && this._clearLinearContent(), this === e._parent) {
             var t = this._childrenList.indexOf(e);
             t !== -1 && this._childrenList.splice(t, 1)
         } else e._unsetParent(), e._setParent(this);
         return this._childrenList.push(e), this.rootElement.appendChild(e.rootElement), e.rebindTouchListeners(), this._contentType = l.WUI, e
-    }, a.prototype.createChild = function(e, t) {
+    },
+    a.prototype.createChild = function(e, t) {
         return this.appendChild(new a(e, t))
-    }, a.prototype.appendTo = function(e) {
+    },
+    a.prototype.appendTo = function(e) {
         e.appendChild(this)
-    }, a.prototype.insertChildBefore = function(e, t) {
+    },
+    a.prototype.insertChildBefore = function(e, t) {
         this._contentType && this._contentType !== l.WUI && this._clearLinearContent();
         var i;
         if (this === e._parent) {
@@ -7901,39 +8173,54 @@ return t.m = e, t.c = i, t.p = "", t(0)
             if (i = this._childrenList.indexOf(t), i === -1) throw new Error("WuiDom: Wanted sibling is not a child")
         } else i = this._childrenList.length;
         return e._setParent(this), this.rootElement.insertBefore(e.rootElement, t && t.rootElement), e.rebindTouchListeners(), this._childrenList.splice(i, 0, e), this._contentType = l.WUI, e
-    }, a.prototype.insertBefore = function(e) {
+    },
+    a.prototype.insertBefore = function(e) {
         if (!e._parent) throw new Error("WuiDom: sibling has no parent");
         return e._parent.insertChildBefore(this, e), e
-    }, a.prototype.insertAsFirstChild = function(e) {
+    },
+    a.prototype.insertAsFirstChild = function(e) {
         var t = this._childrenList[0];
         return t ? this.insertChildBefore(e, t) : this.appendChild(e)
-    }, a.prototype.getChildren = function() {
+    },
+    a.prototype.getChildren = function() {
         return this._childrenList.concat()
-    }, a.prototype.getChildCount = function() {
+    },
+    a.prototype.getChildCount = function() {
         return this._childrenList.length
-    }, a.prototype.getChild = function(e) {
+    },
+    a.prototype.getChild = function(e) {
         return this._childrenMap[e]
-    }, a.prototype._clearLinearContent = function() {
+    },
+    a.prototype._clearLinearContent = function() {
         this._text = null, this._currentTextContent = null, this.rootElement.innerHTML = ""
-    }, a.prototype.setHtml = function(e) {
+    },
+    a.prototype.setHtml = function(e) {
         this._contentType === l.WUI && this._destroyChildren(), this._contentType === l.TEXT && this._clearLinearContent(), this.rootElement.innerHTML = e, this._contentType = l.HTML
-    }, a.prototype.setText = function(e) {
+    },
+    a.prototype.setText = function(e) {
         this._contentType === l.WUI && this._destroyChildren(), this._contentType === l.HTML && this._clearLinearContent(), null !== e && void 0 !== e && (e = e.valueOf(), this._text || (this._text = document.createTextNode(""), this.rootElement.appendChild(this._text)), e !== this._currentTextContent && (this._currentTextContent = e, this._text.nodeValue = e), this._contentType = l.TEXT)
-    }, a.prototype.getText = function() {
+    },
+    a.prototype.getText = function() {
         return this._currentTextContent
-    }, a.prototype.setStyle = function(e, t) {
+    },
+    a.prototype.setStyle = function(e, t) {
         this.rootElement.style[e] = t
-    }, a.prototype.setStyles = function(e) {
+    },
+    a.prototype.setStyles = function(e) {
         var t = this.rootElement.style;
         for (var i in e) t[i] = e[i]
-    }, a.prototype.unsetStyle = function(e) {
+    },
+    a.prototype.unsetStyle = function(e) {
         this.rootElement.style[e] = ""
-    }, a.prototype.getStyle = function(e) {
+    },
+    a.prototype.getStyle = function(e) {
         return this.rootElement.style[e]
-    }, a.prototype.getComputedStyle = function(e) {
+    },
+    a.prototype.getComputedStyle = function(e) {
         var t = window.getComputedStyle(this.rootElement);
         return t ? t.getPropertyValue(e) : null
-    }, a.prototype.getComputedStyles = function() {
+    }, 
+    a.prototype.getComputedStyles = function() {
         var e = window.getComputedStyle(this.rootElement);
         if (!e) return {};
         for (var t = {}, i = 0, n = arguments.length; i < n; i += 1) {
@@ -7941,11 +8228,14 @@ return t.m = e, t.c = i, t.p = "", t(0)
             t[o] = e.getPropertyValue(o)
         }
         return t
-    }, a.prototype.getClassNames = function() {
+    }, 
+    a.prototype.getClassNames = function() {
         return n(this.rootElement.classList)
-    }, a.prototype.hasClassName = function(e) {
+    }, 
+    a.prototype.hasClassName = function(e) {
         return this.rootElement.classList.contains(e)
-    }, a.prototype.setClassNames = function() {
+    }, 
+    a.prototype.setClassNames = function() {
         this.rootElement.className = "";
         var e = this.rootElement.classList;
         e.add.apply(e, n(arguments))
@@ -7982,21 +8272,29 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 this._destroyChildren()
         }
         this._contentType = l.EMPTY, this.emit("cleared")
-    }, a.prototype.destroy = function() {
+    }, 
+    a.prototype.destroy = function() {
         this.emit("destroy"), this._unsetParent(), this._destroyChildren(), this._removeDom(), this.removeAllListeners()
-    }, a.prototype.showMethod = function() {
+    }, 
+    a.prototype.showMethod = function() {
         this.rootElement.style.display = ""
-    }, a.prototype.hideMethod = function() {
+    }, 
+    a.prototype.hideMethod = function() {
         this.rootElement.style.display = "none"
-    }, a.prototype.show = function() {
+    }, 
+    a.prototype.show = function() {
         this._elementIsVisible || (this._elementIsVisible = !0, this.showMethod(), this.emit("show"))
-    }, a.prototype.hide = function() {
+    }, 
+    a.prototype.hide = function() {
         this._elementIsVisible && (this._elementIsVisible = !1, this.hideMethod(), this.emit("hide"))
-    }, a.prototype.toggleDisplay = function(e) {
+    }, 
+    a.prototype.toggleDisplay = function(e) {
         return void 0 === e && (e = !this._elementIsVisible), e ? this.show() : this.hide(), !!e
-    }, a.prototype.isVisible = function(e) {
+    }, 
+    a.prototype.isVisible = function(e) {
         return !!this._elementIsVisible && (!e || !this._parent || this._parent.isVisible(!0))
-    }, a.prototype.rebindTouchListeners = function() {
+    }, 
+    a.prototype.rebindTouchListeners = function() {
         if (this.domListeners) {
             var e = this.rootElement;
             for (var t in this.domListeners)
@@ -9780,24 +10078,26 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
 }, function(e, t, i) {
     function n() {
-        return n.isAvailable() ? (a.call(this), this.media = null, this.uri = null, this.errorOccured = !1, void(s || (window.Media && window.Media.shouldReleaseOnMemoryWarning && window.Media.shouldReleaseOnMemoryWarning(!1), s = !0))) : console.error(new Error("SoundCordova: cordova media plugin is not available"))
+        return n.isAvailable() ? (a.call(this),this.media = null, this.uri = null, this.errorOccured = !1, void(s || (window.Media && window.Media.shouldReleaseOnMemoryWarning && window.Media.shouldReleaseOnMemoryWarning(!1), s = !0))) : console.error(new Error("SoundCordova: cordova media plugin is not available"))
     }
-    var o = i(56)
-        .inherits,
+    var o = i(56).inherits,
         a = i(95),
         r = i(7),
         s = !1,
         c = !1;
-    o(n, a), e.exports = n, n.isAvailable = function() {
+    o(n, a), 
+    e.exports = n, n.isAvailable = function() {
         return r.isCordova && window.Media
-    }, n.prototype.setVolume = function(e) {
+    }, 
+    n.prototype.setVolume = function(e) {
         if (a.prototype.setVolume.call(this, e), this.media) {
             var t = this;
             setTimeout(function() {
                 t.media.setVolume(e)
             }, 0)
         }
-    }, n.prototype._load = function() {
+    }, 
+    n.prototype._load = function() {
         function e() {}
 
         function t(e) {
@@ -9814,7 +10114,9 @@ return t.m = e, t.c = i, t.p = "", t(0)
         }
 
         function n(n) {
-            o.uri = n, o.media = new window.Media(n, e, t, i), o._loading && !o.errorOccured && o._finalizeLoad(null)
+            o.uri = n,
+            o.media = new window.Media(n, e, t, i),
+            o._loading && !o.errorOccured && o._finalizeLoad(null)
         }
         var o = this;
         if (o.errorOccured) return this._finalizeLoad("previouslyFailed");
@@ -9830,31 +10132,37 @@ return t.m = e, t.c = i, t.p = "", t(0)
         } catch (d) {
             o._finalizeLoad(d)
         }
-    }, n.prototype.unload = function() {
+    }, 
+    n.prototype.unload = function() {
         if (a.prototype.unload.call(this)) {
             if (!this.media) return;
             var e = this;
             setTimeout(function() {
-                e.media.stop(), e.media.release()
+                e.media.stop(),
+                e.media.release()
             }, 0)
         }
-    }, n.prototype._play = function() {
+    }, 
+    n.prototype._play = function() {
         if (this.media && !this.errorOccured) {
             var e = this;
             setTimeout(function() {
                 e.media.setVolume(e.volume)
-            }, 0), this.loop && this.playing || (setTimeout(function() {
+            }, 0),
+            this.loop && this.playing || (setTimeout(function() {
                 e.media.seekTo(0), e.media.play({
                     numberOfLoops: e.loop ? 0 : 1,
                     playAudioWhenScreenIsLocked: !1
                 })
-            }, 0), this.playing = !0)
+            }, 0),
+            this.playing = !0)
         }
     }, n.prototype.stop = function(e) {
         if (!this.media) return e && e();
         var t = this;
         setTimeout(function() {
-            t.media.stop(), a.prototype.stop.call(t, e)
+            t.media.stop(),
+            a.prototype.stop.call(t, e)
         }, 0)
     }
 }, function(e, t, i) {
@@ -9863,36 +10171,47 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
 
     function o() {
-        return n() ? (l.call(this), this.audioMode = null, this.media = null, this.uri = null, void(this.errorOccured = !1)) : console.error(new Error("YanapAudioInstance: Yanap plugin is not available"))
+        return n() ? (l.call(this),
+        this.audioMode = null,
+        this.media = null,
+        this.uri = null,
+        void(this.errorOccured = !1)) : console.error(new Error("YanapAudioInstance: Yanap plugin is not available"))
     }
 
     function a() {
-        o.call(this), this.audioMode = window.cordova.plugins.Yanap.AUDIO_TYPE.LOOP
+        o.call(this),
+        this.audioMode = window.cordova.plugins.Yanap.AUDIO_TYPE.LOOP
     }
 
     function r() {
-        o.call(this), this.audioMode = window.cordova.plugins.Yanap.AUDIO_TYPE.MUSIC
+        o.call(this),
+        this.audioMode = window.cordova.plugins.Yanap.AUDIO_TYPE.MUSIC
     }
 
     function s() {
-        o.call(this), this.audioMode = window.cordova.plugins.Yanap.AUDIO_TYPE.SOUND
+        o.call(this),
+        this.audioMode = window.cordova.plugins.Yanap.AUDIO_TYPE.SOUND
     }
-    var c = i(56)
-        .inherits,
+    var c = i(56).inherits,
         l = i(95),
         d = i(7),
         u = 12e3;
-    c(o, l), o.prototype.setVolume = function(e) {
+    c(o, l),
+    o.prototype.setVolume = function(e) {
         if (l.prototype.setVolume.call(this, e), this.media) {
             var t = this;
             setTimeout(function() {
                 t.media.setVolume(e, e)
             }, 0)
         }
-    }, o.prototype._load = function() {
+    },
+    o.prototype._load = function() {
         function e(e) {
             var t = !n.errorOccured;
-            n._loading && n._finalizeLoad(e), n.errorOccured || n.unload(), n.errorOccured = !0, t && console.warn("SoundYanap: " + JSON.stringify(e) + ", file: " + n.uri)
+            n._loading && n._finalizeLoad(e),
+            n.errorOccured || n.unload(),
+            n.errorOccured = !0,
+            t && console.warn("SoundYanap: " + JSON.stringify(e) + ", file: " + n.uri)
         }
 
         function t(t, i) {
@@ -9920,25 +10239,32 @@ return t.m = e, t.c = i, t.p = "", t(0)
         } catch (s) {
             n._finalizeLoad(s)
         }
-    }, o.prototype.unload = function() {
+    },
+    o.prototype.unload = function() {
         if (l.prototype.unload.call(this)) {
             if (!this.media) return;
             this.media.stop(), this.media.release()
         }
-    }, o.prototype._play = function() {
+    },
+    o.prototype._play = function() {
         if (this.media && !this.errorOccured) {
             var e = this;
             setTimeout(function() {
                 e.media.setVolume(e.volume, e.volume), e.media.play()
             }, 0), this.playing = !0
         }
-    }, o.prototype.stop = function(e) {
+    },
+    o.prototype.stop = function(e) {
         if (!this.media) return e && e();
         var t = this;
         setTimeout(function() {
             t.media.stop(), l.prototype.stop.call(t, e)
         }, 0)
-    }, c(a, o), c(r, o), c(s, o), e.exports = {
+    },
+    c(a, o),
+    c(r, o),
+    c(s, o),
+    e.exports = {
         LoopYanap: a,
         MusicYanap: r,
         SoundYanap: s,
@@ -9946,19 +10272,26 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
 }, function(e, t, i) {
     function n() {
-        a.call(this), this._context = r.ROLE_PLAY, this._setMode(), s.on("GameContextCreateMessage", this.changeGameContext.bind(this))
+        a.call(this),
+        this._context = r.ROLE_PLAY,
+        this._setMode(),
+        s.on("GameContextCreateMessage", this.changeGameContext.bind(this))
     }
-    var o = i(56)
-        .inherits,
-        a = i(59)
-        .EventEmitter,
+    var o = i(56).inherits,
+        a = i(59).EventEmitter,
         r = i(104),
         s = i(105);
-    o(n, a), n.prototype.changeGameContext = function(e) {
-        this._context = e.context, this._setMode(), this.emit("gameContextChanged", this._context)
-    }, n.prototype._setMode = function() {
-        this.isRoleplayMode = this._context === r.ROLE_PLAY, this.isFightMode = this._context === r.FIGHT
-    }, e.exports = new n
+    o(n, a), 
+    n.prototype.changeGameContext = function(e) {
+        this._context = e.context,
+        this._setMode(),
+        this.emit("gameContextChanged", this._context)
+    },
+    n.prototype._setMode = function() {
+        this.isRoleplayMode = this._context === r.ROLE_PLAY,
+        this.isFightMode = this._context === r.FIGHT
+    },
+    e.exports = new n
 }, function(e, t) {
     e.exports = {
         ROLE_PLAY: 1,
@@ -9979,11 +10312,9 @@ return t.m = e, t.c = i, t.p = "", t(0)
             }, 0)
         }
     }
-    var a = i(36)
-        .EventEmitter,
+    var a = i(36).EventEmitter,
         r = i(38),
-        s = i(106)
-        .monitor,
+        s = i(106).monitor,
         c = i(108),
         l = null;
     t = e.exports = new a, t.setMaxListeners(0);
@@ -10004,13 +10335,16 @@ return t.m = e, t.c = i, t.p = "", t(0)
         w = !1;
     t.lockMessages = function() {
         w = !0
-    }, t.lastReceivedMessage = null, t.unlockMessages = function() {
+    },
+    t.lastReceivedMessage = null,
+    t.unlockMessages = function() {
         if (w !== !1) {
             w = !1;
             var e = z.slice();
             o(e), z.length = 0
         }
-    }, t.connect = function(e, i) {
+    },
+    t.connect = function(e, i) {
         if (l = e, d) return d.destroy(), d = null, void setTimeout(function() {
             t.connect(l, i)
         }, 0);
@@ -10345,19 +10679,26 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
     e.exports = i, i.prototype.setPts = function(e) {
         void 0 !== e.base && (this._base = e.base || 0), void 0 !== e.objectsAndMountBonus && (this._objectsAndMountBonus = e.objectsAndMountBonus || 0), void 0 !== e.alignGiftBonus && (this._alignGiftBonus = e.alignGiftBonus || 0), void 0 !== e.contextModif && (this._contextModif = e.contextModif || 0), void 0 !== e.additionnal && (this._additionnal = e.additionnal || 0)
-    }, i.prototype.getContextModif = function() {
+    },
+    i.prototype.getContextModif = function() {
         return this._contextModif || 0
-    }, i.prototype.getBasePts = function() {
+    },
+    i.prototype.getBasePts = function() {
         return (this._base || 0) + (this._additionnal || 0)
-    }, i.prototype.getBaseWithoutAdditionalPts = function() {
+    },
+    i.prototype.getBaseWithoutAdditionalPts = function() {
         return this._base || 0
-    }, i.prototype.getEquipmentPts = function() {
+    },
+    i.prototype.getEquipmentPts = function() {
         return this._objectsAndMountBonus || 0
-    }, i.prototype.getAlignGiftPts = function() {
+    },
+    i.prototype.getAlignGiftPts = function() {
         return this._alignGiftBonus || 0
-    }, i.prototype.getAdditionalPts = function() {
+    },
+    i.prototype.getAdditionalPts = function() {
         return this._additionnal || 0
-    }, i.prototype.getAllValues = function() {
+    },
+    i.prototype.getAllValues = function() {
         return {
             base: this.getBaseWithoutAdditionalPts(),
             objectsAndMountBonus: this.getEquipmentPts(),
@@ -10365,9 +10706,11 @@ return t.m = e, t.c = i, t.p = "", t(0)
             contextModif: this.getContextModif(),
             additionnal: this.getAdditionalPts()
         }
-    }, i.prototype.getBonusPts = function() {
+    },
+    i.prototype.getBonusPts = function() {
         return (this._alignGiftBonus || 0) + (this._contextModif || 0)
-    }, i.prototype.getTotalStat = function() {
+    },
+    i.prototype.getTotalStat = function() {
         return this.getBasePts() + this.getEquipmentPts() + this.getBonusPts()
     }
 }, function(e, t, i) {
@@ -11056,7 +11399,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
             isoDateTime: "yyyy-mm-dd'T'HH:MM:sso",
             isoUtcDateTime: "UTC:yyyy-mm-dd'T'HH:MM:ss'Z'",
             expiresHeaderFormat: "ddd, dd mmm yyyy HH:MM:ss Z"
-        }, s.i18n = {
+        }, 
+        s.i18n = {
             dayNames: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
             monthNames: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
             timeNames: ["a", "p", "am", "pm", "A", "P", "AM", "PM"]
@@ -11401,37 +11745,57 @@ return t.m = e, t.c = i, t.p = "", t(0)
             190: "8dcq1t",
             200: "l96q3l"
         };
-    t.initialize = a, t.trackIAPBought = i, t.trackLevelGrowth = i, t.trackJoinGuild = i, t.trackJoinGroup = i, t.trackAddFriend = i, t.trackBonusPack = i, t.characterCreation = i, t.logIn = i, t.landedAstrub = i, t.appOpen = i
+    t.initialize = a, 
+    t.trackIAPBought = i,
+    t.trackLevelGrowth = i,
+    t.trackJoinGuild = i,
+    t.trackJoinGroup = i,
+    t.trackAddFriend = i,
+    t.trackBonusPack = i,
+    t.characterCreation = i,
+    t.logIn = i,
+    t.landedAstrub = i,
+    t.appOpen = i
 }, function(e, t, i) {
     function n(e) {
         this._fightManager = null;
         var t = this;
-        this._monsterMap = {}, this._isSpectator = !1, this._currentFightId = null, this._teamHPMap = {
-            0: {},
-            1: {}
-        }, e.on("GameFightJoinMessage", function(e) {
+        this._monsterMap = {},
+        this._isSpectator = !1,
+        this._currentFightId = null,
+        this._teamHPMap = { 0: {}, 1: {} },
+        e.on("GameFightJoinMessage", function(e) {
             return e.isSpectator ? void(t._isSpectator = !0) : (t._monsterMap = {}, t._isSpectator = !1, void(t._currentFightId = null))
-        }), e.on("GameFightTurnReadyRequestMessage", function() {
+        }),
+        e.on("GameFightTurnReadyRequestMessage", function() {
             if (!t._isSpectator) {
                 var e = t._fightManager.getAvailableFighters();
                 for (var i in e) t._updateMonsterLife(e[i])
             }
-        }), e.on("messageSequence", function() {
+        }),
+        e.on("messageSequence", function() {
             null === t._currentFightId && (t._currentFightId = t._fightManager.fightId)
-        }), e.on("GameFightShowFighterMessage", function(e) {
+        }),
+        e.on("GameFightShowFighterMessage", function(e) {
             if (!t._isSpectator) {
                 var i = e.informations;
                 t._addTeamHP(i.teamId, i.contextualId, i.stats.lifePoints), t._addMonster(i)
             }
-        }), e.on("GameFightRemoveTeamMemberMessage", function(e) {
+        }),
+        e.on("GameFightRemoveTeamMemberMessage", function(e) {
             t._isSpectator || t._removeTeamHP(e.teamId, e.charId)
-        }), e.on("GameFightStartMessage", function() {
+        }),
+        e.on("GameFightStartMessage", function() {
             t._isSpectator || (t._currentFightId = t._fightManager.fightId, t._sendCharacterReport())
-        }), e.on("GameFightEndMessage", function(e) {
-            t._isSpectator || (t._sendAliveMonsterReport(e), t._teamHPMap = {
-                0: {},
-                1: {}
-            }, t._monsterMap = {}, t._isSpectator = !1, t._currentFightId = null, t._fightManager.resetTacticInfo())
+        }),
+        e.on("GameFightEndMessage", function(e) {
+            t._isSpectator || (
+                t._sendAliveMonsterReport(e),
+                t._teamHPMap = { 0: {}, 1: {} }, 
+                t._monsterMap = {}, 
+                t._isSpectator = !1, 
+                t._currentFightId = null, 
+                t._fightManager.resetTacticInfo())
         })
     }
     var o = i(117),
@@ -11439,21 +11803,29 @@ return t.m = e, t.c = i, t.p = "", t(0)
         r = [848, 849, 850, 851, 852];
     e.exports = function(e) {
         return new n(e)
-    }, n.prototype.initFightEvents = function(e) {
+    },
+    n.prototype.initFightEvents = function(e) {
         this._fightManager = e
-    }, n.prototype._addMonster = function(e) {
+    },
+    n.prototype._addMonster = function(e) {
         if (!(e.contextualId >= 0)) {
             var t = {};
-            this._monsterMap[e.contextualId] = t, t.monster_id = e.creatureGenericId, t.monster_level = e.monsterLevel, t.monster_grade = e.creatureGrade, t.team_id = e.teamId
+            this._monsterMap[e.contextualId] = t,
+            t.monster_id = e.creatureGenericId,
+            t.monster_level = e.monsterLevel,
+            t.monster_grade = e.creatureGrade,
+            t.team_id = e.teamId
         }
-    }, n.prototype._updateMonsterLife = function(e) {
+    },
+    n.prototype._updateMonsterLife = function(e) {
         if (!(e.id >= 0)) {
             var t = this._monsterMap[e.id];
             t || (t = this._monsterMap[e.id] = {});
             var i = e.data.stats;
             t.ratio_life_remaining = Math.ceil(100 * i.lifePoints / i.maxLifePoints) / 100, 1 === t.ratio_life_remaining && i.lifePoints !== i.maxLifePoints && (t.ratio_life_remaining = .99)
         }
-    }, n.prototype._sendCharacterReport = function() {
+    },
+    n.prototype._sendCharacterReport = function() {
         var e = a(),
             t = this._fightManager.getAvailableFighters(),
             i = t[e.gui.playerData.id],
@@ -11465,7 +11837,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
         }, {
             withEquipment: !0
         })
-    }, n.prototype._sendAliveMonsterReport = function(e) {
+    },
+    n.prototype._sendAliveMonsterReport = function(e) {
         for (var t = 0; t < e.results.length; t += 1) {
             var i = e.results[t];
             if (i.alive && !(i.id >= 0)) {
@@ -11483,11 +11856,14 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 })
             }
         }
-    }, n.prototype._addTeamHP = function(e, t, i) {
+    },
+    n.prototype._addTeamHP = function(e, t, i) {
         0 !== e && 1 !== e || (this._teamHPMap[e][t] = i)
-    }, n.prototype._removeTeamHP = function(e, t) {
+    },
+    n.prototype._removeTeamHP = function(e, t) {
         0 !== e && 1 !== e || (this._teamHPMap[e][t] = 0)
-    }, n.prototype._getWinnerTeamId = function(e) {
+    },
+    n.prototype._getWinnerTeamId = function(e) {
         for (var t = null, i = 0, n = e.results.length; i < n; i += 1) {
             var o = e.results[i];
             if (o.alive) {
@@ -11506,10 +11882,10 @@ return t.m = e, t.c = i, t.p = "", t(0)
         for (var n in i) void 0 === e[n] && (e[n] = i[n]);
         a.call(this, e, t)
     }
-    var o = i(56)
-        .inherits,
+    var o = i(56).inherits,
         a = i(86);
-    o(n, a), e.exports = n
+    o(n, a),
+    e.exports = n
 }, function(e, t, i) {
     function n(e, t) {
         if ("number" == typeof e) return e;
@@ -11834,7 +12210,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
 }, function(e, t) {
     e.exports.cacheDatabaseSuffix = "DataCache";
     var i = "isCacheComplete";
-    e.exports.cacheCompletion = i, e.exports.typeNames = ["AbuseReasons", "AchievementCategories", "AchievementObjectives", "AchievementRewards", "Achievements", "ActionDescriptions", "AlignmentBalance", "AlignmentEffect", "AlignmentGift", "AlignmentOrder", "AlignmentRank", "AlignmentRankJntGift", "AlignmentSides", "AlignmentTitles", "AlmanaxCalendars", "Appearances", "Areas", "BidHouseCategories", "Breeds", "CensoredContents", "CensoredWords", "Challenge", "ChatChannels", "Companions", "Documents", "Dungeons", "Effects", "EmblemBackgrounds", "EmblemSymbolCategories", "EmblemSymbols", "Emoticons", "ExternalNotifications", "Heads", "HintCategory", "Hints", "Houses", "Incarnation", "IncarnationLevels", "InfoMessages", "Interactives", "Items", "ItemSets", "ItemTypes", "Jobs", "LivingObjectSkinJntMood", "MapCoordinates", "MapPositions", "MapReferences", "MonsterMiniBoss", "MonsterRaces", "Monsters", "MonsterSuperRaces", "Months", "MountBehaviors", "MountBones", "Mounts", "Notifications", "NpcActions", "NpcMessages", "Npcs", "OptionalFeatures", "Ornaments", "Pack", "Pets", "PresetIcons", "QuestCategory", "QuestObjectives", "QuestObjectiveTypes", "Quests", "QuestStepRewards", "QuestSteps", "RankNames", "Recipes", "RideFood", "Roles", "ServerCommunities", "ServerGameTypes", "ServerPopulations", "Servers", "ShieldModelsLevels", "SkillNames", "Skills", "SkinMappings", "Smileys", "SoundBones", "SoundUi", "SoundUiHook", "SpeakingItemsText", "SpeakingItemsTriggers", "SpellBombs", "SpellEffects", "SpellLevels", "Spells", "SpellStates", "SpellTypes", "StealthBones", "SubAreaIdPerCoordinate", "SubAreas", "SubAreasWorldMapData", "SuperAreas", "TacticalThemes", "TaxCollectorFirstnames", "TaxCollectorNames", "Tips", "TitleCategories", "Titles", "ToaRank", "TypeActions", "UniqueDrops", "UpgradeTemplates", "Url", "WorldMaps"];
+    e.exports.cacheCompletion = i,
+    e.exports.typeNames = ["AbuseReasons", "AchievementCategories", "AchievementObjectives", "AchievementRewards", "Achievements", "ActionDescriptions", "AlignmentBalance", "AlignmentEffect", "AlignmentGift", "AlignmentOrder", "AlignmentRank", "AlignmentRankJntGift", "AlignmentSides", "AlignmentTitles", "AlmanaxCalendars", "Appearances", "Areas", "BidHouseCategories", "Breeds", "CensoredContents", "CensoredWords", "Challenge", "ChatChannels", "Companions", "Documents", "Dungeons", "Effects", "EmblemBackgrounds", "EmblemSymbolCategories", "EmblemSymbols", "Emoticons", "ExternalNotifications", "Heads", "HintCategory", "Hints", "Houses", "Incarnation", "IncarnationLevels", "InfoMessages", "Interactives", "Items", "ItemSets", "ItemTypes", "Jobs", "LivingObjectSkinJntMood", "MapCoordinates", "MapPositions", "MapReferences", "MonsterMiniBoss", "MonsterRaces", "Monsters", "MonsterSuperRaces", "Months", "MountBehaviors", "MountBones", "Mounts", "Notifications", "NpcActions", "NpcMessages", "Npcs", "OptionalFeatures", "Ornaments", "Pack", "Pets", "PresetIcons", "QuestCategory", "QuestObjectives", "QuestObjectiveTypes", "Quests", "QuestStepRewards", "QuestSteps", "RankNames", "Recipes", "RideFood", "Roles", "ServerCommunities", "ServerGameTypes", "ServerPopulations", "Servers", "ShieldModelsLevels", "SkillNames", "Skills", "SkinMappings", "Smileys", "SoundBones", "SoundUi", "SoundUiHook", "SpeakingItemsText", "SpeakingItemsTriggers", "SpellBombs", "SpellEffects", "SpellLevels", "Spells", "SpellStates", "SpellTypes", "StealthBones", "SubAreaIdPerCoordinate", "SubAreas", "SubAreasWorldMapData", "SuperAreas", "TacticalThemes", "TaxCollectorFirstnames", "TaxCollectorNames", "Tips", "TitleCategories", "Titles", "ToaRank", "TypeActions", "UniqueDrops", "UpgradeTemplates", "Url", "WorldMaps"];
     var n = {
         AbuseReasons: "_abuseReasonId",
         AlignmentTitles: "sideId",
@@ -15651,8 +16028,20 @@ return t.m = e, t.c = i, t.p = "", t(0)
         }), i)
     }
 }, function(e, t, i) {
+    
     function n() {
-        this.protocol = null, this.slashes = null, this.auth = null, this.host = null, this.port = null, this.hostname = null, this.hash = null, this.search = null, this.query = null, this.pathname = null, this.path = null, this.href = null
+        this.protocol = null,
+        this.slashes = null,
+        this.auth = null,
+        this.host = null,
+        this.port = null,
+        this.hostname = null,
+        this.hash = null,
+        this.search = null,
+        this.query = null,
+        this.pathname = null,
+        this.path = null,
+        this.href = null
     }
 
     function o(e, t, i) {
@@ -16227,7 +16616,9 @@ return t.m = e, t.c = i, t.p = "", t(0)
         }
 
         function u(e) {
-            this.zone = e, this.offsetScore = 0, this.abbrScore = 0
+            this.zone = e,
+            this.offsetScore = 0,
+            this.abbrScore = 0
         }
 
         function p(e, t) {
@@ -16439,7 +16830,28 @@ return t.m = e, t.c = i, t.p = "", t(0)
         }, u.prototype.scoreOffsetAt = function(e) {
             this.offsetScore += Math.abs(this.zone.utcOffset(e.at) - e.offset), this.zone.abbr(e.at)
                 .replace(/[^A-Z]/g, "") !== e.abbr && this.abbrScore++
-        }, N.version = D, N.dataVersion = "", N._zones = W, N._links = P, N._names = F, N._countries = k, N.add = A, N.link = z, N.load = I, N.zone = O, N.zoneExists = S, N.guess = g, N.names = v, N.Zone = s, N.unpack = r, N.unpackBase60 = i, N.needsOffset = E, N.moveInvalidForward = !0, N.moveAmbiguousForward = !1, N.countries = y, N.zonesForCountry = C;
+        },
+        N.version = D,
+        N.dataVersion = "",
+        N._zones = W,
+        N._links = P,
+        N._names = F,
+        N._countries = k,
+        N.add = A,
+        N.link = z,
+        N.load = I,
+        N.zone = O,
+        N.zoneExists = S,
+        N.guess = g,
+        N.names = v,
+        N.Zone = s,
+        N.unpack = r,
+        N.unpackBase60 = i,
+        N.needsOffset = E,
+        N.moveInvalidForward = !0,
+        N.moveAmbiguousForward = !1,
+        N.countries = y,
+        N.zonesForCountry = C;
         var Y = e.fn;
         e.tz = N, e.defaultZone = null, e.updateOffset = function(t, i) {
             var n, o = e.defaultZone;
@@ -17537,7 +17949,11 @@ return t.m = e, t.c = i, t.p = "", t(0)
             }
 
             function Yt(e) {
-                return this._isUTC && (this.utcOffset(0, e), this._isUTC = !1, e && this.subtract(Ht(this), "m")), this
+                return this._isUTC && (this.utcOffset(0, e),
+                                       this._isUTC = !1,
+                                       e && this.subtract(Ht(this),
+                                       "m")),
+                        this
             }
 
             function Xt() {
@@ -40646,7 +41062,7 @@ return t.m = e, t.c = i, t.p = "", t(0)
             defaultLanguage: "en"
         }))
     }
-    var n = "https";
+    var n = window.developmentMode ? "http" : "https";
     e.exports = i, i.prototype.getGameId = function() {
         return this._gameId
     }, i.prototype.getEventServiceUrl = function() {
@@ -43852,14 +44268,17 @@ return t.m = e, t.c = i, t.p = "", t(0)
         a = i(56)
         .inherits,
         r = i(72);
-    a(n, r), e.exports = n, n.prototype._preload = function(e) {
+    a(n, r), e.exports = n,
+    n.prototype._preload = function(e) {
         return this._guild && this._guild[0] ? this._guildEmblem.setValue(this._guild[0].guildEmblem, !0, e) : e(null, null)
-    }, n.prototype.display = function(e) {
+    },
+    n.prototype.display = function(e) {
         var t = this;
         e = e || {}, this._guild = e.hasOwnProperty("guild") ? e.guild : null, this._emblemContainer.hide(), this._infoContainer.clearContent(), this._preload(function(i) {
             return i ? console.error("PropertyInfo preload", i) : (t._display(e.guild, e.line1, e.line2), void t.emit("rendered"))
         })
-    }, n.prototype._display = function(e, t, i) {
+    },
+    n.prototype._display = function(e, t, i) {
         e && 1 === e.length && "?" !== e[0].guildName && e[0].guildEmblem && this._emblemContainer.show();
         for (var n = this, o = 0; o < t.length; o++) e[o] && "?" !== e[o].guildName && n._infoContainer.createChild("div", {
             text: e[o].guildName,
@@ -44124,9 +44543,24 @@ return t.m = e, t.c = i, t.p = "", t(0)
     function n() {
         l.call(this);
         var e = this;
-        this.windowsContainer = null, this.playerData = new $, this.serversData = new re, this.almanaxData = new M, this.boxArranger = new v, this.isConnected = !1, this.wBody = it, it.allowDomEvents(), this.on("IdentificationSuccessMessage", this.onIdentificationSuccess), this.on("IdentificationSuccessWithLoginTokenMessage", this.onIdentificationSuccess), this.on("ServersListMessage", this.onServerListReceived), this.on("CurrentMapMessage", this.onCurrentMapMessage), window.dofus.connectionManager.on("ClientUIOpenedMessage", this.openUIFromServer.bind(this)), window.addEventListener("orientationchange", function() {
+        this.windowsContainer = null,
+        this.playerData = new $,
+        this.serversData = new re,
+        this.almanaxData = new M,
+        this.boxArranger = new v,
+        this.isConnected = !1,
+        this.wBody = it,
+        it.allowDomEvents(),
+        this.on("IdentificationSuccessMessage", this.onIdentificationSuccess),
+        this.on("IdentificationSuccessWithLoginTokenMessage", this.onIdentificationSuccess),
+        this.on("ServersListMessage", this.onServerListReceived),
+        this.on("CurrentMapMessage", this.onCurrentMapMessage),
+        window.dofus.connectionManager.on("ClientUIOpenedMessage", this.openUIFromServer.bind(this)),
+        window.addEventListener("orientationchange", function() {
             e.fixIOSWebviewOrientationScale(), e.fixAndroidOrientation()
-        }), F.initialize(this), this.setupAppTransition()
+        }),
+        F.initialize(this),
+        this.setupAppTransition()
     }
 
     function o() {
@@ -44134,10 +44568,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
     i(447);
     var a, r, s = i(18),
-        c = i(56)
-        .inherits,
-        l = i(36)
-        .EventEmitter,
+        c = i(56).inherits,
+        l = i(36).EventEmitter,
         d = i(72),
         u = i(90),
         p = i(63),
@@ -44146,7 +44578,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
         b = i(549),
         m = i(103),
         M = i(550),
-        g = (i(551), i(7)),
+        g = (i(551),
+            i(7)),
         _ = i(552),
         A = i(54),
         O = i(537),
@@ -44285,7 +44718,35 @@ return t.m = e, t.c = i, t.p = "", t(0)
         })), e && (t && (a = t, r = window.CdvPurchase && window.CdvPurchase.store ? new Xe(a, window.CdvPurchase, g) : new Ye(a)), console.debug("Gui.initialize:", e))
     }, n.prototype.initializeAfterLogin = function(e) {
         if (this.initialized) return e();
-        ue.initialize(this), this.fightManager = new N, this.shieldTutorialManager = new Me, this.criterionManager = new C, this.scenarioManager = new Ce, this.playerData.initialize(this, a, r), this.serversData.initialize(this), this.almanaxData.initialize(), this.fightManager.initialize(this), this.criterionManager.initialize(this), this.shieldTutorialManager.initialize(this), this.boxArranger.initialize(), this.GPS = new W, this.pingSystem = new oe, this.gifts = new ae, this.npcDialogHandler = new Q, this.uiLocker = new ye, ee.initialize(), P.initialize(this), O.initialize(this), q.initialize(this), ge.initialize(this), I.initialize(this), z.initialize(this), te.initialize(), ve.initialize(), ze.initialize(r), Te.initialize(), _.initialize();
+        ue.initialize(this),
+        this.fightManager = new N,
+        this.shieldTutorialManager = new Me,
+        this.criterionManager = new C,
+        this.scenarioManager = new Ce,
+        this.playerData.initialize(this, a, r),
+        this.serversData.initialize(this),
+        this.almanaxData.initialize(),
+        this.fightManager.initialize(this),
+        this.criterionManager.initialize(this),
+        this.shieldTutorialManager.initialize(this),
+        this.boxArranger.initialize(),
+        this.GPS = new W,
+        this.pingSystem = new oe,
+        this.gifts = new ae,
+        this.npcDialogHandler = new Q,
+        this.uiLocker = new ye,
+        ee.initialize(),
+        P.initialize(this),
+        O.initialize(this),
+        q.initialize(this),
+        ge.initialize(this),
+        I.initialize(this),
+        z.initialize(this),
+        te.initialize(),
+        ve.initialize(),
+        ze.initialize(r),
+        Te.initialize(),
+        _.initialize();
         var t = this;
         s.series([E.load, H.initialize, k.initialize], function(i) {
             return i ? e(i) : (t._initUserInterface(), t._initAutoResize(), t.initialized = !0, t.emit("initialized"), void e())
@@ -46634,28 +47095,24 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 c || (c = y[C], console.error('ItemManager: Player got a "Picfail Puree" instead of the itemId', s.objectGID)), s.setItem(c), a[s.objectUID] = s
             }
             m.initializeList(r, t, function(e) {
-                i(e, {
-                    map: a,
-                    array: r
-                })
+                i(e, { map: a, array: r })
             })
         }), r
     }
     var u = i(18),
         p = i(470),
         h = i(472),
-        f = i(16)
-        .createFifo,
+        f = i(16).createFifo,
         b = i(473),
         m = i(479),
         M = i(130),
         g = i(12),
-        _ = i(36)
-        .EventEmitter,
+        _ = i(36).EventEmitter,
         A = i(103),
         O = i(14),
         v = O();
-    t.Item = b, t.ItemInstance = m;
+    t.Item = b,
+    t.ItemInstance = m;
     var y = t.items = {},
         z = null,
         w = {},
@@ -46665,30 +47122,45 @@ return t.m = e, t.c = i, t.p = "", t(0)
         S = 60,
         E = -1,
         L = null;
-    t.getAveragePrice = o, t.getFreshAveragePrice = function(e, t) {
+    t.getAveragePrice = o,
+    t.getFreshAveragePrice = function(e, t) {
         var i = o(e);
         return a(e) ? t(i) : (E = e, L = t, v.dofus.sendMessage("ExchangeBidHousePriceMessage", {
             genId: e
         }), void(I[e] = new n(i, Date.now())))
     };
     var N = f();
-    t.useObject = c, t.getItems = l, t.initialize = function(e) {
+    t.useObject = c,
+    t.getItems = l, 
+    t.initialize = function(e) {
         var t = v.dofus.connectionManager;
-        z = v.gui.databases.ItemTypes;
+            z = v.gui.databases.ItemTypes;
         for (var i in z) {
             var n = z[i];
-            n.category = h.getCategory(n.superTypeId), n.possiblePositions = h.getTypePositions(n.superTypeId)
+            n.category = h.getCategory(n.superTypeId),
+            n.possiblePositions = h.getTypePositions(n.superTypeId)
         }
         l([C], e);
         var o = function() {
-            A.isFightMode || (A.removeListener("gameContextChanged", o), v.dofus.sendMessage("ObjectAveragePricesGetMessage"))
+            A.isFightMode || (A.removeListener("gameContextChanged", o),
+            v.dofus.sendMessage("ObjectAveragePricesGetMessage"))
         };
-        A.on("gameContextChanged", o), v.gui.on("ObjectAveragePricesMessage", function(e) {
+        A.on("gameContextChanged", o),
+        v.gui.on("ObjectAveragePricesMessage", function(e) {
             for (var t = 0, i = e.ids.length; t < i; t += 1) r(e.ids[t], e.avgPrices[t])
-        }), t.on("ExchangeBidPriceMessage", s)
-    }, t.getItemTypeMap = function() {
+        }),
+        t.on("ExchangeBidPriceMessage", s)
+    },
+    t.getItemTypeMap = function() {
         return z ? z : void console.error(new Error("Fatal error: item types not loaded"))
-    }, t.createItemInstances = d, t.getCategoryName = h.getCategoryName, t.isEquippable = h.isEquippable, t.isEquipped = h.isEquipped, t.unlinkedItemsFilter = h.unlinkedItemsFilter, t.positions = p.positions, t.categories = p.categories
+    },
+    t.createItemInstances = d,
+    t.getCategoryName = h.getCategoryName,
+    t.isEquippable = h.isEquippable,
+    t.isEquipped = h.isEquipped,
+    t.unlinkedItemsFilter = h.unlinkedItemsFilter,
+    t.positions = p.positions,
+    t.categories = p.categories
 }, function(e, t, i) {
     var n = i(471),
         o = {
@@ -46738,7 +47210,20 @@ return t.m = e, t.c = i, t.p = "", t(0)
         cosmeticMount: 190,
         cosmeticLegendaryWeapon: 203
     };
-    e.exports.types = a, t.superTypeNotEquippable = [n.RESOURCE, n.QUEST_OBJECT, n.MUTATION, n.BOOST_FOOD, n.BLESSING, n.CURSE, n.USABLE_OBJECT, n.ROLEPLAY_BUFF, n.MOUNT, n.FOLLOWER, n.CAPTURING_OBJECT, n.LIVING_OBJECT];
+    e.exports.types = a,
+    t.superTypeNotEquippable = [
+        n.RESOURCE,
+        n.QUEST_OBJECT,
+        n.MUTATION,
+        n.BOOST_FOOD,
+        n.BLESSING,
+        n.CURSE,
+        n.USABLE_OBJECT,
+        n.ROLEPLAY_BUFF,
+        n.MOUNT,
+        n.FOLLOWER,
+        n.CAPTURING_OBJECT,
+        n.LIVING_OBJECT ];
     var r = [!1, !0, !0, !0, !0, !0, !1, !0, !0, !1, !0, !0, !0, !0, !1, !1, !1, !1, !1, !1, !1, !1, !0, !1, !1, !1, !1, !1, !1];
     e.exports.filterEquipment = r;
     var s = [!1, !1, !1, !1, !1, !1, !0, !1, !1, !1, !1, !1, !1, !1, !1, !1, !1, !1, !1, !1, !1, !1, !1, !1, !1, !1, !1, !1, !1];
@@ -46877,7 +47362,12 @@ return t.m = e, t.c = i, t.p = "", t(0)
         return !e.isLinkedCharacter()
     }
     var l = i(470);
-    e.exports.getTypePositions = n, e.exports.getCategoryName = o, e.exports.getCategory = a, e.exports.isEquippable = r, e.exports.isEquipped = s, e.exports.unlinkedItemsFilter = c
+    e.exports.getTypePositions = n,
+    e.exports.getCategoryName = o,
+    e.exports.getCategory = a,
+    e.exports.isEquippable = r,
+    e.exports.isEquipped = s,
+    e.exports.unlinkedItemsFilter = c
 }, function(e, t, i) {
     function n(e) {
         this.nameId = "";
@@ -46886,14 +47376,12 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
     var o = i(18),
         a = i(474),
-        r = i(17)
-        .getText,
+        r = i(17).getText,
         s = i(16),
         c = i(469),
         l = i(130),
         d = i(471),
-        u = i(34)
-        .logger,
+        u = i(34).logger,
         p = i(470),
         h = i(476),
         f = {
@@ -46941,7 +47429,10 @@ return t.m = e, t.c = i, t.p = "", t(0)
                     }
                     for (r = 0; r < o.possibleEffects.length; r += 1) {
                         var l = o.possibleEffects[r];
-                        o.isShield && l.effectId === h.ACTION_ID_SHIELD_LEVEL && (l.diceNum = 1), s[l.effectId] && (l.baseValue = l.diceNum), l.effectCaller = "Item id " + o.id, i.push(l)
+                        o.isShield && l.effectId === h.ACTION_ID_SHIELD_LEVEL && (l.diceNum = 1),
+                        s[l.effectId] && (l.baseValue = l.diceNum),
+                        l.effectCaller = "Item id " + o.id,
+                        i.push(l)
                     }
                 }
             }
@@ -46954,7 +47445,9 @@ return t.m = e, t.c = i, t.p = "", t(0)
                             s = r > 0 ? n.splice(0, r) : [];
                         s = s.filter(function(e) {
                             return e && e.effect
-                        }), a.possibleEffectsMap = {}, a.possibleEffects = s;
+                        }),
+                        a.possibleEffectsMap = {},
+                        a.possibleEffects = s;
                         for (var c = 0; c < s.length; c++) a.possibleEffectsMap[s[c].effectId] = s[c]
                     }
                 }
@@ -46962,11 +47455,16 @@ return t.m = e, t.c = i, t.p = "", t(0)
             })
         }, function(t) {
             o.each(e, function(e, t) {
-                return e.type.superTypeId !== d.PET ? t() : (e.foodItems = [], e.foodTypes = [], void l.getDataMap("Pets", [e.id], null, function(i, n) {
+                return e.type.superTypeId !== d.PET ? t() : (
+                    e.foodItems = [],
+                    e.foodTypes = [],
+                    void l.getDataMap("Pets", [e.id], null, function(i, n) {
                     if (i) return t();
                     if (!n || !n[e.id]) return t();
                     var o = n[e.id];
-                    return e.foodItems = o.foodItems, e.foodTypes = o.foodTypes, t()
+                    return e.foodItems = o.foodItems,
+                            e.foodTypes = o.foodTypes,
+                            t()
                 }))
             }, t)
         }, function(t) {
@@ -47043,11 +47541,14 @@ return t.m = e, t.c = i, t.p = "", t(0)
     var b = [d.WEAPON, d.SHIELD, d.HAT, d.CAPE, d.PET, d.FOLLOWER, d.MOUNT, d.LIVING_OBJECT, d.SIDEKICK];
     n.prototype.isChangingCharacterLookWhenEquipped = function() {
         return b.indexOf(this.type.superTypeId) !== -1
-    }, n.prototype.getItem = function() {
+    },
+    n.prototype.getItem = function() {
         return this
-    }, n.prototype.getItemInstance = function() {
+    },
+    n.prototype.getItemInstance = function() {
         return null
-    }, n.prototype.getProperty = function(e) {
+    },
+    n.prototype.getProperty = function(e) {
         return "nameId" === e ? this.getName() : "statsFormatted" === e ? this._getStatsFormatted() : ("weight" === e && (e = "realWeight"), this.hasOwnProperty(e) ? this[e] : f[e])
     }
 }, function(e, t, i) {
@@ -47554,17 +48055,14 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
     var f = i(18),
         b = i(13),
-        m = i(17)
-        .getText,
+        m = i(17).getText,
         M = i(16),
         g = i(475),
-        _ = i(17)
-        .processTextWithCallerInfo,
+        _ = i(17).processTextWithCallerInfo,
         A = i(131),
         O = i(130),
         v = i(32),
-        y = i(34)
-        .logger,
+        y = i(34).logger,
         z = i(476),
         w = i(14),
         T = i(477);
@@ -47612,8 +48110,7 @@ return t.m = e, t.c = i, t.p = "", t(0)
             ObjectEffectMount: "EffectInstanceMount"
         };
     t.parseZone = function(e) {
-        var i = e.length > 1 ? e.substr(1)
-            .split(",") : [],
+        var i = e.length > 1 ? e.substr(1).split(",") : [],
             n = {
                 zoneShape: e.substr(0, 1),
                 zoneSize: b.EFFECTSHAPE_DEFAULT.AREA_SIZE,
@@ -47621,7 +48118,11 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 zoneEfficiencyPercent: b.EFFECTSHAPE_DEFAULT.EFFICIENCY,
                 zoneMaxEfficiency: b.EFFECTSHAPE_DEFAULT.MAX_EFFICIENCY_APPLY
             };
-        if ("l" === n.zoneShape) return n.zoneSize = 0, n.zoneMinSize = 0, n.zoneEfficiencyPercent = 0, n.zoneMaxEfficiency = 0, n;
+        if ("l" === n.zoneShape) return n.zoneSize = 0,
+                                        n.zoneMinSize = 0,
+                                        n.zoneEfficiencyPercent = 0,
+                                        n.zoneMaxEfficiency = 0,
+                                        n;
         switch (i.length) {
             case 0:
                 if ("X" === n.zoneShape) return t.parseZone("X1");
@@ -47637,13 +48138,20 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 n.zoneSize = parseInt(i[0], 10);
                 break;
             case 2:
-                n.zoneSize = parseInt(i[0], 10), t.EFFECT_SHAPES[n.zoneShape].hasMinSize ? n.zoneMinSize = parseInt(i[1], 10) : n.zoneEfficiencyPercent = parseInt(i[1], 10);
+                n.zoneSize = parseInt(i[0], 10),
+                t.EFFECT_SHAPES[n.zoneShape].hasMinSize ? n.zoneMinSize = parseInt(i[1], 10) : n.zoneEfficiencyPercent = parseInt(i[1], 10);
                 break;
             case 3:
-                n.zoneSize = parseInt(i[0], 10), t.EFFECT_SHAPES[n.zoneShape].hasMinSize ? (n.zoneMinSize = parseInt(i[1], 10), n.zoneEfficiencyPercent = parseInt(i[2], 10)) : (n.zoneEfficiencyPercent = parseInt(i[1], 10), n.zoneMaxEfficiency = parseInt(i[2], 10));
+                n.zoneSize = parseInt(i[0], 10),
+                t.EFFECT_SHAPES[n.zoneShape].hasMinSize ? (n.zoneMinSize = parseInt(i[1], 10),
+                n.zoneEfficiencyPercent = parseInt(i[2], 10)) : (n.zoneEfficiencyPercent = parseInt(i[1], 10),
+                n.zoneMaxEfficiency = parseInt(i[2], 10));
                 break;
             case 4:
-                n.zoneSize = parseInt(i[0], 10), n.zoneMinSize = parseInt(i[1], 10), n.zoneEfficiencyPercent = parseInt(i[2], 10), n.zoneMaxEfficiency = parseInt(i[3], 10)
+                n.zoneSize = parseInt(i[0], 10),
+                n.zoneMinSize = parseInt(i[1], 10),
+                n.zoneEfficiencyPercent = parseInt(i[2], 10),
+                n.zoneMaxEfficiency = parseInt(i[3], 10)
         }
         return n
     }, t.getHumanReadableZoneInfo = function(e, i) {
@@ -47653,7 +48161,9 @@ return t.m = e, t.c = i, t.p = "", t(0)
         return "L" === n && (o += 1), void 0 === t.EFFECT_SHAPES[n] ? (y.error(new Error("EFFECT_SHAPES: missing for " + n + ", errorLabel: " + i)), "") : t.EFFECT_SHAPES[n].desc ? m(t.EFFECT_SHAPES[n].desc, o) : ""
     }, o.prototype._init = function() {
         if (this.description = "", this.subEffectDescription = "", this.effect = null, this._retrieveInstanceType(), this.hasOwnProperty("actionId"))
-            if (this.duration = 0, this.effectId = this.actionId, "EffectInstanceDice" === this._type && this.effectId === z.ACTION_INCARNATION) {
+            if (this.duration = 0,
+                this.effectId = this.actionId,
+                "EffectInstanceDice" === this._type && this.effectId === z.ACTION_INCARNATION) {
                 this._type = "EffectInstanceDate", this.year = this.diceNum;
                 var e = M.getIncarnationExpDetails(this.diceSide, this.diceNum, this.diceConst);
                 this.month = e.currentExp, this.day = e.level, this.hour = 0, this.minute = 0
@@ -47878,22 +48388,26 @@ return t.m = e, t.c = i, t.p = "", t(0)
             }
         };
     o.prototype.serialize = function() {
-        var e, t = this._type;
+        var e,
+        t = this._type;
         switch (t) {
             case "EffectInstanceDate":
-                return this.effectId === z.ACTION_INCARNATION ? e = h(this, "EffectInstanceDice") : (e = h(this, t), e.month--), e;
+                return this.effectId === z.ACTION_INCARNATION ? e = h(this, "EffectInstanceDice") : (e = h(this, t), e.month--),e;
             case "EffectInstanceString":
-                return e = h(this, t), e.value = this.text, e;
+                return e = h(this, t),
+                       e.value = this.text,
+                       e;
             case "EffectInstanceDice":
-                return e = h(this, t), e.diceConst = this.value, e;
+                return e = h(this, t),
+                       e.diceConst = this.value,
+                       e;
             default:
                 return e = h(this, t)
         }
     }
 }, function(e, t) {
     function i(e, t) {
-        var i = e.toString(16)
-            .toUpperCase();
+        var i = e.toString(16).toUpperCase();
         if (t)
             for (; i.length < t;) i = "0" + i;
         return i
@@ -48001,7 +48515,18 @@ return t.m = e, t.c = i, t.p = "", t(0)
         2: 4,
         3: 5
     };
-    t.toHexaString = i, t.colorArrayToHexa = n, t.hexToColorArray = o, t.rgbaToColorArray = a, t.parseIndexedColor = r, t.addIndex = s, t.addIndexes = c, t.anyToColorArray = l, t.parseIndexedColors = d, t.getIndexedColor = u, t.getMountIndexedColor = p, t.hexToRgb = h
+    t.toHexaString = i,
+    t.colorArrayToHexa = n,
+    t.hexToColorArray = o,
+    t.rgbaToColorArray = a,
+    t.parseIndexedColor = r,
+    t.addIndex = s,
+    t.addIndexes = c,
+    t.anyToColorArray = l,
+    t.parseIndexedColors = d,
+    t.getIndexedColor = u,
+    t.getMountIndexedColor = p,
+    t.hexToRgb = h
 }, function(e, t) {
     function i(e) {
         return a[e] ? a[e][0] : null
@@ -48542,7 +49067,133 @@ return t.m = e, t.c = i, t.p = "", t(0)
             ACTION_BOOST_INFLICTED_DISPLACEMENT_FORCE: 2915
         },
         a = {};
-    a[o.ACTION_CHARACTER_BOOST_LIFE_POINTS] = ["lifePoints", !0], a[o.ACTION_CHARACTER_MOVEMENT_POINTS_LOST] = ["movementPoints", !1], a[o.ACTION_CHARACTER_BOOST_MOVEMENT_POINTS] = ["movementPoints", !0], a[o.ACTION_CHARACTER_DEBOOST_MOVEMENT_POINTS] = ["movementPoints", !1], a[o.ACTION_CHARACTER_ACTION_POINTS_LOST] = ["actionPoints", !1], a[o.ACTION_CHARACTER_BOOST_ACTION_POINTS] = ["actionPoints", !0], a[o.ACTION_CHARACTER_DEBOOST_ACTION_POINTS] = ["actionPoints", !1], a[o.ACTION_CHARACTER_DEBOOST_DAMAGES] = ["allDamagesBonus", !1], a[o.ACTION_CHARACTER_BOOST_DAMAGES] = ["allDamagesBonus", !0], a[o.ACTION_CHARACTER_BOOST_PHYSICAL_DAMAGES] = ["physicalDamagesBonus", !0], a[o.ACTION_CHARACTER_DEBOOST_DAMAGES_PERCENT] = ["damagesBonusPercent", !1], a[o.ACTION_CHARACTER_BOOST_DAMAGES_PERCENT] = ["damagesBonusPercent", !0], a[o.ACTION_CHARACTER_BOOST_MAXIMUM_SUMMONED_CREATURES] = ["summonableCreaturesBoost", !0], a[o.ACTION_CHARACTER_DEBOOST_EARTH_ELEMENT_PERCENT] = ["earthElementResistPercent", !1], a[o.ACTION_CHARACTER_BOOST_EARTH_ELEMENT_PERCENT] = ["earthElementResistPercent", !0], a[o.ACTION_CHARACTER_DEBOOST_WATER_ELEMENT_PERCENT] = ["waterElementResistPercent", !1], a[o.ACTION_CHARACTER_BOOST_WATER_ELEMENT_PERCENT] = ["waterElementResistPercent", !0], a[o.ACTION_CHARACTER_DEBOOST_AIR_ELEMENT_PERCENT] = ["airElementResistPercent", !1], a[o.ACTION_CHARACTER_BOOST_AIR_ELEMENT_PERCENT] = ["airElementResistPercent", !0], a[o.ACTION_CHARACTER_DEBOOST_FIRE_ELEMENT_PERCENT] = ["fireElementResistPercent", !1], a[o.ACTION_CHARACTER_BOOST_FIRE_ELEMENT_PERCENT] = ["fireElementResistPercent", !0], a[o.ACTION_CHARACTER_DEBOOST_NEUTRAL_ELEMENT_PERCENT] = ["neutralElementResistPercent", !1], a[o.ACTION_CHARACTER_BOOST_NEUTRAL_ELEMENT_PERCENT] = ["neutralElementResistPercent", !0], a[o.ACTION_CHARACTER_DEBOOST_EARTH_ELEMENT_PVP_PERCENT] = ["pvpEarthElementResistPercent", !1], a[o.ACTION_CHARACTER_BOOST_EARTH_ELEMENT_PVP_PERCENT] = ["pvpEarthElementResistPercent", !0], a[o.ACTION_CHARACTER_DEBOOST_WATER_ELEMENT_PVP_PERCENT] = ["pvpWaterElementResistPercent", !1], a[o.ACTION_CHARACTER_BOOST_WATER_ELEMENT_PVP_PERCENT] = ["pvpWaterElementResistPercent", !0], a[o.ACTION_CHARACTER_DEBOOST_AIR_ELEMENT_PVP_PERCENT] = ["pvpAirElementResistPercent", !1], a[o.ACTION_CHARACTER_BOOST_AIR_ELEMENT_PVP_PERCENT] = ["pvpAirElementResistPercent", !0], a[o.ACTION_CHARACTER_DEBOOST_FIRE_ELEMENT_PVP_PERCENT] = ["pvpFireElementResistPercent", !1], a[o.ACTION_CHARACTER_BOOST_FIRE_ELEMENT_PVP_PERCENT] = ["pvpFireElementResistPercent", !0], a[o.ACTION_CHARACTER_DEBOOST_NEUTRAL_ELEMENT_PVP_PERCENT] = ["pvpNeutralElementResistPercent", !1], a[o.ACTION_CHARACTER_BOOST_NEUTRAL_ELEMENT_PVP_PERCENT] = ["pvpNeutralElementResistPercent", !0], a[o.ACTION_CHARACTER_DEBOOST_RANGE] = ["range", !1], a[o.ACTION_CHARACTER_BOOST_RANGE] = ["range", !0], a[o.ACTION_CHARACTER_DEBOOST_STRENGTH] = ["strength", !1], a[o.ACTION_CHARACTER_BOOST_STRENGTH] = ["strength", !0], a[o.ACTION_CHARACTER_DEBOOST_AGILITY] = ["agility", !1], a[o.ACTION_CHARACTER_BOOST_AGILITY] = ["agility", !0], a[o.ACTION_CHARACTER_DEBOOST_CHANCE] = ["chance", !1], a[o.ACTION_CHARACTER_BOOST_CHANCE] = ["chance", !0], a[o.ACTION_CHARACTER_DEBOOST_WISDOM] = ["wisdom", !1], a[o.ACTION_CHARACTER_BOOST_WISDOM] = ["wisdom", !0], a[o.ACTION_CHARACTER_DEBOOST_VITALITY] = ["vitality", !1], a[o.ACTION_CHARACTER_BOOST_VITALITY] = ["vitality", !0], a[o.ACTION_CHARACTER_DEBOOST_INTELLIGENCE] = ["intelligence", !1], a[o.ACTION_CHARACTER_BOOST_INTELLIGENCE] = ["intelligence", !0], a[o.ACTION_CHARACTER_BOOST_TRAP] = ["trapBonus", !0], a[o.ACTION_CHARACTER_BOOST_TRAP_PERCENT] = ["trapBonusPercent", !0], a[o.ACTION_CHARACTER_DEBOOST_EARTH_ELEMENT_RESIST] = ["earthElementReduction", !1], a[o.ACTION_CHARACTER_BOOST_EARTH_ELEMENT_RESIST] = ["earthElementReduction", !0], a[o.ACTION_CHARACTER_DEBOOST_WATER_ELEMENT_RESIST] = ["waterElementReduction", !1], a[o.ACTION_CHARACTER_BOOST_WATER_ELEMENT_RESIST] = ["waterElementReduction", !0], a[o.ACTION_CHARACTER_DEBOOST_AIR_ELEMENT_RESIST] = ["airElementReduction", !1], a[o.ACTION_CHARACTER_BOOST_AIR_ELEMENT_RESIST] = ["airElementReduction", !0], a[o.ACTION_CHARACTER_DEBOOST_FIRE_ELEMENT_RESIST] = ["fireElementReduction", !1], a[o.ACTION_CHARACTER_BOOST_FIRE_ELEMENT_RESIST] = ["fireElementReduction", !0], a[o.ACTION_CHARACTER_DEBOOST_NEUTRAL_ELEMENT_RESIST] = ["neutralElementReduction", !1], a[o.ACTION_CHARACTER_BOOST_NEUTRAL_ELEMENT_RESIST] = ["neutralElementReduction", !0], a[o.ACTION_CHARACTER_BOOST_EARTH_ELEMENT_PVP_RESIST] = ["pvpEarthElementReduction", !0], a[o.ACTION_CHARACTER_BOOST_WATER_ELEMENT_PVP_RESIST] = ["pvpWaterElementReduction", !0], a[o.ACTION_CHARACTER_BOOST_AIR_ELEMENT_PVP_RESIST] = ["pvpAirElementReduction", !0], a[o.ACTION_CHARACTER_BOOST_FIRE_ELEMENT_PVP_RESIST] = ["pvpFireElementReduction", !0], a[o.ACTION_CHARACTER_BOOST_NEUTRAL_ELEMENT_PVP_RESIST] = ["pvpNeutralElementReduction", !0], a[o.ACTION_CHARACTER_BOOST_CRITICAL_MISS] = ["criticalMiss", !0], a[o.ACTION_CHARACTER_BOOST_CRITICAL_HIT] = ["criticalHit", !0], a[o.ACTION_CHARACTER_DEBOOST_CRITICAL_HIT] = ["criticalHit", !1], a[o.ACTION_CHARACTER_BOOST_INITIATIVE] = ["initiative", !0], a[o.ACTION_CHARACTER_DEBOOST_INITIATIVE] = ["initiative", !1], a[o.ACTION_CHARACTER_BOOST_MAGIC_FIND] = ["prospecting", !0], a[o.ACTION_CHARACTER_DEBOOST_MAGIC_FIND] = ["prospecting", !1], a[o.ACTION_CHARACTER_BOOST_HEAL_BONUS] = ["healBonus", !0], a[o.ACTION_CHARACTER_BOOST_SHIELD_BASED_ON_CASTER_LIFE] = ["shieldPoints", !0], a[o.ACTION_CHARACTER_BOOST_SHIELD] = ["shieldPoints", !0], a[o.ACTION_CHARACTER_LIFE_POINTS_MALUS] = ["lifePointsMalus", !1], a[o.ACTION_CHARACTER_LIFE_POINTS_MALUS_PERCENT] = ["lifePointsMalus", !1], a[o.ACTION_CHARACTER_REFLECTOR_UNBOOSTED] = ["reflectorUnboosted", !0], a[o.ACTION_CHARACTER_DEBOOST_ACTION_POINTS_LOST_DODGE] = ["dodgePALostProbability", !1], a[o.ACTION_CHARACTER_BOOST_ACTION_POINTS_LOST_DODGE] = ["dodgePALostProbability", !0], a[o.ACTION_CHARACTER_DEBOOST_MOVEMENT_POINTS_LOST_DODGE] = ["dodgePMLostProbability", !1], a[o.ACTION_CHARACTER_BOOST_MOVEMENT_POINTS_LOST_DODGE] = ["dodgePMLostProbability", !0], a[o.ACTION_CHARACTER_BOOST_DAMAGES_FOR_ALL_GAME] = ["allDamagesBonus", !0], a[o.ACTION_CHARACTER_DEBOOST_MAXIMUM_WEIGHT] = ["maximumWeight", !1], a[o.ACTION_CHARACTER_BOOST_MAXIMUM_WEIGHT] = ["maximumWeight", !0], a[o.ACTION_CHARACTER_DEBOOST_PHYSICAL_REDUCTION] = ["physicalReduction", !1], a[o.ACTION_CHARACTER_BOOST_PHYSICAL_REDUCTION] = ["physicalReduction", !0], a[o.ACTION_CHARACTER_DEBOOST_MAGICAL_REDUCTION] = ["magicalReduction", !1], a[o.ACTION_CHARACTER_BOOST_MAGICAL_REDUCTION] = ["magicalReduction", !0], a[o.ACTION_CHARACTER_BOOST_DODGE] = ["tackleEvade", !0], a[o.ACTION_CHARACTER_BOOST_TACKLE] = ["tackleBlock", !0], a[o.ACTION_CHARACTER_DEBOOST_DODGE] = ["tackleEvade", !1], a[o.ACTION_CHARACTER_DEBOOST_TACKLE] = ["tackleBlock", !1], a[o.ACTION_CHARACTER_BOOST_PERMANENT_DAMAGE_PERCENT] = ["permanentDamagePercent", !0], a[o.ACTION_BOOST_GLOBAL_RESISTS_BONUS] = ["globalResistPercentBonus", !0], a[o.ACTION_BOOST_GLOBAL_RESISTS_MALUS] = ["globalResistPercentMalus", !0], a[o.ACTION_CHARACTER_BOOST_PUSH_DAMAGE_REDUCTION] = ["pushDamageReduction", !0], a[o.ACTION_CHARACTER_DEBOOST_PUSH_DAMAGE_REDUCTION] = ["pushDamageReduction", !1], a[o.ACTION_CHARACTER_BOOST_PUSH_DAMAGE] = ["pushDamageBonus", !0], a[o.ACTION_CHARACTER_DEBOOST_PUSH_DAMAGE] = ["pushDamageBonus", !1], a[o.ACTION_CHARACTER_BOOST_CRITICAL_DAMAGES_BONUS] = ["criticalDamageBonus", !0], a[o.ACTION_CHARACTER_DEBOOST_CRITICAL_DAMAGES_BONUS] = ["criticalDamageBonus", !1], a[o.ACTION_CHARACTER_BOOST_CRITICAL_DAMAGES_REDUCTION] = ["criticalDamageReduction", !0], a[o.ACTION_CHARACTER_DEBOOST_CRITICAL_DAMAGES_REDUCTION] = ["criticalDamageReduction", !1], a[o.ACTION_CHARACTER_BOOST_DEALT_DAMAGE_PERCENT_MULTIPLIER_MELEE] = ["dealtDamageMultiplierMelee", !0], a[o.ACTION_CHARACTER_DEBOOST_DEALT_DAMAGE_PERCENT_MULTIPLIER_MELEE] = ["dealtDamageMultiplierMelee", !1], a[o.ACTION_CHARACTER_BOOST_RECEIVED_DAMAGE_PERCENT_MULTIPLIER_MELEE] = ["receivedDamageMultiplierMelee", !0], a[o.ACTION_CHARACTER_DEBOOST_RECEIVED_DAMAGE_PERCENT_MULTIPLIER_MELEE] = ["receivedDamageMultiplierMelee", !1], a[o.ACTION_CHARACTER_BOOST_DEALT_DAMAGE_PERCENT_MULTIPLIER_DISTANCE] = ["dealtDamageMultiplierDistance", !0], a[o.ACTION_CHARACTER_DEBOOST_DEALT_DAMAGE_PERCENT_MULTIPLIER_DISTANCE] = ["dealtDamageMultiplierDistance", !1], a[o.ACTION_CHARACTER_BOOST_RECEIVED_DAMAGE_PERCENT_MULTIPLIER_DISTANCE] = ["receivedDamageMultiplierDistance", !0], a[o.ACTION_CHARACTER_DEBOOST_RECEIVED_DAMAGE_PERCENT_MULTIPLIER_DISTANCE] = ["receivedDamageMultiplierDistance", !1], a[o.ACTION_CHARACTER_BOOST_DEALT_DAMAGE_PERCENT_MULTIPLIER_WEAPON] = ["dealtDamageMultiplierWeapon", !0], a[o.ACTION_CHARACTER_DEBOOST_DEALT_DAMAGE_PERCENT_MULTIPLIER_WEAPON] = ["dealtDamageMultiplierWeapon", !1], a[o.ACTION_CHARACTER_BOOST_RECEIVED_DAMAGE_PERCENT_MULTIPLIER_WEAPON] = ["receivedDamageMultiplierWeapon", !1], a[o.ACTION_CHARACTER_DEBOOST_RECEIVED_DAMAGE_PERCENT_MULTIPLIER_WEAPON] = ["receivedDamageMultiplierWeapon", !0], a[o.ACTION_CHARACTER_BOOST_DEALT_DAMAGE_PERCENT_MULTIPLIER_SPELLS] = ["dealtDamageMultiplierSpells", !0], a[o.ACTION_CHARACTER_DEBOOST_DEALT_DAMAGE_PERCENT_MULTIPLIER_SPELLS] = ["dealtDamageMultiplierSpells", !1], a[o.ACTION_CHARACTER_BOOST_RECEIVED_DAMAGE_PERCENT_MULTIPLIER_SPELLS] = ["receivedDamageMultiplierSpells", !1], a[o.ACTION_CHARACTER_DEBOOST_RECEIVED_DAMAGE_PERCENT_MULTIPLIER_SPELLS] = ["receivedDamageMultiplierSpells", !0], a[o.ACTION_CHARACTER_DEBOOST_MAXIMUM_SUMMONED_CREATURES] = ["summonableCreaturesBoost", !1], a[o.ACTION_BOOST_DISPLACEMENT_FORCE] = ["displacementBoostBonus", !0], a[o.ACTION_DEBOOST_DISPLACEMENT_FORCE] = ["displacementBoostBonus", !1], a[o.ACTION_BOOST_INFLICTED_DISPLACEMENT_FORCE] = ["displacementWeaknessBonus", !0], a[o.ACTION_DEBOOST_INFLICTED_DISPLACEMENT_FORCE] = ["displacementWeaknessBonus", !1], o.getActionStatName = i, o.getIsABoost = n, e.exports = o
+    a[o.ACTION_CHARACTER_BOOST_LIFE_POINTS] = ["lifePoints", !0],
+    a[o.ACTION_CHARACTER_MOVEMENT_POINTS_LOST] = ["movementPoints", !1],
+    a[o.ACTION_CHARACTER_BOOST_MOVEMENT_POINTS] = ["movementPoints", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_MOVEMENT_POINTS] = ["movementPoints", !1],
+    a[o.ACTION_CHARACTER_ACTION_POINTS_LOST] = ["actionPoints", !1],
+    a[o.ACTION_CHARACTER_BOOST_ACTION_POINTS] = ["actionPoints", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_ACTION_POINTS] = ["actionPoints", !1],
+    a[o.ACTION_CHARACTER_DEBOOST_DAMAGES] = ["allDamagesBonus", !1],
+    a[o.ACTION_CHARACTER_BOOST_DAMAGES] = ["allDamagesBonus", !0],
+    a[o.ACTION_CHARACTER_BOOST_PHYSICAL_DAMAGES] = ["physicalDamagesBonus", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_DAMAGES_PERCENT] = ["damagesBonusPercent", !1],
+    a[o.ACTION_CHARACTER_BOOST_DAMAGES_PERCENT] = ["damagesBonusPercent", !0],
+    a[o.ACTION_CHARACTER_BOOST_MAXIMUM_SUMMONED_CREATURES] = ["summonableCreaturesBoost", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_EARTH_ELEMENT_PERCENT] = ["earthElementResistPercent", !1],
+    a[o.ACTION_CHARACTER_BOOST_EARTH_ELEMENT_PERCENT] = ["earthElementResistPercent", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_WATER_ELEMENT_PERCENT] = ["waterElementResistPercent", !1],
+    a[o.ACTION_CHARACTER_BOOST_WATER_ELEMENT_PERCENT] = ["waterElementResistPercent", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_AIR_ELEMENT_PERCENT] = ["airElementResistPercent", !1],
+    a[o.ACTION_CHARACTER_BOOST_AIR_ELEMENT_PERCENT] = ["airElementResistPercent", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_FIRE_ELEMENT_PERCENT] = ["fireElementResistPercent", !1],
+    a[o.ACTION_CHARACTER_BOOST_FIRE_ELEMENT_PERCENT] = ["fireElementResistPercent", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_NEUTRAL_ELEMENT_PERCENT] = ["neutralElementResistPercent", !1],
+    a[o.ACTION_CHARACTER_BOOST_NEUTRAL_ELEMENT_PERCENT] = ["neutralElementResistPercent", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_EARTH_ELEMENT_PVP_PERCENT] = ["pvpEarthElementResistPercent", !1],
+    a[o.ACTION_CHARACTER_BOOST_EARTH_ELEMENT_PVP_PERCENT] = ["pvpEarthElementResistPercent", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_WATER_ELEMENT_PVP_PERCENT] = ["pvpWaterElementResistPercent", !1],
+    a[o.ACTION_CHARACTER_BOOST_WATER_ELEMENT_PVP_PERCENT] = ["pvpWaterElementResistPercent", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_AIR_ELEMENT_PVP_PERCENT] = ["pvpAirElementResistPercent", !1],
+    a[o.ACTION_CHARACTER_BOOST_AIR_ELEMENT_PVP_PERCENT] = ["pvpAirElementResistPercent", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_FIRE_ELEMENT_PVP_PERCENT] = ["pvpFireElementResistPercent", !1],
+    a[o.ACTION_CHARACTER_BOOST_FIRE_ELEMENT_PVP_PERCENT] = ["pvpFireElementResistPercent", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_NEUTRAL_ELEMENT_PVP_PERCENT] = ["pvpNeutralElementResistPercent", !1],
+    a[o.ACTION_CHARACTER_BOOST_NEUTRAL_ELEMENT_PVP_PERCENT] = ["pvpNeutralElementResistPercent", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_RANGE] = ["range", !1],
+    a[o.ACTION_CHARACTER_BOOST_RANGE] = ["range", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_STRENGTH] = ["strength", !1],
+    a[o.ACTION_CHARACTER_BOOST_STRENGTH] = ["strength", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_AGILITY] = ["agility", !1],
+    a[o.ACTION_CHARACTER_BOOST_AGILITY] = ["agility", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_CHANCE] = ["chance", !1],
+    a[o.ACTION_CHARACTER_BOOST_CHANCE] = ["chance", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_WISDOM] = ["wisdom", !1],
+    a[o.ACTION_CHARACTER_BOOST_WISDOM] = ["wisdom", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_VITALITY] = ["vitality", !1],
+    a[o.ACTION_CHARACTER_BOOST_VITALITY] = ["vitality", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_INTELLIGENCE] = ["intelligence", !1],
+    a[o.ACTION_CHARACTER_BOOST_INTELLIGENCE] = ["intelligence", !0],
+    a[o.ACTION_CHARACTER_BOOST_TRAP] = ["trapBonus", !0],
+    a[o.ACTION_CHARACTER_BOOST_TRAP_PERCENT] = ["trapBonusPercent", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_EARTH_ELEMENT_RESIST] = ["earthElementReduction", !1],
+    a[o.ACTION_CHARACTER_BOOST_EARTH_ELEMENT_RESIST] = ["earthElementReduction", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_WATER_ELEMENT_RESIST] = ["waterElementReduction", !1],
+    a[o.ACTION_CHARACTER_BOOST_WATER_ELEMENT_RESIST] = ["waterElementReduction", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_AIR_ELEMENT_RESIST] = ["airElementReduction", !1],
+    a[o.ACTION_CHARACTER_BOOST_AIR_ELEMENT_RESIST] = ["airElementReduction", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_FIRE_ELEMENT_RESIST] = ["fireElementReduction", !1],
+    a[o.ACTION_CHARACTER_BOOST_FIRE_ELEMENT_RESIST] = ["fireElementReduction", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_NEUTRAL_ELEMENT_RESIST] = ["neutralElementReduction", !1],
+    a[o.ACTION_CHARACTER_BOOST_NEUTRAL_ELEMENT_RESIST] = ["neutralElementReduction", !0],
+    a[o.ACTION_CHARACTER_BOOST_EARTH_ELEMENT_PVP_RESIST] = ["pvpEarthElementReduction", !0],
+    a[o.ACTION_CHARACTER_BOOST_WATER_ELEMENT_PVP_RESIST] = ["pvpWaterElementReduction", !0],
+    a[o.ACTION_CHARACTER_BOOST_AIR_ELEMENT_PVP_RESIST] = ["pvpAirElementReduction", !0],
+    a[o.ACTION_CHARACTER_BOOST_FIRE_ELEMENT_PVP_RESIST] = ["pvpFireElementReduction", !0],
+    a[o.ACTION_CHARACTER_BOOST_NEUTRAL_ELEMENT_PVP_RESIST] = ["pvpNeutralElementReduction", !0],
+    a[o.ACTION_CHARACTER_BOOST_CRITICAL_MISS] = ["criticalMiss", !0],
+    a[o.ACTION_CHARACTER_BOOST_CRITICAL_HIT] = ["criticalHit", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_CRITICAL_HIT] = ["criticalHit", !1],
+    a[o.ACTION_CHARACTER_BOOST_INITIATIVE] = ["initiative", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_INITIATIVE] = ["initiative", !1],
+    a[o.ACTION_CHARACTER_BOOST_MAGIC_FIND] = ["prospecting", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_MAGIC_FIND] = ["prospecting", !1],
+    a[o.ACTION_CHARACTER_BOOST_HEAL_BONUS] = ["healBonus", !0],
+    a[o.ACTION_CHARACTER_BOOST_SHIELD_BASED_ON_CASTER_LIFE] = ["shieldPoints", !0],
+    a[o.ACTION_CHARACTER_BOOST_SHIELD] = ["shieldPoints", !0],
+    a[o.ACTION_CHARACTER_LIFE_POINTS_MALUS] = ["lifePointsMalus", !1],
+    a[o.ACTION_CHARACTER_LIFE_POINTS_MALUS_PERCENT] = ["lifePointsMalus", !1],
+    a[o.ACTION_CHARACTER_REFLECTOR_UNBOOSTED] = ["reflectorUnboosted", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_ACTION_POINTS_LOST_DODGE] = ["dodgePALostProbability", !1],
+    a[o.ACTION_CHARACTER_BOOST_ACTION_POINTS_LOST_DODGE] = ["dodgePALostProbability", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_MOVEMENT_POINTS_LOST_DODGE] = ["dodgePMLostProbability", !1],
+    a[o.ACTION_CHARACTER_BOOST_MOVEMENT_POINTS_LOST_DODGE] = ["dodgePMLostProbability", !0],
+    a[o.ACTION_CHARACTER_BOOST_DAMAGES_FOR_ALL_GAME] = ["allDamagesBonus", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_MAXIMUM_WEIGHT] = ["maximumWeight", !1],
+    a[o.ACTION_CHARACTER_BOOST_MAXIMUM_WEIGHT] = ["maximumWeight", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_PHYSICAL_REDUCTION] = ["physicalReduction", !1],
+    a[o.ACTION_CHARACTER_BOOST_PHYSICAL_REDUCTION] = ["physicalReduction", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_MAGICAL_REDUCTION] = ["magicalReduction", !1],
+    a[o.ACTION_CHARACTER_BOOST_MAGICAL_REDUCTION] = ["magicalReduction", !0],
+    a[o.ACTION_CHARACTER_BOOST_DODGE] = ["tackleEvade", !0],
+    a[o.ACTION_CHARACTER_BOOST_TACKLE] = ["tackleBlock", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_DODGE] = ["tackleEvade", !1],
+    a[o.ACTION_CHARACTER_DEBOOST_TACKLE] = ["tackleBlock", !1],
+    a[o.ACTION_CHARACTER_BOOST_PERMANENT_DAMAGE_PERCENT] = ["permanentDamagePercent", !0],
+    a[o.ACTION_BOOST_GLOBAL_RESISTS_BONUS] = ["globalResistPercentBonus", !0],
+    a[o.ACTION_BOOST_GLOBAL_RESISTS_MALUS] = ["globalResistPercentMalus", !0],
+    a[o.ACTION_CHARACTER_BOOST_PUSH_DAMAGE_REDUCTION] = ["pushDamageReduction", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_PUSH_DAMAGE_REDUCTION] = ["pushDamageReduction", !1],
+    a[o.ACTION_CHARACTER_BOOST_PUSH_DAMAGE] = ["pushDamageBonus", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_PUSH_DAMAGE] = ["pushDamageBonus", !1],
+    a[o.ACTION_CHARACTER_BOOST_CRITICAL_DAMAGES_BONUS] = ["criticalDamageBonus", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_CRITICAL_DAMAGES_BONUS] = ["criticalDamageBonus", !1],
+    a[o.ACTION_CHARACTER_BOOST_CRITICAL_DAMAGES_REDUCTION] = ["criticalDamageReduction", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_CRITICAL_DAMAGES_REDUCTION] = ["criticalDamageReduction", !1],
+    a[o.ACTION_CHARACTER_BOOST_DEALT_DAMAGE_PERCENT_MULTIPLIER_MELEE] = ["dealtDamageMultiplierMelee", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_DEALT_DAMAGE_PERCENT_MULTIPLIER_MELEE] = ["dealtDamageMultiplierMelee", !1],
+    a[o.ACTION_CHARACTER_BOOST_RECEIVED_DAMAGE_PERCENT_MULTIPLIER_MELEE] = ["receivedDamageMultiplierMelee", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_RECEIVED_DAMAGE_PERCENT_MULTIPLIER_MELEE] = ["receivedDamageMultiplierMelee", !1],
+    a[o.ACTION_CHARACTER_BOOST_DEALT_DAMAGE_PERCENT_MULTIPLIER_DISTANCE] = ["dealtDamageMultiplierDistance", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_DEALT_DAMAGE_PERCENT_MULTIPLIER_DISTANCE] = ["dealtDamageMultiplierDistance", !1],
+    a[o.ACTION_CHARACTER_BOOST_RECEIVED_DAMAGE_PERCENT_MULTIPLIER_DISTANCE] = ["receivedDamageMultiplierDistance", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_RECEIVED_DAMAGE_PERCENT_MULTIPLIER_DISTANCE] = ["receivedDamageMultiplierDistance", !1],
+    a[o.ACTION_CHARACTER_BOOST_DEALT_DAMAGE_PERCENT_MULTIPLIER_WEAPON] = ["dealtDamageMultiplierWeapon", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_DEALT_DAMAGE_PERCENT_MULTIPLIER_WEAPON] = ["dealtDamageMultiplierWeapon", !1],
+    a[o.ACTION_CHARACTER_BOOST_RECEIVED_DAMAGE_PERCENT_MULTIPLIER_WEAPON] = ["receivedDamageMultiplierWeapon", !1],
+    a[o.ACTION_CHARACTER_DEBOOST_RECEIVED_DAMAGE_PERCENT_MULTIPLIER_WEAPON] = ["receivedDamageMultiplierWeapon", !0],
+    a[o.ACTION_CHARACTER_BOOST_DEALT_DAMAGE_PERCENT_MULTIPLIER_SPELLS] = ["dealtDamageMultiplierSpells", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_DEALT_DAMAGE_PERCENT_MULTIPLIER_SPELLS] = ["dealtDamageMultiplierSpells", !1],
+    a[o.ACTION_CHARACTER_BOOST_RECEIVED_DAMAGE_PERCENT_MULTIPLIER_SPELLS] = ["receivedDamageMultiplierSpells", !1],
+    a[o.ACTION_CHARACTER_DEBOOST_RECEIVED_DAMAGE_PERCENT_MULTIPLIER_SPELLS] = ["receivedDamageMultiplierSpells", !0],
+    a[o.ACTION_CHARACTER_DEBOOST_MAXIMUM_SUMMONED_CREATURES] = ["summonableCreaturesBoost", !1],
+    a[o.ACTION_BOOST_DISPLACEMENT_FORCE] = ["displacementBoostBonus", !0],
+    a[o.ACTION_DEBOOST_DISPLACEMENT_FORCE] = ["displacementBoostBonus", !1],
+    a[o.ACTION_BOOST_INFLICTED_DISPLACEMENT_FORCE] = ["displacementWeaknessBonus", !0],
+    a[o.ACTION_DEBOOST_INFLICTED_DISPLACEMENT_FORCE] = ["displacementWeaknessBonus", !1],
+    o.getActionStatName = i,
+    o.getIsABoost = n,
+    e.exports = o
 }, function(e, t) {
     e.exports = {
         undefined: -1,
@@ -48676,7 +49327,12 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
 }, function(e, t, i) {
     function n(e) {
-        d.call(this), this.isItemInstance = !0, this.exchangeAllowed = !0, this.isInitialised = !1, this.effectsMap = {}, this.shortName = "";
+        d.call(this),
+        this.isItemInstance = !0,
+        this.exchangeAllowed = !0,
+        this.isInitialised = !1,
+        this.effectsMap = {},
+        this.shortName = "";
         for (var t in e) e.hasOwnProperty(t) && (this[t] = e[t])
     }
 
@@ -52412,7 +53068,12 @@ return t.m = e, t.c = i, t.p = "", t(0)
                     c = i[s.subAreaId];
                 if (c) {
                     var l = s.allyCharactersInformations[0];
-                    l && "3451" === l.name && (c.look = l.entityLook, c.level = l.level, s.allyCharactersInformations.splice(0, 1)), c.fightState = f.waitingForHelp, n(m.prism, s.subAreaId, s)
+                    l && "3451" === l.name && (
+                        c.look = l.entityLook,
+                        c.level = l.level,
+                        s.allyCharactersInformations.splice(0, 1)),
+                        c.fightState = f.waitingForHelp,
+                        n(m.prism, s.subAreaId, s)
                 } else console.warn("unknown prism", s.subAreaId)
             }
         }), e.on("PrismFightAddedMessage", function(e) {
@@ -54164,13 +54825,66 @@ return t.m = e, t.c = i, t.p = "", t(0)
         return !0
     }
 
+    // function c(e) {
+    //     // CharactersListMessage function
+    //     let E = e.characters,
+    //         I, C,
+    //         M = e;
+
+    //     window.gui.backgroundScreen.show();
+
+    //     if(E.length === 0){
+    //         v.closeAll();
+    //         v.open("firstCharacterForm");
+    //     }
+    //     else if(I) {
+    //         I = false;
+    //         v.open("characterCreation");
+    //     } 
+    //     else if(C) {
+    //         C = false;
+    //         if(window.gui.playerData.accountCapabilities.tutorialAvailable){
+    //             window.dofus.sendMessage("CharacterFirstSelectionMessage", {
+    //                 id: E[0].id,
+    //                 doTutorial: s()
+    //             });
+    //         } 
+    //         else {
+    //             t.selectCharacter(E[0].id);
+    //         }
+    //     }
+    //     else if(S){
+    //         v.open("characterSelection", E);
+    //     } 
+    //     else if("characterId" === O.connectMethod){
+    //         if(O.characterId) {
+    //             t.selectCharacter(O.characterId);
+    //         }
+    //         else {
+    //             console.error(new Error("characterId is missing!"));
+    //             v.open("characterSelection", E);
+    //         }
+    //     }
+    //     else if (O.connectMethod === "lastCharacter") {
+    //         t.selectCharacter(E[0].id);
+    //     }
+    //     else {
+    //         v.open("characterSelection", E);
+    //     }
+        
+    // }
+    
+    // Backup Function     
     function c(e) {
-        return M = e, E = e.characters, window.gui.backgroundScreen.show(), 0 === E.length ? (v.closeAll(), v.open("firstCharacterForm")) : I ? (I = !1, v.open("characterCreation")) : C ? (C = !1, window.gui.playerData.accountCapabilities.tutorialAvailable ? void window.dofus.sendMessage("CharacterFirstSelectionMessage", {
+        return M = e,
+        E = e.characters,
+        window.gui.backgroundScreen.show(),
+        0 === E.length ? (v.closeAll(), v.open("firstCharacterForm")) : I ? (I = !1, v.open("characterCreation")) : C ? (C = !1, window.gui.playerData.accountCapabilities.tutorialAvailable ? void window.dofus.sendMessage("CharacterFirstSelectionMessage", {
             id: E[0].id,
             doTutorial: s()
         }) : t.selectCharacter(E[0].id)) : S ? v.open("characterSelection", E) : "characterId" === O.connectMethod ? O.characterId ? t.selectCharacter(O.characterId) : (console.error(new Error("characterId is missing!")), void v.open("characterSelection", E)) : "lastCharacter" === O.connectMethod ? t.selectCharacter(E[0].id) : void v.open("characterSelection", E)
     }
-
+    
     function l() {
         C = !1, S = !1, E = [], I = !1
     }
@@ -54263,7 +54977,12 @@ return t.m = e, t.c = i, t.p = "", t(0)
         var t = window.dofus.connectionManager;
         t.on("CharacterSelectedForceMessage", function() {
             window.dofus.sendMessage("CharacterSelectedForceReadyMessage")
-        }), t.on("CharactersListMessage", c), t.on("CharactersListWithRemodelingMessage", c), t.on("CharacterSelectedSuccessMessage", m), t.on("CharacterSelectedErrorMessage", r), e.on("disconnect", l)
+        }),
+        t.on("CharactersListMessage", c),
+        t.on("CharactersListWithRemodelingMessage", c),
+        t.on("CharacterSelectedSuccessMessage", m),
+        t.on("CharacterSelectedErrorMessage", r),
+        e.on("disconnect", l)
     }, t.getCharacterList = function() {
         return E
     }, t.setOpenCharacterCreation = function(e) {
@@ -56558,6 +57277,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
         a.call(this), this.currentUniqueCriterions = []
     }
 
+    // ### Criterios Managfer 
+
     function o(e, t) {
         switch (t) {
             case c.CRITERION_OK:
@@ -57133,17 +57854,19 @@ return t.m = e, t.c = i, t.p = "", t(0)
         o.call(this, e), this._hasGroupText = !0
     }
     var o = i(610),
-        a = i(17)
-        .getText,
-        r = i(56)
-        .inherits;
-    r(n, o), n.prototype._getText = function() {
+        a = i(17).getText,
+        r = i(56).inherits;
+    r(n, o),
+    n.prototype._getText = function() {
         return this._getGroupText()
-    }, n.prototype._getGroupText = function() {
+    },
+    n.prototype._getGroupText = function() {
         return a(this.getEvaluationValue() ? "ui.criterion.correctAlamanach" : "ui.criterion.incorrectAlamanach")
-    }, n.prototype._isRespected = function(e, t) {
+    },
+    n.prototype._isRespected = function(e, t) {
         return t(window.gui.almanaxData.isCurrentAlmanax(parseInt(this.value, 10)))
-    }, e.exports = n
+    },
+    e.exports = n
 }, function(e, t, i) {
     function n(e) {
         o.call(this, e)
@@ -59571,7 +60294,9 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 if (n.hasOwnProperty(a)) {
                     var r = n[a];
                     if (this.actionId === r.effectId && e === r.diceNum && t === r.diceSide && i === r.value) {
-                        this.effect.targetMask = this.effect.targetMask || r.targetMask, this.effect.triggers = this.effect.triggers || r.triggers, this.effect.rawZone = this.effect.rawZone || r.rawZone;
+                        this.effect.targetMask = this.effect.targetMask || r.targetMask,
+                        this.effect.triggers = this.effect.triggers || r.triggers,
+                        this.effect.rawZone = this.effect.rawZone || r.rawZone;
                         break
                     }
                 }
@@ -60637,7 +61362,20 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
 
     function a(e) {
-        s.call(this, "div", e), this.addClassNames("CharacterDisplay"), e = e || {}, this.canvas = this.appendChild(new c), this.ctx = this.canvas.getContext("2d"), this.entity = null, this.scale = void 0 !== e.scale ? e.scale : 1, this._scale = 1 / 0, this.only4Directions = !1, "fitin" === this.scale ? (this.horizontalAlign = e.horizontalAlign || "left", this.verticalAlign = e.verticalAlign || "bottom") : (this.horizontalAlign = e.horizontalAlign || "none", this.verticalAlign = e.verticalAlign || "none"), this.canvasInitialized = !1, this.renderingRequired = !1;
+        s.call(this, "div", e),
+        this.addClassNames("CharacterDisplay"),
+        e = e || {},
+        this.canvas = this.appendChild(new c),
+        this.ctx = this.canvas.getContext("2d"),
+        this.entity = null,
+        this.scale = void 0 !== e.scale ? e.scale : 1,
+        this._scale = 1 / 0,
+        this.only4Directions = !1,
+        "fitin" === this.scale ? (this.horizontalAlign = e.horizontalAlign || "left",
+            this.verticalAlign = e.verticalAlign || "bottom") : (this.horizontalAlign = e.horizontalAlign || "none",
+            this.verticalAlign = e.verticalAlign || "none"),
+        this.canvasInitialized = !1,
+        this.renderingRequired = !1;
         var t = this;
         window.setTimeout(function() {
             t.rootElement && (t.canvasInitialized = !0, t.resize())
@@ -60663,7 +61401,10 @@ return t.m = e, t.c = i, t.p = "", t(0)
         g = Math.ceil(512 * d.PIXEL_RATIO),
         _ = Math.ceil(512 * d.PIXEL_RATIO),
         A = 2.5;
-    r(a, s), e.exports = a, window.CharacterDisplay = a, a.prototype.setLook = function(e, t, i) {
+    r(a, s),
+    e.exports = a,
+    window.CharacterDisplay = a,
+    a.prototype.setLook = function(e, t, i) {
         var n = this;
         if (t = t || {}, t.noSmokeAnimation = !0, null === this.entity) {
             this.entity = new l({
@@ -60679,8 +61420,11 @@ return t.m = e, t.c = i, t.p = "", t(0)
             d = new p(30, function() {
                 c || n.rootElement && (n.addClassNames("spinner"), s = !0)
             });
-        d.start(!1), this.entity.setLook(e, t, function() {
-            return c = !0, s && n.rootElement && n.delClassNames("spinner"), null !== n.entity && n.rootElement ? (e && 1 === e.bonesId && e.skins[0] && n.entity.animManager.applyBones1AnimationModifier(e.skins[0]), n.only4Directions = n.entity.animManager.only4Directions, t.animation && (n.entity.animSymbol.base = t.animation), n._scale = 1 / 0, n._render(), i && i()) : i && i()
+        d.start(!1),
+        this.entity.setLook(e, t, function() {
+            return c = !0,
+                   s && n.rootElement && n.delClassNames("spinner"),
+                   null !== n.entity && n.rootElement ? (e && 1 === e.bonesId && e.skins[0] && n.entity.animManager.applyBones1AnimationModifier(e.skins[0]), n.only4Directions = n.entity.animManager.only4Directions, t.animation && (n.entity.animSymbol.base = t.animation), n._scale = 1 / 0, n._render(), i && i()) : i && i()
         })
     }, a.prototype.release = function() {
         m && (null !== this.entity && (this.entity.remove(), this.entity = null), this._scale = 1 / 0, this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height))
@@ -60788,14 +61532,18 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
 }, function(e, t) {}, function(e, t, i) {
     function n(e, t) {
-        a.call(this, e, t), this.direction = void 0 === e.direction ? 1 : e.direction, this.animSymbol = {
+        a.call(this, e, t),
+        this.direction = void 0 === e.direction ? 1 : e.direction, 
+        this.animSymbol = {
             base: "AnimStatique",
             type: null,
             direction: this.direction
-        }, this.look = null, this.fifo = u.createFifo(), this.showSubentities = !0
+        },
+        this.look = null,
+        this.fifo = u.createFifo(),
+        this.showSubentities = !0
     }
-    var o = i(56)
-        .inherits,
+    var o = i(56).inherits,
         a = i(692),
         r = i(475),
         s = i(696),
@@ -60804,9 +61552,11 @@ return t.m = e, t.c = i, t.p = "", t(0)
         d = i(718),
         u = i(16),
         p = i(32);
-    o(n, a), e.exports = n, n.prototype.updateAnimation = function() {
+    o(n, a), e.exports = n, 
+    n.prototype.updateAnimation = function() {
         this.animSymbol.direction = this.direction, this.animManager.assignSymbol(this.animSymbol, !1)
-    }, n.prototype.addSubentity = function(e, t, i) {
+    },
+    n.prototype.addSubentity = function(e, t, i) {
         if (!this.showSubentities) return i && i();
         var n = e.subEntityLook;
         if (!n) return console.error(new Error("Sub-entity has no look: " + Object.keys(e)
@@ -60824,14 +61574,16 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 bindingPointCategory: e.bindingPointCategory
             }), i && i(t)
         })
-    }, n.prototype.addSubentities = function(e, t, i) {
+    },
+    n.prototype.addSubentities = function(e, t, i) {
         function n() {
             if (a += 1, a === o) return i && i()
         }
         if (!e) return i && i();
         for (var o = e.length + 1, a = 0, r = 0; r < e.length; r += 1) this.addSubentity(e[r], t, n);
         n()
-    }, n.prototype.setLook = function(e, t, i) {
+    }, 
+    n.prototype.setLook = function(e, t, i) {
         var n = this,
             o = new Error("Look missing");
         this.fifo.push(function(a) {
@@ -60842,9 +61594,11 @@ return t.m = e, t.c = i, t.p = "", t(0)
             function d() {
                 return g.clear(), l()
             }
+
             var u = n.look;
             if (!e) return console.error(o), l();
-            for (var p = e.scales[0], h = e.skins, f = u && u.bonesId === e.bonesId && u.skins.length === h.length && u.scales[0] === p, b = 0; f && b < h.length; b += 1) f = f && h[b] === u.skins[b];
+
+            for (var p = e.scales[0],h = e.skins, f = u && u.bonesId === e.bonesId && u.skins.length === h.length && u.scales[0] === p, b = 0; f && b < h.length; b += 1) f = f && h[b] === u.skins[b];
             n.look = e;
             var m = r.parseIndexedColors(e.indexedColors);
             if (f && !t.forceRefresh) return n.animManager.setTints(m), n.animManager.cleanupAnimationsAndRemoveSubentities(), void n.addSubentities(e.subentities, t, l);
@@ -60870,9 +61624,17 @@ return t.m = e, t.c = i, t.p = "", t(0)
     };
     var h = d.HOOK_POINT_CATEGORY_MOUNT_DRIVER,
         f = {};
-    f[2] = 1, f[1084] = 44, f[1068] = 113, f[1202] = 453, f[2456] = 1107;
+    f[2] = 1,
+    f[1084] = 44,
+    f[1068] = 113,
+    f[1202] = 453,
+    f[2456] = 1107;
     var b = {};
-    b[1450] = 1576, b[1449] = 1576, b[1448] = 1575, b[1443] = 1575, n.getLookWithoutMount = function(e) {
+    b[1450] = 1576,
+    b[1449] = 1576,
+    b[1448] = 1575,
+    b[1443] = 1575, 
+    n.getLookWithoutMount = function(e) {
         if (!e) return console.error(new Error("look is missing")), null;
         var t = n.getLookOfRider(e);
         if (!t) return e;
@@ -60891,7 +61653,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
             skins: t.skins,
             subentities: t.subentities
         }
-    }, n.getLookWithoutPet = function(e) {
+    }, 
+    n.getLookWithoutPet = function(e) {
         if (!e) return console.error(new Error("look is missing")), null;
         var t = n.getLookWithoutMount(e);
         return {
@@ -60902,7 +61665,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
             skins: t.skins,
             subentities: []
         }
-    }, n.getLookWithoutStuffAndSub = function(e) {
+    }, 
+    n.getLookWithoutStuffAndSub = function(e) {
         if (!e) return console.error(new Error("look is missing")), null;
         var t = n.getLookWithoutPet(e),
             i = t.skins.slice();
@@ -60914,7 +61678,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
             skins: i.slice(0, 2),
             subentities: []
         }
-    }, n.getLookWithoutStuff = function(e) {
+    }, 
+    n.getLookWithoutStuff = function(e) {
         if (!e) return console.error(new Error("look is missing")), null;
         var t = e.skins.slice(),
             i = {
@@ -60950,7 +61715,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 }
             }
         return i
-    }, n.getLookOfRider = function(e) {
+    }, 
+    n.getLookOfRider = function(e) {
         if (!e) return console.error(new Error("look is missing")), null;
         for (var t = e.subentities || [], i = 0; i < t.length; i += 1) {
             var n = t[i];
@@ -61319,8 +62085,12 @@ return t.m = e, t.c = i, t.p = "", t(0)
         s()
     }
 }, function(e, t, i) {
+    // JEFF MODULE
     function n(e, t, i, n) {
-        this.symbols = e, this.matrices = t, this.colors = i, this.frameRate = n && n.frameRate
+        this.symbols = e,
+        this.matrices = t,
+        this.colors = i,
+        this.frameRate = n && n.frameRate
     }
 
     function o(e, t, i) {
@@ -61401,7 +62171,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
             z = 1,
             w = _.holdElement(v);
         void 0 === w && (z += 1, c.loadJson(v, d)), l.loadTexture(O, u, r, g[e], s)
-    }, t.loadTemplates = function(e, t, i, n) {
+    },
+    t.loadTemplates = function(e, t, i, n) {
         function r(i, n) {
             var r = v[n],
                 s = d[r];
@@ -61451,7 +62222,15 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
 
     function o(e, t) {
-        this.elementsById = {}, this.actives = new a, this.archives = new a, this.memoryUsed = 0, this.memoryAllocated = e, this.onElementRemoved = t || null, this.unidentifiedElementsCount = 0, this.addCount = 0, this.removeCount = 0
+        this.elementsById = {},
+        this.actives = new a,
+        this.archives = new a,
+        this.memoryUsed = 0,
+        this.memoryAllocated = e,
+        this.onElementRemoved = t || null,
+        this.unidentifiedElementsCount = 0,
+        this.addCount = 0,
+        this.removeCount = 0
     }
     var a = i(432),
         r = {
@@ -61472,11 +62251,13 @@ return t.m = e, t.c = i, t.p = "", t(0)
             var t = e.object;
             e = e.next, t.nLocks <= 0 && this._removeElement(t)
         }
-    }, o.prototype.log = function() {
+    }, 
+    o.prototype.log = function() {
         console.log("***** Cache Stats *****"), console.log("  Actives", this.actives.length), console.log("  Archives", this.archives.length), console.log("  Total", Object.keys(this.elementsById)
             .length), console.log("  Usage (units)", this.memoryUsed), console.log("  Usage (percentage)", (100 * this.memoryUsed / this.memoryAllocated)
             .toFixed(0), "%"), console.log("  Elements", this.elementsById)
-    }, o.prototype.getMemoryInformation = function() {
+    },
+    o.prototype.getMemoryInformation = function() {
         return {
             actives: this.actives.length,
             archives: this.archives.length,
@@ -61486,15 +62267,24 @@ return t.m = e, t.c = i, t.p = "", t(0)
             memoryAllocated: this.memoryAllocated,
             percentage: Math.round(100 * this.memoryUsed / this.memoryAllocated)
         }
-    }, o.prototype._holdElement = function(e) {
+    },
+    o.prototype._holdElement = function(e) {
         e.type !== r.permanent && (e.reference.container === this.actives ? this.actives.moveToTheEnd(e.reference) : (this.archives.removeByReference(e.reference), e.reference = this.actives.addBack(e)))
-    }, o.prototype._releaseElement = function(e) {
+    },
+    o.prototype._releaseElement = function(e) {
         this._archiveElement(e)
-    }, o.prototype._archiveElement = function(e) {
+    },
+    o.prototype._archiveElement = function(e) {
         return e.reference.container !== this.actives ? void console.warn("[Cache3State.archiveElement] The element cannot be archived:", e.id) : void(e.type === r.throwable ? this._removeElement(e) : (this.actives.removeByReference(e.reference), e.reference = this.archives.addBack(e), this._clean()))
-    }, o.prototype._addElement = function(e) {
-        this.elementsById[e.id] = e, this.memoryUsed += e.memorySize, this._clean(), e.type !== r.permanent && (e.reference = this.actives.addBack(e)), this.addCount += 1
-    }, o.prototype.addAndHoldElement = function(e, t, i, o, a) {
+    },
+    o.prototype._addElement = function(e) {
+        this.elementsById[e.id] = e,
+        this.memoryUsed += e.memorySize,
+        this._clean(),
+        e.type !== r.permanent && (e.reference = this.actives.addBack(e)),
+        this.addCount += 1
+    },
+    o.prototype.addAndHoldElement = function(e, t, i, o, a) {
         var s = Boolean(i);
         s === !1 && (i = "unidentified" + String(this.unidentifiedElementsCount++)), void 0 !== o && null !== o || (o = s ? "archivable" : "throwable");
         var c = this.elementsById[i];
@@ -61504,14 +62294,21 @@ return t.m = e, t.c = i, t.p = "", t(0)
             this._removeElement(c)
         }
         return c = new n(this, e, t, i, o), this._addElement(c), c._hold()
-    }, o.prototype.holdElement = function(e) {
+    },
+    o.prototype.holdElement = function(e) {
         var t = this.elementsById[e];
         if (void 0 !== t) return t._hold()
-    }, o.prototype.useElement = function(e) {
+    },
+    o.prototype.useElement = function(e) {
         var t = this.elementsById[e];
         if (void 0 !== t) return t
-    }, o.prototype._removeElement = function(e) {
-        delete this.elementsById[e.id], this.memoryUsed -= e.memorySize, e.type !== r.permanent && (e.reference.container === this.actives ? e.reference = this.actives.removeByReference(e.reference) : e.reference = this.archives.removeByReference(e.reference)), null !== this.onElementRemoved && this.onElementRemoved(e.element), this.removeCount += 1
+    },
+    o.prototype._removeElement = function(e) {
+        delete this.elementsById[e.id],
+        this.memoryUsed -= e.memorySize,
+        e.type !== r.permanent && (e.reference.container === this.actives ? e.reference = this.actives.removeByReference(e.reference) : e.reference = this.archives.removeByReference(e.reference)),
+        null !== this.onElementRemoved && this.onElementRemoved(e.element), 
+        this.removeCount += 1
     }
 }, function(e, t, i) {
     var n = i(13),
@@ -61522,7 +62319,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
             var s;
             s = o === n.EMPTY_IMAGE ? i.getEmptyTexture() : i.createTexture(o, e, a, r), t(s)
         })
-    }, t.loadTextures = function(e, t, i, a, r, s) {
+    }, 
+    t.loadTextures = function(e, t, i, a, r, s) {
         for (var c = [], l = [], d = e.length, u = 0; u < d; u += 1) {
             var p = e[u],
                 h = a.holdTexture(p);
@@ -61535,12 +62333,25 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
 }, function(e, t) {
     function i(e, t, i) {
-        this.vertexPos = [e.x, e.y, e.x + e.w, e.y + e.h], this.textureCoord = [e.sx / i.element.width, e.sy / i.element.height, (e.sx + e.sw) / i.element.width, (e.sy + e.sh) / i.element.height], this.id = e.id, this.tint = e.tint, this.texture = i, this.className = e.className, this.nbFrames = 1, this.animationData = t
+        this.vertexPos = [e.x, e.y, e.x + e.w, e.y + e.h],
+        this.textureCoord = [e.sx / i.element.width,e.sy / i.element.height,(e.sx + e.sw) / i.element.width,(e.sy + e.sh) / i.element.height],
+        this.id = e.id,
+        this.tint = e.tint,
+        this.texture = i,
+        this.className = e.className,
+        this.nbFrames = 1,
+        this.animationData = t
     }
-    i.prototype.isGraphic = !0, e.exports = i
+    i.prototype.isGraphic = !0,
+    e.exports = i
 }, function(e, t) {
     function i(e) {
-        this.id = e.id, this.matrices = e.matrices, this.colors = e.colors, this.frames = e.frames, this.maskStart = e.maskStart || !1, this.maskEnd = e.maskEnd || !1
+        this.id = e.id,
+        this.matrices = e.matrices,
+        this.colors = e.colors,
+        this.frames = e.frames,
+        this.maskStart = e.maskStart || !1,
+        this.maskEnd = e.maskEnd || !1
     }
 
     function n(e, t) {
@@ -61550,9 +62361,16 @@ return t.m = e, t.c = i, t.p = "", t(0)
             var r = n[a];
             this.children.push(new i(r)), o < r.frames[1] && (o = r.frames[1])
         }
-        this.id = e.id, this.duration = e.duration, this.className = e.className, this.sounds = e.sounds, this.nbFrames = o + 1, this.frameRate = t.frameRate, this.animationData = t
+        this.id = e.id,
+        this.duration = e.duration,
+        this.className = e.className,
+        this.sounds = e.sounds,
+        this.nbFrames = o + 1,
+        this.frameRate = t.frameRate,
+        this.animationData = t
     }
-    n.prototype.isAnim = !0, e.exports = n
+    n.prototype.isAnim = !0,
+    e.exports = n
 }, function(e, t, i) {
     function n(e, t, i) {
         var n = e.frames;
@@ -62060,21 +62878,45 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 A.tween.onceFinish(n)
             }
         })
-    }, o.prototype.stop = function() {
+    }, 
+    o.prototype.stop = function() {
         this._stopped = !0, (this.tween.playing || this.tween.starting) && this.tween.stop()
-    }, o.prototype.applyCarryAnimationModifier = function() {
-        window.actorManager.isCreatureModeOn || (this.addAnimationModifier("AnimStatique", "AnimStatiqueCarrying"), this.addAnimationModifier("AnimMarche", "AnimMarcheCarrying"), this.addAnimationModifier("AnimCourse", "AnimCourseCarrying"), this.addAnimationModifier("AnimHit", "AnimHitCarrying"), this.addAnimationModifier("AnimTacle", "AnimTacleCarrying"))
-    }, o.prototype.applyBones1AnimationModifier = function(e) {
+    }, 
+    o.prototype.applyCarryAnimationModifier = function() {
+        window.actorManager.isCreatureModeOn || (this.addAnimationModifier("AnimStatique", "AnimStatiqueCarrying"),
+                                                 this.addAnimationModifier("AnimMarche", "AnimMarcheCarrying"),
+                                                 this.addAnimationModifier("AnimCourse", "AnimCourseCarrying"),
+                                                 this.addAnimationModifier("AnimHit", "AnimHitCarrying"),
+                                                 this.addAnimationModifier("AnimTacle", "AnimTacleCarrying"))
+    }, 
+    o.prototype.applyBones1AnimationModifier = function(e) {
         if (e) {
             if (y.CUSTOM_ANIM_MOVE[e]) {
                 var t = y.CUSTOM_ANIM_STATIC[e] || e;
-                this.addAnimationModifier("AnimStatique", "AnimStatique" + t), this.addAnimationModifier("AnimMarche", "AnimMarche_" + e), this.addAnimationModifier("AnimCourse", "AnimCourse_" + e)
+                this.addAnimationModifier("AnimStatique", "AnimStatique" + t),
+                this.addAnimationModifier("AnimMarche", "AnimMarche_" + e),
+                this.addAnimationModifier("AnimCourse", "AnimCourse_" + e)
             }
             var i = y.CUSTOM_ANIM_DEATH[e];
             i && this.addAnimationModifier("AnimMort", "AnimMort_" + i)
         }
-    }, o.prototype.applyCreatureAnimationModifier = function() {
-        this.addAnimationModifier("AnimArme", s), this.addAnimationModifier("AnimAttaque", s), this.addAnimationModifier("AnimTacle", "AnimHit"), this.addAnimationModifier("AnimEmote", c), this.addAnimationModifier("AnimConsulter", "AnimAttaque0"), this.addAnimationModifier("AnimCueillir0", "AnimAttaque0"), this.addAnimationModifier("AnimCueillirSol0", "AnimAttaque0"), this.addAnimationModifier("AnimDrop", "AnimAttaque0"), this.addAnimationModifier("AnimFaucher", "AnimAttaque0"), this.addAnimationModifier("AnimHache", "AnimAttaque0"), this.addAnimationModifier("AnimPeche", "AnimAttaque0"), this.addAnimationModifier("AnimPickup", "AnimAttaque0"), this.addAnimationModifier("AnimPioche", "AnimAttaque0"), this.addAnimationModifier("AnimPuiser", "AnimAttaque0"), this.addAnimationModifier("AnimThrow", "AnimAttaque0")
+    }, 
+    o.prototype.applyCreatureAnimationModifier = function() {
+        this.addAnimationModifier("AnimArme", s),
+        this.addAnimationModifier("AnimAttaque", s),
+        this.addAnimationModifier("AnimTacle", "AnimHit"),
+        this.addAnimationModifier("AnimEmote", c),
+        this.addAnimationModifier("AnimConsulter", "AnimAttaque0"),
+        this.addAnimationModifier("AnimCueillir0", "AnimAttaque0"),
+        this.addAnimationModifier("AnimCueillirSol0", "AnimAttaque0"),
+        this.addAnimationModifier("AnimDrop", "AnimAttaque0"),
+        this.addAnimationModifier("AnimFaucher", "AnimAttaque0"),
+        this.addAnimationModifier("AnimHache", "AnimAttaque0"), 
+        this.addAnimationModifier("AnimPeche", "AnimAttaque0"), 
+        this.addAnimationModifier("AnimPickup", "AnimAttaque0"), 
+        this.addAnimationModifier("AnimPioche",  "AnimAttaque0"), 
+        this.addAnimationModifier("AnimPuiser","AnimAttaque0"),
+        this.addAnimationModifier("AnimThrow", "AnimAttaque0")
     }
 }, function(e, t, i) {
     function n(e, t) {
@@ -62222,7 +63064,14 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }, e.exports = o
 }, function(e, t) {
     function i(e) {
-        this.id = e.id, this.filename = e.filename, this.name = e.name, this.label = e.label, this.startFrame = e.startFrame, this.volume = e.volume, this.rollOff = e.rolloff, this.skinId = e.skinId || 0
+        this.id = e.id,
+        this.filename = e.filename,
+        this.name = e.name,
+        this.label = e.label,
+        this.startFrame = e.startFrame,
+        this.volume = e.volume,
+        this.rollOff = e.rolloff,
+        this.skinId = e.skinId || 0
     }
     e.exports = i
 }, function(e, t) {
@@ -63219,11 +64068,14 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 n(e.width) && n(e.height) ? (a = o.LINEAR_MIPMAP_LINEAR, o.generateMipmap(o.TEXTURE_2D)) : console.warn("[WebGLRenderer._setFiltering]", "Cannot build mipmap from image", i, " because its dimensions are not a power of 2.")
         }
         o.texParameteri(o.TEXTURE_2D, o.TEXTURE_MIN_FILTER, a), o.texParameteri(o.TEXTURE_2D, o.TEXTURE_MAG_FILTER, r), o.texParameteri(o.TEXTURE_2D, o.TEXTURE_WRAP_S, o.CLAMP_TO_EDGE), o.texParameteri(o.TEXTURE_2D, o.TEXTURE_WRAP_T, o.CLAMP_TO_EDGE)
-    }, o.prototype.holdTexture = function(e) {
+    },
+    o.prototype.holdTexture = function(e) {
         return this.textureCache.holdElement(e)
-    }, o.prototype.useTexture = function(e) {
+    },
+    o.prototype.useTexture = function(e) {
         return this.textureCache.useElement(e)
-    }, o.prototype.createTexture = function(e, t, i, n) {
+    },
+    o.prototype.createTexture = function(e, t, i, n) {
         var o = this.textureCache.holdElement(t);
         if (o) return o;
         var a = this.gl,
@@ -63235,7 +64087,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
             height: e.height
         };
         return this.textureCache.addAndHoldElement(s, 4 * e.width * e.height, t, n)
-    }, o.prototype.getEmptyTexture = function() {
+    },
+    o.prototype.getEmptyTexture = function() {
         return this.emptyTexture
     }
 }, function(e, t, i) {
@@ -64353,7 +65206,14 @@ return t.m = e, t.c = i, t.p = "", t(0)
         y = A / b;
     t.getCoordinateSceneFromGrid = n, t.getMapPointFromCellId = o;
     var z = {};
-    a(), Object.freeze(z), t.getCellIdFromMapPoint = r, t.getCellBySymmetry = s, t.getNeighbourCells = c, t.areCellsNeighbours = l, t.getOrientation = d, t.getDistance = u, t.getSquareDistance = p
+    a(), Object.freeze(z),
+    t.getCellIdFromMapPoint = r,
+    t.getCellBySymmetry = s,
+    t.getNeighbourCells = c,
+    t.areCellsNeighbours = l,
+    t.getOrientation = d,
+    t.getDistance = u,
+    t.getSquareDistance = p
 }, function(e, t, i) {
     function n(e) {
         var t = A.isoEngine.mapRenderer.map.cells;
@@ -65496,7 +66356,12 @@ return t.m = e, t.c = i, t.p = "", t(0)
     function o() {
         a.call(this);
         var e = this;
-        this.spells = {}, this.characterId = null, this.isLoaded = !1, this._requestsPendingCount = 0, this._spellsStatus = {}, this.onLevelUp = function() {
+        this.spells = {},
+        this.characterId = null,
+        this.isLoaded = !1,
+        this._requestsPendingCount = 0,
+        this._spellsStatus = {},
+        this.onLevelUp = function() {
             e._updateSpells(function(e) {
                 if (e) return console.error(e)
             })
@@ -65517,15 +66382,24 @@ return t.m = e, t.c = i, t.p = "", t(0)
             USABLE: 2
         },
         h = l.WEAPON_SPELL_ID;
-    r(o, a), e.exports = o, o.prototype.disconnect = function() {
+    r(o, a), e.exports = o,
+    o.prototype.disconnect = function() {
         var e = d();
-        this.spells = {}, this.characterId = null, this.isLoaded = !1, this._requestsPendingCount = 0, this._spellsStatus = {}, e.gui.removeListener("CharacterLevelUpMessage", this.onLevelUp)
-    }, o.prototype.connect = function() {
+        this.spells = {},
+        this.characterId = null,
+        this.isLoaded = !1,
+        this._requestsPendingCount = 0,
+        this._spellsStatus = {},
+        e.gui.removeListener("CharacterLevelUpMessage", this.onLevelUp)
+    },
+    o.prototype.connect = function() {
         var e = d();
         e.gui.on("CharacterLevelUpMessage", this.onLevelUp)
-    }, o.prototype.weaponChanged = function(e) {
+    },
+    o.prototype.weaponChanged = function(e) {
         this.spells[h] && this.spells[h].update(e)
-    }, o.prototype.getSpells = function(e) {
+    },
+    o.prototype.getSpells = function(e) {
         e = e || 0;
         var t = {};
         for (var i in this.spells) {
@@ -66552,25 +67426,14 @@ return t.m = e, t.c = i, t.p = "", t(0)
         var m = s.createChild("div", {
                 className: "allianceBox"
             }),
-            g = [{
-                id: "side"
-            }, {
-                id: "emblem"
-            }, {
-                id: "tag",
-                header: p("ui.common.alliance")
-            }, {
-                id: "characters",
-                header: p("ui.short.characters")
-            }, {
-                id: "maps",
-                header: p("ui.common.maps"),
-                sort: !0
-            }, {
-                id: "time",
-                header: p("ui.common.time"),
-                sort: !0
-            }];
+            g = [
+                 { id: "side" },
+                 { id: "emblem" },
+                 { id: "tag", header: p("ui.common.alliance") },
+                 { id: "characters", header: p("ui.short.characters") },
+                 { id: "maps", header: p("ui.common.maps"), sort: !0 },
+                 { id: "time", header: p("ui.common.time"), sort: !0 }
+                ];
         this.table = m.appendChild(new M(g, null, {
             clickable: !1
         }));
@@ -66684,19 +67547,23 @@ return t.m = e, t.c = i, t.p = "", t(0)
     function n(e) {
         return Boolean(A[e])
     }
-
+// #serversData
     function o() {
-        r.call(this), this.serversRawData = [], this.serversWithMyCharacter = [], this.optionalFeatures = {}, this.connectedServerId = null, this.connectedServerData = null, this.sessionConstants = {}, this.settings = {}
+        r.call(this),
+        this.serversRawData = [],
+        this.serversWithMyCharacter = [],
+        this.optionalFeatures = {},
+        this.connectedServerId = null,
+        this.connectedServerData = null,
+        this.sessionConstants = {},
+        this.settings = {}
     }
     var a = i(105),
-        r = i(59)
-        .EventEmitter,
-        s = i(56)
-        .inherits,
+        r = i(59).EventEmitter,
+        s = i(56).inherits,
         c = i(130),
         l = i(52),
-        d = i(17)
-        .getText,
+        d = i(17).getText,
         u = i(141),
         p = i(761),
         h = i(762),
@@ -66725,7 +67592,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
         SERVER_CONST_KOH_WINNING_SCORE: 3,
         SERVER_CONST_MINIMAL_TIME_BEFORE_KOH: 4,
         SERVER_CONST_TIME_BEFORE_WEIGH_IN_KOH: 5
-    }, o.prototype._continueSelectServer = function(e) {
+    }, 
+    o.prototype._continueSelectServer = function(e) {
         var t = M();
         this.connectedServerId = e, this.connectedServerData = this._findServerById(e), t.dofus.accessGameServer(e, function(t) {
             if (t) return console.error(new Error("accessGameServer serverId: " + e + ", error: " + t))
@@ -66740,7 +67608,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
         }, g), t.gui.once("AuthenticationTicketAcceptedMessage", function() {
             t.clearTimeout(i.failTimeout), i.failTimeout = null
         })
-    }, o.prototype.selectServer = function(e) {
+    }, 
+    o.prototype.selectServer = function(e) {
         var t = this,
             i = M();
         if (!e) return console.error(new Error("serverId is null")), void this._onSelectedServerRefused({});
@@ -66752,47 +67621,65 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 i ? t._continueSelectServer(e) : u.goBackToSelectionOf("server")
             }
         }) : t._continueSelectServer(e)
-    }, o.prototype.showServerSelectionUi = function() {
-        this.serversWithMyCharacter.length > 0 ? l.open("serverListSelection", {
-            seeCharacters: !0
-        }) : l.open("serverSimpleSelection", this.serversRawData)
-    }, o.prototype._filterMyServersList = function() {
+    }, 
+    o.prototype.showServerSelectionUi = function() {
+        this.serversWithMyCharacter.length > 0 ? l.open("serverListSelection", { seeCharacters: !0 }) : l.open("serverSimpleSelection", this.serversRawData)
+    }, 
+    o.prototype._filterMyServersList = function() {
         this.serversWithMyCharacter = this.serversRawData.filter(function(e) {
             return e && e.charactersCount > 0
         }), this.serversWithMyCharacter.sort(function(e, t) {
             return t.date - e.date
         })
-    }, o.prototype.initialize = function(e) {
+    }, 
+    o.prototype.initialize = function(e) {
         var t = this;
         e.on("disconnect", function() {
-            t.serversRawData = [], t.serversWithMyCharacter = [], t.optionalFeatures = {}, t.connectedServerId = null, t.connectedServerData = null, t.sessionConstants = {}, t.settings = {}
-        }), e.on("ServerStatusUpdateMessage", function(e) {
+            t.serversRawData = [],
+            t.serversWithMyCharacter = [],
+            t.optionalFeatures = {},
+            t.connectedServerId = null,
+            t.connectedServerData = null,
+            t.sessionConstants = {},
+            t.settings = {}
+        }), 
+        e.on("ServerStatusUpdateMessage", function(e) {
             if (!e.server) return console.warn("WARN: ServerStatusUpdateMessage message have no server information");
             for (var i = e.server, n = !0, o = 0, a = t.serversRawData.length; o < a; o += 1)
                 if (i.id === t.serversRawData[o].id) {
-                    t.serversRawData[o] = i, n = !1;
+                    t.serversRawData[o] = i,
+                    n = !1;
                     break
                 } n && t.serversRawData.push(i), t._filterMyServersList(), t.emit("serversUpdate", i)
-        }), e.on("SelectedServerRefusedMessage", function(e) {
+        }), 
+        e.on("SelectedServerRefusedMessage", function(e) {
             t._onSelectedServerRefused(e)
-        }), e.on("ServerOptionalFeaturesMessage", function(e) {
+        }), 
+        e.on("ServerOptionalFeaturesMessage", function(e) {
             t.optionalFeatures = {};
             for (var i = window.gui.databases.OptionalFeatures, n = 0, o = e.features.length; n < o; n += 1) {
                 var a = e.features[n];
                 t.optionalFeatures[i[a].keyword] = a
             }
-        }), e.on("ServerSessionConstantsMessage", function(e) {
+        }), 
+        e.on("ServerSessionConstantsMessage", function(e) {
             t.sessionConstants = {};
             for (var i = e.variables, n = 0, o = e.variables.length; n < o; n += 1) t.sessionConstants[i[n].id] = i[n].value
-        }), e.on("ServerSettingsMessage", function(e) {
+        }), 
+        e.on("ServerSettingsMessage", function(e) {
             t.settings.serverCommunityId = e.community, t.settings.serverLang = e.lang, t.settings.serverGameType = e.gameType
-        }), a.on("CharacterSelectedSuccessMessage", function() {
+        }), 
+        a.on("CharacterSelectedSuccessMessage", function() {
             t.staticContent = null
-        }), a.on("AuthenticationTicketRefusedMessage", function() {
+        }), 
+        a.on("AuthenticationTicketRefusedMessage", function() {
             t.failTimeout && window.clearTimeout(t.failTimeout)
         })
-    }, o.prototype.onServerList = function(e) {
-        this.serversRawData = e.servers, this._filterMyServersList();
+    }, 
+    o.prototype.onServerList = function(e) {
+        this.serversRawData = e.servers,
+        this._filterMyServersList();
+
         var t = u.connectMethod,
             i = "lastServer" === t || "lastCharacter" === t || "characterId" === t;
         if (i) {
@@ -66801,16 +67688,19 @@ return t.m = e, t.c = i, t.p = "", t(0)
             if (o && n.status === p.ONLINE && n.isSelectable) return this.selectServer(o)
         }
         this.showServerSelectionUi()
-    }, o.prototype.isFeatureActive = function(e) {
+    }, 
+    o.prototype.isFeatureActive = function(e) {
         return this.optionalFeatures.hasOwnProperty(e);
-    }, o.prototype.syncServerStaticData = function(e) {
+    }, 
+    o.prototype.syncServerStaticData = function(e) {
         var t = this;
         if (this.staticContent) return e();
         var i = ["Servers", "ServerGameTypes", "ServerPopulations", "ServerCommunities"];
         c.getAllDataMap(i, function(i, n) {
             return i ? e(i) : (t.staticContent = {}, t.staticContent.data = n.Servers, t.staticContent.gameTypes = n.ServerGameTypes, t.staticContent.populations = n.ServerPopulations, t.staticContent.communities = n.ServerCommunities, e())
         })
-    }, o.prototype.getAutoChosenServers = function(e, t) {
+    }, 
+    o.prototype.getAutoChosenServers = function(e, t) {
         var i = this;
         e = e || {};
         var n = M()
@@ -66818,21 +67708,25 @@ return t.m = e, t.c = i, t.p = "", t(0)
         (e.communityId || 0 === e.communityId) && (n = e.communityId), this.syncServerStaticData(function(e) {
             return e ? t(e) : void b(i.serversRawData, i.staticContent, n, m.RESTRICTED_SERVER_IDS, t)
         })
-    }, o.prototype.pickUpOneServerForMe = function() {
+    }, 
+    o.prototype.pickUpOneServerForMe = function() {
         this.getAutoChosenServers(null, function(e, t) {
             if (e) return window.gui.openSimplePopup(d("tablet.server.noServersForYourCommunity")), void(_ || (console.error("pickUpOneServerForMe:", e), _ = !0));
             var i = t[Math.floor(Math.random() * t.length)];
             i && l.open("serverDetails", i)
         })
-    }, o.prototype._findServerById = function(e) {
+    }, 
+    o.prototype._findServerById = function(e) {
         for (var t = 0; t < this.serversRawData.length; t++)
             if (e === this.serversRawData[t].id) return this.serversRawData[t];
         return null
-    }, o.prototype.getServerNameById = function(e) {
+    }, 
+    o.prototype.getServerNameById = function(e) {
         for (var t = 0; t < this.serversRawData.length; t++)
             if (e === this.serversRawData[t].id) return this.serversRawData[t]._name;
         return e.toString()
-    }, o.prototype.getServerShortNameById = function(e) {
+    }, 
+    o.prototype.getServerShortNameById = function(e) {
         var t, i = this.getServerNameById(e),
             n = new RegExp("[0-9]+")
             .exec(i),
@@ -66840,25 +67734,29 @@ return t.m = e, t.c = i, t.p = "", t(0)
         return t = Array.isArray(n) ? i.substring(0, 3 - o)
             .toUpperCase() + n : i.substring(0, 3)
             .toUpperCase(), "[" + t + "]"
-    }, o.prototype.getAllowedServerList = function() {
+    }, 
+    o.prototype.getAllowedServerList = function() {
         for (var e = [], t = 0; t < this.serversRawData.length; t++) {
             var i = this.serversRawData[t];
             i.status !== p.ONLINE && i.status !== p.SAVING && i.status !== p.FULL || i.id === m.TOURNAMENT_PROD_SERVERID || e.push(i)
         }
         return e
-    }, o.prototype.getSelectableServerList = function() {
+    },
+    o.prototype.getSelectableServerList = function() {
         for (var e = [], t = 0; t < this.serversRawData.length; t++) {
             var i = this.serversRawData[t];
             i.status === p.ONLINE && i.isSelectable && e.push(i)
         }
         return e
-    }, o.prototype.getSelectableServerNames = function() {
+    }, 
+    o.prototype.getSelectableServerNames = function() {
         var e = this.getSelectableServerList();
         if (0 === e.length) return d("ui.common.none")
             .toLowerCase();
         for (var t = e[0]._name, i = 1; i < e.length; i++) t += ", " + e[i]._name;
         return t
-    }, o.prototype._onSelectedServerRefused = function(e) {
+    }, 
+    o.prototype._onSelectedServerRefused = function(e) {
         this.failTimeout && window.clearTimeout(this.failTimeout);
         var t = this._findServerById(e.serverId);
         t && (t.status = e.serverStatus);
@@ -66946,16 +67844,19 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 n = d("ui.popup.connectionFailed.text")
         }
         this.showServerSelectionUi(), window.gui.openSimplePopup(n)
-    }, o.getServerImage = function(e, t) {
+    }, 
+    o.getServerImage = function(e, t) {
         var i = ["gfx/illus/illu_0.png"];
         n(e) && i.push("gfx/illus/illu_" + e + ".png"), f.preloadImages(i, function(e) {
             var i = e[0],
                 n = e[1];
             return n && "none" !== n ? t(null, n) : t(null, i)
         })
-    }, o.prototype.getMyServerName = function() {
+    }, 
+    o.prototype.getMyServerName = function() {
         return this.connectedServerData && this.connectedServerData._name
-    }, o.prototype.isTournamentServer = function() {
+    }, 
+    o.prototype.isTournamentServer = function() {
         var e = window.parseInt(this.connectedServerId, 10);
         return e === m.TOURNAMENT_TEST_SERVERID || e === m.TOURNAMENT_PROD_SERVERID
     }
@@ -70102,6 +71003,7 @@ return t.m = e, t.c = i, t.p = "", t(0)
         })
     }
 }, function(e, t) {}, function(e, t, i) {
+    // #playerData
     function n() {
         function e(e) {
             t.identification = {
@@ -70117,24 +71019,64 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 wasAlreadyConnected: e.wasAlreadyConnected
             };
             var i = e.uniqueNickname.toString();
-            t.forcedAccount || t.setNickameInStorage(i), a.setAccountInfo(e._groupFlags, e.accountId)
+            t.forcedAccount || t.setNickameInStorage(i),
+            a.setAccountInfo(e._groupFlags, e.accountId)
         }
         o.call(this);
         var t = this;
-        this._pushToken = "", this.loginName = null, this.identification = {}, this.subscriptionLevels = [], this.isInDialog = !1, this.characterBaseInformations = {}, this.characterBreed = null, this.accountCapabilities = {}, this.achievements = {}, this.lifePoints = 0, this.maxLifePoints = 0, this.movementPoints = 0, this.actionPoints = 0, this.isFightLeader = !1, this.isFighting = !1, this.isSpectator = !1, this.state = l.STATUS_ALIVE_AND_KICKING, this.experienceFactor = 0, this.forcedAccount = null, this.shieldTutorialQuestId = 1620, this.shieldTutorialQuestObjective = 9560, this.alliance = new A, this.characters = new v, this.emoteData = new y, this.fightRequests = new z, this.guild = this.guildData = new w, this.houseData = new T, this.inventory = new C, this.belongings = new O(this.inventory), this.jobs = new I, this.achievements = new S, this.position = new E, this.partyData = new L, this.quests = new N, this.socialData = new R, this.alignment = new q, this.adminMenu = new x, this.ToaData = new B, this.MatchmakingData = new W, this.shopData = new D, this.teleporterData = new P, window.dofus.connectionManager.on("IdentificationSuccessMessage", e), window.dofus.connectionManager.on("IdentificationSuccessWithLoginTokenMessage", e)
+        this._pushToken = "",
+        this.loginName = null,
+        this.identification = {},
+        this.subscriptionLevels = [],
+        this.isInDialog = !1,
+        this.characterBaseInformations = {},
+        this.characterBreed = null,
+        this.accountCapabilities = {},
+        this.achievements = {},
+        this.lifePoints = 0,
+        this.maxLifePoints = 0,
+        this.movementPoints = 0,
+        this.actionPoints = 0,
+        this.isFightLeader = !1,
+        this.isFighting = !1,
+        this.isSpectator = !1,
+        this.state = l.STATUS_ALIVE_AND_KICKING,
+        this.experienceFactor = 0,
+        this.forcedAccount = null,
+        this.shieldTutorialQuestId = 1620,
+        this.shieldTutorialQuestObjective = 9560,
+        this.alliance = new A,
+        this.characters = new v,
+        this.emoteData = new y,
+        this.fightRequests = new z,
+        this.guild = this.guildData = new w,
+        this.houseData = new T,
+        this.inventory = new C,
+        this.belongings = new O(this.inventory),
+        this.jobs = new I,
+        this.achievements = new S,
+        this.position = new E,
+        this.partyData = new L,
+        this.quests = new N,
+        this.socialData = new R,
+        this.alignment = new q,
+        this.adminMenu = new x,
+        this.ToaData = new B,
+        this.MatchmakingData = new W,
+        this.shopData = new D,
+        this.teleporterData = new P,
+        window.dofus.connectionManager.on("IdentificationSuccessMessage", e),
+        window.dofus.connectionManager.on("IdentificationSuccessWithLoginTokenMessage", e)
     }
-    var o = i(59)
-        .EventEmitter,
+    var o = i(59).EventEmitter,
         a = i(38),
         r = i(16),
         s = i(61),
-        c = i(56)
-        .inherits,
+        c = i(56).inherits,
         l = i(534),
         d = i(602),
         u = i(52),
-        p = i(17)
-        .getText,
+        p = i(17).getText,
         h = i(523),
         f = i(21),
         b = i(466),
@@ -70163,8 +71105,7 @@ return t.m = e, t.c = i, t.p = "", t(0)
         W = i(843),
         P = i(845),
         k = i(125),
-        F = i(112)
-        .MAX_LEVEL,
+        F = i(112).MAX_LEVEL,
         H = {};
     c(n, o), e.exports = n, n.prototype.initialize = function(e, t, i) {
         this.alliance.initialize(e), this.characters.initialize(e), this.emoteData.initialize(e), this.fightRequests.initialize(e), this.guildData.initialize(e), this.houseData.initialize(e), this.inventory.initialize(e), this.jobs.initialize(e), this.achievements.initialize(e), this.position.initialize(e), this.partyData.initialize(e), this.quests.initialize(), this.socialData.initialize(e), this.alignment.initialize(e), this.adminMenu.initialize({
@@ -70193,11 +71134,15 @@ return t.m = e, t.c = i, t.p = "", t(0)
         var i = this,
             n = window.dofus.connectionManager;
         n.on("AccountCapabilitiesMessage", function(e) {
-            i.adminMenu.setAccountCapabilities(e), i.accountCapabilities = e, i.isSubscriberAtMinLevel(m.NORMAL) && k.trackBonusPack(), window.dofus.send("pingSession", parseInt((1e9 * Math.random() + 1)
-                .toString(), 10))
-        }), e.on("ServerExperienceModificatorMessage", function(e) {
+            i.adminMenu.setAccountCapabilities(e),
+                i.accountCapabilities = e,
+                i.isSubscriberAtMinLevel(m.NORMAL) && k.trackBonusPack(),
+                window.dofus.send("pingSession", parseInt((1e9 * Math.random() + 1).toString(), 10))
+        }),
+            e.on("ServerExperienceModificatorMessage", function(e) {
             i.experienceFactor = e.experiencePercent - 100
-        }), e.on("GameContextRefreshEntityLookMessage", function(e) {
+        }),
+            e.on("GameContextRefreshEntityLookMessage", function(e) {
             e.id === i.id && (i.characterBaseInformations.entityLook = e.look, i.emit("lookUpdate", e.look))
         }), n.on("GameFightRefreshFighterMessage", function(e) {
             t(e.informations)
@@ -70223,7 +71168,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 newLevel: e.newLevel,
                 previousLevel: t
             }), i.emit("characterInfosUpdated"), i.evaluateRatingOpening("levelUp")
-        }), n.on("CharactersListMessage", function() {
+        }), 
+        n.on("CharactersListMessage", function() {
             i.adminMenu.runStartupCmd({
                 isOnCharacterSelection: !0
             })
@@ -75193,7 +76139,12 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
 }, function(e, t, i) {
     function n() {
-        this._adminMenuId = null, this._myRank = null, this._lang = null, this._url = null, this._isModerator = null, this._isModeratorOrMore = null
+        this._adminMenuId = null,
+        this._myRank = null,
+        this._lang = null,
+        this._url = null,
+        this._isModerator = null,
+        this._isModeratorOrMore = null
     }
     var o = i(52),
         a = ["lookinvis"],
@@ -75203,39 +76154,61 @@ return t.m = e, t.c = i, t.p = "", t(0)
         l = ["fr", "en", "es"];
     e.exports = n, n.prototype.initialize = function(e) {
         e = e || {}, this._initTheLang(e.lang)
-    }, n.prototype.connect = function(e) {
+    },
+        n.prototype.connect = function(e) {
         e = e || {}, this._initTheLang(e.lang)
-    }, n.prototype.disconnect = function() {
-        this._adminMenuId = null, this._myRank = null, this._url = null, this._lang = null, this._isModeratorOrMore = null, this._isModerator = null
-    }, n.prototype._initTheLang = function(e) {
-        this._lang = e, this._lang || (this._lang = "fr", console.error("AdminMenu#initialize: lang is missing, fallback to fr.")), l.indexOf(this._lang) === -1 && (console.warn("AdminMenu#initialize: lang", this._lang, "is not authorized, fallback to en."), this._lang = "en")
-    }, n.prototype.setAccountCapabilities = function(e) {
-        e._url && (this._url = e._url), e._myModeratorRank && Array.isArray(e._myModeratorRank) && (this._myRank = e._myModeratorRank, this.setAdminMenuId(this._myRank[this._myRank.length - 1])), this._isModeratorOrMore = e.status >= c.MODERATOR, this._isModerator = e.status === c.MODERATOR, this._hasSpecialStartupCmds = e._hasSpecialStartupCmds
-    }, n.prototype.runStartupCmd = function(e) {
+    },
+        n.prototype.disconnect = function() {
+        this._adminMenuId = null,
+        this._myRank = null,
+        this._url = null,
+        this._lang = null,
+        this._isModeratorOrMore = null,
+        this._isModerator = null
+    },
+        n.prototype._initTheLang = function(e) {
+        this._lang = e,
+        this._lang || (this._lang = "fr", console.error("AdminMenu#initialize: lang is missing, fallback to fr.")), l.indexOf(this._lang) === -1 && (console.warn("AdminMenu#initialize: lang", this._lang, "is not authorized, fallback to en."), this._lang = "en")
+    },
+    n.prototype.setAccountCapabilities = function(e) {
+        // Update Rights Account  
+        e._url && (this._url = e._url),
+        e._myModeratorRank && Array.isArray(e._myModeratorRank) && (
+            this._myRank = e._myModeratorRank,
+            this.setAdminMenuId(this._myRank[this._myRank.length - 1])),
+
+        this._isModeratorOrMore = e.status >= c.MODERATOR,
+        this._isModerator = e.status === c.MODERATOR,
+        this._hasSpecialStartupCmds = e._hasSpecialStartupCmds,
+        this._accountRightsMap = e._accountRightsMap
+    },
+    n.prototype.runStartupCmd = function(e) {
         if (e = e || {}, this._isModerator) {
             var t;
             if (e.isOnCharacterSelection)
-                for (t = 0; t < r.length; t += 1) o.getWindow("adminConsole")
-                    .runCommand(r[t]);
+                for (t = 0; t < r.length; t += 1) o.getWindow("adminConsole").runCommand(r[t]);
             if (e.isOnRP)
-                for (t = 0; t < a.length; t += 1) o.getWindow("adminConsole")
-                    .runCommand(a[t])
+                for (t = 0; t < a.length; t += 1) o.getWindow("adminConsole").runCommand(a[t])
         }
         if (this._hasSpecialStartupCmds && e.isOnRP)
-            for (t = 0; t < s.length; t += 1) o.getWindow("adminConsole")
-                .runCommand(s[t])
-    }, n.prototype.getAdminMenuId = function() {
+            for (t = 0; t < s.length; t += 1) o.getWindow("adminConsole").runCommand(s[t])
+    }, 
+    n.prototype.getAdminMenuId = function() {
         var e = null,
             t = this._adminMenuId;
         return this._isModeratorOrMore && t && this.getURL() && (e = t), e
-    }, n.prototype.getURL = function() {
+    },
+    n.prototype.getURL = function() {
         return this._url ? this._url + this._lang + "/" : null
-    }, n.prototype.setAdminMenuId = function(e) {
+    },
+    n.prototype.setAdminMenuId = function(e) {
         return !!this._canUse(e) && (this._adminMenuId = e, o.getWindow("adminConsole")
             .logMessage('adminMenu "' + e + '" loaded.', "Debug"), !0)
-    }, n.prototype._canUse = function(e) {
+    },
+    n.prototype._canUse = function(e) {
         return !(null === this._myRank || !this.getURL()) && this._myRank.indexOf(e) !== -1
-    }, n.prototype.helpToString = function() {
+    },
+    n.prototype.helpToString = function() {
         var e = [];
         if (!Array.isArray(this._myRank)) return e.join("\n");
         for (var t = 0; t < this._myRank.length; t += 1) {
@@ -79325,10 +80298,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
     function s(e, t) {
         for (var i = 0; i < t.length; i++) {
             var n = t[i],
-                o = e.createChild("div", {
-                    className: "singleTab"
-                });
-            if (n.dbEffect.bonusType === -1 ? o.addClassNames("malus") : 1 === n.dbEffect.bonusType && o.addClassNames("bonus"), n.isExotic && o.addClassNames("exotic"), n.isLost && o.addClassNames("lost"), n.isOver && o.addClassNames("over"), "string" == typeof n.description) {
+                o = e.createChild("div", { className: "singleTab" });
+            if (n.dbEffect.bonusType === -1 ? o.addClassNames("malus") : 1 === n.dbEffect.bonusType && o.addClassNames("bonus"),n.isExotic && o.addClassNames("exotic"), n.isLost && o.addClassNames("lost"), n.isOver && o.addClassNames("over"), "string" == typeof n.description) {
                 var a = m + " " + n.description,
                     r = o.appendChild(b.process(a));
                 if (n.isFromEquipment && 0 !== n.dbEffect.bonusType && !n.isLost) {
@@ -79352,10 +80323,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
     i(878);
     var l = i(879),
-        d = i(17)
-        .getText,
-        u = i(56)
-        .inherits,
+        d = i(17).getText,
+        u = i(56).inherits,
         p = i(72),
         h = i(469),
         f = h.Item,
@@ -83988,25 +84957,33 @@ return t.m = e, t.c = i, t.p = "", t(0)
         var e = this,
             t = window.dofus.connectionManager,
             i = {};
-        i[c.TEXT_INFORMATION_MESSAGE] = o.PSEUDO_CHANNEL_INFO, i[c.TEXT_INFORMATION_PVP] = o.CHANNEL_ALLIANCE, i[c.TEXT_INFORMATION_FIGHT] = o.PSEUDO_CHANNEL_FIGHT_LOG, t.on("TextInformationMessage", function(t) {
+        i[c.TEXT_INFORMATION_MESSAGE] = o.PSEUDO_CHANNEL_INFO,
+        i[c.TEXT_INFORMATION_PVP] = o.CHANNEL_ALLIANCE,
+        i[c.TEXT_INFORMATION_FIGHT] = o.PSEUDO_CHANNEL_FIGHT_LOG,
+        t.on("TextInformationMessage", function(t) {
             var n = 1e4 * t.msgType + t.msgId;
             if (n === f ? t.text = a.processText.apply(null, [t.text].concat(r.formatStringWithSeparator(t.parameters[0]))) : t.text = a.processText.apply(null, [t.text].concat(t.parameters)), "ADMIN_DEBUG" === t.parameters[0]) return console.warn(t.text);
             var o = e.handlerMap[n];
             o && !o.call(e, t) || (t.msgType === c.TEXT_INFORMATION_ERROR ? window.gui.chat.logError(t.text) : window.gui.chat.logMsg(t.text, i[t.msgType]))
-        }), t.on("TextInformationMessageWithPriority", function(e) {
+        }),
+        t.on("TextInformationMessageWithPriority", function(e) {
             e.msgType === c.TEXT_INFORMATION_ERROR ? window.gui.chat.logError(e.text, e.msgPriority) : window.gui.chat.logMsg(e.text, i[e.msgType], e.msgPriority)
         })
-    }, n.prototype.kamaConvertHandler = function(e) {
+    },
+    n.prototype.kamaConvertHandler = function(e) {
         return this.previousConvertedKamaAmount = ~~e.parameters[0], !1
-    }, n.prototype.kamaLostHandler = function(e) {
+    },
+    n.prototype.kamaLostHandler = function(e) {
         var t = ~~e.parameters[0];
         if (t !== this.previousConvertedKamaAmount) return this.previousConvertedKamaAmount = null, !0;
         this.previousConvertedKamaAmount = null;
         var i = s.computeHardPrice(t);
         return i ? (e.text = a.getText("tablet.spent.hard", i), !0) : console.warn("Cannot convert currency")
-    }, n.prototype.guestLimitHandler = function() {
+    },
+    n.prototype.guestLimitHandler = function() {
         return window.gui.loginScreen.proposeRegistrationAfterGuestLimit(), !1
-    }, n.prototype.overweightHandler = function(e) {
+    },
+    n.prototype.overweightHandler = function(e) {
         return window.gui.openPopup({
             title: a.getText("ui.popup.warning"),
             message: e.text
@@ -84460,6 +85437,7 @@ return t.m = e, t.c = i, t.p = "", t(0)
         ot = i(1421),
         at = i(1267);
     e.exports = function(e, t) {
+        // ## frames, talvez 
         var i = new o({
                 enablePresets: !0,
                 dataHandler: window.gui.playerData.inventory
@@ -84469,58 +85447,136 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 dataHandler: window.gui.playerData.inventory,
                 rememberLastTabUsed: !1
             });
-        n.addWindow("breedDetail", new s), n.addWindow("breeding", new c, {
-            fixed: !0,
-            group: "inventory"
-        }), n.addWindow("cancel", new we), n.addWindow("characterCreation", new pe, {
-            fixed: !0
-        }), n.addWindow("firstCharacterForm", new Qe), n.addWindow("breedHighlightWindow", new Ke), n.addWindow("characterOrientation", new he), n.addWindow("serverSimpleSelection", new X, {
-            fixed: !0
-        }), n.addWindow("serverListSelection", new j, {
-            fixed: !0
-        }), n.addWindow("serverDetails", new G), n.addWindow("serverSelection", new Y, {
-            fixed: !0
-        }), n.addWindow("worldMap", new ne), n.addWindow("characteristics", new l, {
-            group: "mainGroup"
-        }), n.addWindow("characUpdate", new f), n.addWindow("fightEnd", new _), n.addWindow("fightList", new A), n.addWindow("itemAppearance", new L), n.addWindow("itemBox", new N), n.addWindow("itemManage", new R), n.addWindow("itemRecipes", new q), n.addWindow("itemSets", new x), n.addWindow("levelUp", new B), n.addWindow("rewardsPending", new U), n.addWindow("characterSelection", new d, {
-            fixed: !0
-        }), n.addWindow("giftSelection", new p, {
-            fixed: !0
-        }), n.addWindow("deleteCharacterConfirm", new h, {
-            fixed: !0
-        }), n.addWindow("options", new Te), n.addWindow("adminConsole", new a), n.addWindow("document", new b), n.addWindow("houseBuySell", new E), n.addWindow("teleporterList", new V), n.addWindow("exchangeInventory", new Q(i), {
-            group: "inventory"
-        }), n.addWindow("exchangeStorage", new K), n.addWindow("wallet", new te), n.addWindow("tradeInventory", new $(i), {
-            group: "inventory"
-        }), n.addWindow("tradeStorage", new ee), n.addWindow("tradeItem", new J), n.addWindow("tradeItemConfirm", new Z), n.addWindow("bidHouseShop", new ie), n.addWindow("mimicry", new D), n.addWindow("itemPicking", new W(i), {
-            group: "inventory"
-        }), n.addWindow("padlock", new P), n.addWindow("global", new O), n.addWindow("prismVulnerabilityDate", new y), n.addWindow("socialGroupCreation", new z), n.addWindow("allianceCard", new w), n.addWindow("guildCard", new T), n.addWindow("guildHouseInfo", new C), n.addWindow("guildHouseSetting", new I), n.addWindow("equipment", new m(i), {
-            group: "inventory"
-        }), n.addWindow("estateForSale", new M), n.addWindow("estateInformation", new g), n.addWindow("partyInviteDetails", new k), n.addWindow("presetChooseIcon", new F), n.addWindow("presetOptions", new H), n.addWindow("arena", new r), n.addWindow("grimoire", new v, {
-            group: "mainGroup"
-        }), n.addWindow("social", new oe, {
-            group: "mainGroup"
-        }), n.addWindow("paddockBuy", new ae), n.addWindow("mount", new re), n.addWindow("feed", new se), n.addWindow("mountRename", new ce), n.addWindow("familyTree", new le), n.addWindow("jobOptions", new de), n.addWindow("spellForget", new ue), n.addWindow("crafting", new fe), n.addWindow("craftingMulti", new be), n.addWindow("craftersList", new me), n.addWindow("crafter", new Me), n.addWindow("craftMagus", new ge), n.addWindow("craftMagusMulti", new _e), n.addWindow("craftPayment", new Ae), n.addWindow("craftInventory", new Oe(i), {
-            group: "inventory"
-        }), n.addWindow("tradeWithNPC", new ye), n.addWindow("tradeWithPlayer", new ve), n.addWindow("tradeWithPlayerAndNPCInventory", new ze(i), {
-            group: "inventory"
-        }), n.addWindow("guildMemberRights", new S), n.addWindow("fightEndRewards", new Ce), n.addWindow("hardcoreDeath", new Ie), n.addWindow("purchasesPending", new Ne(e, t)), n.addWindow("buyHardCurrencyConfirm", new Le), n.addWindow("shopConfirm", new Se), n.addWindow("market", new Ee(e, t)), n.addWindow("toa", new Re), n.addWindow("shieldWindow", new qe, {
-            group: "inventory"
-        }), n.addWindow("ShieldSelectionWindow", new xe), n.addWindow("help", new Be, {
-            fixed: !0
-        }), n.addWindow("toaRetryPopup", new De), n.addWindow("DailyQuestRerollWindow", new We), n.addWindow("BonusPackElitePopup", new Pe), n.addWindow("marketingWindow", new ke), n.addWindow("ratingWindow", new Fe), n.addWindow("dailyQuest", new Ue), n.addWindow("calligraphyWindow", new u), n.addWindow("previewWindow", new Ze), n.addWindow("panjidexWindow", new He), n.addWindow("featureIntroWindow", new Ge), n.addWindow("legendaryWeaponAwakeningWindow", new je(rt), {
-            fixed: !0
-        }), n.addWindow("legendaryWeaponUpgradingWindow", new Ye(rt), {
-            fixed: !0
-        }), n.addWindow("legendaryWeaponShatterWindow", new Xe(rt), {
-            fixed: !0
-        }), n.addWindow("legendaryWeaponConversionWindow", new Ve(rt)), n.addWindow("groupSeeker", new Je), n.addWindow("sponsoring", new $e), n.addWindow("shatter", new et), n.addWindow("shatterResults", new tt), n.addWindow("switchFarmInstance", new it), n.addWindow("destroyItem", new nt), n.addWindow("jobLvlUp", new ot), n.addWindow("characterPreviewSkin", new at)
+        n.addWindow("breedDetail", new s),
+        n.addWindow("breeding", new c, { fixed: !0, group: "inventory" }),
+        n.addWindow("cancel", new we),
+        n.addWindow("characterCreation", new pe, { fixed: !0 }),
+        n.addWindow("firstCharacterForm", new Qe),
+        n.addWindow("breedHighlightWindow", new Ke),
+        n.addWindow("characterOrientation", new he),
+        n.addWindow("serverSimpleSelection", new X, { fixed: !0 }),
+        n.addWindow("serverListSelection", new j, { fixed: !0 }),
+        n.addWindow("serverDetails", new G),
+        n.addWindow("serverSelection", new Y, { fixed: !0 }),
+        n.addWindow("worldMap", new ne),
+        n.addWindow("characteristics", new l, { group: "mainGroup" }), 
+        n.addWindow("characUpdate", new f),
+        n.addWindow("fightEnd", new _),
+        n.addWindow("fightList", new A),
+        n.addWindow("itemAppearance", new L),
+        n.addWindow("itemBox", new N),
+        n.addWindow("itemManage", new R),
+        n.addWindow("itemRecipes", new q),
+        n.addWindow("itemSets", new x),
+        n.addWindow("levelUp", new B),
+        n.addWindow("rewardsPending", new U),
+        n.addWindow("characterSelection", new d, { fixed: !0 }), 
+        n.addWindow("giftSelection", new p, { fixed: !0 }),
+        n.addWindow("deleteCharacterConfirm", new h, { fixed: !0 }),
+        n.addWindow("options", new Te),    
+        n.addWindow("adminConsole", new a),
+        n.addWindow("document", new b),
+        n.addWindow("houseBuySell", new E),
+        n.addWindow("teleporterList", new V), 
+        n.addWindow("exchangeInventory", new Q(i), { group: "inventory" }), 
+        n.addWindow("exchangeStorage", new K), 
+        n.addWindow("wallet", new te), 
+        n.addWindow("tradeInventory", new $(i), { group: "inventory" }), 
+        n.addWindow("tradeStorage", new ee), 
+        n.addWindow("tradeItem", new J), 
+        n.addWindow("tradeItemConfirm", new Z), 
+        n.addWindow("bidHouseShop", new ie), 
+        n.addWindow("mimicry", new D), 
+        n.addWindow("itemPicking", new W(i), { group: "inventory" }), 
+        n.addWindow("padlock", new P), 
+        n.addWindow("global", new O), 
+        n.addWindow("prismVulnerabilityDate", new y), 
+        n.addWindow("socialGroupCreation", new z), 
+        n.addWindow("allianceCard", new w), 
+        n.addWindow("guildCard", new T), 
+        n.addWindow("guildHouseInfo", new C), 
+        n.addWindow("guildHouseSetting", new I), 
+        n.addWindow("equipment", new m(i), { group: "inventory" }), 
+        n.addWindow("estateForSale", new M), 
+        n.addWindow("estateInformation", new g), 
+        n.addWindow("partyInviteDetails", new k), 
+        n.addWindow("presetChooseIcon", new F), 
+        n.addWindow("presetOptions", new H), 
+        n.addWindow("arena", new r), 
+        n.addWindow("grimoire", new v, { group: "mainGroup" }), 
+        n.addWindow("social", new oe, { group: "mainGroup" }), 
+        n.addWindow("paddockBuy", new ae), 
+        n.addWindow("mount", new re), 
+        n.addWindow("feed", new se), 
+        n.addWindow("mountRename", new ce), 
+        n.addWindow("familyTree", new le), 
+        n.addWindow("jobOptions", new de), 
+        n.addWindow("spellForget", new ue), 
+        n.addWindow("crafting", new fe), 
+        n.addWindow("craftingMulti", new be), 
+        n.addWindow("craftersList", new me), 
+        n.addWindow("crafter", new Me), 
+        n.addWindow("craftMagus", new ge), 
+        n.addWindow("craftMagusMulti", new _e), 
+        n.addWindow("craftPayment", new Ae), 
+        n.addWindow("craftInventory", new Oe(i), { group: "inventory" }), 
+        n.addWindow("tradeWithNPC", new ye), 
+        n.addWindow("tradeWithPlayer", new ve), 
+        n.addWindow("tradeWithPlayerAndNPCInventory", new ze(i), { group: "inventory" }), 
+        n.addWindow("guildMemberRights", new S), 
+        n.addWindow("fightEndRewards", new Ce), 
+        n.addWindow("hardcoreDeath", new Ie), 
+        n.addWindow("purchasesPending", new Ne(e, t)), 
+        n.addWindow("buyHardCurrencyConfirm", new Le), 
+        n.addWindow("shopConfirm", new Se), 
+        n.addWindow("market", new Ee(e, t)), 
+        n.addWindow("toa", new Re), 
+        n.addWindow("shieldWindow", new qe, { group: "inventory" }), 
+        n.addWindow("ShieldSelectionWindow", new xe), 
+        n.addWindow("help", new Be, { fixed: !0 }), 
+        n.addWindow("toaRetryPopup", new De), 
+        n.addWindow("DailyQuestRerollWindow", new We), 
+        n.addWindow("BonusPackElitePopup", new Pe), 
+        n.addWindow("marketingWindow", new ke), 
+        n.addWindow("ratingWindow", new Fe), 
+        n.addWindow("dailyQuest", new Ue), 
+        n.addWindow("calligraphyWindow", new u), 
+        n.addWindow("previewWindow", new Ze), 
+        n.addWindow("panjidexWindow", new He), 
+        n.addWindow("featureIntroWindow", new Ge), 
+        n.addWindow("legendaryWeaponAwakeningWindow", new je(rt), { fixed: !0 }),
+        n.addWindow("legendaryWeaponUpgradingWindow", new Ye(rt), { fixed: !0 }), 
+        n.addWindow("legendaryWeaponShatterWindow", new Xe(rt), { fixed: !0 }),
+        n.addWindow("legendaryWeaponConversionWindow", new Ve(rt)),
+        n.addWindow("groupSeeker", new Je),
+        n.addWindow("sponsoring", new $e),
+        n.addWindow("shatter", new et),
+        n.addWindow("shatterResults", new tt),
+        n.addWindow("switchFarmInstance", new it),
+        n.addWindow("destroyItem", new nt),
+        n.addWindow("jobLvlUp", new ot),
+        n.addWindow("characterPreviewSkin", new at)
     }
 }, function(e, t, i) {
     function n(e) {
-        p.call(this), e = e || {}, this.itemList = {}, this._filteredItemList = {}, this._sortedItemList = [], this.itemsQuantityList = {}, this.slotList = {}, this.weight = 0, this.maxWeight = 1, this._isTagBarHidden = !0, this._disconneting = !1, this._waitingForBankReply = !1, this._isAlreadyOpeningBank = !1, this.enablePresets = e.enablePresets;
+        p.call(this), 
+        e = e || {}, this.itemList = {},
+        this._filteredItemList = {},
+        this._sortedItemList = [],
+        this.itemsQuantityList = {},
+        this.slotList = {},
+        this.weight = 0,
+        this.maxWeight = 1,
+        this._isTagBarHidden = !0,
+        this._disconneting = !1,
+        this._waitingForBankReply = !1,
+        this._isAlreadyOpeningBank = !1,
+        this.enablePresets = e.enablePresets;
         var t = e.dataHandler;
-        this.enableLookAllObjects = e.enableLookAllObjects, this._silently = Boolean(e.silently), this._rememberLastTabUsed = "boolean" != typeof e.rememberLastTabUsed || e.rememberLastTabUsed, this._defaultFilter = function(e, t, i, n, o, a) {
+        this.enableLookAllObjects = e.enableLookAllObjects,
+        this._silently = Boolean(e.silently),
+        this._rememberLastTabUsed = "boolean" != typeof e.rememberLastTabUsed || e.rememberLastTabUsed,
+        this._defaultFilter = function(e, t, i, n, o, a) {
             if (!this.enableLookAllObjects && e.position !== D) return !1;
             if (0 === t) return !1;
             if (this.filteringOptions.usable && !e.item.usable) return !1;
@@ -84537,7 +85593,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 if (!c.test(e.item.getNameForSearch())) return !1
             }
             return !0
-        }, this._tutorialFilter = function(e) {
+        }, 
+        this._tutorialFilter = function(e) {
             return e.objectUID < 0
         }, this._filters = [this._defaultFilter], t && this.setDataHandler(t), this.currentOpenedWindow = null, this.selectedSlot = null, this.slotToShow = null, this.filterCategories = {};
         for (var i in m.categories) this.filterCategories[m.categories[i]] = !0;
@@ -86217,10 +87274,13 @@ return t.m = e, t.c = i, t.p = "", t(0)
         r = i(86),
         s = i(52);
     o(n, a), e.exports = n
-}, function(e, t) {}, function(e, t, i) {
+}, function(e, t) {}, 
+function(e, t, i) {
+    // ## Console Admin Frame 
     function n() {
         function e() {
-            t.logScroller.refresh(), t.logScroller.goToBottom()
+            t.logScroller.refresh(),
+            t.logScroller.goToBottom()
         }
         r.call(this, {
             className: "adminConsoleWindow",
@@ -86231,46 +87291,72 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 width: 800,
                 height: 500
             }
-        }), f(this, {
-            minWidth: 480,
-            minHeight: 300
-        });
+        }),
+        f(this, { minWidth: 480, minHeight: 300 });
         var t = this;
-        this._searchItem = new g(window.dofus.connectionManager), this._searchNpc = new _(window.dofus.connectionManager), this.history = [], this.historyPointer = 0, this.autoScroll = !0, this.domCreated = !1, this.helpInfo = null, this._adminCmdManager = new v, this.once("open", function() {
-            t._createDom(), t._addClientCommands();
+        this._searchItem = new g(window.dofus.connectionManager),
+        this._searchNpc = new _(window.dofus.connectionManager),
+        this.history = [],
+        this.historyPointer = 0,
+        this.autoScroll = !0,
+        this.domCreated = !1,
+        this.helpInfo = null,
+        this._adminCmdManager = new v,
+        this.once("open", function() {
+            t._createDom(),
+            t._addClientCommands();
             var e = window.gui.playerData,
                 i = e.hasRight(A.SHOW_ADMIN_CONSOLE_BUTTON);
             console.error(e.loginName + " (id: " + e.id + ") -> rightForAdminConsole = " + i + ", forcedAccount = " + e.forcedAccount + ", hasConsoleRight = " + e.identification.hasConsoleRight)
-        }), window.gui.on("disconnect", function() {
+        }),
+        window.gui.on("disconnect", function() {
             t.helpInfo = null
-        }), this.on("open", function() {
+        }),
+        this.on("open", function() {
             t.setTitle(t.getAdminTitle())
-        }), this.on("focus", function() {
+        }),
+        this.on("focus", function() {
             window.setTimeout(function() {
                 t.cmdInput.focus()
             }, 100)
-        }), this.on("close", function() {
+        }),
+        this.on("close", function() {
             u.hide()
-        }), this.on("opened", function() {
+        }),
+        this.on("opened", function() {
             t.cmdInput.focus()
-        }), this.on("resize", e), this.on("repositioned", e), window.gui.on("ConsoleCommandsListMessage", function(e) {
+        }),
+        this.on("resize", e), this.on("repositioned", e), window.gui.on("ConsoleCommandsListMessage", function(e) {
             t.helpInfo = e
-        }), window.gui.on("ConsoleMessage", function(e) {
+        }),
+        window.gui.on("ConsoleMessage", function(e) {
             return t.log ? void t.logMessage(e.content, N[e.type]) : console.warn(e.content)
-        }), window.gui.on("DebugInClientMessage", function(e) {
-            t.log && t.logMessage(e.message, R[e.level]), e.level >= q ? console.warn(e.message) : console.log(e.message)
-        }), S.on("step", function(e) {
+        }),
+        window.gui.on("DebugInClientMessage", function(e) {
+            t.log && t.logMessage(e.message, R[e.level]),
+            e.level >= q ? console.warn(e.message) : console.log(e.message)
+        }),
+        S.on("step", function(e) {
             e = e || {};
             var i = e.percent;
-            t._preloadPB.setValue(i), t._preloadCount.setText(e.count + "/" + e.nbTotalMaps), t._preloadPercent.setText(~~(100 * i) + "%"), t._preloadEstimate.setText(e.secondLeft < 0 ? 0 : e.secondLeft + "s")
-        }), S.on("error", function(e) {
-            t.cmdInput.enable(), t._buttonSend.enable(), t._preloadBox.hide(), console.error(e)
-        }), S.on("end", function(e) {
-            t.cmdInput.enable(), t._buttonSend.enable(), t._preloadBox.hide(), t.logMessage("Finished preloading of in " + e.elapsedSecond + "s")
-        }), this.optionButton = new s({
-            className: "optionButton",
-            scaleOnPress: !0
-        }, function() {
+            t._preloadPB.setValue(i),
+            t._preloadCount.setText(e.count + "/" + e.nbTotalMaps),
+            t._preloadPercent.setText(~~(100 * i) + "%"),
+            t._preloadEstimate.setText(e.secondLeft < 0 ? 0 : e.secondLeft + "s")
+        }),
+        S.on("error", function(e) {
+            t.cmdInput.enable(),
+            t._buttonSend.enable(),
+            t._preloadBox.hide(),
+            console.error(e)
+        }),
+        S.on("end", function(e) {
+            t.cmdInput.enable(),
+            t._buttonSend.enable(),
+            t._preloadBox.hide(),
+            t.logMessage("Finished preloading of in " + e.elapsedSecond + "s")
+        }),
+        this.optionButton = new s({className: "optionButton", scaleOnPress: !0 }, function() {
             var e = [];
             e.push({
                 caption: "25%",
@@ -86302,14 +87388,12 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
     i(954);
     var o = i(551),
-        a = i(56)
-        .inherits,
+        a = i(56).inherits,
         r = i(70),
-        s = (i(52), i(86)),
+        s = (i(52),i(86)),
         c = i(581),
         l = i(490),
-        d = i(17)
-        .getText,
+        d = i(17).getText,
         u = i(452),
         p = i(453),
         h = i(594),
@@ -86324,8 +87408,7 @@ return t.m = e, t.c = i, t.p = "", t(0)
         v = i(959),
         y = i(142),
         z = i(502),
-        w = i(34)
-        .logger,
+        w = i(34).logger,
         T = 300,
         C = "Admin Console",
         I = "adminOpacity",
@@ -86335,7 +87418,9 @@ return t.m = e, t.c = i, t.p = "", t(0)
         N = ["Info", "Warn", "Error"],
         R = ["Debug", "Debug", "Info", "Warn", "Error", "Fatal"],
         q = 3;
-    a(n, r), e.exports = n, n.prototype._addClientCommands = function() {
+    a(n, r), 
+    e.exports = n,
+    n.prototype._addClientCommands = function() {
         function e(e) {
             var t = 2,
                 i = Array.prototype.slice.call(e),
@@ -86399,7 +87484,14 @@ return t.m = e, t.c = i, t.p = "", t(0)
             s.runMultipleCommands("move * 115081731 370;item * 14290")
         }
         var s = this;
-        window.gui.playerData.isAdmin() && (this._adminCmdManager.addCommand("searchitem", t, "Search items by their names and give the id."), this._adminCmdManager.addCommand("si", t, "Search items by their names and give the id."), this._adminCmdManager.addCommand("searchnpc", i, "Search npcs by their names and give the id."), this._adminCmdManager.addCommand("seerecommendedservers", n, "See your recommended servers."), this._adminCmdManager.addCommand("resetgondolatoken", o, "Reset your gondola token. Next time you connect, you will see the shop animation."), this._adminCmdManager.addCommand("guildtemple", a, "Setup for guild creation."), this._adminCmdManager.addCommand("alliancetemple", r, "Setup for alliance creation.")), this._adminCmdManager.addCommand("showeverycellid", function() {
+        window.gui.playerData.isAdmin() && (
+            this._adminCmdManager.addCommand("searchitem", t, "Search items by their names and give the id."),
+            this._adminCmdManager.addCommand("si", t, "Search items by their names and give the id."),
+            this._adminCmdManager.addCommand("searchnpc", i, "Search npcs by their names and give the id."),
+            this._adminCmdManager.addCommand("seerecommendedservers", n, "See your recommended servers."),
+            this._adminCmdManager.addCommand("resetgondolatoken", o, "Reset your gondola token. Next time you connect, you will see the shop animation."),
+            this._adminCmdManager.addCommand("guildtemple", a, "Setup for guild creation."),
+            this._adminCmdManager.addCommand("alliancetemple", r, "Setup for alliance creation.")), this._adminCmdManager.addCommand("showeverycellid", function() {
             window.background && window.background.toggleDebugMode()
         }, "Show every cell id of the grid"), this._adminCmdManager.addCommand("showdebuginfo", function() {
             window.gui.performanceOverlay.display(!window.gui.performanceOverlay.isVisible())
@@ -86409,7 +87501,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
         }, "Show the push token for push notification."), this._adminCmdManager.addCommand("forceaccount", function(e) {
             return e ? O.connectForcedAccount(e) : s.logMessage("1 argument required: forceaccount [username]", "Debug")
         }, "Force the account of a player")
-    }, n.prototype._createDom = function() {
+    },
+    n.prototype._createDom = function() {
         if (!this.domCreated) {
             var e = this,
                 t = this.windowBody,
@@ -86493,23 +87586,28 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 e.preventDefault(), M.emit("tap")
             }), this.domCreated = !0
         }
-    }, n.prototype.addToHistory = function(e) {
+    },
+    n.prototype.addToHistory = function(e) {
         return this.history[this.history.length - 1] !== e && e ? (this.history.push(e), void(this.historyPointer = this.history.length)) : void(this.historyPointer = this.history.length)
-    }, n.prototype.previousCmd = function() {
+    },
+    n.prototype.previousCmd = function() {
         if (!(this.historyPointer < 1)) {
             this.historyPointer -= 1;
             var e = this.history[this.historyPointer];
             this.cmdInput.setValue(e)
         }
-    }, n.prototype.nextCmd = function() {
+    },
+    n.prototype.nextCmd = function() {
         if (!(this.historyPointer > this.history.length - 1)) {
             this.historyPointer += 1;
             var e = this.history[this.historyPointer] || "";
             this.cmdInput.setValue(e)
         }
-    }, n.prototype.setOpacity = function(e) {
+    },
+    n.prototype.setOpacity = function(e) {
         this.windowBorder.setStyle("opacity", e), m.setValue(I, e)
-    }, n.prototype.handleEvent = function(e) {
+    },
+    n.prototype.handleEvent = function(e) {
         e = e.replace("event:", "");
         var t = e.split(","),
             i = t[0],
@@ -86534,10 +87632,12 @@ return t.m = e, t.c = i, t.p = "", t(0)
                     guildId: t[1]
                 })
         }
-    }, n.prototype._formatLinks = function(e) {
+    },
+    n.prototype._formatLinks = function(e) {
         var t = new b("div");
         return t.appendChild(z.process(e)), t
-    }, n.prototype.logMessage = function(e, t) {
+    },
+    n.prototype.logMessage = function(e, t) {
         if (this._createDom(), this.log.getChildCount() > T) {
             var i = this.log.getChildren();
             Array.isArray(i) && i[0] && i[0].destroy()
@@ -86547,13 +87647,15 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 className: ["message", n]
             });
         e = e.replace(/\n/g, "<br/>"), e = this._formatLinks(e), o.appendChild(e), this.logScroller.refresh(), this.autoScroll && this.logScroller.goToBottom()
-    }, n.prototype.runMultipleCommands = function(e) {
+    },
+    n.prototype.runMultipleCommands = function(e) {
         e = e.trim();
         for (var t = e.split(";"), i = 0; i < t.length; i += 1) {
             var n = t[i];
             this.runCommand(n)
         }
-    }, n.prototype.runCommand = function(e) {
+    },
+    n.prototype.runCommand = function(e) {
         e = e.trim();
         var t = !1;
         if (this.logMessage(e, "Command"), "help" === e || "/help" === e || "" === e) return this.helpInfo ? this.logMessage("\n" + this.helpInfo.descriptions.join(""), "Debug") : window.dofus.sendMessage("AdminCommandMessage", {
@@ -86588,20 +87690,22 @@ return t.m = e, t.c = i, t.p = "", t(0)
         t || window.dofus.sendMessage("AdminCommandMessage", {
             content: e
         })
-    }, n.prototype.runQuietCommand = function(e) {
-        window.dofus.sendMessage("AdminQuietCommandMessage", {
-            content: e
-        })
-    }, n.prototype._reset = function() {
+    },
+    n.prototype.runQuietCommand = function(e) {
+        window.dofus.sendMessage("AdminQuietCommandMessage", { content: e })
+    },
+    n.prototype._reset = function() {
         this.log.clearContent(), this.logScroller.refresh()
-    }, n.prototype.getAdminTitle = function() {
+    },
+    n.prototype.getAdminTitle = function() {
         var e = [],
             t = window.gui.serversData,
             i = window.gui.playerData.characterBaseInformations,
             n = t.getMyServerName();
         return n && e.push("Server: " + n + " (" + t.connectedServerId + ")"), i.id && i.name && e.push(i.name + " (" + i.id + ")"), 0 === e.length && e.push(C), e.join(" | ")
     }
-}, function(e, t) {}, function(e, t, i) {
+}, 
+function(e, t) {}, function(e, t, i) {
     function n() {
         u.call(this), this._reset()
     }
@@ -86660,10 +87764,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
         }) : this._onError("noArea:" + e)
     }
     var l = i(18),
-        d = i(56)
-        .inherits,
-        u = i(36)
-        .EventEmitter,
+        d = i(56).inherits,
+        u = i(36).EventEmitter,
         p = i(130),
         h = i(12),
         f = i(13),
@@ -86672,17 +87774,26 @@ return t.m = e, t.c = i, t.p = "", t(0)
         M = f.BACKGROUND_PATH,
         g = f.FOREGROUND_PATH,
         _ = "MapPreloaderInterrupt";
-    d(n, u), e.exports = n, n.prototype._reset = function() {
-        this._isStopped = !1, this._shouldStop = !1, this._remainingMaps = {}, this._lastCount = 0
-    }, n.prototype._onError = function(e) {
+    d(n, u), e.exports = n, 
+    n.prototype._reset = function() {
+        this._isStopped = !1,
+        this._shouldStop = !1,
+        this._remainingMaps = {},
+        this._lastCount = 0
+    },
+    n.prototype._onError = function(e) {
         this._isStopped = !0, this.emit("error", e)
-    }, n.prototype._onEnd = function(e) {
+    },
+    n.prototype._onEnd = function(e) {
         this._isStopped = !0, this.emit("end", e)
-    }, n.prototype._onStop = function() {
+    },
+    n.prototype._onStop = function() {
         this._isStopped = !0, this.emit("stop")
-    }, n.prototype._onStep = function(e) {
+    },
+    n.prototype._onStep = function(e) {
         this.emit("step", e)
-    }, n.prototype._preload = function(e, t) {
+    },
+    n.prototype._preload = function(e, t) {
         var i = this,
             n = Object.keys(e),
             a = n.length;
@@ -86715,16 +87826,20 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 elapsedSecond: ~~((Date.now() - c) / 1e3)
             })
         })
-    }, n.prototype.preloadAreas = function(e) {
+    },
+    n.prototype.preloadAreas = function(e) {
         var t = this;
         this._reset(), this._isStopped = !1, c(e, function(e, i) {
             return e ? t._onError(e) : void t._preload(i, 0)
         })
-    }, n.prototype.stop = function() {
+    },
+    n.prototype.stop = function() {
         this._shouldStop = !0, this._isStopped && this._onStop()
-    }, n.prototype.restart = function() {
+    },
+    n.prototype.restart = function() {
         this._shouldStop = !1, this._isStopped && this._restart()
-    }, n.prototype._restart = function() {
+    },
+    n.prototype._restart = function() {
         this._isStopped = !1, this._preload(this._remainingMaps, this._lastCount)
     }
 }, function(e, t, i) {
@@ -90316,38 +91431,63 @@ return t.m = e, t.c = i, t.p = "", t(0)
             chance: 13,
             agility: 14
         };
-    u(n, p), e.exports = n, n.prototype._setupListeners = function() {
+    u(n, p), e.exports = n,
+    n.prototype._setupListeners = function() {
         var e = this,
             t = window.gui.playerData,
             i = t.characters,
             n = window.gui.scenarioManager;
         this.on("open", function() {
             e.alignWithEquipment(), e.checkRights()
-        }), i.on("characteristicsUpdated", function(i) {
-            e.checkRights(), t.characterBreed && e.updateStats(i)
-        }), t.alignment.on("alignmentChanged", function() {
+        }),
+        i.on("characteristicsUpdated", function(i) {
+            e.checkRights(),
+            t.characterBreed && e.updateStats(i)
+        }),
+        t.alignment.on("alignmentChanged", function() {
             var i = t.characterBaseInformations,
                 n = t.alignment;
             n.getAlignmentImageUrl(function(t) {
                 e.logo.setStyle("backgroundImage", t)
-            }), e.playerName.setText(i.name), t.characterBreed && e.infosSup.setText(t.characterBreed.shortNameId + ", " + b("ui.common.level") + " " + i.level), g.addTooltip(e.infosSup, d.level, {
+            }),
+            e.playerName.setText(i.name),
+            t.characterBreed && e.infosSup.setText(t.characterBreed.shortNameId + ", " + b("ui.common.level") + " " + i.level),
+            g.addTooltip(e.infosSup, d.level, {
                 longTapExplanation: !0
             })
-        }), window.gui.scenarioManager.on("stepChanged", function() {
+        }),
+        window.gui.scenarioManager.on("stepChanged", function() {
             var t = n.isBehaviourEnabled(z.DISABLE_CHARACT_MENU),
                 i = n.isBehaviourEnabled(z.DISABLE_ADD_CHARACT),
                 o = n.isBehaviourEnabled(z.ENABLE_UPGRADE_CHARACT_HIGHLIGHT);
-            e.toggleClassName("disabledBehaviour", t), e.toggleClassName("disabledAddStats", i), e.toggleClassName("highlightedButtons", o)
+            e.toggleClassName("disabledBehaviour", t),
+            e.toggleClassName("disabledAddStats", i),
+            e.toggleClassName("highlightedButtons", o)
         })
-    }, n.prototype._createSummaryPanel = function() {
+    },
+    n.prototype._createSummaryPanel = function() {
         function e() {
-            A.show(), f.show(), z.hide(), v.hide(), n.capitalValueDom.show(), n.refundedCapitalValueDom.hide(), m.delClassNames("arrowDown"), n.summary.forEach(function(e) {
+            A.show(),
+            f.show(),
+            z.hide(),
+            v.hide(),
+            n.capitalValueDom.show(),
+            n.refundedCapitalValueDom.hide(),
+            m.delClassNames("arrowDown"),
+            n.summary.forEach(function(e) {
                 e.displayRefundedPts(!1)
             })
         }
 
         function t() {
-            A.hide(), f.hide(), z.show(), v.show(), n.capitalValueDom.hide(), n.refundedCapitalValueDom.show(), m.setClassNames("arrowDown"), n.summary.forEach(function(e) {
+            A.hide(),
+            f.hide(),
+            z.show(),
+            v.show(),
+            n.capitalValueDom.hide(),
+            n.refundedCapitalValueDom.show(),
+            m.setClassNames("arrowDown"),
+            n.summary.forEach(function(e) {
                 e.displayRefundedPts(!0)
             })
         }
@@ -90359,67 +91499,50 @@ return t.m = e, t.c = i, t.p = "", t(0)
             return !!t || (e ? (window.gui.openSimplePopup(b("ui.stats.availableMagicalOrb"), b("ui.popup.information")), !1) : (M.open("BonusPackElitePopup"), !1))
         }
         var n = this,
-            r = this.panels.createChild("div", {
-                className: "panel"
-            });
+            r = this.panels.createChild("div", { className: "panel" });
         this.energy = new o(r, b("ui.common.energy"), "red");
-        var c = {
-            isXpProgressBar: !0
-        };
+        var c = { isXpProgressBar: !0 };
         this.experience = new o(r, b("ui.common.experiment"), "blue", c);
-        var l = r.createChild("table", {
-            className: "summaryTable"
-        });
-        this.lifePoints = new a(l, b("ui.stats.lifePoints"), "maxLifePoints", "iconLifePoints"), this.actionPoints = new a(l, b("ui.stats.shortAP"), "actionPoints", "iconActionPoints"), this.movementPoints = new a(l, b("ui.stats.shortMP"), "movementPoints", "iconMovementPoints"), this.initiative = new a(l, b("ui.stats.initiative"), "initiative", "iconInitiative"), this.prospecting = new a(l, b("ui.stats.prospecting"), "prospecting", "iconProspecting"), this.range = new a(l, b("ui.stats.range"), "range", "iconRange"), this.summonableCreatures = new a(l, b("ui.stats.summonableCreatures"), "summonableCreaturesBoost", "iconSummon");
-        var u = r.createChild("table", {
-                className: "characTable"
-            }),
+        var l = r.createChild("table", { className: "summaryTable" });
+        this.lifePoints = new a(l, b("ui.stats.lifePoints"), "maxLifePoints", "iconLifePoints"),
+        this.actionPoints = new a(l, b("ui.stats.shortAP"), "actionPoints", "iconActionPoints"),
+        this.movementPoints = new a(l, b("ui.stats.shortMP"), "movementPoints", "iconMovementPoints"),
+        this.initiative = new a(l, b("ui.stats.initiative"), "initiative", "iconInitiative"),
+        this.prospecting = new a(l, b("ui.stats.prospecting"), "prospecting", "iconProspecting"),
+        this.range = new a(l, b("ui.stats.range"), "range", "iconRange"),
+        this.summonableCreatures = new a(l, b("ui.stats.summonableCreatures"), "summonableCreaturesBoost", "iconSummon");
+        var u = r.createChild("table", { className: "characTable" }),
             p = u.createChild("tr");
         p.createChild("td", {
             className: "tableTitle",
             text: b("ui.common.caracteristics"),
-            attr: {
-                colspan: 4
-            }
-        }), this.summary = [], this.summary.push(new s(u, b("ui.stats.vitality"), "vitality", "iconVitality")), this.summary.push(new s(u, b("ui.stats.wisdom"), "wisdom", "iconWisdom")), this.summary.push(new s(u, b("ui.stats.strength"), "strength", "iconStrength")), this.summary.push(new s(u, b("ui.stats.intelligence"), "intelligence", "iconIntelligence")), this.summary.push(new s(u, b("ui.stats.chance"), "chance", "iconChance")), this.summary.push(new s(u, b("ui.stats.agility"), "agility", "iconAgility")), this.pointCapital = r.createChild("div", {
-            className: "pointCapital"
-        });
-        var h = this.pointCapital.createChild("div", {
-                className: "buttonsList"
-            }),
-            f = this.pointCapital.createChild("div", {
-                className: "pointCapitalLabel",
-                text: b("ui.common.pointsWithCap")
-            }),
+            attr: { colspan: 4 }
+        }), 
+        this.summary = [], 
+        this.summary.push(new s(u, b("ui.stats.vitality"), "vitality", "iconVitality")),
+        this.summary.push(new s(u, b("ui.stats.wisdom"), "wisdom", "iconWisdom")),
+        this.summary.push(new s(u, b("ui.stats.strength"), "strength", "iconStrength")),
+        this.summary.push(new s(u, b("ui.stats.intelligence"), "intelligence", "iconIntelligence")),
+        this.summary.push(new s(u, b("ui.stats.chance"), "chance", "iconChance")),
+        this.summary.push(new s(u, b("ui.stats.agility"), "agility", "iconAgility")),
+        this.pointCapital = r.createChild("div", { className: "pointCapital" });
+        var h = this.pointCapital.createChild("div", { className: "buttonsList" }),
+            f = this.pointCapital.createChild("div", { className: "pointCapitalLabel", text: b("ui.common.pointsWithCap") }),
             m = this.pointCapital.createChild("div");
-        this.capitalValueDom = m.createChild("div", {
-            className: "pointCapitalValue"
-        }), this.refundedCapitalValueDom = m.createChild("div", {
-            className: "pointCapitalValue"
-        });
-        var A = h.appendChild(new O({
-            className: ["greenButton", "resetButton"],
-            scaleOnPress: !0
-        }));
-        A.createChild("div", {
-            className: "icon",
-            text: b("ui.common.reset")
-        });
-        var v = h.appendChild(new O({
-                className: ["secondaryButton", "cancelButton"],
-                scaleOnPress: !0,
-                text: b("ui.common.cancel")
-            })),
-            z = h.appendChild(new O({
-                className: ["greenButton", "confirmButton"],
-                scaleOnPress: !0,
-                text: b("ui.common.validation")
-            }));
-        e(), A.on("tap", function() {
+        this.capitalValueDom = m.createChild("div", { className: "pointCapitalValue" }),
+        this.refundedCapitalValueDom = m.createChild("div", { className: "pointCapitalValue" });
+        var A = h.appendChild(new O({ className: ["greenButton", "resetButton"], scaleOnPress: !0 }));
+        A.createChild("div", { className: "icon", text: b("ui.common.reset") });
+        var v = h.appendChild(new O({ className: ["secondaryButton", "cancelButton"], scaleOnPress: !0, text: b("ui.common.cancel") })),
+            z = h.appendChild(new O({ className: ["greenButton", "confirmButton"], scaleOnPress: !0, text: b("ui.common.validation") }));
+        e(),
+        A.on("tap", function() {
             i() && t()
-        }), v.on("tap", function() {
+        }),
+        v.on("tap", function() {
             e()
-        }), z.on("tap", function() {
+        }),
+        z.on("tap", function() {
             return i() ? void window.gui.openConfirmPopup({
                 title: b("ui.common.confirm"),
                 message: b("ui.stats.resetAllStats"),
@@ -90429,17 +91552,18 @@ return t.m = e, t.c = i, t.p = "", t(0)
                         var i = [];
                         n.summary.forEach(function(e) {
                             e.resetCheckbox.isActivate() && i.push(C[e.key])
-                        }), window.dofus.sendMessage("StatsResetRequestMessage", {
-                            statIds: i
-                        })
+                        }), 
+                        window.dofus.sendMessage("StatsResetRequestMessage", {statIds: i })
                     }
                 }
             }) : void e()
-        }), n.summary.forEach(function(e) {
+        }),
+        n.summary.forEach(function(e) {
             e.resetCheckbox.on("change", function() {
                 n.refreshRefundedPts()
             })
-        }), g.addTooltip(m, function() {
+        }),
+        g.addTooltip(m, function() {
             var e = "";
             if (n.stats) {
                 e = b("ui.stats.statPoints") + " " + String(n.stats.statsPoints);
@@ -90456,7 +91580,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
             className: ["haveAdditionalPts", "additionalPtsLineHelp"]
         });
         w.setHtml(b("tablet.characteristics.help")), this.tabs.addTab(b("ui.stats.summary"), r)
-    }, n.prototype._createAdvancedPanel = function() {
+    },
+    n.prototype._createAdvancedPanel = function() {
         var e = this.panels.createChild("div", {
                 className: "panel"
             }),
@@ -90484,7 +91609,19 @@ return t.m = e, t.c = i, t.p = "", t(0)
             attr: {
                 colspan: 4
             }
-        }), this.advanced.push(new r(t, b("ui.stats.vitality"), "vitality", "iconVitality")), this.advanced.push(new r(t, b("ui.stats.wisdom"), "wisdom", "iconWisdom")), this.advanced.push(new r(t, b("ui.stats.strength"), "strength", "iconStrength")), this.advanced.push(new r(t, b("ui.stats.intelligence"), "intelligence", "iconIntelligence")), this.advanced.push(new r(t, b("ui.stats.chance"), "chance", "iconChance")), this.advanced.push(new r(t, b("ui.stats.agility"), "agility", "iconAgility")), this.advanced.push(new r(t, b("ui.stats.shortAP"), "actionPoints", "iconActionPoints")), this.advanced.push(new r(t, b("ui.stats.shortMP"), "movementPoints", "iconMovementPoints")), this.advanced.push(new r(t, b("ui.stats.initiative"), "initiative", "iconInitiative")), this.advanced.push(new r(t, b("ui.stats.prospecting"), "prospecting", "iconProspecting")), this.advanced.push(new r(t, b("ui.stats.range"), "range", "iconRange")), this.advanced.push(new r(t, b("ui.stats.summonableCreatures"), "summonableCreaturesBoost", "iconSummon"));
+        }),
+        this.advanced.push(new r(t, b("ui.stats.vitality"), "vitality", "iconVitality")),
+        this.advanced.push(new r(t, b("ui.stats.wisdom"), "wisdom", "iconWisdom")),
+        this.advanced.push(new r(t, b("ui.stats.strength"), "strength", "iconStrength")),
+        this.advanced.push(new r(t, b("ui.stats.intelligence"), "intelligence", "iconIntelligence")),
+        this.advanced.push(new r(t, b("ui.stats.chance"), "chance", "iconChance")),
+        this.advanced.push(new r(t, b("ui.stats.agility"), "agility", "iconAgility")),
+        this.advanced.push(new r(t, b("ui.stats.shortAP"), "actionPoints", "iconActionPoints")),
+        this.advanced.push(new r(t, b("ui.stats.shortMP"), "movementPoints", "iconMovementPoints")),
+        this.advanced.push(new r(t, b("ui.stats.initiative"), "initiative", "iconInitiative")),
+        this.advanced.push(new r(t, b("ui.stats.prospecting"), "prospecting", "iconProspecting")),
+        this.advanced.push(new r(t, b("ui.stats.range"), "range", "iconRange")),
+        this.advanced.push(new r(t, b("ui.stats.summonableCreatures"), "summonableCreaturesBoost", "iconSummon"));
         var o = t.createChild("tr");
         o.createChild("td", {
             className: "tableTitle",
@@ -90540,18 +91677,25 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 n = Math.floor(i * e.lifePoints / e.maxLifePoints);
             this.initiative.update(n + " / " + i), this.prospecting.update(e.prospecting.getTotalStat()), this.range.update(e.range.getTotalStat()), this.summonableCreatures.update(e.summonableCreaturesBoost.getTotalStat());
             var o = e.getRemainingAdditionalPts();
-            this.capitalValueDom.setText(e.statsPoints + o), this.pointCapital.toggleClassName("haveAdditionalPts", o > 0), this.additionalPtsLineHelp.toggleDisplay(o > 0), this.refreshRefundedPts(), this.advanced.forEach(function(t) {
+            this.capitalValueDom.setText(e.statsPoints + o),
+            this.pointCapital.toggleClassName("haveAdditionalPts", o > 0),
+            this.additionalPtsLineHelp.toggleDisplay(o > 0),
+            this.refreshRefundedPts(),
+            this.advanced.forEach(function(t) {
                 t.update(e)
             }), this.checkRights()
         }
-    }, n.prototype.refreshRefundedPts = function() {
+    }, 
+    n.prototype.refreshRefundedPts = function() {
         if (this._initialized) {
             var e = 0;
             this.summary.forEach(function(t) {
                 t.resetCheckbox.isActivate() && (e += t.getRefundedPts())
-            }), this.refundedCapitalValueDom.setText(e)
+            }),
+            this.refundedCapitalValueDom.setText(e)
         }
-    }, n.prototype.alignWithEquipment = function() {
+    },
+    n.prototype.alignWithEquipment = function() {
         var e = M.getWindow("equipment");
         e.openState && (this.setStyles({
             top: e.getStyle("top"),
@@ -90559,23 +91703,38 @@ return t.m = e, t.c = i, t.p = "", t(0)
         }), M.arrangeOpeningWindow(this.id, {
             leftOf: e.id
         }))
-    }, n.prototype.checkRights = function() {
+    },
+    n.prototype.checkRights = function() {
         var e = this,
             t = window.gui.playerData,
             i = t.characterBaseInformations;
         this.statsDom.toggleClassName("isMutant", t.isMutant()), t.isMutant() ? t.getMutantData(function(n, o) {
             return n ? (console.error(n), this.infosSup.setText(t.characterBreed.shortNameId + ", " + b("ui.common.level") + " " + i.level)) : void e.infosSup.setText(o.name + ", " + b("ui.common.level") + " " + o.level)
         }) : t.characterBreed && this.infosSup.setText(t.characterBreed.shortNameId + ", " + b("ui.common.level") + " " + i.level)
-    }, o.prototype.update = function(e, t) {
-        this.current = e, this.max = t, this.progressBar.setValue(e / t), this.progressBar.hasClassName(["golden"]) && this.progressBar.replaceClassNames(["golden"], ["blue"])
-    }, o.prototype.full = function(e) {
-        0 === e && (e = 1), this.current = e, this.max = e, this.progressBar.setValue(e), this.progressBar.replaceClassNames(["blue"], ["golden"])
-    }, a.prototype.update = function(e) {
+    },
+    o.prototype.update = function(e, t) {
+        this.current = e,
+        this.max = t,
+        this.progressBar.setValue(e / t),
+        this.progressBar.hasClassName(["golden"]) && this.progressBar.replaceClassNames(["golden"], ["blue"])
+    },
+    o.prototype.full = function(e) {
+        0 === e && (e = 1),
+        this.current = e,
+        this.max = e,
+        this.progressBar.setValue(e),
+        this.progressBar.replaceClassNames(["blue"], ["golden"])
+    },
+    a.prototype.update = function(e) {
         this.statLine.setText(c(e))
-    }, r.prototype.update = function(e) {
+    },
+    r.prototype.update = function(e) {
         var t = e[this.key];
-        this.baseLine.setText(c(t.getBasePts())), this.bonusLine.setText(c(t.getBonusPts() + t.getEquipmentPts())), this.totalLine.setText(c(t.getTotalStat()))
-    }, s.prototype.update = function(e) {
+        this.baseLine.setText(c(t.getBasePts())),
+        this.bonusLine.setText(c(t.getBonusPts() + t.getEquipmentPts())),
+        this.totalLine.setText(c(t.getTotalStat()))
+    },
+    s.prototype.update = function(e) {
         this.stats = e;
         var t = e[this.key],
             i = this.getRefundedPts();
@@ -90638,10 +91797,17 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
 
     function o() {
+        // ## Frame [characterSelection]
         function e(e) {
             l.close("deleteCharacterConfirm");
-            var t = e.data;
-            n.selectedCharacter = t, n._updateBreedBg(t.breed), n.selectedRow && n.selectedRow["delete"].content.toggleDisplay(!1), n.selectedRow = e, n.selectedRow["delete"].content.toggleDisplay(!0), n.characterDisplay.setLook(t.entityLook, {
+            var characters = e.data;
+
+            n.selectedCharacter = characters,
+            n._updateBreedBg(characters.breed),
+            n.selectedRow && n.selectedRow["delete"].content.toggleDisplay(!1),
+            n.selectedRow = e,
+            n.selectedRow["delete"].content.toggleDisplay(!0),
+            n.characterDisplay.setLook(characters.entityLook, {
                 boneType: "characters/",
                 skinType: "characters/"
             })
@@ -90669,66 +91835,34 @@ return t.m = e, t.c = i, t.p = "", t(0)
         var n = this,
             o = this.windowBody,
             a = window.gui;
-        this.closeButton.setText(d("ui.common.cancel")), this.selectedCharacter = null;
-        var s = o.createChild("div", {
-                className: "bgParent"
-            }),
-            u = s.createChild("div", {
-                className: "bgLeft"
-            }),
-            A = s.createChild("div", {
-                className: "bgRight"
-            });
-        A.createChild("div", {
-            className: "bg"
-        }), this.canvas = u.createChild("div", {
-            className: "canvasDiv"
-        }), this.breedBg = this.canvas.createChild("div", {
-            className: "breedBg"
-        }), this.breedBgFade = this.canvas.createChild("div", {
-            className: "breedBg"
-        });
-        var O = u.createChild("div", {
-            className: "whiteBorders"
-        });
-        O.createChild("div", {
-            className: "whiteBorderLeft"
-        }), O.createChild("div", {
-            className: "whiteBorderRight"
-        }), A.createChild("div", {
-            className: "whiteGradient"
-        });
-        var v = this.mainDiv = o.createChild("div", {
-                className: "mainDiv"
-            }),
-            y = v.createChild("div", {
-                className: "tableDiv"
-            }),
-            z = [{
-                id: "icon"
-            }, {
-                id: "name",
-                header: d("ui.common.name")
-            }, {
-                id: "breed",
-                header: d("ui.charcrea.breed")
-            }, {
-                id: "level",
-                header: d("ui.common.level")
-            }, {
-                id: "bonusXp",
-                header: d("ui.fightend.bonus")
-            }, {
-                id: "delete"
-            }];
-        this.charactersTable = y.appendChild(new f(z, null, {
-            newScroller: !0
-        })), this.charactersTable.addClassNames("characterTable"), this.charactersTable.on("rowTap", function(t) {
-            t.data && t !== n.selectedRow && (_("SELECT_CHARACTER"), e(t))
-        });
-        var w = v.createChild("div", {
-                className: "buttonsDiv"
-            }),
+        this.closeButton.setText(d("ui.common.cancel")),
+        this.selectedCharacter = null;
+        var s = o.createChild("div", { className: "bgParent" }),
+            u = s.createChild("div", { className: "bgLeft" }),
+            A = s.createChild("div", { className: "bgRight" });
+
+        A.createChild("div", { className: "bg" }), 
+        this.canvas = u.createChild("div", { className: "canvasDiv" }),
+        this.breedBg = this.canvas.createChild("div", { className: "breedBg" }),
+        this.breedBgFade = this.canvas.createChild("div", { className: "breedBg" });
+        var O = u.createChild("div", { className: "whiteBorders" });
+        O.createChild("div", { className: "whiteBorderLeft" }),
+        O.createChild("div", { className: "whiteBorderRight" }),
+        A.createChild("div", { className: "whiteGradient" });
+
+        var v = this.mainDiv = o.createChild("div", { className: "mainDiv" }),
+            y = v.createChild("div", { className: "tableDiv" }),
+            z = [{ id: "icon" },
+                { id: "name", header: d("ui.common.name") },
+                { id: "breed", header: d("ui.charcrea.breed") },
+                { id: "level", header: d("ui.common.level") },
+                { id: "bonusXp", header: d("ui.fightend.bonus") },
+                { id: "delete" }];
+
+        this.charactersTable = y.appendChild(new f(z, null, { newScroller: !0 })),
+        this.charactersTable.addClassNames("characterTable"),
+        this.charactersTable.on("rowTap", function(t) { t.data && t !== n.selectedRow && (_("SELECT_CHARACTER"), e(t)) });
+        var w = v.createChild("div", { className: "buttonsDiv" }),
             T = w.appendChild(new p({
                 text: d("ui.charsel.changeServer"),
                 className: ["changeServerBtn", "blackButtonV2"],
@@ -94704,23 +95838,21 @@ return t.m = e, t.c = i, t.p = "", t(0)
     o(n, a), e.exports = n
 }, function(e, t) {}, function(e, t, i) {
     function n() {
-        p.call(this, {
-            className: "characUpdateWindow",
-            title: "Characteristic Update",
-            positionInfo: {
-                top: "c",
-                left: "c",
-                width: 470,
-                height: 300
-            }
-        }), this.on("open", function(e) {
+        p.call(this, { className: "characUpdateWindow", title: "Characteristic Update", positionInfo: { top: "c",
+                                                                                                        left: "c",
+                                                                                                        width: 470,
+                                                                                                        height: 300 }
+        }),
+        this.on("open", function(e) {
             var t = h.getWindow("characteristics");
             t.openState && (h.arrangeOpeningWindow(this.id, {
                 rightOf: t.id
             }), this.updateContent(e))
-        }), this.on("close", function() {
+        }), 
+        this.on("close", function() {
             c.hide()
-        }), this.closeButton.on("tap", function() {
+        }),
+        this.closeButton.on("tap", function() {
             d("CANCEL_BUTTON")
         })
     }
@@ -95556,7 +96688,16 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 colors: n.indexedColors,
                 isRiding: o,
                 isRideCameleon: o && window.gui.playerData.equippedMount.behaviors.indexOf(w) > -1
-            }, t.id = i.id, t.name = i.name, t.canRebreed = !1, t.canRecolor = !0, t.canReface = !1, t.canRename = !1, t.canRegender = !1, t.entityLook = i.entityLook, g.open("characterCreation", e)
+            },
+            t.id = i.id,
+            t.name = i.name,
+            t.canRebreed = !1,
+            t.canRecolor = !0,
+            t.canReface = !1,
+            t.canRename = !1,
+            t.canRegender = !1,
+            t.entityLook = i.entityLook,
+            g.open("characterCreation", e)
         });
         var u = a.createChild("div", {
             className: "leftButton"
@@ -96245,7 +97386,9 @@ return t.m = e, t.c = i, t.p = "", t(0)
                     className: "nameBox"
                 });
                 if (e.id > 0) {
-                    var i, o, a = window.gui.databases.Heads,
+                    var i,
+                        o,
+                        a = window.gui.databases.Heads,
                         r = L.getLookWithoutMount(e.entityLook);
                     if (!r) return;
                     var s = r.skins[1];
@@ -99636,7 +100779,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }, n.prototype._getOwnedTitles = function() {
         return this._titlesAndOrnaments && this._titlesAndOrnaments.titles
     }, n.prototype._updateCharacter = function(e) {
-        console.log("Setting character's look", e), this.character.setLook(e, {
+        console.log("Setting character's look", e);
+        this.character.setLook(e, {
             riderOnly: !0,
             direction: 2,
             boneType: "characters/",
@@ -101945,20 +103089,41 @@ return t.m = e, t.c = i, t.p = "", t(0)
             lumWidth: e.lumWidth || 16,
             lumHeight: e.lumHeight || 110,
             showHexButton: Boolean(e.showHexButton)
-        }, this.currentTint = [255, 0, 0], this.currentColor = [255, 0, 0], this.tintWrapper = this.createChild("div", {
-            className: "tintWrapper"
-        }), this.tintCanvas = this.tintWrapper.createChild("canvas", {
-            className: "tintCanvas"
-        }), this.tintCanvas.rootElement.width = this.params.tintWidth, this.tintCanvas.rootElement.height = this.params.tintHeight, o(this.tintCanvas), a(this.tintCanvas), this.tintCanvas.panelType = "tint", this.tintCanvas.on("slideStart", t), this.tintCanvas.on("slide", r), this.tintCanvas.on("slideEnd", i), this.tintCanvas.on("tapstart", t), this.tintCanvas.on("tap", n), this.tintCanvas.on("doubletap", this.openHexInput.bind(this)), this.tintPicker = this.tintWrapper.createChild("div", {
+        }, this.currentTint = [255, 0, 0],
+        this.currentColor = [255, 0, 0],
+        this.tintWrapper = this.createChild("div", {  className: "tintWrapper" }), 
+        this.tintCanvas = this.tintWrapper.createChild("canvas", { className: "tintCanvas"  }), 
+        this.tintCanvas.rootElement.width = this.params.tintWidth,
+        this.tintCanvas.rootElement.height = this.params.tintHeight,
+        o(this.tintCanvas),
+        a(this.tintCanvas),
+        this.tintCanvas.panelType = "tint",
+        this.tintCanvas.on("slideStart", t),
+        this.tintCanvas.on("slide", r),
+        this.tintCanvas.on("slideEnd", i),
+        this.tintCanvas.on("tapstart", t),
+        this.tintCanvas.on("tap", n),
+        this.tintCanvas.on("doubletap", this.openHexInput.bind(this)),
+        this.tintPicker = this.tintWrapper.createChild("div", {
             className: "tintPicker"
-        }), this.tintCanvas.picker = this.tintPicker, this.lumWrapper = this.createChild("div", {
+        }),
+        this.tintCanvas.picker = this.tintPicker, this.lumWrapper = this.createChild("div", {
             className: "lumWrapper"
-        }), this.lumCanvas = this.lumWrapper.createChild("canvas", {
+        }),
+        this.lumCanvas = this.lumWrapper.createChild("canvas", {
             className: "lumCanvas"
-        }), this.lumCanvas.rootElement.width = 1, this.lumCanvas.rootElement.height = this.params.lumHeight, o(this.lumCanvas), a(this.lumCanvas), this.lumCanvas.panelType = "lum", this.lumCanvas.on("slideStart", t), this.lumCanvas.on("slide", r), this.lumCanvas.on("slideEnd", i), this.lumCanvas.on("tapstart", t), this.lumCanvas.on("tap", n);
-        var b = this.lumPicker = this.lumWrapper.createChild("div", {
-            className: "lumPicker"
-        });
+        }),
+        this.lumCanvas.rootElement.width = 1,
+        this.lumCanvas.rootElement.height = this.params.lumHeight,
+        o(this.lumCanvas),
+        a(this.lumCanvas),
+        this.lumCanvas.panelType = "lum",
+        this.lumCanvas.on("slideStart", t),
+        this.lumCanvas.on("slide", r),
+        this.lumCanvas.on("slideEnd", i),
+        this.lumCanvas.on("tapstart", t),
+        this.lumCanvas.on("tap", n);
+        var b = this.lumPicker = this.lumWrapper.createChild("div", { className: "lumPicker" });
         if (this.lumCanvas.picker = b, b.dark = b.createChild("div", {
                 className: ["triangle", "black"]
             }), b.bright = b.createChild("div", {
@@ -102007,7 +103172,10 @@ return t.m = e, t.c = i, t.p = "", t(0)
             o = ~~e - this.params.lumWidth - h - n;
         o = o > 0 ? o : this.params.tintWidth, this.params.tintWidth = o;
         var a = ~~t;
-        this.params.tintHeight = a, this.tintCanvas.rootElement.width = o, this.tintCanvas.rootElement.height = a, this.tintCanvas.setStyles({
+        this.params.tintHeight = a,
+        this.tintCanvas.rootElement.width = o,
+        this.tintCanvas.rootElement.height = a,
+        this.tintCanvas.setStyles({
             width: o + "px",
             height: a + "px"
         }), this.params.lumHeight = this.params.showHexButton ? a - f : a, this.lumCanvas.rootElement.height = this.params.lumHeight, this.lumCanvas.setStyles({
@@ -103604,7 +104772,12 @@ return t.m = e, t.c = i, t.p = "", t(0)
         this.itemBox.displayItem(t || i || e)
     }, n.prototype._updateBonusTable = function(e, t) {
         var i = this;
-        this.bonusTable.clearContent(), this._logic.constructEffectInstances(e, t, this.selectedItemIds, this.itemSet, window.gui.playerData.inventory, function(e, t) {
+        this.bonusTable.clearContent(),
+        this._logic.constructEffectInstances(e, t,
+            this.selectedItemIds,
+            this.itemSet,
+            window.gui.playerData.inventory,
+            function(e, t) {
             return e ? console.error(e) : (i.bonusTable.clearContent(), void i._addEffectsToTable(t))
         })
     }, n.prototype._addEffectsToTable = function(e) {
@@ -103641,18 +104814,26 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
 
     function r(e, t, i) {
-        this._logger = e, a(this._logger), this._itemManager = t, a(this._itemManager), this._effectInstanceFactory = i, a(this._effectInstanceFactory)
+        this._logger = e,
+        a(this._logger),
+        this._itemManager = t,
+        a(this._itemManager),
+        this._effectInstanceFactory = i,
+        a(this._effectInstanceFactory)
     }
     var s = i(477),
         c = i(1113);
-    e.exports = r, r.prototype._mergeEffectInstances = function(e, t) {
+    e.exports = r,
+    r.prototype._mergeEffectInstances = function(e, t) {
         for (var i = [], n = {}, a = [], r = 0; r < e.length; r += 1) {
             var c = e[r];
             c && (c.effect.category === s.special ? a.push(c) : n[c.effectId] ? n[c.effectId].effect.useDice && (n[c.effectId].diceNum += c.diceNum || 0, n[c.effectId].diceSide += c.diceSide || 0, n[c.effectId].value += c.value || 0) : n[c.effectId] = o(c))
         }
         for (var l in n) n.hasOwnProperty(l) && i.push(o(n[l]));
-        i = i.concat(a), this._effectInstanceFactory.createEffectInstances(i, t)
-    }, r.prototype.constructEffectInstances = function(e, t, i, o, a, r) {
+        i = i.concat(a),
+        this._effectInstanceFactory.createEffectInstances(i, t)
+    },
+    r.prototype.constructEffectInstances = function(e, t, i, o, a, r) {
         var l, d = this,
             u = [],
             p = [],
@@ -109195,7 +110376,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
                     o = Math.ceil(i * this.cropping.y),
                     a = Math.ceil(i * this.cropping.w),
                     r = Math.ceil(i * this.cropping.h);
-                o = this.canvas.height - r - o, this.renderer.enableScissor(n, o, a, r)
+                o = this.canvas.height - r - o,
+                this.renderer.enableScissor(n, o, a, r)
             }
             this._composite(), this.cropping.isActive && this.renderer.disableScissor()
         }
@@ -109203,7 +110385,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
         for (var e = 0; e < this.updateList.length; e += 1) this.updateList[e].refreshAnimation();
         this.updateList.length = 0;
         var t = this.pixelRatio * this.camera.zoom * Math.min(this.w / this.canvas.width, this.h / this.canvas.height);
-        this.renderer.save(), this.renderer.translate(t / this.camera.zoom * this.viewWidth / 2, t / this.camera.zoom * this.viewHeight / 2), this.renderer.scale(t, t), this.renderer.translate(-this.camera.x, -this.camera.y);
+        this.renderer.save(),
+        this.renderer.translate(t / this.camera.zoom * this.viewWidth / 2, t / this.camera.zoom * this.viewHeight / 2), this.renderer.scale(t, t), this.renderer.translate(-this.camera.x, -this.camera.y);
         for (var i = this.displayList.first; null !== i; i = i.next) i.object.render();
         this._debug && this._renderDebug(), this.renderer.restore()
     }, a.prototype._renderDebug = function() {
@@ -114837,7 +116020,42 @@ return t.m = e, t.c = i, t.p = "", t(0)
     M(a, g), a.prototype.setSelected = function(e) {
         e ? this.addClassNames("selected") : this.delClassNames("selected")
     }, M(r, D), e.exports = r, r.prototype._reset = function() {
-        h(), this.step = ne, this.relookingParams = null, this._relookingPreviousValues = null, this.allBreeds = null, this.numBreeds = 0, this.headsMap = null, this.loadedHeads = [], this.lastRendering = 0, this._recommendedBreed = null, this._nameGeneratorUsed = !1, this._styleGeneratorUsed = !1, this._withoutMount = !1, this._withoutPet = !1, this._naked = !1, this.breedBtns = [], this.headContainers = [], this.nameInput = null, this.currentIllustration = null, this.breedIllustrationBg = this.breedIllustrationBgFade = null, this.breedBg = this.breedBgFade = null, this.breedDescription = null, this.breedName = null, this.breedStory = null, this.breedSelector = null, this.headSelector = null, this.colorPicker = null, this.colorButtons = null, this.selectedColor = null, this._currentColors = null, this._assetUrlCache = {}, this.spriteStatus = {}, this._breedId = 1, this._sex = ce, this._cosmeticId = 1, this.headOrder = 0
+        h(),
+        this.step = ne,
+        this.relookingParams = null,
+        this._relookingPreviousValues = null,
+        this.allBreeds = null,
+        this.numBreeds = 0,
+        this.headsMap = null,
+        this.loadedHeads = [],
+        this.lastRendering = 0,
+        this._recommendedBreed = null,
+        this._nameGeneratorUsed = !1,
+        this._styleGeneratorUsed = !1,
+        this._withoutMount = !1,
+        this._withoutPet = !1,
+        this._naked = !1,
+        this.breedBtns = [],
+        this.headContainers = [],
+        this.nameInput = null,
+        this.currentIllustration = null,
+        this.breedIllustrationBg = this.breedIllustrationBgFade = null,
+        this.breedBg = this.breedBgFade = null,
+        this.breedDescription = null,
+        this.breedName = null,
+        this.breedStory = null,
+        this.breedSelector = null,
+        this.headSelector = null,
+        this.colorPicker = null,
+        this.colorButtons = null,
+        this.selectedColor = null,
+        this._currentColors = null,
+        this._assetUrlCache = {},
+        this.spriteStatus = {},
+        this._breedId = 1,
+        this._sex = ce,
+        this._cosmeticId = 1, 
+        this.headOrder = 0
     }, r.prototype._setStyles = function() {
         this.windowBody.setClassNames(["windowBody", n(this._breedId)
             .bgClass
@@ -115151,13 +116369,40 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }, r.prototype.backButtonClose = function() {
         this._back()
     }, r.prototype._buildColorsArray = function() {
-        for (var e = new Array(A.CHARACTER_COLORS), t = [], i = 0; i < A.CHARACTER_COLORS; i++) {
-            var n = this.colorButtons[i],
-                o = n.getColor(),
-                a = T.getIndexedColor(i + 1, o.rgb[0], o.rgb[1], o.rgb[2]);
-            e[i] = a, t.push(n.isCustomColor() ? a : null)
+         const colorCount = A.CHARACTER_COLORS;
+
+        // Cria um array para armazenar todas as cores indexadas
+        const indexedColors = new Array(colorCount);
+
+        // Armazena somente as cores personalizadas (ou null, se não for)
+        const currentCustomColors = [];
+
+        for (let i = 0; i < colorCount; i++) {
+            const colorButton = this.colorButtons[i];
+            const color = colorButton.getColor(); // Ex: { rgb: [r, g, b] }
+
+            // Converte para uma cor indexada (formato específico do jogo)
+            const indexedColor = T.getIndexedColor(i + 1, color.rgb[0], color.rgb[1], color.rgb[2]);
+
+            // Adiciona ao array final de cores
+            indexedColors[i] = indexedColor;
+
+            // Se for uma cor personalizada, adiciona ao array auxiliar; caso contrário, null
+            currentCustomColors.push(colorButton.isCustomColor() ? indexedColor : null);
         }
-        return this._currentColors = t, e
+
+        // Salva as cores personalizadas atuais
+        this._currentColors = currentCustomColors;
+
+        return indexedColors;
+        
+        // for (var e = new Array(A.CHARACTER_COLORS), t = [], i = 0; i < A.CHARACTER_COLORS; i++) {
+        //     var n = this.colorButtons[i],
+        //         o = n.getColor(),
+        //         a = T.getIndexedColor(i + 1, o.rgb[0], o.rgb[1], o.rgb[2]);
+        //     e[i] = a, t.push(n.isCustomColor() ? a : null)
+        // }
+        // return this._currentColors = t, e
     }, r.prototype._selectCurrentHeads = function() {
         if (this.headSexTabs.isVisible()) {
             for (var e = 1, t = this.numBreeds; e <= t; e++) this.headContainers[e][ce].hide(), this.headContainers[e][le].hide();
@@ -115422,22 +116667,88 @@ return t.m = e, t.c = i, t.p = "", t(0)
             }), W.close(this.id);
             z.confirmCharacterRelooking(o)
         } else this.addClassNames(["disabled"]), document.activeElement.blur(), window.dofus.sendMessage("CharacterCreationRequestMessage", o)
-    }, r.prototype._buildEntityLook = function() {
-        var e = this._buildColorsArray(),
-            t = {
-                bonesId: 1,
-                indexedColors: e,
-                scales: [this.spriteStatus.scale],
-                skins: [this.spriteStatus.bodySkin, this.spriteStatus.headSkin],
-                subentities: []
-            };
-        if (this.relookingParams) {
-            var i = this.relookingParams.entityLook;
-            if (t.indexedColors = i.indexedColors, t.bonesId = i.bonesId, t.skins = i.skins, t.scales = i.scales, t.subentities = i.subentities, t.bonesId > 1 && t.subentities.length > 0) return this._isRiding = !0, t.subentities[0].subEntityLook.indexedColors = e, (this.relookingParams.characterToRemodel.isRiding && this.relookingParams.characterToRemodel.isRideCameleon || !this.relookingParams.characterToRemodel.isRiding) && (t.indexedColors = T.getMountIndexedColor(e)), t.subentities[0].subEntityLook.skins[0] = this.spriteStatus.bodySkin, t.subentities[0].subEntityLook.skins[1] = this.spriteStatus.headSkin, t;
-            t.subentities.length > 0 && (t.subentities[0].subEntityLook.indexedColors = e), t.indexedColors = e, t.skins[0] = this.spriteStatus.bodySkin, t.skins[1] = this.spriteStatus.headSkin
+    }, 
+    r.prototype._buildEntityLook = function() {
+       // #EntityLook Builder
+       // Monta o array de cores indexadas
+    const indexedColors = this._buildColorsArray();
+
+    // Cria a estrutura base da aparência da entidade
+    const entityLook = {
+        bonesId: 1,
+        indexedColors: indexedColors,
+        scales: [this.spriteStatus.scale],
+        skins: [this.spriteStatus.bodySkin, this.spriteStatus.headSkin],
+        subentities: []
+    };
+
+    // Se houver parâmetros de relooking (personalização)
+    if (this.relookingParams) {
+        const relook = this.relookingParams.entityLook;
+        const character = this.relookingParams.characterToRemodel;
+
+        // Copia as propriedades do relooking para a aparência da entidade
+        entityLook.bonesId = relook.bonesId;
+        entityLook.indexedColors = relook.indexedColors;
+        entityLook.skins = relook.skins;
+        entityLook.scales = relook.scales;
+        entityLook.subentities = relook.subentities;
+
+        const hasMount = entityLook.bonesId > 1 && entityLook.subentities.length > 0;
+
+        if (hasMount) {
+            // Marca como montado (montaria)
+            this._isRiding = true;
+
+            // Atualiza as cores da montaria
+            entityLook.subentities[0].subEntityLook.indexedColors = indexedColors;
+
+            // Se for camaleão ou não estiver montado, aplica cores da montaria
+            const isCameleon = character.isRideCameleon;
+            const isRiding = character.isRiding;
+
+            if ((isRiding && isCameleon) || !isRiding) {
+                entityLook.indexedColors = T.getMountIndexedColor(indexedColors);
+            }
+
+            // Define os skins personalizados na subentidade (montaria)
+            entityLook.subentities[0].subEntityLook.skins[0] = this.spriteStatus.bodySkin;
+            entityLook.subentities[0].subEntityLook.skins[1] = this.spriteStatus.headSkin;
+
+            return entityLook;
         }
-        return t
-    }, r.prototype._drawCharacter = function(e) {
+
+        // Caso não esteja montado, apenas atualiza as cores e skins principais
+        if (entityLook.subentities.length > 0) {
+            entityLook.subentities[0].subEntityLook.indexedColors = indexedColors;
+        }
+
+        entityLook.indexedColors = indexedColors;
+        entityLook.skins[0] = this.spriteStatus.bodySkin;
+        entityLook.skins[1] = this.spriteStatus.headSkin;
+    }
+
+    return entityLook;
+
+        // var e = this._buildColorsArray(),
+        //     t = {
+        //         bonesId: 1,
+        //         indexedColors: e,
+        //         scales: [this.spriteStatus.scale],
+        //         skins: [this.spriteStatus.bodySkin, this.spriteStatus.headSkin],
+        //         subentities: []
+        //     };
+
+        // if (this.relookingParams) {
+        //     var i = this.relookingParams.entityLook;
+        //     if (t.indexedColors = i.indexedColors, t.bonesId = i.bonesId, t.skins = i.skins, t.scales = i.scales, t.subentities = i.subentities, t.bonesId > 1 && t.subentities.length > 0) return this._isRiding = !0, t.subentities[0].subEntityLook.indexedColors = e, (this.relookingParams.characterToRemodel.isRiding && this.relookingParams.characterToRemodel.isRideCameleon || !this.relookingParams.characterToRemodel.isRiding) && (t.indexedColors = T.getMountIndexedColor(e)), t.subentities[0].subEntityLook.skins[0] = this.spriteStatus.bodySkin, t.subentities[0].subEntityLook.skins[1] = this.spriteStatus.headSkin, t;
+        //     t.subentities.length > 0 && (t.subentities[0].subEntityLook.indexedColors = e), t.indexedColors = e, t.skins[0] = this.spriteStatus.bodySkin, t.skins[1] = this.spriteStatus.headSkin
+        // }
+
+        // return t
+    }, 
+    
+    r.prototype._drawCharacter = function(e) {
         this.lastRendering = Date.now();
         var t = this;
         this.characterDisplay.setLook(this._buildEntityLook(), {
@@ -125123,7 +126434,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
             }
         }), this._featureId = 0;
         var e = this;
-        this.toaQuestFinished = !1, s.on("FeatureEnabledMessage", function(t) {
+        this.toaQuestFinished = !1,
+        s.on("FeatureEnabledMessage", function(t) {
             e.displayFeature(t)
         }), this.on("open", function(e) {
             this._featureId = e.feature;
@@ -130688,10 +132000,13 @@ return t.m = e, t.c = i, t.p = "", t(0)
         a.call(this, "div", {
             className: ["loginScreen", "screen"],
             hidden: !0
-        }), q = m.isWebGlSupported(), this._connectMethod = b.getValue("connectMethod", x, !0);
+        }),
+        q = m.isWebGlSupported(),
+        this._connectMethod = b.getValue("connectMethod", x, !0);
         var e = window.gui,
             t = this;
-        this._changeLangMethod = U.UPDATE_DOM, this.once("show", function() {
+        this._changeLangMethod = U.UPDATE_DOM,
+        this.once("show", function() {
             B = {
                 de: d("tablet.language.de"),
                 en: d("tablet.language.en"),
@@ -130699,12 +132014,18 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 fr: d("tablet.language.fr"),
                 it: d("tablet.language.it"),
                 pt: d("tablet.language.pt")
-            }, this._createContent(), this._updateContent()
-        }), e.on("NicknameRegistrationMessage", function() {
+            },
+            this._createContent(),
+            this._updateContent()
+        }),
+        e.on("NicknameRegistrationMessage", function() {
             M.open("nickname")
-        }), window.dofus.on("wasAlreadyConnected", function() {
-            e.openSimplePopup(d("ui.connection.disconnectAccount"), d("ui.popup.warning"))
-        }), O.setCallback(function(i, n) {
+        }),
+        window.dofus.on("wasAlreadyConnected", function() {
+            e.openSimplePopup(d("ui.connection.disconnectAccount"),
+            d("ui.popup.warning"))
+        }),
+        O.setCallback(function(i, n) {
             return i ? (console.error(i), t.displayAppropriateForm(), e.openSimplePopup(d("ui.webauth.errorOnLogin"))) : void(n && (O.isWebAuthValidateGuest() && (b.delValue("guestAccount"), b.saveNow()), t._loginsForm.disableButtons(!0), t._continueGuestForm.disableButtons(!0), t.hidePlayGuest(!0), t.hideContinueGuest(!0), O.requestWebAuthToken(n, function(i, n, o, a) {
                 if (i) return console.error(i), t.displayAppropriateForm(), e.openSimplePopup(d("ui.webauth.errorOnTokenValidation"));
                 if (a) {
@@ -130719,8 +132040,7 @@ return t.m = e, t.c = i, t.p = "", t(0)
         })
     }
     i(1439);
-    var o = i(56)
-        .inherits,
+    var o = i(56).inherits,
         a = i(72),
         r = i(91),
         s = i(86),
@@ -130736,8 +132056,7 @@ return t.m = e, t.c = i, t.p = "", t(0)
         M = i(52),
         g = i(1314),
         _ = i(130),
-        A = i(34)
-        .logger,
+        A = i(34).logger,
         O = i(143),
         v = i(1440),
         y = i(1442),
@@ -130748,10 +132067,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
         I = i(66),
         S = i(594),
         E = i(1316),
-        L = i(1453)
-        .connectMethod,
-        N = i(1454)
-        .changeVersion,
+        L = i(1453).connectMethod,
+        N = i(1454).changeVersion,
         R = i(1317),
         q = !0,
         x = L.lastCharacter,
@@ -130766,7 +132083,9 @@ return t.m = e, t.c = i, t.p = "", t(0)
             UPDATE_DOM: 0,
             RELOAD_PAGE: 1
         };
-    o(n, a), e.exports = n, n.prototype._createContent = function() {
+    o(n, a),
+    e.exports = n,
+    n.prototype._createContent = function() {
         function e(e) {
             n.forumOpenend = !e, n._newsBlock.toggleDefaultTapBehaviour(e), n._newsBlock.tabs.forEach(function(t) {
                 t.toggleClassName("closed", !e)
@@ -130800,7 +132119,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
         })), this._forumBlock = this._leftColumn.appendChild(new C({
             onTabTap: i
         })), this._loginsForm = this._verticalPositioner.appendChild(new y(this)), this._continueGuestForm = this._verticalPositioner.appendChild(new z(this)), this._continueGuestFollowForm = this._verticalPositioner.appendChild(new w(this)), this._continueForm = this._verticalPositioner.appendChild(new v(this)), this.displayAppropriateForm(), this._createTopButtons(), this._createSocialButtons(), this._audioSetup()
-    }, n.prototype._createTopButtons = function() {
+    },
+    n.prototype._createTopButtons = function() {
         var e = this,
             t = this.createChild("div", {
                 className: "topButtons"
@@ -130826,21 +132146,24 @@ return t.m = e, t.c = i, t.p = "", t(0)
         }), this._langSelectorContent = this._langSelector.createChild("div", {
             className: "langSelectorContent"
         }), this._createPreloadMapButton(t), this._createReloadButton(t), this._createLangButton(t)
-    }, n.prototype._createPreloadMapButton = function(e) {
+    },
+    n.prototype._createPreloadMapButton = function(e) {
         e.appendChild(new s({
             className: ["settingsButton", "rightButton", "simpleButton"],
             addIcon: !0
         }, function() {
             R.loginScreenKPI("loginSettings"), M.open("loginSettings", {})
         }))
-    }, n.prototype._createReloadButton = function(e) {
+    },
+    n.prototype._createReloadButton = function(e) {
         e.appendChild(new s({
             className: ["reloadButton", "rightButton", "simpleButton"],
             addIcon: !0
         }, function() {
             window.location.reload()
         }))
-    }, n.prototype._createLangButton = function(e) {
+    },
+    n.prototype._createLangButton = function(e) {
         function t(e) {
             n._changeLanguage(e, i)
         }
@@ -130874,7 +132197,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
             }
             n._langSelector.toggleClassName("open", !0), n._tapListenerCloseLang.toggleClassName("open", !0), R.loginScreenKPI("langSelector")
         })
-    }, n.prototype._changeLanguage = function(e, t) {
+    },
+    n.prototype._changeLanguage = function(e, t) {
         var i = this;
         if (e !== t.language) return this._changeLangMethod === U.RELOAD_PAGE ? (b.setValue("lang", e), b.saveNow(), void window.location.reload()) : void l.initialize({
             language: e,
@@ -130882,36 +132206,24 @@ return t.m = e, t.c = i, t.p = "", t(0)
         }, A, _, function(n) {
             return n ? console.error("LoginScreen getText init", n) : (t.language = e, i.backToLogin(), b.setValue("lang", e, 1), void i._updateContent())
         })
-    }, n.prototype._createBottomLinks = function() {
+    }, 
+    n.prototype._createBottomLinks = function() {
         function e() {
             p.openUrlInAppBrowser(this.link)
         }
         var t = this,
-            i = this.createChild("div", {
-                className: "footer"
-            });
-        this._versionLabel = i.createChild("div", {
-            className: "globalMenuVersion"
-        });
-        var n = i.createChild("div", {
-            className: "divLinks"
-        });
-        this._tou = n.appendChild(new s({
-                className: ["link"]
-            })), n.createChild("div", {
-                className: "separator"
-            })
-            .setText("-"), this._gcs = n.appendChild(new s({
-                className: ["link"]
-            })), this._playGuestBtn = i.appendChild(new s({
-                className: "linkGuest"
-            })), this._playGuestBtn.on("tap", function() {
-                t._createGuest(), R.loginScreenKPI("createGuest")
-            }), this._continueGuestBtn = i.appendChild(new s({
-                className: "linkGuest"
-            })), this._continueGuestBtn.on("tap", function() {
-                t._continueGuest(), R.loginScreenKPI("goToGuestFollowByLink")
-            }), this._tou.on("tap", e), this._gcs.on("tap", e)
+            i = this.createChild("div", { className: "footer" });
+        this._versionLabel = i.createChild("div", { className: "globalMenuVersion" });
+        var n = i.createChild("div", { className: "divLinks" });
+        this._tou = n.appendChild(new s({ className: ["link"] })),
+            n.createChild("div", { className: "separator" }).setText("-"),
+        this._gcs = n.appendChild(new s({ className: ["link"] })),
+        this._playGuestBtn = i.appendChild(new s({ className: "linkGuest" })),
+        this._playGuestBtn.on("tap", function() { t._createGuest(), R.loginScreenKPI("createGuest") }),
+        this._continueGuestBtn = i.appendChild(new s({ className: "linkGuest" })),
+        this._continueGuestBtn.on("tap", function() { t._continueGuest(), R.loginScreenKPI("goToGuestFollowByLink") }),
+        this._tou.on("tap", e),
+        this._gcs.on("tap", e)
     }, n.prototype._createSocialButtons = function() {
         function e() {
             var e = window.Config.language;
@@ -130948,27 +132260,33 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }, n.prototype.getGuestAccount = function() {
         var e = b.getValue("guestAccount", null, !0);
         return e
-    }, n.prototype.hasGuestAccount = function() {
+    },
+    n.prototype.hasGuestAccount = function() {
         var e = this.getGuestAccount(),
             t = Boolean(e && e.login && e.password);
         return !window.Config.disabledFeatures.guest && t
-    }, n.prototype.hasAccount = function() {
+    },
+    n.prototype.hasAccount = function() {
         return u.getHaapiKeyManager()
             .hasKeyFromStorage()
-    }, n.prototype.playWithGuest = function() {
+    },
+    n.prototype.playWithGuest = function() {
         var e = this.getGuestAccount();
         return e.login && e.password ? this._login({
             account: e.login,
             password: e.password
         }) : console.error(new Error("Can not play with a Guest Account that does not exist"))
-    }, n.prototype.continuePlay = function() {
+    },
+    n.prototype.continuePlay = function() {
         return u.getHaapiKeyManager()
             .resetHaapiKey({
                 keepInStorage: !0
             }), this._login()
-    }, n.prototype.disconnectAccount = function() {
+    },
+    n.prototype.disconnectAccount = function() {
         u.deleteApiKey(), this.displayAppropriateForm()
-    }, n.prototype._createGuest = function() {
+    },
+    n.prototype._createGuest = function() {
         function e() {
             O.requestWebAuthGuestToken(function(e, i) {
                 return e ? (t.displayAppropriateForm(), window.gui.openSimplePopup(d("ui.secureMode.error.default")), void console.error("LoginsScreen#_createGuest error:", e)) : O.requestWebAuthKey({
@@ -130981,9 +132299,11 @@ return t.m = e, t.c = i, t.p = "", t(0)
             onValidate: e,
             isModal: !0
         })
-    }, n.prototype._continueGuest = function() {
+    },
+    n.prototype._continueGuest = function() {
         this.showContinueGuestFollowForm()
-    }, n.prototype.hidePlayGuest = function(e) {
+    },
+    n.prototype.hidePlayGuest = function(e) {
         this._playGuestBtn.toggleDisplay(!e && !window.Config.disabledFeatures.guest)
     }, n.prototype.hideContinueGuest = function(e) {
         this._continueGuestBtn.toggleDisplay(!e && !window.Config.disabledFeatures.guest)
@@ -131049,13 +132369,32 @@ return t.m = e, t.c = i, t.p = "", t(0)
             return n ? t(n) : (window.gui.splashScreen.show(), h.startLoginProcess(i._connectMethod, e, t))
         })
     }, n.prototype.refreshForms = function() {
-        this._loginsForm.refresh(), this._continueGuestForm.refresh(), this._continueGuestFollowForm.refresh(), this._continueForm.refresh()
+        this._loginsForm.refresh(),
+        this._continueGuestForm.refresh(),
+        this._continueGuestFollowForm.refresh(),
+        this._continueForm.refresh()
     }, n.prototype._updateContent = function() {
         var e = this;
-        this.refreshForms(), this._playGuestBtn.setText(d("ui.login.playGuest")), this._continueGuestBtn.setText(d("ui.login.continueGuest")), this._newsBlock.refresh(), this._forumBlock.refresh(), this._langFlag.setText(window.Config.language), this._tou.setText(d("ui.legal.tou")), this._gcs.setText(d("ui.legal.gcs")), this._tou.link = d("ui.legal.linktou"), this._gcs.link = d("ui.legal.linkgcs"), this.socialButtons.updateContent(), this._versionLabel.setText(window.gui.getBuildVersion()), this.autoProposeRegistration && (this.autoProposeRegistration = !1, window.setTimeout(function() {
-                e.launchWebAuthValidateGuest()
-            }, 0)), window.gui.splashScreenNewsManager.show(), c.getContextMenu("generic")
-            .forceUpdateCancelButton(), this._updateForumBlockSize(), this.discordBetaBtn.setText(H), this._discordBetaDiv.toggleDisplay(!1), this._betaDiv.toggleDisplay(!window.Config.disabledFeatures.betaAccess), this.displayAppropriateForm()
+        this.refreshForms(),
+        this._playGuestBtn.setText(d("ui.login.playGuest")),
+        this._continueGuestBtn.setText(d("ui.login.continueGuest")),
+        this._newsBlock.refresh(),
+        this._forumBlock.refresh(),
+        this._langFlag.setText(window.Config.language),
+        this._tou.setText(d("ui.legal.tou")),
+        this._gcs.setText(d("ui.legal.gcs")),
+        this._tou.link = d("ui.legal.linktou"),
+        this._gcs.link = d("ui.legal.linkgcs"),
+        this.socialButtons.updateContent(),
+        this._versionLabel.setText(window.gui.getBuildVersion()),
+        this.autoProposeRegistration && (this.autoProposeRegistration = !1, window.setTimeout(function() { e.launchWebAuthValidateGuest() }, 0)),
+        window.gui.splashScreenNewsManager.show(),
+        c.getContextMenu("generic").forceUpdateCancelButton(),
+        this._updateForumBlockSize(),
+        this.discordBetaBtn.setText(H),
+        this._discordBetaDiv.toggleDisplay(!1),
+        this._betaDiv.toggleDisplay(!window.Config.disabledFeatures.betaAccess),
+        this.displayAppropriateForm()
     }, n.prototype.proposeRegistrationAfterGuestLimit = function() {
         var e = this;
         window.gui.openConfirmPopup({
@@ -131072,257 +132411,230 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
 }, function(e, t) {}, function(e, t, i) {
     function n(e) {
-        a.call(this, "div", {
-            className: ["ContinueForm", "rightColumn"],
-            hidden: !0
-        }), this.loginScreen = e;
+        a.call(this, "div", { className: ["ContinueForm", "rightColumn"], hidden: !0 }),
+        this.loginScreen = e;
         var t = this;
-        this.createChild("div", {
-            className: ["frame", "frame1"]
-        }), this.content = this.createChild("div", {
-            className: "content"
-        }), this.content.createChild("div", {
-            className: "dofusTouchLogo"
-        });
-        var i = this.content.createChild("div", {
-            className: "form"
-        });
-        this.betaDiv = this.createChild("div", {
-            className: "betaDiv"
-        });
-        var n = this.betaDiv.createChild("div", {
-            className: "bannerContainer"
-        });
-        n.createChild("div", {
-                className: "betaBanner"
-            }), this._descText = i.createChild("div", {
-                className: "descText"
-            }), this._continueBtn = i.createChild("div", {
-                className: "horizontalCenter"
-            })
-            .appendChild(new r({
-                className: ["bigWhiteButton", "continueButton"]
-            }, function() {
-                t._continue()
-            })), this._disconnectBtn = i.createChild("div", {
-                className: "horizontalCenter"
-            })
-            .appendChild(new r({
-                className: ["smallEmptyButton", "playOtherButton"]
-            }, function() {
-                t._disconnect()
-            }))
+        this.createChild("div", { className: ["frame", "frame1"] }),
+        this.content = this.createChild("div", { className: "content" }), 
+        this.content.createChild("div", { className: "dofusTouchLogo" });
+        var i = this.content.createChild("div", { className: "form" });
+        this.betaDiv = this.createChild("div", { className: "betaDiv" });
+        var n = this.betaDiv.createChild("div", { className: "bannerContainer" });
+            n.createChild("div", { className: "betaBanner" });
+
+        this._descText = i.createChild("div", { className: "descText" }),
+        this._continueBtn = i.createChild("div", { className: "horizontalCenter" }).appendChild(new r({ className: ["bigWhiteButton", "continueButton"]}, function() { t._continue() })), 
+        this._disconnectBtn = i.createChild("div", { className: "horizontalCenter" }).appendChild(new r({ className: ["smallEmptyButton", "playOtherButton"]}, function() { t._disconnect() }))
     }
     i(1441);
-    var o = i(56)
-        .inherits,
+    var o = i(56).inherits,
         a = i(72),
         r = i(86),
-        s = i(17)
-        .getText,
+        s = i(17).getText,
         c = i(1317),
         l = i(61);
-    o(n, a), e.exports = n, n.prototype._continue = function() {
-        this.disableButtons(!0), this.loginScreen.continuePlay(), c.loginScreenKPI("continuePlay")
-    }, n.prototype._disconnect = function() {
-        this.loginScreen.disconnectAccount(), c.loginScreenKPI("disconnect")
-    }, n.prototype.refresh = function() {
+    o(n, a), 
+    e.exports = n,
+    n.prototype._continue = function() {
+        this.disableButtons(!0),
+        this.loginScreen.continuePlay(),
+        c.loginScreenKPI("continuePlay")
+    }, 
+    n.prototype._disconnect = function() {
+        this.loginScreen.disconnectAccount(),
+        c.loginScreenKPI("disconnect")
+    }, 
+    n.prototype.refresh = function() {
         var e = l.getItem("UNIQUE_NICKNAME") || window.gui.playerData.loginName;
-        this._continueBtn.setText(s("ui.login.continueAccount", e)), this._disconnectBtn.setText(s("ui.login.disconnectAccount")), this._descText.setText(s("ui.login.continueAccountIntroText")), this.delClassNames("columnBeta")
-    }, n.prototype.disableButtons = function(e) {
+        this._continueBtn.setText(s("ui.login.continueAccount", e)),
+        this._disconnectBtn.setText(s("ui.login.disconnectAccount")),
+        this._descText.setText(s("ui.login.continueAccountIntroText"));
+        this.delClassNames("columnBeta")
+    }, 
+    n.prototype.disableButtons = function(e) {
         this._continueBtn.toggleClassName("disabled", e), this._disconnectBtn.toggleClassName("disabled", e)
     }
 }, function(e, t) {}, function(e, t, i) {
+    // #Frame - Login
     function n(e) {
-        a.call(this, "div", {
-            className: ["LoginsForm", "rightColumn"],
-            hidden: !0
-        }), this.loginScreen = e;
+        a.call(this, "div", { className: ["LoginsForm", "rightColumn"], hidden: !0 }), 
+        this.loginScreen = e;
         var t = this;
-        this.guestAccount = null, this.isAlreadyGuest = null, this.createChild("div", {
-            className: ["frame", "frame1"]
-        }), this.content = this.createChild("div", {
-            className: "content"
-        }), this.content.createChild("div", {
-            className: "dofusTouchLogo"
-        });
-        var i = this.content.createChild("div", {
-            className: "form"
-        });
-        this.betaDiv = this.createChild("div", {
-            className: "betaDiv"
-        });
-        var n = this.betaDiv.createChild("div", {
-            className: "bannerContainer"
-        });
-        n.createChild("div", {
-                className: "betaBanner"
-            }), this._descText = i.createChild("div", {
-                className: "descText"
-            }), this._playBtn = i.createChild("div", {
-                className: "horizontalCenter"
-            })
-            .appendChild(new r({
-                className: ["smallWhiteButton"],
-                sound: "OK_BUTTON"
-            })), this._separator = i.createChild("div", {
-                className: "separator"
-            }), this._shortcuts = i.createChild("div", {
-                className: "shortcuts"
-            });
+        this.guestAccount = null,
+        this.isAlreadyGuest = null,
+        this.createChild("div", { className: ["frame", "frame1"] }), 
+        this.content = this.createChild("div", { className: "content" }), 
+        this.content.createChild("div", { className: "dofusTouchLogo" });
+        var i = this.content.createChild("div", { className: "form" });
+
+        this.betaDiv = this.createChild("div", { className: "betaDiv" });
+        var n = this.betaDiv.createChild("div", { className: "bannerContainer" });
+            n.createChild("div", { className: "betaBanner" });
+
+        this._descText = i.createChild("div", { className: "descText" });
+        this._inputAccount = i.createChild("input", { className: "input" });
+        this._inputAccount.rootElement.placeholder = s("ui.login.placeholder.account");
+
+        this._inputPassword = i.createChild("input", { className: ["input"] });
+        this._inputPassword.rootElement.type = 'password';
+        this._inputPassword.rootElement.placeholder = s("ui.login.placeholder.password");
+
+        this._playBtn = i.createChild("div", { className: "horizontalCenter" })
+                        .appendChild(new r({ className: ["smallWhiteButton"], sound: "OK_BUTTON" }));
+        this._spanWarning = i.createChild("span");
+        if(window.Config.webAuth.shortcuts.length > 0){
+            this._separator = i.createChild("div", { className: "separator" });
+        }
+        this._shortcuts = i.createChild("div", { className: "shortcuts" });
+
+       
+        // Config vem do config.json enviado para o client
         var o = window.Config.webAuth.shortcuts;
         o.forEach(function(e) {
-            var i = t._shortcuts.createChild("div", {
-                className: "shortcutIcon"
-            });
+            var i = t._shortcuts.createChild("div", { className: "shortcutIcon" });
             c.preloadImage("ui/webAuthIcons/" + e.icon + ".png", function(e) {
                 i.setStyle("backgroundImage", e)
-            }), p(i), i.on("tap", function() {
-                d("OK_BUTTON"), u.loginScreenKPI(e.link + "Play"), t._launchWebAuth(e.link)
+            }),
+            p(i),
+            i.on("tap", function() {
+                d("OK_BUTTON"),
+                u.loginScreenKPI(e.link + "Play"),
+                t._launchWebAuth(e.link)
             })
-        }), this._playBtn.on("tap", function() {
-            u.loginScreenKPI("webAuthPlay"), t._launchWebAuth()
-        })
+        });
+
+        this._playBtn.on("tap", () =>{
+            let account = this._inputAccount.rootElement.value,
+                password = this._inputPassword.rootElement.value;
+
+                if(account === "" || account.length < 3) {
+                    window.gui.openSimplePopup(s("ui.login.validation.account"), s("ui.login.validation.title"));
+                    return;
+                }
+                else if(password === "" || password.length < 3) {
+                    window.gui.openSimplePopup(s("ui.login.validation.password"), s("ui.login.validation.title"));
+                    return;
+                }
+
+            this.disableButtons(true);
+            // POST > http://haapi.localhost:5555/json/Ankama/v5/Api/CreateApiKey
+            // Payload > login=levy&password=levy&game_id=18
+            this.loginScreen._login({ account, password });
+        });
     }
     i(1443);
-    var o = i(56)
-        .inherits,
+    var o = i(56).inherits,
         a = i(72),
         r = i(86),
-        s = i(17)
-        .getText,
+        s = i(17).getText,
         c = i(12),
         l = i(143),
-        d = i(91)
-        .playUiSound,
+        d = i(91).playUiSound,
         u = i(1317),
         p = i(63);
-    o(n, a), e.exports = n, n.prototype._launchWebAuth = function(e) {
-        l.requestWebAuthKey({
-            shortcut: e
-        })
-    }, n.prototype.refresh = function() {
-        this._playBtn.setText(s("ui.login.playAnkama")), this._separator.setText(s("ui.common.or")), this._descText.setText(s("ui.login.introText")), this.delClassNames("columnBeta")
-    }, n.prototype.disableButtons = function(e) {
-        this._shortcuts.toggleClassName("disabled", e), this._playBtn.toggleClassName("disabled", e)
+    o(n, a), e.exports = n, 
+    n.prototype._launchWebAuth = function(e) {
+        l.requestWebAuthKey({ shortcut: e })
+    }, 
+    n.prototype.refresh = function() {
+        if(window.Config.webAuth.shortcuts.length > 0){
+            this._separator.setText(s("ui.common.or"));
+        }
+        this._playBtn.setText(s("ui.login.playAnkama"));
+        this._descText.setText(s("ui.login.introText"));
+        this._inputPassword.rootElement.placeholder = s("ui.login.placeholder.password");
+        this._inputAccount.rootElement.placeholder = s("ui.login.placeholder.account");
+        this._inputAccount.rootElement.value = ""
+        this._inputPassword.rootElement.value = ""
+
+        this.delClassNames("columnBeta")
+    }, 
+    n.prototype.disableButtons = function(e) {
+        this._shortcuts.toggleClassName("disabled", e),
+        this._playBtn.toggleClassName("disabled", e)
+        this._inputAccount.toggleClassName("disabled", e)
+        this._inputPassword.toggleClassName("disabled", e)
     }
-}, function(e, t) {}, function(e, t, i) {
+}, 
+function(e, t) {}, function(e, t, i) {
     function n(e) {
-        a.call(this, "div", {
-            className: ["ContinueGuestForm", "rightColumn"],
-            hidden: !0
-        }), this.loginScreen = e;
+        a.call(this, "div", { className: ["ContinueGuestForm", "rightColumn"], hidden: !0 }),
+        this.loginScreen = e;
         var t = this;
-        this.guestAccount = null, this.createChild("div", {
-            className: ["frame", "frame1"]
-        }), this.content = this.createChild("div", {
-            className: "content"
-        }), this.content.createChild("div", {
-            className: "dofusTouchLogo"
-        });
-        var i = this.content.createChild("div", {
-            className: "form"
-        });
-        this.betaDiv = this.createChild("div", {
-            className: "betaDiv"
-        });
-        var n = this.betaDiv.createChild("div", {
-            className: "bannerContainer"
-        });
-        n.createChild("div", {
-                className: "betaBanner"
-            }), this._descText = i.createChild("div", {
-                className: "descText"
-            }), this._continueBtn = i.createChild("div", {
-                className: "horizontalCenter"
-            })
-            .appendChild(new r({
-                className: ["smallWhiteButton", "continueButton"]
-            }, function() {
-                t.loginScreen.showContinueGuestFollowForm(), c.loginScreenKPI("goToGuestFollow")
-            })), this._playOtherBtn = i.createChild("div", {
-                className: "horizontalCenter"
-            })
-            .appendChild(new r({
-                className: ["bigEmptyButton", "playOtherButton"]
-            }, function() {
-                t.loginScreen.showLoginsForm({
-                    hasGuest: !0
-                }), c.loginScreenKPI("playAnotherAccount")
-            }))
+        this.guestAccount = null, this.createChild("div", { className: ["frame", "frame1"] }),
+        this.content = this.createChild("div", { className: "content" }),
+        this.content.createChild("div", { className: "dofusTouchLogo" });
+        var i = this.content.createChild("div", { className: "form" });
+        this.betaDiv = this.createChild("div", { className: "betaDiv" });
+        var n = this.betaDiv.createChild("div", { className: "bannerContainer" });
+        n.createChild("div", { className: "betaBanner" }),
+        this._descText = i.createChild("div", { className: "descText" }),
+        this._continueBtn = i.createChild("div", { className: "horizontalCenter" })
+            .appendChild(new r({ className: ["smallWhiteButton", "continueButton"] }, function() { t.loginScreen.showContinueGuestFollowForm(), c.loginScreenKPI("goToGuestFollow") })),
+        this._playOtherBtn = i.createChild("div", { className: "horizontalCenter" })
+            .appendChild(new r({ className: ["bigEmptyButton", "playOtherButton"] }, function() { t.loginScreen.showLoginsForm({ hasGuest: !0 }), c.loginScreenKPI("playAnotherAccount") }))
     }
     i(1445);
-    var o = i(56)
-        .inherits,
+    var o = i(56).inherits,
         a = i(72),
         r = i(86),
-        s = i(17)
-        .getText,
+        s = i(17).getText,
         c = i(1317);
-    o(n, a), e.exports = n, n.prototype.refresh = function() {
-        this._continueBtn.setText(s("ui.login.continueAsGuest")), this._playOtherBtn.setText(s("ui.login.playOnAnotherAccount")), this._descText.setText(s("ui.login.continueGuestIntroText")), this.delClassNames("columnBeta")
-    }, n.prototype.disableButtons = function(e) {
-        this._continueBtn.toggleClassName("disabled", e), this._playOtherBtn.toggleClassName("disabled", e)
+    o(n, a),
+        e.exports = n,
+    n.prototype.refresh = function() {
+        this._continueBtn.setText(s("ui.login.continueAsGuest")),
+        this._playOtherBtn.setText(s("ui.login.playOnAnotherAccount")),
+        this._descText.setText(s("ui.login.continueGuestIntroText"))
+        this.delClassNames("columnBeta")
+    }, 
+    n.prototype.disableButtons = function(e) {
+        this._continueBtn.toggleClassName("disabled", e),
+        this._playOtherBtn.toggleClassName("disabled", e)
     }
 }, function(e, t) {}, function(e, t, i) {
     function n(e) {
-        a.call(this, "div", {
-            className: ["ContinueGuestFollow", "rightColumn"],
-            hidden: !0
-        }), this.loginScreen = e;
+        a.call(this, "div", { className: ["ContinueGuestFollow", "rightColumn"], hidden: !0 }),
+        this.loginScreen = e;
         var t = this;
-        this.createChild("div", {
-            className: ["frame", "frame1"]
-        }), this.content = this.createChild("div", {
-            className: "content"
-        }), this.content.createChild("div", {
-            className: "dofusTouchLogo"
-        });
-        var i = this.content.createChild("div", {
-            className: "form"
-        });
-        this.betaDiv = this.createChild("div", {
-            className: "betaDiv"
-        });
-        var n = this.betaDiv.createChild("div", {
-            className: "bannerContainer"
-        });
-        n.createChild("div", {
-                className: "betaBanner"
-            }), this._descText = i.createChild("div", {
-                className: "descText"
-            }), this._registerBtn = i.createChild("div", {
-                className: "horizontalCenter"
-            })
-            .appendChild(new r({
-                className: ["smallWhiteButton", "continueButton"]
-            }, function() {
-                t._registerGuest()
-            })), this._playGuestBtn = i.createChild("div", {
-                className: "horizontalCenter"
-            })
-            .appendChild(new r({
-                className: ["bigEmptyButton", "playOtherButton"]
-            }, function() {
-                t._playGuest()
-            }))
+        this.createChild("div", { className: ["frame", "frame1"] }), 
+        this.content = this.createChild("div", { className: "content" }), 
+        this.content.createChild("div", { className: "dofusTouchLogo" });
+        var i = this.content.createChild("div", { className: "form" });
+        this.betaDiv = this.createChild("div", { className: "betaDiv" });
+        var n = this.betaDiv.createChild("div", { className: "bannerContainer" });
+        n.createChild("div", { className: "betaBanner" }), 
+            this._descText = i.createChild("div", { className: "descText" }), 
+            this._registerBtn = i.createChild("div", { className: "horizontalCenter" }).appendChild(new r({ className: ["smallWhiteButton", "continueButton"]}, function() { t._registerGuest() })),
+            this._playGuestBtn = i.createChild("div", { className: "horizontalCenter" }).appendChild(new r({ className: ["bigEmptyButton", "playOtherButton"] }, function() { t._playGuest() }))
     }
     i(1447);
-    var o = i(56)
-        .inherits,
+    var o = i(56).inherits,
         a = i(72),
         r = i(86),
-        s = i(17)
-        .getText,
+        s = i(17).getText,
         c = i(1317);
-    o(n, a), e.exports = n, n.prototype._registerGuest = function() {
-        this.disableButtons(!0), this.loginScreen.launchWebAuthValidateGuest(), c.loginScreenKPI("registerGuest")
-    }, n.prototype._playGuest = function() {
-        this.disableButtons(!0), this.loginScreen.playWithGuest(), c.loginScreenKPI("playGuest")
-    }, n.prototype.refresh = function() {
-        this._registerBtn.setText(s("ui.login.registerAccount")), this._playGuestBtn.setText(s("ui.login.continueGuest")), this._descText.setText(s("ui.login.continueGuestFollowIntroText")), this.delClassNames("columnBeta")
-    }, n.prototype.disableButtons = function(e) {
-        this._registerBtn.toggleClassName("disabled", e), this._playGuestBtn.toggleClassName("disabled", e)
+    o(n, a),
+    e.exports = n,
+    n.prototype._registerGuest = function() {
+        this.disableButtons(!0),
+        this.loginScreen.launchWebAuthValidateGuest(),
+        c.loginScreenKPI("registerGuest")
+    },
+    n.prototype._playGuest = function() {
+        this.disableButtons(!0),
+        this.loginScreen.playWithGuest(),
+        c.loginScreenKPI("playGuest")
+    },
+    n.prototype.refresh = function() {
+        this._registerBtn.setText(s("ui.login.registerAccount")),
+        this._playGuestBtn.setText(s("ui.login.continueGuest")),
+        this._descText.setText(s("ui.login.continueGuestFollowIntroText"))
+        this.delClassNames("columnBeta")
+    },
+    n.prototype.disableButtons = function(e) {
+        this._registerBtn.toggleClassName("disabled", e),
+        this._playGuestBtn.toggleClassName("disabled", e)
     }
 }, function(e, t) {}, function(e, t, i) {
     function n(e, t) {
@@ -131331,33 +132643,42 @@ return t.m = e, t.c = i, t.p = "", t(0)
             hidden: !1
         });
         var i = this;
-        this.loginScreen = e, this._newsLoadedTime = 0, this._currentPage = 0, this._newsLang = null, this._transitioning = !1, this._setTimoutId = null, this._pageCount = p, this._carouselPages = [], this._banners = [], this._newsUrls = [], this._bannerTitles = [], this._date = [], this._dots = [], this._carousel = this.appendChild(new l({
-            onTap: c.openUrlInAppBrowser,
-            bannerTitle: !0,
-            defaultTapBehaviour: !0,
-            onTabTap: t.onTabTap,
-            heightRatio: t.heightRatio
-        })), this.tabs = this._carousel.bannerInfoWrappers, e.on("hide", function() {
-            i._carousel.clear()
-        })
+        this.loginScreen = e,
+        this._newsLoadedTime = 0,
+        this._currentPage = 0,
+        this._newsLang = null,
+        this._transitioning = !1,
+        this._setTimoutId = null,
+        this._pageCount = p,
+        this._carouselPages = [],
+        this._banners = [],
+        this._newsUrls = [],
+        this._bannerTitles = [],
+        this._date = [],
+        this._dots = [],
+        this._carousel = this.appendChild(new l({ onTap: c.openUrlInAppBrowser, bannerTitle: !0, defaultTapBehaviour: !0, onTabTap: t.onTabTap, heightRatio: t.heightRatio })),
+        this.tabs = this._carousel.bannerInfoWrappers,
+        e.on("hide", function() { i._carousel.clear() })
     }
     i(1449);
-    var o = i(56)
-        .inherits,
+    var o = i(56).inherits,
         a = i(72),
-        r = i(17)
-        .getText,
+        r = i(17).getText,
         s = i(142),
         c = i(16),
         l = i(1336),
         d = i(21),
         u = 288e5,
         p = 3;
-    o(n, a), e.exports = n, n.prototype.refresh = function() {
+    o(n, a),
+    e.exports = n,
+    n.prototype.refresh = function() {
         this._update()
-    }, n.prototype.toggleDefaultTapBehaviour = function(e) {
+    },
+    n.prototype.toggleDefaultTapBehaviour = function(e) {
         this._carousel.defaultTapBehaviour = e
-    }, n.prototype._update = function() {
+    },
+    n.prototype._update = function() {
         var e = window.Config,
             t = this;
         Date.now() - this._newsLoadedTime < u && this._newsLang === e.language || (t._carousel.update(), s.getNewsList(p, function(e, i) {
@@ -131369,15 +132690,18 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 e.imageUrl = e.image_url, e.date = r("ui.login.newsDate", r("ui.time.dateNumbers", i, n, o)), e.tapParam = e.url
             }), t._currentPage = 0, void t._carousel.setPages(i)) : t._noNewsFallback()
         }))
-    }, n.prototype._noNewsFallback = function() {
+    },
+    n.prototype._noNewsFallback = function() {
         this._carousel.clear(), this._carousel.setPages([{
             name: r("tablet.login.noNewsFallback"),
             className: "noNewsFallback",
             url: r("tablet.forum.link")
         }])
-    }, n.prototype.stopCarousel = function() {
+    },
+    n.prototype.stopCarousel = function() {
         this._carousel.pauseAutomatedChange()
-    }, n.prototype.resumeCarousel = function() {
+    },
+    n.prototype.resumeCarousel = function() {
         this._carousel.resumeAutomatedChange()
     }
 }, function(e, t) {}, function(e, t, i) {
@@ -132346,8 +133670,13 @@ return t.m = e, t.c = i, t.p = "", t(0)
                     }
                 })
             })
-        }), window.gui.on("NicknameRefusedMessage", function(e) {
-            A.setText(""), g.setText(s(b[e.reason])), g.toggleDisplay(!0), y.enable(), v.enable()
+        }), 
+        window.gui.on("NicknameRefusedMessage", function(e) {
+            A.setText(""),
+            g.setText(s(b[e.reason])),
+            g.toggleDisplay(!0),
+            y.enable(),
+            v.enable()
         }), this.on("open", function() {
             i.setTitle(s("ui.pseudoChoice.title")), o.setText(s("ui.pseudoChoice.help")), y.disable(), v.enable(), v.setText(s("ui.common.cancel")), y.setText(s("ui.common.validation")), m.focus(), g.hide()
         }), this.on("close", function() {
@@ -135446,17 +136775,33 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }, n.prototype.initialize = function() {
         this._init || (this._loadAnimations(), this._init = !0)
     }
-}, function(e, t, i) {
+}, 
+function(e, t, i) {
+    // PATH FINDER
     function n(e, t) {
-        this.i = e, this.j = t, this.floor = -1, this.zone = -1, this.speed = 1, this.weight = 0, this.candidateRef = null
+        this.i = e,
+        this.j = t,
+        this.floor = -1,
+        this.zone = -1,
+        this.speed = 1,
+        this.weight = 0,
+        this.candidateRef = null
     }
 
     function o(e, t) {
-        void 0 !== e && 1 & e.l ? (t.floor = e.f || 0, t.zone = e.z || 0, t.speed = 1 + (e.s || 0) / 10, t.zone !== z && (y = !1)) : (t.floor = -1, t.zone = -1)
+        void 0 !== e && 1 & e.l 
+            ? ( t.floor = e.f || 0,
+                t.zone = e.z || 0,
+                t.speed = 1 + (e.s || 0) / 10, t.zone !== z && (y = !1)) 
+            : ( t.floor = -1, t.zone = -1)
     }
 
     function a(e, t, i, n, o) {
-        this.i = e, this.j = t, this.w = i, this.d = n, this.path = o
+        this.i = e,
+        this.j = t,
+        this.w = i,
+        this.d = n,
+        this.path = o
     }
 
     function r(e, t) {
@@ -135546,11 +136891,13 @@ return t.m = e, t.c = i, t.p = "", t(0)
                     s = e.cells[a];
                 o(s, r)
             }
-    }, t.updateCellPath = function(e, t) {
+    },
+    t.updateCellPath = function(e, t) {
         var i = p.getMapPointFromCellId(e),
             n = _[i.x + 1][i.y + 1];
         o(t, n)
-    }, t.getPath = function(e, t, i, n, o) {
+    },
+    t.getPath = function(e, t, i, n, o) {
         var s, c;
         n = void 0 === n || Boolean(n);
         var d = h(e),
@@ -135570,7 +136917,9 @@ return t.m = e, t.c = i, t.p = "", t(0)
                         }
                     } return null !== g ? [e, f(g.i - 1, g.j - 1)] : (console.error(new Error("[pathFinder.getPath] Player is stuck in " + p + "/" + m)), [e])
         }
-        var C, I, S = u.x + 1,
+        var C,
+            I,
+            S = u.x + 1,
             E = u.y + 1;
         for (I in i) C = h(I), _[C.x + 1][C.y + 1].weight += b;
         for (var L = [], N = [], R = Math.sqrt((p - S) * (p - S) + (m - E) * (m - E)), q = new a(p, m, 0, R, null), x = null, B = q; q.i !== S || q.j !== E;) {
@@ -135597,7 +136946,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
         for (I in i) C = h(I), _[C.x + 1][C.y + 1].weight -= b;
         for (var H = []; null !== B;) H.unshift(f(B.i - 1, B.j - 1)), B = B.path;
         return H
-    }, t.getAccessibleCells = function(e, t) {
+    },
+    t.getAccessibleCells = function(e, t) {
         e += 1, t += 1;
         var i = _[e][t],
             n = _[e - 1][t],
@@ -135618,16 +136968,19 @@ return t.m = e, t.c = i, t.p = "", t(0)
             i: a.i - 1,
             j: a.j - 1
         }), c
-    }, t.compressPath = function(e) {
+    },
+    t.compressPath = function(e) {
         for (var t, i, n = [], o = e[0], a = -1, r = 0; r < e.length; r++) {
             var s, c = e[r],
                 l = h(c);
             s = 0 === r ? -1 : l.y === i ? l.x > t ? 7 : 3 : l.x === t ? l.y > i ? 1 : 5 : l.x > t ? l.y > i ? 0 : 6 : l.y > i ? 2 : 4, s !== a && (n.push(o + (s << 12)), a = s), o = c, t = l.x, i = l.y
         }
         return n.push(o + (a << 12)), n
-    }, t.normalizePath = function(e) {
+    },
+    t.normalizePath = function(e) {
         return d(e) ? e : u(e)
-    }, t.logPath = function(e) {
+    },
+    t.logPath = function(e) {
         e = e || [];
         var t, i, n = [];
         for (t = 0; t < 33; t += 1)
@@ -136530,7 +137883,12 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }, o.prototype.setUserCharacterData = function(e) {
         var t = e.id,
             i = e.entityLook;
-        this.userId = t, this.userActor.actorId = t, this.userActor.actorManager = this, this.userActor.data.name = e.name, this.userActor.data.playerId = t, this.setActorLook(t, i, {}, null)
+        this.userId = t,
+        this.userActor.actorId = t,
+        this.userActor.actorManager = this,
+        this.userActor.data.name = e.name,
+        this.userActor.data.playerId = t,
+        this.setActorLook(t, i, {}, null)
     }, o.prototype.switchUserActor = function(e) {
         if (this.userId !== e) {
             var t = this.getActor(e);
@@ -136540,6 +137898,7 @@ return t.m = e, t.c = i, t.p = "", t(0)
             this.actors[n] = this.userActor, this.userId = e, this.userActor = t, delete this.actors[e], i ? this.removeActor(n) : window.gui.fightManager.isFightersTurn(e) && window.isoEngine.tryDisplayUserMovementZone()
         }
     }, o.prototype.setActorLook = function(e, t, i, o) {
+        // APPAERENCE SKIN
         var a = o || n,
             r = this.getActor(e);
         if (!r) return console.warn("amsal: No actor with id", e), a();
@@ -136549,7 +137908,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
         return s || (C[e] = M.createFifo(), s = C[e]), s.push(function(e) {
             function n(e, t) {
                 r.staticAnim(function() {
-                    return e(), t()
+                    return e(),
+                    t()
                 })
             }
             return r.riderEntity = null, r.setLook(t, i, function() {
@@ -137335,7 +138695,9 @@ return t.m = e, t.c = i, t.p = "", t(0)
         }
         this.data.type = e._type
     }, o.prototype.updateRestrictions = function(e) {
-        if (this.data.humanoidInfo && (this.data.humanoidInfo.restrictions = e), this.canMoveDiagonally = !e.cantWalk8Directions, this.canMoveDiagonally === !1 && 0 === (1 & this.direction)) {
+        if (this.data.humanoidInfo && (this.data.humanoidInfo.restrictions = e),
+            this.canMoveDiagonally = !e.cantWalk8Directions,
+            this.canMoveDiagonally === !1 && 0 === (1 & this.direction)) {
             var t = this.direction + 1;
             t > 7 && (t = 1), this.setDisposition(this.position, t)
         }
@@ -143878,8 +145240,7 @@ return t.m = e, t.c = i, t.p = "", t(0)
         a = i(1533),
         r = i(1539),
         s = i(691),
-        c = i(91)
-        .playUiSound,
+        c = i(91).playUiSound,
         l = i(13),
         d = i(1509),
         u = i(1542),
@@ -143902,7 +145263,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 return n
             }
         }
-    }, o.prototype.playEmoteFromOption = function(e, t, i) {
+    },
+    o.prototype.playEmoteFromOption = function(e, t, i) {
         var n = this,
             o = t.emoteId || 0,
             a = this.actorManager.getActor(e);
@@ -143918,7 +145280,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
         } else h.getDataMap("Emoticons", [o], null, function(a, r) {
             return a ? i(a) : r[o] ? (m[o] = r[o], n.playEmoteFromOption(e, t, i)) : i()
         })
-    }, o.prototype.playEmote = function(e, t) {
+    },
+    o.prototype.playEmote = function(e, t) {
         t = t || n;
         var i = this.actorManager.getActor(e.actorId),
             o = this.checkAndConstructAnimType(e, i);
@@ -143931,14 +145294,16 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 isEmoteAnimated: !0
             }, t)
         })) : t()
-    }, o.prototype.playRelookedEmote = function(e) {
+    },
+    o.prototype.playRelookedEmote = function(e) {
         var t = this;
         window.actorManager.setActorLook(e.actorId, e.look, {
             noSmokeAnimation: !0
         }, function() {
             t.playEmote(e)
         })
-    }, o.prototype.playLevelUpAnimation = function(e) {
+    },
+    o.prototype.playLevelUpAnimation = function(e) {
         var t = this.actorManager.getActor(e);
         if (t) {
             var i, n = t.look;
@@ -144025,7 +145390,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 })
                 .start()
         }
-    }, o.prototype.playRoleplaySpellAnim = function(e, t) {
+    },
+    o.prototype.playRoleplaySpellAnim = function(e, t) {
         var i = new a;
         i.runSequence([e], function() {
             r(e), window.isoEngine.fightSequence.animSequence.launchAnimation(function(e) {
@@ -144102,10 +145468,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
         d = i(12),
         u = i(698),
         p = i(130),
-        h = i(430)
-        .Tween,
-        f = i(430)
-        .easing,
+        h = i(430).Tween,
+        f = i(430).easing,
         b = i(1174),
         m = i(1502),
         M = i(708),
@@ -144124,15 +145488,20 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 direction: -1
             }, !1), t.tween.stop(), t.frame = 0, e()
         }, i, "archivable")
-    }, n.prototype.hide = function() {
+    },
+    n.prototype.hide = function() {
         this.progressEgg.hide(), this.progressEgg.animManager.clear()
-    }, n.prototype.show = function() {
+    },
+    n.prototype.show = function() {
         this.progressEgg.show()
-    }, s.prototype._initLoadingProgress = function() {
+    },
+    s.prototype._initLoadingProgress = function() {
         this._loadingProgress = new n(this.mapScene), this._resetTransition()
-    }, s.prototype._resetTransition = function() {
+    },
+    s.prototype._resetTransition = function() {
         this._loadingFadeInTransitionRunning = !1, this._loadingProgressVisible = !1, this._waitingForMessage = !1, this._mapLoadingMessage = null, this._isMapLoading = !1, this._mapSceneTransitionGraphic = null
-    }, s.prototype.showLoadingProgress = function(e) {
+    },
+    s.prototype.showLoadingProgress = function(e) {
         var t = this._loadingProgress.progressEgg,
             i = t.animManager.nbFrames;
         this._loadingProgressVisible === !1 ? (this._loadingProgressVisible = !0, t.x = this.mapScene.w / 2, t.y = this.mapScene.h / 2, this._loadingProgress.show(), this._loadingProgress.progressEggFrameTween.reset()
@@ -144150,13 +145519,17 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 frame: (.7 * e + .4) * i
             }, 5)
             .start()
-    }, s.prototype._hideLoadingProgress = function() {
+    },
+    s.prototype._hideLoadingProgress = function() {
         this._loadingProgressVisible = !1, this._loadingProgress.hide()
-    }, s.prototype.mapTransitionDisconnect = function() {
+    },
+    s.prototype.mapTransitionDisconnect = function() {
         this._mapSceneTransitionGraphic && (this._mapSceneTransitionGraphic.remove(), this._resetTransition())
-    }, s.prototype._makeUserActorWalkInDirection = function(e, t) {
+    },
+    s.prototype._makeUserActorWalkInDirection = function(e, t) {
         this.makeActorWalkInDirection(this.actorManager.userActor, e, t)
-    }, s.prototype.makeActorWalkInDirection = function(e, t, i, n) {
+    },
+    s.prototype.makeActorWalkInDirection = function(e, t, i, n) {
         if (e) {
             var o;
             switch (t) {
@@ -144181,14 +145554,17 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 c = Math.sin(a) * v;
             e.walkToSceneCoordinate(e.x + s, e.y + c, o, y, n)
         } else if (console.error(new Error("makeActorWalkInDirection: actor is " + e)), n) return n()
-    }, s.prototype.launchMapTransition = function(e) {
+    },
+    s.prototype.launchMapTransition = function(e) {
         var t = this;
         this._loadingProgress.loadAssets(function() {
             t.mapScene.setShader("mapTransition"), t.emit("launchMapTransition", e), t._activateMapScene() ? (t._loadingProgress.progressEgg.alpha = 1, t.mapScene.renderingParams.ratio = 1, t._saveImageForTransition("black"), t._startLoading()) : t._loadingFadeInTransitionRunning === !1 && (t._isMapLoading ? t._startLoading() : (e && t._makeUserActorWalkInDirection(e, !1), t._runLoadingFadeInTransition()))
         })
-    }, s.prototype.cancelMapTransition = function(e) {
+    },
+    s.prototype.cancelMapTransition = function(e) {
         this.emit("cancelMapTransition", e), this.actorManager.userActor.setOnScreenPosition(this.actorManager.userActor.position), this._makeUserActorWalkInDirection(e, !0), this._waitingForMessage && this._runLoadingFadeOutTransition(), this._mapLoadingMessage = null, this._waitingForMessage = !1
-    }, s.prototype._saveImageForTransition = function(e) {
+    },
+    s.prototype._saveImageForTransition = function(e) {
         var t = O,
             i = t * this.mapScene.h / this.mapScene.w,
             n = this.mapScene.renderer,
@@ -144207,7 +145583,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
             isHudElement: !0,
             alpha: 1
         }, o.texture) : (this._mapSceneTransitionGraphic.clear(), this._mapSceneTransitionGraphic.texture = o.texture, this._mapSceneTransitionGraphic.show())
-    }, s.prototype._runLoadingFadeInTransition = function() {
+    },
+    s.prototype._runLoadingFadeInTransition = function() {
         this._loadingFadeInTransitionRunning = !0, this._waitingForMessage = !0, this.showLoadingProgress(0), new h(this._loadingProgress.progressEgg, ["alpha", "scaleX", "scaleY"])
             .from({
                 alpha: 0,
@@ -144232,7 +145609,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
             .onFinish(function() {
                 e._saveImageForTransition("current"), e._loadingFadeInTransitionRunning = !1, e._startLoading()
             })
-    }, s.prototype._runLoadingFadeOutTransition = function() {
+    },
+    s.prototype._runLoadingFadeOutTransition = function() {
         var e = this,
             t = this.mapScene;
         new h(this._loadingProgress.progressEgg, ["alpha", "scaleX", "scaleY"])
@@ -144267,7 +145645,8 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 t.setShader("unfiltering"), t.renderingParams.ratio = .15, e._hideLoadingProgress()
             })
             .start(), A.isRoleplayMode && this.makeActorWalkIn(this.actorManager.userActor)
-    }, s.prototype.makeActorWalkIn = function(e, t, i) {
+    }, 
+    s.prototype.makeActorWalkIn = function(e, t, i) {
         t = t || 100;
         var n, o = this.mapScene,
             a = e.x,
@@ -144289,24 +145668,35 @@ return t.m = e, t.c = i, t.p = "", t(0)
         }
         var m = r.ANGLE_PER_DIRECTION[n];
         e.x -= Math.cos(m) * v, e.y -= Math.sin(m) * v, e.walkToSceneCoordinate(a, s, n, y, i)
-    }, s.prototype.loadMap = function(e) {
-        this.changeMapTimeout ? (window.clearTimeout(this.changeMapTimeout), this.changeMapTimeout = null) : window.foreground.lock("loadMap"), this._mapLoadingMessage = e, this._loadingFadeInTransitionRunning === !1 && (this._waitingForMessage ? this._startLoading() : this.launchMapTransition())
-    }, s.prototype.reloadMap = function(e) {
+    },
+    s.prototype.loadMap = function(e) {
+        this.changeMapTimeout ? (window.clearTimeout(this.changeMapTimeout),
+                                this.changeMapTimeout = null )
+                              : window.foreground.lock("loadMap"),
+                                this._mapLoadingMessage = e,
+                                this._loadingFadeInTransitionRunning === !1 && (this._waitingForMessage ? this._startLoading() : this.launchMapTransition())
+    },
+    s.prototype.reloadMap = function(e) {
         var t = this;
-        return this.mapRenderer.isReady ? (this._updateMapInfoData(e, {
-            noMovementWaitReset: !0
-        }), window.foreground.show(), window.foreground.unlock("loadMap"), this.actorManager.updateMapInfoData(e), this.emit("mapLoaded", {
-            isReload: !0
-        }), void(this.interactiveBlink && this.highlightInteractivesWithDifferentType())) : void this.mapRenderer.once("ready", function() {
-            t.reloadMap(e)
-        })
+        return this.mapRenderer.isReady ? (
+            this._updateMapInfoData(e, { noMovementWaitReset: !0 }),
+            window.foreground.show(),
+            window.foreground.unlock("loadMap"),
+            this.actorManager.updateMapInfoData(e),
+            this.emit("mapLoaded", { isReload: !0 }),
+            void(this.interactiveBlink && this.highlightInteractivesWithDifferentType()))
+            : void this.mapRenderer.once("ready", function() { t.reloadMap(e) })
     };
     var z = null,
         w = null;
     s.prototype._startLoading = function() {
         var e = this._mapLoadingMessage;
         if (null !== e) {
-            this._mapLoadingMessage = null, this._waitingForMessage = !1, this.emit("mapChange", e), this.actorManager.userActor.staticAnim(), this.actorManager.pause();
+            this._mapLoadingMessage = null,
+            this._waitingForMessage = !1,
+            this.emit("mapChange", e),
+            this.actorManager.userActor.staticAnim(),
+            this.actorManager.pause();
             var t = e.mapId,
                 i = e.obstacleMapId;
             if (t !== w) {
@@ -144323,7 +145713,11 @@ return t.m = e, t.c = i, t.p = "", t(0)
                     }) : e()
                 }, function(e) {
                     d.loadJson(c, function(t) {
-                        return h = t, u && (h.obstacleMapId = i, h.cells = u.cells, h.midgroundLayer = o(h.midgroundLayer, u.midgroundLayer), h.atlasLayout = a(h.atlasLayout, u.atlasLayout)), e()
+                        return h = t, u && (
+                            h.obstacleMapId = i,
+                            h.cells = u.cells,
+                            h.midgroundLayer = o(h.midgroundLayer, u.midgroundLayer),
+                            h.atlasLayout = a(h.atlasLayout, u.atlasLayout)), e()
                     })
                 }, function(t) {
                     p.getDataMap("TacticalThemes", [e.tacticalModeId], null, function(i, n) {
@@ -144345,12 +145739,27 @@ return t.m = e, t.c = i, t.p = "", t(0)
                 })
             }
         }
-    }, s.prototype._loadMapAssets = function() {
+    }, 
+    s.prototype._loadMapAssets = function() {
         var e = z.msg,
             t = z.mapData,
             i = this;
         this.mapRenderer.setMap(z, function() {
-            return null !== z && w !== t.id ? void i._loadMapAssets() : (window.foreground.show(), window.foreground.unlock("loadMap"), c.fillPathGrid(t), i._updateMapInfoData(e), i.actorManager.updateMapInfoData(e), i.actorManager.unpause(), i.actorManager.userActor.moving = !1, _.unlockMessages(), i.emit("mapLoaded"), i._runLoadingFadeOutTransition(), i.interactiveBlink && i.highlightInteractivesWithDifferentType(), w = null, z = null, void(i._isMapLoading = !1))
+            return null !== z && w !== t.id ? void i._loadMapAssets() : (
+            window.foreground.show(),
+            window.foreground.unlock("loadMap"),
+            c.fillPathGrid(t), 
+            i._updateMapInfoData(e),
+            i.actorManager.updateMapInfoData(e),
+            i.actorManager.unpause(),
+            i.actorManager.userActor.moving = !1,
+            _.unlockMessages(),
+            i.emit("mapLoaded"),
+            i._runLoadingFadeOutTransition(),
+            i.interactiveBlink && i.highlightInteractivesWithDifferentType(),
+            w = null,
+            z = null,
+            void(i._isMapLoading = !1))
         })
     }
 }]);

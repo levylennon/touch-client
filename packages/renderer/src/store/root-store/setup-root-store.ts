@@ -10,6 +10,11 @@ import { RootStoreModel } from './root-store'
  * Setup the root state.
  */
 export async function setupRootStore() {
+  // Wait for lindoAPI to be available
+  while (!window.lindoAPI) {
+    await new Promise(resolve => setTimeout(resolve, 50))
+  }
+  
   window.lindoAPI.logger.info('setupRootStore')()
   // prepare the environment that will be associated with the RootStore.
   const env = await Promise.resolve({})
@@ -27,7 +32,7 @@ export async function setupRootStore() {
 
   const patchesFromMain: Array<string> = []
 
-  window.window.lindoAPI.subscribeToIPCPatch((patch: IJsonPatch) => {
+  window.lindoAPI.subscribeToIPCPatch((patch: IJsonPatch) => {
     console.debug({ patch })
     patchesFromMain.push(hash(patch))
     applyPatch(rootStore, patch)

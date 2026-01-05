@@ -37,7 +37,16 @@ export const App = () => {
     }
     if (didSetUpGameContextRef.current === false) {
       didSetUpGameContextRef.current = true
-      window.lindoAPI.fetchGameContext().then(setGameContext)
+      // Wait for lindoAPI to be available
+      const checkAndFetch = () => {
+        if (window.lindoAPI) {
+          window.lindoAPI.fetchGameContext().then(setGameContext).catch(console.error)
+        } else {
+          // Retry after a short delay
+          setTimeout(checkAndFetch, 50)
+        }
+      }
+      checkAndFetch()
     }
   }, [])
 

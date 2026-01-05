@@ -12,9 +12,239 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="screen-orientation" content="landscape" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <style>
+      /* Force landscape orientation on mobile devices */
+      @media screen and (max-width: 768px) and (orientation: portrait) {
+        html {
+          transform: rotate(90deg);
+          transform-origin: left top;
+          width: 100vh;
+          height: 100vw;
+          overflow-x: hidden;
+          position: absolute;
+          top: 100%;
+          left: 0;
+        }
+      }
+    </style>
+    <script>
+      // Lock screen orientation to landscape on mobile devices
+      if (window.screen && window.screen.orientation && window.screen.orientation.lock) {
+        window.screen.orientation.lock('landscape').catch(function(err) {
+          console.log('Orientation lock failed:', err);
+        });
+      } else if (screen && screen.lockOrientation) {
+        screen.lockOrientation('landscape');
+      } else if (screen && screen.mozLockOrientation) {
+        screen.mozLockOrientation('landscape');
+      } else if (screen && screen.msLockOrientation) {
+        screen.msLockOrientation('landscape');
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <!-- Web preload script (replaces Electron preload) - must load before main.tsx -->
+    <!-- Synchronous script to ensure titleBar is defined before React loads -->
+    <script>
+      // Initialize titleBar immediately (synchronously) if not in Electron
+      if (!window.electron && !window.titleBar) {
+        window.titleBar = {
+          updateTitle: function(title) {
+            document.title = title;
+          },
+          height: '0px' // No titlebar in web version
+        };
+      }
+    </script>
+    <script type="module">
+      // Initialize lindoAPI immediately if not in Electron
+      if (!window.electron && !window.lindoAPI) {
+        const API_BASE = window.location.origin;
+        let eventSource = null;
+        let patchCallbacks = [];
+        let clientId = '';
+        
+        // Create minimal API immediately
+        window.lindoAPI = {
+          fetchGameContext: async () => {
+            const response = await fetch(`${API_BASE}/api/game-context?windowId=${Date.now()}`);
+            return response.json();
+          },
+          fetchInitialStateAsync: async () => {
+            const response = await fetch(`${API_BASE}/api/state`);
+            return response.json();
+          },
+          subscribeToIPCPatch: (callback) => {
+            patchCallbacks.push(callback);
+            if (!eventSource) {
+              eventSource = new EventSource(`${API_BASE}/api/patch-stream?clientId=${clientId}`);
+              eventSource.onmessage = (event) => {
+                try {
+                  const data = JSON.parse(event.data);
+                  if (data.type === 'connected') {
+                    clientId = data.clientId;
+                  } else if (data.type === 'patch') {
+                    patchCallbacks.forEach(cb => cb(data.patch));
+                  }
+                } catch (error) {
+                  console.error('Error parsing patch stream:', error);
+                }
+              };
+            }
+            return () => {
+              patchCallbacks = patchCallbacks.filter(cb => cb !== callback);
+            };
+          },
+          forwardPatchToMain: (patch) => {
+            fetch(`${API_BASE}/api/patch`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(patch)
+            }).catch(console.error);
+          },
+          resetStore: () => {
+            fetch(`${API_BASE}/api/reset-store`, { method: 'POST' }).catch(console.error);
+          },
+          subscribeToNewTab: () => () => {},
+          subscribeToSelectTab: () => () => {},
+          subscribeToNextTab: () => () => {},
+          subscribeToPrevTab: () => () => {},
+          subscribeToCloseTab: () => () => {},
+          subscribeToUpdateProgress: () => () => {},
+          fetchGameInfo: async () => true,
+          appReadyToShow: () => {},
+          openOptionWindow: () => { window.location.hash = '#/option'; },
+          focusCurrentWindow: () => { window.focus(); },
+          closeOptionWindow: () => { if (window.location.hash === '#/option') window.location.hash = ''; },
+          setAudioMuteWindow: (value) => {
+            fetch(`${API_BASE}/api/audio-mute`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ value })
+            }).catch(console.error);
+          },
+          saveMasterPassword: async (password) => {
+            await fetch(`${API_BASE}/api/multi-account/save-password`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ password })
+            });
+          },
+          isMasterPasswordConfigured: async () => {
+            const response = await fetch(`${API_BASE}/api/multi-account/is-configured`);
+            const data = await response.json();
+            return data.configured;
+          },
+          saveCharacterImage: (args) => {
+            fetch(`${API_BASE}/api/character-image`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(args)
+            }).catch(console.error);
+          },
+          unlockApplication: async (password) => {
+            const response = await fetch(`${API_BASE}/api/multi-account/unlock`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ password })
+            });
+            const data = await response.json();
+            return data.success;
+          },
+          closeUnlockWindow: () => { if (window.location.hash === '#/unlock') window.location.hash = ''; },
+          selectTeamToConnect: (teamId) => {
+            fetch(`${API_BASE}/api/multi-account/select-team`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ teamId })
+            }).catch(console.error);
+          },
+          encryptCharacterPassword: async (password) => {
+            const response = await fetch(`${API_BASE}/api/multi-account/encrypt`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ password })
+            });
+            const data = await response.json();
+            return data.encrypted;
+          },
+          decryptCharacterPassword: async (encrypted) => {
+            const response = await fetch(`${API_BASE}/api/multi-account/decrypt`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ encrypted })
+            });
+            const data = await response.json();
+            return data.decrypted;
+          },
+          changeMasterPassword: async (masterPassword, oldPassword) => {
+            const response = await fetch(`${API_BASE}/api/multi-account/change-password`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ masterPassword, oldPassword })
+            });
+            const data = await response.json();
+            return data.success;
+          },
+          removeMasterPassword: async () => {
+            await fetch(`${API_BASE}/api/multi-account/remove-password`, { method: 'POST' });
+          },
+          subscribeToAutoGroupPathInstruction: () => () => {},
+          sendAutoGroupPathInstruction: (instruction) => {
+            fetch(`${API_BASE}/api/auto-group`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(instruction)
+            }).catch(console.error);
+          },
+          resetGameData: () => {
+            fetch(`${API_BASE}/api/reset-game-data`, { method: 'POST' }).catch(console.error);
+          },
+          clearCache: () => {
+            fetch(`${API_BASE}/api/clear-cache`, { method: 'POST' })
+              .then(() => alert('Cache cleared. Please refresh your browser.'))
+              .catch(console.error);
+          },
+          logger: {
+            debug: (...args) => {
+              fetch(`${API_BASE}/api/log`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ level: 'debug', params: args })
+              }).catch(() => {});
+              return console.debug.bind(console, ...args);
+            },
+            info: (...args) => {
+              fetch(`${API_BASE}/api/log`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ level: 'info', params: args })
+              }).catch(() => {});
+              return console.info.bind(console, ...args);
+            },
+            warn: (...args) => {
+              fetch(`${API_BASE}/api/log`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ level: 'warn', params: args })
+              }).catch(() => {});
+              return console.warn.bind(console, ...args);
+            },
+            error: (...args) => {
+              fetch(`${API_BASE}/api/log`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ level: 'error', params: args })
+              }).catch(() => {});
+              return console.error.bind(console, ...args);
+            }
+          }
+        };
+      }
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

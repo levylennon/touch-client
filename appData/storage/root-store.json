@@ -1,0 +1,195 @@
+{
+  "rootStore": {
+    "optionStore": {
+      "window": {
+        "fullScreen": true,
+        "resolution": {
+          "width": 800,
+          "height": 600
+        },
+        "soundOnFocus": true,
+        "audioMuted": false
+      },
+      "gameGeneral": {
+        "activeOpenMenu": true,
+        "hiddenShop": false,
+        "preventInactivityDisconnect": true,
+        "zaapSearchFilter": true
+      },
+      "gameFight": {
+        "healthBar": true,
+        "damageEstimator": true,
+        "verticalTimeline": false,
+        "challengeBonus": false,
+        "focusOnFightTurn": true,
+        "fightChronometer": true,
+        "monsterTooltip": true
+      },
+      "gameGroup": {
+        "groupProspecting": true,
+        "groupLevel": true,
+        "partyMemberOnMap": true,
+        "enterGroupFight": false,
+        "skipReadyInFight": false,
+        "followLeader": false,
+        "followLeaderOnMap": false,
+        "followStrictMove": false,
+        "autoGrouping": false,
+        "autoGroupLeaderName": "",
+        "autoGroupMembersName": [],
+        "disableTimer": false
+      },
+      "gameJob": {
+        "xpRemainingBeforeLevelUp": false,
+        "harvestTimeIndicator": true,
+        "mapResources": false
+      },
+      "gameNotification": {
+        "privateMessage": true,
+        "fightTurn": true,
+        "taxCollector": true,
+        "kolizeum": true,
+        "partyInvitation": true,
+        "aggression": true,
+        "itemSold": false
+      },
+      "multiAccountEnabled": false
+    },
+    "appStore": {
+      "userId": "76d8adcb-2d6b-403f-ab4c-9d671a2f7f61",
+      "appVersion": "1.0.0",
+      "buildVersion": "1.0.0",
+      "lindoVersion": "3.0.0-rc.12",
+      "_language": "en",
+      "dofusTouchEarly": false
+    },
+    "hotkeyStore": {
+      "window": {
+        "newTab": "CmdOrCtrl+T",
+        "closeTab": "CmdOrCtrl+W",
+        "newWindow": "CmdOrCtrl+N",
+        "nextTab": "Down",
+        "prevTab": "Up",
+        "activTab": "CmdOrCtrl+Tab",
+        "tabs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4",
+          "F5",
+          "F6",
+          "F7",
+          "F8"
+        ]
+      },
+      "gameAction": {
+        "endTurn": "Backspace",
+        "openChat": "Return",
+        "openMenu": "",
+        "goUp": "CmdOrCtrl+Up",
+        "goDown": "CmdOrCtrl+Down",
+        "goLeft": "CmdOrCtrl+Left",
+        "goRight": "CmdOrCtrl+Right",
+        "showMonsterTooltips": ""
+      },
+      "gameInterface": {
+        "carac": "C",
+        "spell": "S",
+        "bag": "I",
+        "bidHouse": "H",
+        "map": "M",
+        "friend": "F",
+        "book": "Q",
+        "dailyQuest": "X",
+        "conquest": "K",
+        "goultine": "R",
+        "job": "J",
+        "guild": "G",
+        "mount": "N",
+        "directory": "",
+        "alignment": "",
+        "bestiary": "B",
+        "title": "T",
+        "achievement": "U",
+        "alliance": "",
+        "spouse": "L",
+        "spells": [
+          "",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "items": [
+          "CmdOrCtrl+1",
+          "CmdOrCtrl+2",
+          "CmdOrCtrl+3",
+          "CmdOrCtrl+4",
+          "CmdOrCtrl+5",
+          "CmdOrCtrl+6",
+          "CmdOrCtrl+7",
+          "CmdOrCtrl+8",
+          "CmdOrCtrl+9",
+          "CmdOrCtrl+0",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      },
+      "gameMod": {
+        "mapResources": "",
+        "toggleHealthBar": ""
+      }
+    },
+    "modStore": {
+      "gripPosition": {}
+    }
+  }
+}

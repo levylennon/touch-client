@@ -71,8 +71,36 @@ export default defineConfig({
     }
   },
   server: {
-    host: pkg.env.VITE_DEV_SERVER_HOST,
-    port: pkg.env.VITE_DEV_SERVER_PORT
+    host: pkg.env.VITE_DEV_SERVER_HOST || '0.0.0.0', // Allow access from other devices on the network
+    port: pkg.env.VITE_DEV_SERVER_PORT,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        secure: false
+      },
+      '/game': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        secure: false
+      },
+      '/character-images': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        secure: false
+      },
+      '/changelog': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        secure: false
+      },
+      // Proxy for Dofus game server requests (localhost:5555)
+      '/dofus-proxy': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        secure: false
+      }
+    }
   }
 })
 
