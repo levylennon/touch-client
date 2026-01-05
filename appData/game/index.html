@@ -5,16 +5,16 @@
         // Touch fix
         window.ontouchstart = function(e) {};
 
-        // Init
-        window.buildVersion = window.top.buildVersion;
-        window.appVersion = window.top.appVersion;
+        // Init - simplified for web-only version
+        window.buildVersion = "web";
+        window.appVersion = "web";
         window.appInfo = {
-            version: window.top.appVersion
+            version: "web"
         };
 
         window._ = {
-            appVersion: window.appVersion,
-            buildVersion: window.buildVersion,
+            appVersion: "web",
+            buildVersion: "web",
             client: "android"
         };
 
@@ -48,7 +48,12 @@
             }
         };
         
-        if (window.top.platform == "darwin") {
+        // Platform detection - simplified for web
+        var platform = "web";
+        if (window.top.platform) {
+            platform = window.top.platform;
+        }
+        if (platform == "darwin") {
             (function() {
                 window.requestAnimationFrame = function(callback) {
                     var self = requestAnimationFrame;
@@ -190,11 +195,20 @@
                 var fixesScript = document.createElement('script');
                 fixesScript.src = 'fixes.js';
                 head.appendChild(fixesScript);
-                cb();
+                if (cb) cb();
             });
             scriptScript.src = 'build/script.js';
             head.appendChild(scriptScript);
         };
+        
+        // Auto-initialize game when page loads (for web-only version)
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                window.initDofus();
+            });
+        } else {
+            window.initDofus();
+        }
         
     </script>
         <meta charset="UTF-8">

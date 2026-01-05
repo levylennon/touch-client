@@ -1,14 +1,9 @@
 import express from 'express'
 import cors from 'cors'
 import { Server } from 'http'
-import { AddressInfo } from 'net'
-import path, { join } from 'path'
+import path from 'path'
 import getPort from 'get-port'
-import crypto from 'crypto'
-import { Application } from './application'
-import { setupRootStore } from './store'
 import { logger } from './logger'
-import { platform } from 'os'
 import pkg from '../../package.json'
 import { createProxyMiddleware } from 'http-proxy-middleware'
 
@@ -26,17 +21,8 @@ app.use((req, res, next) => {
   express.json()(req, res, next)
 })
 
-// Serve static files
+// Serve static files - game at root
 const GAME_PATH = path.join(process.cwd(), 'appData/game/')
-const CHARACTER_IMAGES_PATH = path.join(process.cwd(), 'appData/character-images/')
-const APP_PATH = process.cwd()
-
-app.use('/game', express.static(GAME_PATH))
-app.use('/renderer', express.static(join(__dirname, '../renderer/')))
-app.use('/character-images', express.static(CHARACTER_IMAGES_PATH))
-app.use('/changelog', express.static(APP_PATH + '/CHANGELOG.md'))
-// Serve preload web (compiled)
-app.use('/preload', express.static(join(__dirname, '../preload/')))
 
 // Handle CORS preflight requests for dofus-proxy
 // Use a wildcard to catch all paths including nested paths like /assets/2.53.12_.../bones/...
@@ -95,9 +81,6 @@ app.use('/dofus-proxy', createProxyMiddleware({
     return path.replace(/^\/dofus-proxy/, '');
   },
   onProxyReq: (proxyReq, req, res) => {
-    // #region agent log
-    logger.debug('Proxy request received', { path: req.path, url: req.url, host: req.get('host'), origin: req.get('origin'), referer: req.get('referer') })
-    // #endregion
     // Known subdomains that should be proxied to subdomain.localhost:5555
     const knownNonSubdomainPaths = ['data', 'assets', 'build', 'config', 'game', 'renderer', 'character-images', 'changelog', 'preload', 'api', 'dictionary', 'primus', 'logger'];
     
@@ -144,38 +127,27 @@ app.use('/dofus-proxy', createProxyMiddleware({
     }
   },
   onError: (err, req, res) => {
-    // #region agent log
-    logger.error('Proxy error occurred', { error: err.message, path: req?.path, url: req?.url, host: req?.get('host') })
-    // #endregion
     logger.error('Proxy error:', err)
     res.status(500).json({ error: 'Proxy error', message: err.message })
   },
   logLevel: 'warn'
 }))
 
-// API routes will be added by Application
+// Serve game files at root (after proxy to avoid conflicts)
+app.use('/', express.static(GAME_PATH))
+
+// Serve game index.html at root (must be after static to override)
+app.get('/', (req, res) => {
+  res.sendFile(path.join(GAME_PATH, 'index.html'))
+})
 
 async function startServer() {
   const port = await getPort({ port: 3000 })
-  
-  // Generate hash for the app
-  const hashSum = crypto.createHash('sha256')
-  hashSum.update(process.cwd())
-  const hash = hashSum.digest('hex')
-
-  // Setup root store
-  const store = await setupRootStore()
-  
-  // Initialize application
-  await Application.init(store, app, hash, port)
-  await Application.instance.run()
 
   const server: Server = app.listen(port, '0.0.0.0', () => {
-    logger.info(`Server running on http://0.0.0.0:${port} (accessible from network)`)
-    logger.info(`Vite dev server should proxy /api/* to http://localhost:${port}`)
-    const vitePort = (pkg as any).env?.VITE_DEV_SERVER_PORT || 7777
-    logger.info(`Open http://localhost:${vitePort}/renderer/index.html in your browser`)
-    logger.info(`Or access from network: http://<your-ip>:${vitePort}/renderer/index.html`)
+    logger.info(`Game server running on http://0.0.0.0:${port} (accessible from network)`)
+    logger.info(`Open http://localhost:${port} in your browser`)
+    logger.info(`Or access from network: http://<your-ip>:${port}`)
   })
 
   // Export port for potential use by other processes

@@ -89,3 +89,8 @@ dist-ssr
 *.local
 .vscode/settings.json
 /.idea
+
+# Capacitor / Android
+android/
+ios/
+.capacitor/
