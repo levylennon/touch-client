@@ -27,7 +27,7 @@ return t.m = e, t.c = i, t.p = "", t(0)
     }
     i(1), i(2), i(3), i(4), i(5), i(6);
     var a = i(7);
-    window.developmentMode = true,
+    window.developmentMode = false,
     window.buildVersion = "1.68.17",
     window.envName = "",
     console.log("Production variant is active");
@@ -5439,7 +5439,7 @@ function(e, t, i) {
     function r() {
         if (P) return P;
         var e = window.appInfo || {};
-        return e.server ? e.server : window.developmentMode ? "http://localhost:5555" : "https://dt-proxy-production-login.ankama-games.com" 
+        return e.server ? e.server : window.developmentMode ? "http://localhost:5555" : "http://192.168.0.2:5555" // "https://dt-proxy-production-login.ankama-games.com"
     }
 
     function s(e) {
@@ -5634,6 +5634,7 @@ function(e, t, i) {
         if (!c) return i(new Error("Unknown server: " + e));
         Q = X;
         var d = T(_, function(e) {
+            debugger;
             e ? (this.disconnect("GAME_HANDSHAKE_ERROR"), Q = G, t.emit("accessGameEnd", e)) : (Q = V, t.emit("accessGameEnd")), U = null, i(e)
         });
         d("SelectedServerDataMessage", function(e) {
@@ -41062,7 +41063,7 @@ function(e, t, i) {
             defaultLanguage: "en"
         }))
     }
-    var n = window.developmentMode ? "http" : "https";
+    var n = window.developmentMode ? "http" : "http"; //"https";
     e.exports = i, i.prototype.getGameId = function() {
         return this._gameId
     }, i.prototype.getEventServiceUrl = function() {
@@ -41074,7 +41075,8 @@ function(e, t, i) {
     }, i.prototype.getHostname = function() {
         return this._hostname
     }, i.prototype.getBaseUrl = function() {
-        return n + "://haapi." + this._hostname + "/json"
+        return n + "://" + this._hostname + "/json"
+        // return n + "://haapi." + this._hostname + "/json"
     }
 }, function(e, t, i) {
     function n(e) {
@@ -97021,21 +97023,29 @@ function(e, t) {}, function(e, t, i) {
         });
         this.roomSelector = o.appendChild(new f({
             className: "roomSelector"
-        })), this.setupRoomSelector(), this.chestSelector = o.appendChild(new f({
+        })), 
+        this.setupRoomSelector(), this.chestSelector = o.appendChild(new f({
             className: "chestsSelector"
-        })), this.setupChestSelector(), this.mountSelector = o.appendChild(new f({
+        })), 
+        this.setupChestSelector(), this.mountSelector = o.appendChild(new f({
             className: "mountsSelector"
-        })), this.setupMountSelector(), this.breedingSelector = o.appendChild(new f({
+        })), 
+        this.setupMountSelector(), this.breedingSelector = o.appendChild(new f({
             className: "breedingSelector"
-        })), this.setupBreedingSelector(), this.housingAreaSelector = o.appendChild(new f({
+        })), 
+        this.setupBreedingSelector(), this.housingAreaSelector = o.appendChild(new f({
             className: "areaSelector"
-        })), this.setupHousingAreaSelector(), this.paddocksAreaSelector = o.appendChild(new f({
+        })), 
+        this.setupHousingAreaSelector(), this.paddocksAreaSelector = o.appendChild(new f({
             className: "areaSelector"
-        })), this.setupPaddockAreaSelector(), this.skillSelector = o.appendChild(new f({
+        })), 
+        this.setupPaddockAreaSelector(), this.skillSelector = o.appendChild(new f({
             className: "skillSelector"
-        })), this.setupSkillSelector(), this.searchButton = t.appendChild(new l(m("ui.search.search"), {
+        })), 
+        this.setupSkillSelector(), this.searchButton = t.appendChild(new l(m("ui.search.search"), {
             className: ["searchButton", "inline"]
-        })), this.searchButton.on("tap", function() {
+        })), 
+        this.searchButton.on("tap", function() {
             var t = e.priceInput.getValue();
             return "house" === e.dialogType ? (e.houseToSellFilter.maxPrice = t, window.dofus.sendMessage("HouseToSellFilterMessage", e.houseToSellFilter), void window.dofus.sendMessage("HouseToSellListRequestMessage", {
                 pageIndex: 1
@@ -132125,13 +132135,13 @@ function(e, t) {}, function(e, t, i) {
             t = this.createChild("div", {
                 className: "topButtons"
             });
-        this._betaDiv = t.createChild("div", {
-            className: "betaButton"
-        }), this._betaButton = this._betaDiv.appendChild(new S(F, {
-            defaultValue: !1
-        })), this._betaButton.addClassNames("sliderV2"), this._betaButton.on("change", function() {
+        this._betaDiv = t.createChild("div", { className: "betaButton" }), 
+        this._betaButton = this._betaDiv.appendChild(new S(F, { defaultValue: !1 })), 
+        this._betaButton.addClassNames("sliderV2"), 
+        this._betaButton.on("change", function() {
             N(), R.loginScreenKPI("beta")
-        }), this._tapListenerCloseLang = this.createChild("div", {
+        }), 
+        this._tapListenerCloseLang = this.createChild("div", {
             className: "tapCloseLang"
         }), f(this._tapListenerCloseLang), this._tapListenerCloseLang.on("tap", function() {
             e._langSelector.toggleClassName("open", !1), e._tapListenerCloseLang.toggleClassName("open", !1)
@@ -132465,27 +132475,32 @@ function(e, t) {}, function(e, t, i) {
         this.createChild("div", { className: ["frame", "frame1"] }), 
         this.content = this.createChild("div", { className: "content" }), 
         this.content.createChild("div", { className: "dofusTouchLogo" });
-        var i = this.content.createChild("div", { className: "form" });
+        var mainContentDiv = this.content.createChild("div", { className: "form" });
 
         this.betaDiv = this.createChild("div", { className: "betaDiv" });
         var n = this.betaDiv.createChild("div", { className: "bannerContainer" });
             n.createChild("div", { className: "betaBanner" });
 
-        this._descText = i.createChild("div", { className: "descText" });
-        this._inputAccount = i.createChild("input", { className: "input" });
+        this._descText = mainContentDiv.createChild("div", { className: "descText" });
+        this._inputAccount = mainContentDiv.createChild("input", { className: "input" });
         this._inputAccount.rootElement.placeholder = s("ui.login.placeholder.account");
 
-        this._inputPassword = i.createChild("input", { className: ["input"] });
+        this._inputPassword = mainContentDiv.createChild("input", { className: ["input"] });
         this._inputPassword.rootElement.type = 'password';
         this._inputPassword.rootElement.placeholder = s("ui.login.placeholder.password");
 
-        this._playBtn = i.createChild("div", { className: "horizontalCenter" })
+        this._serverDiv = mainContentDiv.createChild("div", { className: "betaButton" }),
+        this._serverButton = this._serverDiv.appendChild(new S(s("ui.login.server.test"), { defaultValue: window.developmentMode })),
+        this._serverButton.addClassNames("sliderV2"), 
+        this._serverButton.on("change", function(value) { window.developmentMode = value; }), 
+
+        this._playBtn = mainContentDiv.createChild("div", { className: "horizontalCenter" })
                         .appendChild(new r({ className: ["smallWhiteButton"], sound: "OK_BUTTON" }));
-        this._spanWarning = i.createChild("span");
+        this._spanWarning = mainContentDiv.createChild("span");
         if(window.Config.webAuth.shortcuts.length > 0){
-            this._separator = i.createChild("div", { className: "separator" });
+            this._separator = mainContentDiv.createChild("div", { className: "separator" });
         }
-        this._shortcuts = i.createChild("div", { className: "shortcuts" });
+        this._shortcuts = mainContentDiv.createChild("div", { className: "shortcuts" });
 
        
         // Config vem do config.json enviado para o client
@@ -132503,7 +132518,7 @@ function(e, t) {}, function(e, t, i) {
             })
         });
 
-        this._playBtn.on("tap", () =>{
+        this._playBtn.on("tap", () => {
             let account = this._inputAccount.rootElement.value,
                 password = this._inputPassword.rootElement.value;
 
@@ -132531,6 +132546,7 @@ function(e, t) {}, function(e, t, i) {
         l = i(143),
         d = i(91).playUiSound,
         u = i(1317),
+        S = i(594),
         p = i(63);
     o(n, a), e.exports = n, 
     n.prototype._launchWebAuth = function(e) {
@@ -132550,10 +132566,11 @@ function(e, t) {}, function(e, t, i) {
         this.delClassNames("columnBeta")
     }, 
     n.prototype.disableButtons = function(e) {
-        this._shortcuts.toggleClassName("disabled", e),
-        this._playBtn.toggleClassName("disabled", e)
-        this._inputAccount.toggleClassName("disabled", e)
-        this._inputPassword.toggleClassName("disabled", e)
+        this._shortcuts.toggleClassName("disabled", e);
+        this._playBtn.toggleClassName("disabled", e);
+        this._inputAccount.toggleClassName("disabled", e);
+        this._inputPassword.toggleClassName("disabled", e);
+        this._serverButton.toggleClassName("disabled", e);
     }
 }, 
 function(e, t) {}, function(e, t, i) {
@@ -145763,4 +145780,3 @@ function(e, t, i) {
         })
     }
 }]);
-//# sourceMappingURL=script.js.map

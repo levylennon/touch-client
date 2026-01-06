@@ -2,6 +2,7 @@
 <html lang="fr">
     <head>
         <script>
+       
         // Touch fix
         window.ontouchstart = function(e) {};
 
@@ -48,11 +49,25 @@
             }
         };
         
-        // Platform detection - simplified for web
+        // Platform detection - detect Android/Capacitor
         var platform = "web";
-        if (window.top.platform) {
+        var isAndroid = false;
+        var isCapacitor = false;
+        
+        // Detect Capacitor/Android
+        if (window.Capacitor || (window.android && window.android.webview)) {
+            isCapacitor = true;
+            isAndroid = true;
+            platform = "android";
+            console.log('[DOFUS] Running on Android/Capacitor');
+        } else if (window.top.platform) {
             platform = window.top.platform;
         }
+        
+        console.log('[DOFUS] Platform detected:', platform);
+        console.log('[DOFUS] Is Android:', isAndroid);
+        console.log('[DOFUS] Is Capacitor:', isCapacitor);
+        
         if (platform == "darwin") {
             (function() {
                 window.requestAnimationFrame = function(callback) {
@@ -74,148 +89,120 @@
             })();
         }
 
-        // Intercept requests to localhost:5555 and redirect through proxy
-        // This fixes CORS issues when running in web browser
-        (function() {
-            var originalFetch = window.fetch;
-            var originalXHROpen = XMLHttpRequest.prototype.open;
-            var originalCreateElement = document.createElement;
-            
-            // Function to replace any localhost:5555 or 127.0.0.1:5555 URL with proxy
-            // Also handles subdomains like haapi.localhost:5555
-            // Also handles port 443 (127.0.0.1:443)
-            function replaceDofusUrl(url) {
-                if (typeof url !== 'string') return url;
-                // Skip if URL already contains /dofus-proxy (already processed)
-                if (url.includes('/dofus-proxy')) return url;
-                // Skip if URL is already a relative path or same-origin
-                if (!url.match(/^https?:\/\//)) return url;
-                // First handle port 443 (127.0.0.1:443)
-                if (url.includes(':443')) {
-                    var proxyUrl = url.replace(/https?:\/\/127\.0\.0\.1:443(\/.*)?/g, function(match, path) {
-                        return window.location.origin + '/dofus-proxy' + (path || '');
-                    });
-                    return proxyUrl;
-                }
-                // Match various forms for port 5555:
-                // - localhost:5555/path
-                // - haapi.localhost:5555/path (subdomains)
-                // - *.localhost:5555/path (any subdomain)
-                // - 127.0.0.1:5555/path
-                // - 127.0.0.1.com:5555/path
-                var proxyUrl = url.replace(/https?:\/\/(?:([a-zA-Z0-9-]+)\.)?(?:localhost|127\.0\.0\.1(?:\.com)?):5555(\/.*)?/g, function(match, subdomain, path) {
-                    var basePath = window.location.origin + '/dofus-proxy';
-                    if (subdomain) {
-                        // Preserve subdomain in the proxy path: /dofus-proxy/haapi/path
-                        return basePath + '/' + subdomain + (path || '');
-                    }
-                    // No subdomain: /dofus-proxy/path
-                    return basePath + (path || '');
-                });
-                return proxyUrl;
-            }
-            
-            // Intercept fetch requests
-            window.fetch = function(url, options) {
-                var newUrl = replaceDofusUrl(url);
-                if (newUrl !== url) {
-                    return originalFetch.call(this, newUrl, options);
-                }
-                return originalFetch.apply(this, arguments);
-            };
-            
-            // Intercept XMLHttpRequest
-            XMLHttpRequest.prototype.open = function(method, url, async, user, password) {
-                var newUrl = replaceDofusUrl(url);
-                return originalXHROpen.call(this, method, newUrl, async, user, password);
-            };
-            
-            // Intercept script and img tag creation to proxy loads
-            document.createElement = function(tagName, options) {
-                var element = originalCreateElement.call(this, tagName, options);
-                var tagLower = tagName.toLowerCase();
-                
-                if (tagLower === 'script' || tagLower === 'img') {
-                    var originalSetAttribute = element.setAttribute;
-                    element.setAttribute = function(name, value) {
-                        if (name === 'src') {
-                            value = replaceDofusUrl(value);
-                        }
-                        return originalSetAttribute.call(this, name, value);
-                    };
-                    // Also intercept direct property assignment
-                    Object.defineProperty(element, 'src', {
-                        set: function(value) {
-                            value = replaceDofusUrl(value);
-                            this.setAttribute('src', value);
-                        },
-                        get: function() {
-                            return this.getAttribute('src');
-                        }
-                    });
-                }
-                return element;
-            };
-            
-            // Also intercept Image constructor (used for programmatic image loading)
-            var originalImage = window.Image;
-            window.Image = function(width, height) {
-                var img = new originalImage(width, height);
-                var originalSrcSetter = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src') || 
-                                       Object.getOwnPropertyDescriptor(Image.prototype, 'src');
-                if (originalSrcSetter && originalSrcSetter.set) {
-                    Object.defineProperty(img, 'src', {
-                        set: function(value) {
-                            value = replaceDofusUrl(value);
-                            originalSrcSetter.set.call(this, value);
-                        },
-                        get: function() {
-                            return originalSrcSetter.get ? originalSrcSetter.get.call(this) : this.getAttribute('src');
-                        }
-                    });
-                } else {
-                    // Fallback: intercept setAttribute
-                    var originalSetAttribute = img.setAttribute;
-                    img.setAttribute = function(name, value) {
-                        if (name === 'src') {
-                            value = replaceDofusUrl(value);
-                        }
-                        return originalSetAttribute.call(this, name, value);
-                    };
-                }
-                return img;
-            };
-        })();
+        // Configuration: Set to false to disable proxy and use direct CORS requests
+        // Set to true to use proxy (default, recommended if CORS is not properly configured)
+        // On Android, proxy is not available, so we use direct CORS if server supports it
+        var USE_PROXY = false;
+        
+        // Log configuration
+        console.log('[DOFUS] USE_PROXY:', USE_PROXY);
+        console.log('[DOFUS] Current origin:', window.location.origin);
 
+        
         window.initDofus = function(cb) {
+            console.log('[DOFUS] Initializing game...');
+            if (typeof updateStatus === 'function') {
+                updateStatus('Inicializando jogo...');
+            }
             var head = document.getElementsByTagName('head')[0];
 
             var scriptScript = document.createElement('script');
+            
             scriptScript.addEventListener('load', function() {
+                console.log('[DOFUS] Main script loaded successfully');
+                updateStatus('Script principal carregado');
                 var fixesScript = document.createElement('script');
+                fixesScript.addEventListener('load', function() {
+                    console.log('[DOFUS] Fixes script loaded successfully');
+                    updateStatus('Jogo inicializado');
+                    if (cb) cb();
+                });
+                fixesScript.addEventListener('error', function(e) {
+                    console.error('[DOFUS] Error loading fixes.js:', e);
+                    updateStatus('Erro ao carregar fixes.js');
+                    if (cb) cb();
+                });
                 fixesScript.src = 'fixes.js';
                 head.appendChild(fixesScript);
+            });
+            
+            scriptScript.addEventListener('error', function(e) {
+                console.error('[DOFUS] Error loading build/script.js:', e);
+                console.error('[DOFUS] Script path attempted:', scriptScript.src);
+                console.error('[DOFUS] Current location:', window.location.href);
+                if (typeof updateStatus === 'function') {
+                    updateStatus('ERRO: Não foi possível carregar build/script.js');
+                }
+                alert('Erro ao carregar o jogo. Verifique o console para mais detalhes.');
                 if (cb) cb();
             });
+            
             scriptScript.src = 'build/script.js';
+            console.log('[DOFUS] Loading script from:', scriptScript.src);
             head.appendChild(scriptScript);
         };
+        
+        // Log page load state
+        console.log('[DOFUS] Document ready state:', document.readyState);
+        console.log('[DOFUS] Document location:', window.location.href);
         
         // Auto-initialize game when page loads (for web-only version)
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', function() {
-                window.initDofus();
+                console.log('[DOFUS] DOMContentLoaded fired');
+                window.initDofus(function() {
+                    console.log('[DOFUS] Game initialization complete');
+                });
             });
         } else {
-            window.initDofus();
+            console.log('[DOFUS] Document already loaded, initializing immediately');
+            window.initDofus(function() {
+                console.log('[DOFUS] Game initialization complete');
+            });
         }
+        
+        // Log any errors
+        window.addEventListener('error', function(e) {
+            console.error('[DOFUS] Global error:', e.message, e.filename, e.lineno);
+        });
+        
+        window.addEventListener('unhandledrejection', function(e) {
+            console.error('[DOFUS] Unhandled promise rejection:', e.reason);
+        });
         
     </script>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
         <link rel="stylesheet" href="build/styles-native.css" />
         <link rel="stylesheet" href="fixes.css" />
     </head>
     <body>
+        <div id="loading-indicator" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: Arial, sans-serif; z-index: 9999;">
+            <div style="font-size: 18px; margin-bottom: 20px;">Carregando Dofus Touch...</div>
+            <div id="loading-status" style="font-size: 14px; color: #888;">Inicializando...</div>
+        </div>
+        <script>
+            // Update loading status
+            var loadingStatus = document.getElementById('loading-status');
+            function updateStatus(text) {
+                if (loadingStatus) {
+                    loadingStatus.textContent = text;
+                    console.log('[DOFUS] Status:', text);
+                }
+            }
+            
+            // Hide loading indicator when game loads
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    var indicator = document.getElementById('loading-indicator');
+                    if (indicator) {
+                        indicator.style.display = 'none';
+                    }
+                }, 2000);
+            });
+            
+            updateStatus('Página carregada');
+        </script>
     </body>
     <!-- Dependencies -->
     <script src="keymaster2.js"></script>

@@ -4,6 +4,13 @@
 
 body,html{
   background: black;
+  zoom: 1 !important;
+  -webkit-text-size-adjust: 100% !important;
+  -moz-text-size-adjust: 100% !important;
+  -ms-text-size-adjust: 100% !important;
+  text-size-adjust: 100% !important;
+  transform: scale(1) !important;
+  -webkit-transform: scale(1) !important;
 }
 
 /* Turn on custom 8px wide scrollbar */
