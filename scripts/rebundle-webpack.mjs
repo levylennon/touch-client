@@ -14,7 +14,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(__dirname, '..')
 
 const DEFAULT_DIR = join(ROOT, 'source-game')
-const DEFAULT_OUT = join(ROOT, 'source-game', 'script.js')
+const DEFAULT_OUT = join(ROOT, 'appData', 'game', 'build', 'script.js')
 
 /** Original starts with "! " before the factory function */
 const BUNDLE_PREFIX = '! '

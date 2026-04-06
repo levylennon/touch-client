@@ -2527,7 +2527,7 @@ function(e, t, i) {
                             e && e.length && t.push(e)
                         }
                         t.push(null)
-                    }), e.on("data", function(o) { window.top.FileLoggerLib && window.top.FileLoggerLib.writeLindoLog(o);
+                    }), e.on("data", function(o) {
                         if (T("wrapped data"), i.decoder && (o = i.decoder.write(o)), (!i.objectMode || null !== o && void 0 !== o) && (i.objectMode || o && o.length)) {
                             var a = t.push(o);
                             a || (n = !0, e.pause())
@@ -4827,7 +4827,7 @@ function(e, t, i) {
                         e && e.length && n.push(e)
                     }
                     n.push(null)
-                }), e.on("data", function(o) { window.top.FileLoggerLib && window.top.FileLoggerLib.writeLindoLog(o);
+                }), e.on("data", function(o) {
                     if (Gs("wrapped data"), t.decoder && (o = t.decoder.write(o)), (!t.objectMode || null !== o && void 0 !== o) && (t.objectMode || o && o.length)) {
                         var a = n.push(o);
                         a || (i = !0, e.pause())

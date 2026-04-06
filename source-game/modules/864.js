@@ -62,7 +62,7 @@ function(e, t, i) {
         w = i(105),
         T = i(854)
         .getExclusiveSelectorByGroup,
-        C = i(869),
+        Shortcut = i(869),
         I = i(870),
         S = i(882),
         E = i(129),
@@ -154,16 +154,18 @@ function(e, t, i) {
             o = window.gui.scenarioManager;
         t.on("disconnect", function() {
             e.close(), e.delClassNames("dragging"), e._selectedSlot = null, e._emptyPanel("spell"), e._emptyPanel("item"), e._currentCharacterId = null, e.isShortcutLoaded = !1, w.removeAllListeners("ShortcutBarAddErrorMessage"), w.removeAllListeners("ShortcutBarRemoveErrorMessage"), w.removeAllListeners("ShortcutBarSwapErrorMessage")
-        }), w.on("ShortcutBarContentMessage", function(t) {
+        }), 
+        w.on("ShortcutBarContentMessage", function(t) {
             if (0 !== t.characterId || !window.gui.playerData.isSpectator) {
-                for (var n = N[t.barType], o = [], a = 0; a < t.shortcuts.length; a++) o.push(new C(t.shortcuts[a]));
+                for (var n = N[t.barType], o = [], a = 0; a < t.shortcuts.length; a++) o.push(new Shortcut(t.shortcuts[a]));
                 "spell" === n && i.getControlledCharacter()
                     .setSpellShortcuts(o), e._setPanelContentRequest(n, o), e.isShortcutLoaded = !0
             }
-        }), w.on("ShortcutBarRefreshMessage", function(t) {
+        }), 
+        w.on("ShortcutBarRefreshMessage", function(t) {
             if (e.isShortcutLoaded) {
                 var n = N[t.barType],
-                    o = new C(t.shortcut);
+                    o = new Shortcut(t.shortcut);
                 e._isSlotIndexValid(o.slotIndex) && ("spell" === n && i.getControlledCharacter()
                     .updateSpellShortcut(o), e._setShortcutClient(o))
             }
@@ -191,7 +193,7 @@ function(e, t, i) {
     }, n.prototype._isSlotIndexValid = function(e) {
         return e < x * B
     }, n.prototype._isShortcutValid = function(e) {
-        return e instanceof C && this._isSlotIndexValid(e.slotIndex)
+        return e instanceof Shortcut && this._isSlotIndexValid(e.slotIndex)
     }, n.prototype.getSpellSlotByIndex = function(e) {
         var t = this._panels.spell.slotList;
         return t[e]
@@ -469,7 +471,7 @@ function(e, t, i) {
             case "characterBox":
             case "equipment":
                 var o = t.itemInstance;
-                this._setShortcutRequest(new C({
+                this._setShortcutRequest(new Shortcut({
                     _type: "ShortcutObjectItem",
                     slot: e.slotIndex,
                     itemUID: o.objectUID,
@@ -477,28 +479,28 @@ function(e, t, i) {
                 }));
                 break;
             case "presets":
-                this._setShortcutRequest(new C({
+                this._setShortcutRequest(new Shortcut({
                     _type: "ShortcutObjectPreset",
                     slot: e.slotIndex,
                     presetId: t.preset.presetId
                 }));
                 break;
             case "spellsWindow":
-                this._setShortcutRequest(new C({
+                this._setShortcutRequest(new Shortcut({
                     _type: "ShortcutSpell",
                     slot: e.slotIndex,
                     spellId: n.spellId
                 }));
                 break;
             case "attitude":
-                this._setShortcutRequest(new C({
+                this._setShortcutRequest(new Shortcut({
                     _type: "ShortcutEmote",
                     slot: e.slotIndex,
                     emoteId: n.id
                 }));
                 break;
             case "smiley":
-                this._setShortcutRequest(new C({
+                this._setShortcutRequest(new Shortcut({
                     _type: "ShortcutSmiley",
                     slot: e.slotIndex,
                     smileyId: n.id

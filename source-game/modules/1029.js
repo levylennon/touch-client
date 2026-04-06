@@ -306,14 +306,22 @@ function(e, t, i) {
             atLeastNbMachine: 0,
             maxPrice: 0
         }, this.roomSelector.setValue(0), this.chestSelector.setValue(0), this.mountSelector.setValue(0), this.breedingSelector.setValue(0), this.housingAreaSelector.setValue(-1), this.paddocksAreaSelector.setValue(-1), this.skillSelector.setValue(0), this.priceInput.setValue(0), window.dofus.sendMessage("HouseToSellFilterMessage", this.houseToSellFilter), window.dofus.sendMessage("PaddockToSellFilterMessage", this.paddockToSellFilter)
-    }, n.prototype.updateDisplay = function(e, t) {
-        this.currentPageIndex = t.pageIndex, this.currentPageIndex <= 1 ? this.leftButton.disable() : this.leftButton.enable(), this.currentPageIndex >= t.totalPage ? this.rightButton.disable() : this.rightButton.enable(), this.pages.setText(t.pageIndex + "/" + t.totalPage), this.propertySelector.setValue(e), this.changeDialogType(e)
-    }, n.prototype.setupSocketEvents = function() {
+    }, 
+    n.prototype.updateDisplay = function(e, t) {
+        this.currentPageIndex = t.pageIndex,
+        this.currentPageIndex <= 1 ? this.leftButton.disable() : this.leftButton.enable(), this.currentPageIndex >= t.totalPage ? this.rightButton.disable() : this.rightButton.enable(), this.pages.setText(t.pageIndex + "/" + t.totalPage), this.propertySelector.setValue(e), this.changeDialogType(e)
+    },
+    n.prototype.setupSocketEvents = function() {
         var e = this;
         window.dofus.connectionManager.on("HouseToSellListMessage", function(t) {
-            p.openDialog(e.id), e.updateDisplay("house", t), e.updateList(t.houseList)
-        }), window.dofus.connectionManager.on("PaddockToSellListMessage", function(t) {
-            p.openDialog(e.id), e.updateDisplay("paddock", t), e.updateList(t.paddockList)
+            p.openDialog(e.id),
+            e.updateDisplay("house", t),
+            e.updateList(t.houseList)
+        }), 
+        window.dofus.connectionManager.on("PaddockToSellListMessage", function(t) {
+            p.openDialog(e.id),
+            e.updateDisplay("paddock", t),
+            e.updateList(t.paddockList)
         })
     }
 }

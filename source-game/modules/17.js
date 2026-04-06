@@ -1,4 +1,5 @@
 function(e, t) {
+    // LangModule
     function i(e, t, i, n, o) {
         for (var r = "", s = 1, c = Object.keys(i)
                 .length; s < c; s += 1) {

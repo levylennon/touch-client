@@ -50,11 +50,14 @@ function(e, t, i) {
                         })
                     }
                 })
-            }), this._addCancel(), window.gui.on("TaxCollectorDialogQuestionExtendedMessage", function(e) {
+            }), this._addCancel(),
+            window.gui.on("TaxCollectorDialogQuestionExtendedMessage", function(e) {
                 p.nextQuestionAsync(h.guild, [], r(e))
-            }), window.gui.on("TaxCollectorDialogQuestionBasicMessage", function(e) {
+            }),
+            window.gui.on("TaxCollectorDialogQuestionBasicMessage", function(e) {
                 p.nextQuestionAsync(h.basic, [], r(e))
-            }), window.gui.on("AllianceTaxCollectorDialogQuestionExtendedMessage", function(e) {
+            }),
+            window.gui.on("AllianceTaxCollectorDialogQuestionExtendedMessage", function(e) {
                 p.nextQuestionAsync(h.alliance, [], r(e))
             })
         }), this.on("open", function(e, r) {

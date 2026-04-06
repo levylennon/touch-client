@@ -1,4 +1,5 @@
 function(e, t, i) {
+    // almanaxDataClass
     function n() {
         o.call(this), this._calendarDate = -1, this._merydeName = ""
     }

@@ -1,4 +1,5 @@
 function(e, t, i) {
+    // connectionManager
     function n(e) {
         if (!l) throw new Error("logger missing");
         var i = c.createMessage(l, e);
@@ -59,7 +60,9 @@ function(e, t, i) {
                 min: 500,
                 retries: a
             }
-        }), s.startListening(), d.on("open", function() {
+        }), 
+        s.startListening(),
+        d.on("open", function() {
             if (d !== this) return console.warn("onOpen - Ignoring event: possible missing call to Primus#destroy");
             if (m = !1, t.emit("open", u), u && h && Date.now() < f) {
                 for (var e = {}, i = 0, n = {}, o = 0; o < h.length; o++) {
@@ -86,21 +89,26 @@ function(e, t, i) {
                     .join(",") + "}")
             }
             h = null, u = !0
-        }), d.on("offline", function() {
+        }),
+        d.on("offline", function() {
             b && (b = !1, p && t.emit("offline"))
-        }), d.on("online", function() {
+        }),
+        d.on("online", function() {
             return d !== this ? console.warn("onOnline - Ignoring event: possible missing call to Primus#destroy") : void(b || (b = !0, p && (t.emit("online"), d.readyState !== o.CLOSED || d.recovery.reconnecting() || window.setTimeout(function() {
                 d.readyState !== o.CLOSED || d.recovery.reconnecting() || d.open()
             }, 0))))
-        }), d.on("end", function() {
+        }),
+        d.on("end", function() {
             b && (d = null, m ? g && t.connect(l, g) : (p = !1, t.disconnect("SOCKET_LOST")))
-        }), d.on("reconnect scheduled", function(e) {
+        }),
+        d.on("reconnect scheduled", function(e) {
             if (h = null, r.isFeatureOn("decoRecoResend")) {
                 var n = p && d.socket && d.socket.writeBuffer;
                 n && n.length && (h = n, f = Date.now() + _)
             }
             t.emit("reconnecting", e.attempt, i)
-        }), d.on("data", function(e) { window.top.FileLoggerLib && window.top.FileLoggerLib.writeLindoLog(e);
+        }),
+        d.on("data", function(e) { 
             if (!M)
                 if (s.receiving(), "SequenceStartMessage" === e._messageType && (y += 1), y > 0) {
                     if (v.push(e), "SequenceEndMessage" === e._messageType && (y -= 1, y <= 0)) {
@@ -110,28 +118,34 @@ function(e, t, i) {
                         };
                         w ? z.push(i) : t.emit("messageSequence", i), v = [], y = 0
                     }
-                } else t.emit("data", e), O[e._messageType] || (t.lastReceivedMessage = e._messageType), w ? z.push(e) : n(e)
+                } 
+                else t.emit("data", e), O[e._messageType] || (t.lastReceivedMessage = e._messageType), w ? z.push(e) : n(e)
         }), d.on("error", function(e) {
             t.emit("error", e)
         }), d.open()
-    }, t.close = function() {
+    },
+    t.close = function() {
         m = !0, p = !1, h = null, d && (d.destroy(), d = null)
-    }, t.switchToGame = function(e) {
+    },
+    t.switchToGame = function(e) {
         t.disconnect("SWITCHING_TO_GAME"), g = e
-    }, t.disconnect = function(e) {
+    },
+    t.disconnect = function(e) {
         M || (e = e || "CLIENT_CLOSING", console.info("connectionManager.disconnect: reason=" + e), "SOCKET_LOST" !== e && d && (t.send("disconnecting", e), m = !0), "SWITCHING_TO_GAME" !== e && (M = !0, t.close(), t.emit("disconnect", e)))
-    }, t.sendMessage = function(e, i) {
+    },
+    t.sendMessage = function(e, i) {
         t.send("sendMessage", {
             type: e,
             data: i
         })
-    }, t.send = function(e, i) {
+    },
+    t.send = function(e, i) {
         if (!d) return console.warn("Client trying to send while primus is null for call: " + e);
         s.sending(e, i);
         var n = {
             call: e,
             data: i
-        }; window.top.FileLoggerLib && window.top.FileLoggerLib.writeLindoLog(n);
+        };
         d.write(n), t.emit("send", {
             call: e,
             data: n

@@ -5448,7 +5448,6 @@ function(e, t, i) {
     function r() {
         if (P) return P;
         var e = window.appInfo || {};
-        console.log('e', e);
         return e.server ? e.server : window.developmentMode ? "http://localhost:5555" : "http://192.168.0.2:5555" // "https://dt-proxy-production-login.ankama-games.com"
     }
 
@@ -10312,6 +10311,7 @@ function(e, t, i) {
         FIGHT: 2
     }
 }, function(e, t, i) {
+    // connectionManager
     function n(e) {
         if (!l) throw new Error("logger missing");
         var i = c.createMessage(l, e);
@@ -10372,7 +10372,9 @@ function(e, t, i) {
                 min: 500,
                 retries: a
             }
-        }), s.startListening(), d.on("open", function() {
+        }), 
+        s.startListening(),
+        d.on("open", function() {
             if (d !== this) return console.warn("onOpen - Ignoring event: possible missing call to Primus#destroy");
             if (m = !1, t.emit("open", u), u && h && Date.now() < f) {
                 for (var e = {}, i = 0, n = {}, o = 0; o < h.length; o++) {
@@ -10399,21 +10401,26 @@ function(e, t, i) {
                     .join(",") + "}")
             }
             h = null, u = !0
-        }), d.on("offline", function() {
+        }),
+        d.on("offline", function() {
             b && (b = !1, p && t.emit("offline"))
-        }), d.on("online", function() {
+        }),
+        d.on("online", function() {
             return d !== this ? console.warn("onOnline - Ignoring event: possible missing call to Primus#destroy") : void(b || (b = !0, p && (t.emit("online"), d.readyState !== o.CLOSED || d.recovery.reconnecting() || window.setTimeout(function() {
                 d.readyState !== o.CLOSED || d.recovery.reconnecting() || d.open()
             }, 0))))
-        }), d.on("end", function() {
+        }),
+        d.on("end", function() {
             b && (d = null, m ? g && t.connect(l, g) : (p = !1, t.disconnect("SOCKET_LOST")))
-        }), d.on("reconnect scheduled", function(e) {
+        }),
+        d.on("reconnect scheduled", function(e) {
             if (h = null, r.isFeatureOn("decoRecoResend")) {
                 var n = p && d.socket && d.socket.writeBuffer;
                 n && n.length && (h = n, f = Date.now() + _)
             }
             t.emit("reconnecting", e.attempt, i)
-        }), d.on("data", function(e) { window.top.FileLoggerLib && window.top.FileLoggerLib.writeLindoLog(e);
+        }),
+        d.on("data", function(e) { 
             if (!M)
                 if (s.receiving(), "SequenceStartMessage" === e._messageType && (y += 1), y > 0) {
                     if (v.push(e), "SequenceEndMessage" === e._messageType && (y -= 1, y <= 0)) {
@@ -10423,28 +10430,34 @@ function(e, t, i) {
                         };
                         w ? z.push(i) : t.emit("messageSequence", i), v = [], y = 0
                     }
-                } else t.emit("data", e), O[e._messageType] || (t.lastReceivedMessage = e._messageType), w ? z.push(e) : n(e)
+                } 
+                else t.emit("data", e), O[e._messageType] || (t.lastReceivedMessage = e._messageType), w ? z.push(e) : n(e)
         }), d.on("error", function(e) {
             t.emit("error", e)
         }), d.open()
-    }, t.close = function() {
+    },
+    t.close = function() {
         m = !0, p = !1, h = null, d && (d.destroy(), d = null)
-    }, t.switchToGame = function(e) {
+    },
+    t.switchToGame = function(e) {
         t.disconnect("SWITCHING_TO_GAME"), g = e
-    }, t.disconnect = function(e) {
+    },
+    t.disconnect = function(e) {
         M || (e = e || "CLIENT_CLOSING", console.info("connectionManager.disconnect: reason=" + e), "SOCKET_LOST" !== e && d && (t.send("disconnecting", e), m = !0), "SWITCHING_TO_GAME" !== e && (M = !0, t.close(), t.emit("disconnect", e)))
-    }, t.sendMessage = function(e, i) {
+    },
+    t.sendMessage = function(e, i) {
         t.send("sendMessage", {
             type: e,
             data: i
         })
-    }, t.send = function(e, i) {
+    },
+    t.send = function(e, i) {
         if (!d) return console.warn("Client trying to send while primus is null for call: " + e);
         s.sending(e, i);
         var n = {
             call: e,
             data: i
-        }; window.top.FileLoggerLib && window.top.FileLoggerLib.writeLindoLog(n);
+        };
         d.write(n), t.emit("send", {
             call: e,
             data: n
@@ -10452,7 +10465,11 @@ function(e, t, i) {
     }
 }, function(e, t, i) {
     function n() {
-        this.lastReceivingTime = 0, this.lastPingSent = 0, this.isListening = !1, this.timeout = null, this.alarmLevel = l
+        this.lastReceivingTime = 0,
+        this.lastPingSent = 0,
+        this.isListening = !1,
+        this.timeout = null,
+        this.alarmLevel = l
     }
 
     function o(e) {
@@ -10546,7 +10563,10 @@ function(e, t, i) {
         h = {
             socialDataRequest: d
         };
-    t.monitor = new n, t.WARNING = d, t.BLOCKING = u, n.prototype.startListening = function() {
+    t.monitor = new n,
+    t.WARNING = d,
+    t.BLOCKING = u,
+    n.prototype.startListening = function() {
         if (!this.isListening) {
             var e = this;
             this._connectionLatency = new a(window.dofus.connectionManager), this._connectionLatency.startListening(), this.isListening = !0, window.dofus.connectionManager.on("BasicPongMessage", this._gotPong.bind(this)), window.gui.on("connected", function() {
@@ -34858,7 +34878,7 @@ function(e, t, i) {
                             e && e.length && t.push(e)
                         }
                         t.push(null)
-                    }), e.on("data", function(o) { window.top.FileLoggerLib && window.top.FileLoggerLib.writeLindoLog(o);
+                    }), e.on("data", function(o) {
                         if (T("wrapped data"), i.decoder && (o = i.decoder.write(o)), (!i.objectMode || null !== o && void 0 !== o) && (i.objectMode || o && o.length)) {
                             var a = t.push(o);
                             a || (n = !0, e.pause())
@@ -37158,7 +37178,7 @@ function(e, t, i) {
                         e && e.length && n.push(e)
                     }
                     n.push(null)
-                }), e.on("data", function(o) { window.top.FileLoggerLib && window.top.FileLoggerLib.writeLindoLog(o);
+                }), e.on("data", function(o) {
                     if (Gs("wrapped data"), t.decoder && (o = t.decoder.write(o)), (!t.objectMode || null !== o && void 0 !== o) && (t.objectMode || o && o.length)) {
                         var a = n.push(o);
                         a || (i = !0, e.pause())
@@ -44560,8 +44580,8 @@ function(e, t, i) {
         var e = this;
         this.windowsContainer = null,
         this.playerData = new $,
-        this.serversData = new re,
-        this.almanaxData = new M,
+        this.serversData = new serversDataClass,
+        this.almanaxData = new almanaxDataClass,
         this.boxArranger = new v,
         this.isConnected = !1,
         this.wBody = it,
@@ -44592,7 +44612,7 @@ function(e, t, i) {
         f = i(125),
         b = i(549),
         m = i(103),
-        M = i(550),
+        almanaxDataClass = i(550),
         g = (i(551),
             i(7)),
         _ = i(552),
@@ -44636,7 +44656,7 @@ function(e, t, i) {
         ne = i(849),
         oe = i(851),
         ae = i(863),
-        re = i(760),
+        serversDataClass = i(760),
         se = i(864),
         ce = i(887),
         le = i(889),
@@ -51511,7 +51531,8 @@ function(e, t, i) {
 }, function(e, t, i) {
     var n = i(504),
         o = 666;
-    t.RED_CHANNEL = o, t.isChannelSelective = function(e, t) {
+    t.RED_CHANNEL = o, 
+    t.isChannelSelective = function(e, t) {
         switch (e) {
             case n.CHANNEL_ALLIANCE:
             case n.CHANNEL_GUILD:
@@ -51523,7 +51544,8 @@ function(e, t, i) {
             default:
                 return !1
         }
-    }, t.isChannelSafe = function(e) {
+    }, 
+    t.isChannelSafe = function(e) {
         switch (e) {
             case o:
             case n.CHANNEL_ADMIN:
@@ -51535,7 +51557,8 @@ function(e, t, i) {
             default:
                 return !1
         }
-    }, t.isHumanChannel = function(e) {
+    }, 
+    t.isHumanChannel = function(e) {
         switch (e) {
             case o:
             case n.PSEUDO_CHANNEL_INFO:
@@ -53862,11 +53885,14 @@ function(e, t, i) {
                         })
                     }
                 })
-            }), this._addCancel(), window.gui.on("TaxCollectorDialogQuestionExtendedMessage", function(e) {
+            }), this._addCancel(),
+            window.gui.on("TaxCollectorDialogQuestionExtendedMessage", function(e) {
                 p.nextQuestionAsync(h.guild, [], r(e))
-            }), window.gui.on("TaxCollectorDialogQuestionBasicMessage", function(e) {
+            }),
+            window.gui.on("TaxCollectorDialogQuestionBasicMessage", function(e) {
                 p.nextQuestionAsync(h.basic, [], r(e))
-            }), window.gui.on("AllianceTaxCollectorDialogQuestionExtendedMessage", function(e) {
+            }),
+            window.gui.on("AllianceTaxCollectorDialogQuestionExtendedMessage", function(e) {
                 p.nextQuestionAsync(h.alliance, [], r(e))
             })
         }), this.on("open", function(e, r) {
@@ -54217,6 +54243,7 @@ function(e, t, i) {
         CLIENT_UI_RECONNECTION: 6
     }
 }, function(e, t, i) {
+    // almanaxDataClass
     function n() {
         o.call(this), this._calendarDate = -1, this._merydeName = ""
     }
@@ -55235,7 +55262,7 @@ function(e, t, i) {
         .getText,
         d = i(572),
         u = i(12),
-        p = i(105),
+        connection = i(105),
         h = i(86),
         f = i(575),
         b = i(16)
@@ -55245,13 +55272,15 @@ function(e, t, i) {
         .logger;
     a(n, r), e.exports = n, n.prototype._hookupEvents = function(e) {
         var t = this;
-        p.on("ChallengeInfoMessage", function(e) {
+        connection.on("ChallengeInfoMessage", function(e) {
             t.fifo.push(function(i) {
                 t.setChallenge(e, i)
             })
-        }), p.on("ChallengeTargetUpdateMessage", function(e) {
+        }),
+        connection.on("ChallengeTargetUpdateMessage", function(e) {
             t.challengesData[e.challengeId] && (t._updateDescription(e.challengeId, e.targetId), t._updateTapBehavior(e.challengeId))
-        }), p.on("ChallengeResultMessage", function(e) {
+        }),
+        connection.on("ChallengeResultMessage", function(e) {
             if (!t.challengesData[e.challengeId]) return void(t.challengesResult[e.challengeId] = e);
             t.challengesData[e.challengeId].success = e.success;
             for (var i = 0; i < t.challengesIconsArray.length; i += 1) {
@@ -55261,40 +55290,54 @@ function(e, t, i) {
                     break
                 }
             }
-        }), p.on("ChallengeTargetsListMessage", function(e) {
+        }),
+        connection.on("ChallengeTargetsListMessage", function(e) {
             for (var t = 0; t < e.targetCells.length; t += 1) {
                 var i = e.targetCells[t];
                 window.gui.pingSystem.addPingPicto(i, 1, 3)
             }
-        }), p.on("ChallengeRemoveMessage", function(e) {
+        }),
+        connection.on("ChallengeRemoveMessage", function(e) {
             t.fifo.push(function(i) {
                 return t.removeChallenge(e), i()
             })
-        }), p.on("ChallengeRerollPriceMessage", function(e) {
+        }),
+        connection.on("ChallengeRerollPriceMessage", function(e) {
             t.rerollPrice = e.rerollPrice, t.isAskingForReroll = !1
-        }), p.on("ChallengeAmountMessage", function(e) {
+        }),
+        connection.on("ChallengeAmountMessage", function(e) {
             t._createChallengeSlots({
                 nbSlot: e.challengeAmount,
                 isAchievement: !1
             })
-        }), p.on("AchievementChallengeAmountMessage", function(e) {
+        }),
+        connection.on("AchievementChallengeAmountMessage", function(e) {
             t._createChallengeSlots({
                 nbSlot: e.achievementChallengeAmount,
                 isAchievement: !0
             })
-        }), e.on("GameFightEndMessage", function() {
+        }),
+        e.on("GameFightEndMessage", function() {
             t.hide(), t.reset(), t.isInBossFight = !1, t.isInToa = !1
-        }), e.on("GameFightStartingMessage", function(e) {
+        }),
+        e.on("GameFightStartingMessage", function(e) {
             t.isInToa = e.fightType === f.FIGHT_TYPE_ToA
-        }), e.on("GameFightShowFighterMessage", function(e) {
+        }),
+        e.on("GameFightShowFighterMessage", function(e) {
             "GameFightMonsterInformations" === e.informations._type && (e.informations._isBoss && (t.isInBossFight = !0), t._showReRollButton())
-        }), e.fightManager.on("fightLeaderFound", function() {
+        }),
+        e.fightManager.on("fightLeaderFound", function() {
             t._showReRollButton()
-        }), e.on("disconnect", function() {
-            t.rerollButton.hide(), t.hide(), t.reset()
-        }), e.on("GameFightStartMessage", function() {
+        }),
+        e.on("disconnect", function() {
+            t.rerollButton.hide(),
+            t.hide(),
+            t.reset()
+        }),
+        e.on("GameFightStartMessage", function() {
             t.rerollButton.hide()
-        }), this.rerollButton.on("tap", function() {
+        }),
+        this.rerollButton.on("tap", function() {
             var e = t.rerollPrice,
                 i = l("ui.popup.challengeRerollWarning", b(e));
             return 0 === e ? void t.rerollButton.disable() : void window.gui.openConfirmPopup({
@@ -55304,7 +55347,8 @@ function(e, t, i) {
                     e && !t.isAskingForReroll && (t.isAskingForReroll = !0, window.dofus.sendMessage("ChallengeRerollRequestMessage"))
                 }
             })
-        }), this.on("collapse", function(e) {
+        }),
+        this.on("collapse", function(e) {
             var i = "fightPlacement" === window.foreground.tapOptions.mode,
                 n = window.gui.playerData.isSpectator,
                 o = n || !i || t.isInToa || t.isInBossFight;
@@ -55313,14 +55357,16 @@ function(e, t, i) {
             var a = this.getChildren()[0].getChildren()[0];
             a.toggleClassName("small", !e)
         })
-    }, n.prototype.getDescriptionWithFighter = function(e, t) {
+    },
+    n.prototype.getDescriptionWithFighter = function(e, t) {
         var i = window.gui.fightManager.getFighter(e);
         if (i) {
             var n = i.name + " (" + l("ui.common.level") + " " + i.level + ")";
             return t.replace("%1", n)
         }
         return t
-    }, n.prototype._updateTapBehavior = function(e) {
+    },
+    n.prototype._updateTapBehavior = function(e) {
         var t = this.challengesData[e];
         if (t)
             for (var i = 0; i < this.challengesIconsArray.length; i += 1) {
@@ -55330,7 +55376,8 @@ function(e, t, i) {
                     break
                 }
             }
-    }, n.prototype._updateDescription = function(e, t) {
+    },
+    n.prototype._updateDescription = function(e, t) {
         var i = this.challengesData[e];
         if (i) {
             i.description = this.getDescriptionWithFighter(t, i.rawDescription);
@@ -55342,7 +55389,8 @@ function(e, t, i) {
                 }
             }
         }
-    }, n.prototype.setChallenge = function(e, t) {
+    },
+    n.prototype.setChallenge = function(e, t) {
         var i = this,
             n = e.challengeId,
             a = window.gui.fightManager.getFighter(e.targetId),
@@ -55351,28 +55399,33 @@ function(e, t, i) {
         u.preloadImage("gfx/challenges/" + e._gfxId + ".png", function(c) {
             s = c;
             var l = null;
-            i.challengesResult[n] && (l = i.challengesResult[n].success), i.challengesData[n] = {
-                iconUrl: s,
-                success: l,
-                name: e._name,
-                description: r,
-                rawDescription: e._description,
-                dropBonus: e.dropBonus,
-                xpBonus: e.xpBonus,
-                targetFighter: a,
-                categoryId: e._categoryId,
-                points: e._points,
-                gfxId: e._gfxId,
-                challengeId: n
-            };
-            var d, u, p = i._searchForAnEmptySlot(n);
+            i.challengesResult[n] && ( l = i.challengesResult[n].success ),
+            i.challengesData[n] = { iconUrl: s,
+                                    success: l,
+                                    name: e._name,
+                                    description: r,
+                                    rawDescription: e._description,
+                                    dropBonus: e.dropBonus,
+                                    xpBonus: e.xpBonus,
+                                    targetFighter: a,
+                                    categoryId: e._categoryId,
+                                    points: e._points,
+                                    gfxId: e._gfxId,
+                                    challengeId: n
+                                };
+            var d, u, 
+            p = i._searchForAnEmptySlot(n);
             p || (M.log("Cannot find an available slot... creating one..."), i._createChallengeSlot({
                 isAchievement: !1
-            }), p = i._searchForAnEmptySlot(n)), d = p.icon, u = p.challenge;
+            }),
+            p = i._searchForAnEmptySlot(n)),
+            d = p.icon,
+            u = p.challenge;
             for (var h = !1, f = 0; f < i.challengesIconsArray.length; f += 1) u = i.challengesIconsArray[f], u.element.isSameAchievement(e._gfxId, e.targetId) && (u.element.addChallengeData(i.challengesData[n]), h = !0, u.element.show());
             return h || (d.addChallengeData(i.challengesData[n]), d.show()), i.firstTimeDisplayed && (i.firstTimeDisplayed = !1, i.setStyle("left", o.mapLeft + "px")), i.show(), i.scroller.refresh(), t()
         })
-    }, n.prototype.removeChallenge = function(e) {
+    },
+    n.prototype.removeChallenge = function(e) {
         for (var t = 0; t < this.challengesIconsArray.length; t += 1) {
             var i = this.challengesIconsArray[t];
             if (i.id === e.challengeId) {
@@ -55381,7 +55434,8 @@ function(e, t, i) {
             }
         }
         this.challengesResult[e.challengeId] && delete this.challengesResult[e.challengeId]
-    }, n.prototype._searchForAnEmptySlot = function(e) {
+    },
+    n.prototype._searchForAnEmptySlot = function(e) {
         for (var t = 0; t < this.challengesIconsArray.length; t += 1) {
             var i = this.challengesIconsArray[t];
             if (i.id === -1) return i.id = e, {
@@ -55390,21 +55444,25 @@ function(e, t, i) {
             }
         }
         return null
-    }, n.prototype._showReRollButton = function() {
+    },
+    n.prototype._showReRollButton = function() {
         var e = "fightPlacement" === window.foreground.tapOptions.mode,
             t = window.gui.playerData.isSpectator;
         return t || !e || this.isInToa || this.isInBossFight ? void this.rerollButton.hide() : void(window.gui.playerData.isFightLeader ? this.rerollButton.show() : this.rerollButton.hide())
-    }, n.prototype._createChallengeSlot = function(e) {
+    },
+    n.prototype._createChallengeSlot = function(e) {
         var t = new d;
         e && e.isAchievement && this.challengeSlot.getChildCount() > 0 ? (t.insertBefore(this.challengeSlot.getChildren()[0]), t.hide()) : this.challengeSlot.appendChild(t), this.challengesIconsArray.push({
             element: t,
             id: -1
         })
-    }, n.prototype._createChallengeSlots = function(e) {
+    },
+    n.prototype._createChallengeSlots = function(e) {
         for (var t = 0; t < e.nbSlot; t++) this._createChallengeSlot({
             isAchievement: e.isAchievement
         })
-    }, n.prototype.reset = function() {
+    },
+    n.prototype.reset = function() {
         this.challengeSlot.clearContent(), this.challengesIconsArray = [], this.challengesData = {}, this.challengesResult = {}, this.isAskingForReroll = !1
     }
 }, function(e, t) {}, function(e, t, i) {
@@ -79227,7 +79285,7 @@ function(e, t, i) {
         w = i(105),
         T = i(854)
         .getExclusiveSelectorByGroup,
-        C = i(869),
+        Shortcut = i(869),
         I = i(870),
         S = i(882),
         E = i(129),
@@ -79319,16 +79377,18 @@ function(e, t, i) {
             o = window.gui.scenarioManager;
         t.on("disconnect", function() {
             e.close(), e.delClassNames("dragging"), e._selectedSlot = null, e._emptyPanel("spell"), e._emptyPanel("item"), e._currentCharacterId = null, e.isShortcutLoaded = !1, w.removeAllListeners("ShortcutBarAddErrorMessage"), w.removeAllListeners("ShortcutBarRemoveErrorMessage"), w.removeAllListeners("ShortcutBarSwapErrorMessage")
-        }), w.on("ShortcutBarContentMessage", function(t) {
+        }), 
+        w.on("ShortcutBarContentMessage", function(t) {
             if (0 !== t.characterId || !window.gui.playerData.isSpectator) {
-                for (var n = N[t.barType], o = [], a = 0; a < t.shortcuts.length; a++) o.push(new C(t.shortcuts[a]));
+                for (var n = N[t.barType], o = [], a = 0; a < t.shortcuts.length; a++) o.push(new Shortcut(t.shortcuts[a]));
                 "spell" === n && i.getControlledCharacter()
                     .setSpellShortcuts(o), e._setPanelContentRequest(n, o), e.isShortcutLoaded = !0
             }
-        }), w.on("ShortcutBarRefreshMessage", function(t) {
+        }), 
+        w.on("ShortcutBarRefreshMessage", function(t) {
             if (e.isShortcutLoaded) {
                 var n = N[t.barType],
-                    o = new C(t.shortcut);
+                    o = new Shortcut(t.shortcut);
                 e._isSlotIndexValid(o.slotIndex) && ("spell" === n && i.getControlledCharacter()
                     .updateSpellShortcut(o), e._setShortcutClient(o))
             }
@@ -79356,7 +79416,7 @@ function(e, t, i) {
     }, n.prototype._isSlotIndexValid = function(e) {
         return e < x * B
     }, n.prototype._isShortcutValid = function(e) {
-        return e instanceof C && this._isSlotIndexValid(e.slotIndex)
+        return e instanceof Shortcut && this._isSlotIndexValid(e.slotIndex)
     }, n.prototype.getSpellSlotByIndex = function(e) {
         var t = this._panels.spell.slotList;
         return t[e]
@@ -79634,7 +79694,7 @@ function(e, t, i) {
             case "characterBox":
             case "equipment":
                 var o = t.itemInstance;
-                this._setShortcutRequest(new C({
+                this._setShortcutRequest(new Shortcut({
                     _type: "ShortcutObjectItem",
                     slot: e.slotIndex,
                     itemUID: o.objectUID,
@@ -79642,28 +79702,28 @@ function(e, t, i) {
                 }));
                 break;
             case "presets":
-                this._setShortcutRequest(new C({
+                this._setShortcutRequest(new Shortcut({
                     _type: "ShortcutObjectPreset",
                     slot: e.slotIndex,
                     presetId: t.preset.presetId
                 }));
                 break;
             case "spellsWindow":
-                this._setShortcutRequest(new C({
+                this._setShortcutRequest(new Shortcut({
                     _type: "ShortcutSpell",
                     slot: e.slotIndex,
                     spellId: n.spellId
                 }));
                 break;
             case "attitude":
-                this._setShortcutRequest(new C({
+                this._setShortcutRequest(new Shortcut({
                     _type: "ShortcutEmote",
                     slot: e.slotIndex,
                     emoteId: n.id
                 }));
                 break;
             case "smiley":
-                this._setShortcutRequest(new C({
+                this._setShortcutRequest(new Shortcut({
                     _type: "ShortcutSmiley",
                     slot: e.slotIndex,
                     smileyId: n.id
@@ -79738,6 +79798,7 @@ function(e, t, i) {
         this._numberInputBox.maxValue = e, this._pageCount = e, this._pageCountLabel.setText("/ " + e), this._checkPosition()
     }, e.exports = o
 }, function(e, t) {}, function(e, t) {
+    // Shortcut
     function i(e) {
         if (!e) return console.error(new Error("Shortcut: cannot create a new shortcut without data"));
         if (!e._type || !n[e._type]) return console.error(new Error("Shortcut: type " + e._type + " is invalid"));
@@ -79755,12 +79816,14 @@ function(e, t, i) {
         ShortcutEmote: ["emoteId"],
         ShortcutSmiley: ["smileyId"]
     };
-    e.exports = i, i.prototype.serialize = function() {
+    e.exports = i,
+    i.prototype.serialize = function() {
         var e = {};
         e._type = this._type, e.slot = this.slotIndex;
         for (var t = n[this._type], i = 0; i < t.length; i++) e[t[i]] = this[t[i]];
         return e
-    }, i.prototype.getHash = function() {
+    }, 
+    i.prototype.getHash = function() {
         switch (this._type) {
             case "ShortcutSpell":
                 return "spell" + this.spellId;
@@ -79775,11 +79838,14 @@ function(e, t, i) {
             default:
                 return null
         }
-    }, i.prototype.isPreset = function() {
+    }, 
+    i.prototype.isPreset = function() {
         return "ShortcutObjectPreset" === this._type
-    }, i.prototype.isHandled = function() {
+    }, 
+    i.prototype.isHandled = function() {
         return null !== this.getHash()
-    }, i.prototype.getShortcutBarPanelType = function() {
+    }, 
+    i.prototype.getShortcutBarPanelType = function() {
         switch (this._type) {
             case "ShortcutSpell":
                 return "spell";
@@ -97149,14 +97215,22 @@ function(e, t) {}, function(e, t, i) {
             atLeastNbMachine: 0,
             maxPrice: 0
         }, this.roomSelector.setValue(0), this.chestSelector.setValue(0), this.mountSelector.setValue(0), this.breedingSelector.setValue(0), this.housingAreaSelector.setValue(-1), this.paddocksAreaSelector.setValue(-1), this.skillSelector.setValue(0), this.priceInput.setValue(0), window.dofus.sendMessage("HouseToSellFilterMessage", this.houseToSellFilter), window.dofus.sendMessage("PaddockToSellFilterMessage", this.paddockToSellFilter)
-    }, n.prototype.updateDisplay = function(e, t) {
-        this.currentPageIndex = t.pageIndex, this.currentPageIndex <= 1 ? this.leftButton.disable() : this.leftButton.enable(), this.currentPageIndex >= t.totalPage ? this.rightButton.disable() : this.rightButton.enable(), this.pages.setText(t.pageIndex + "/" + t.totalPage), this.propertySelector.setValue(e), this.changeDialogType(e)
-    }, n.prototype.setupSocketEvents = function() {
+    }, 
+    n.prototype.updateDisplay = function(e, t) {
+        this.currentPageIndex = t.pageIndex,
+        this.currentPageIndex <= 1 ? this.leftButton.disable() : this.leftButton.enable(), this.currentPageIndex >= t.totalPage ? this.rightButton.disable() : this.rightButton.enable(), this.pages.setText(t.pageIndex + "/" + t.totalPage), this.propertySelector.setValue(e), this.changeDialogType(e)
+    },
+    n.prototype.setupSocketEvents = function() {
         var e = this;
         window.dofus.connectionManager.on("HouseToSellListMessage", function(t) {
-            p.openDialog(e.id), e.updateDisplay("house", t), e.updateList(t.houseList)
-        }), window.dofus.connectionManager.on("PaddockToSellListMessage", function(t) {
-            p.openDialog(e.id), e.updateDisplay("paddock", t), e.updateList(t.paddockList)
+            p.openDialog(e.id),
+            e.updateDisplay("house", t),
+            e.updateList(t.houseList)
+        }), 
+        window.dofus.connectionManager.on("PaddockToSellListMessage", function(t) {
+            p.openDialog(e.id),
+            e.updateDisplay("paddock", t),
+            e.updateList(t.paddockList)
         })
     }
 }, function(e, t) {}, function(e, t, i) {
@@ -109607,6 +109681,7 @@ function(e, t) {}, function(e, t, i) {
         return this._worldMap
     }
 }, function(e, t) {}, function(e, t, i) {
+    // WorldMap - Canva
     function n() {
         s.call(this, "div", {
                 className: "WorldMap"
@@ -109630,14 +109705,23 @@ function(e, t) {}, function(e, t, i) {
                 y: 0,
                 width: 1,
                 height: 1
-            }, this._topLeftZoneCoordinate = null, this._worldMapId = 0, this._worldMapData = null, this._isLoadingWorldMapData = !1, this._zoomLevels = [], this._chunkSprites = {}, this._chunkBatchIndexes = {}, this._chunkBatchCurrent = 0, this._fullMapSprite = null, this._subAreaSprites = {}, this._subAreaData = {}, this._subAreaIdPerCoordinate = {}, this._gridSprite = null, this._zoneHighlight = null, this.dimensions = {
+            },
+            this._topLeftZoneCoordinate = null, this._worldMapId = 0, this._worldMapData = null, this._isLoadingWorldMapData = !1, this._zoomLevels = [], this._chunkSprites = {},
+            this._chunkBatchIndexes = {},
+            this._chunkBatchCurrent = 0, this._fullMapSprite = null, this._subAreaSprites = {},
+            this._subAreaData = {},
+            this._subAreaIdPerCoordinate = {},
+            this._gridSprite = null, this._zoneHighlight = null, this.dimensions = {
                 width: 0,
                 height: 0
-            }, this._iconsInfo = {}, this._iconsImage = null, this._iconBatchData = new I(this), this.isSelecting = !1, this._setupListeners()
+            },
+            this._iconsInfo = {},
+            this._iconsImage = null, this._iconBatchData = new I(this), this.isSelecting = !1, this._setupListeners()
     }
 
     function o(e) {
-        for (var t = {}, i = [], n = 0, o = 0; o < e.length; o += 2)
+        for (var t = {},
+            i = [], n = 0, o = 0; o < e.length; o += 2)
             if (!t[o]) {
                 i[n] = [];
                 for (var a = [o]; a.length;)
@@ -109706,8 +109790,15 @@ function(e, t) {}, function(e, t, i) {
         var t = this,
             i = window.gui.playerData,
             n = i.quests;
-        i.on("characterLevelUp", e), n.on("questStarted", e), n.on("questUpdate", e), n.on("stepValidated", e), n.on("objectiveValidated", e), n.on("questFinished", e), n.on("listUpdated", e)
-    }, n.prototype.preloadGenericAssets = function(e) {
+        i.on("characterLevelUp", e),
+        n.on("questStarted", e),
+        n.on("questUpdate", e),
+        n.on("stepValidated", e),
+        n.on("objectiveValidated", e),
+        n.on("questFinished", e),
+        n.on("listUpdated", e)
+    },
+    n.prototype.preloadGenericAssets = function(e) {
         var t = this;
         M.getAllDataMap(["SubAreaIdPerCoordinate", "SubAreasWorldMapData", "Hints"], function(i, n) {
             return i ? e(i) : (t._subAreaIdPerCoordinate = n.SubAreaIdPerCoordinate, t._subAreaData = n.SubAreasWorldMapData, t._iconsInfo = n.Hints, void m.loadModel("icon", "assets", function(i, n) {
@@ -109717,22 +109808,26 @@ function(e, t) {}, function(e, t, i) {
                 t._iconBatchData.createIconModels(i, a, o), e()
             }))
         })
-    }, n.prototype.stopMovingWorldMap = function() {
+    },
+    n.prototype.stopMovingWorldMap = function() {
         this._scene.camera.stopMoving(), this._loadChunksInView()
-    }, n.prototype.centerToPosition = function(e) {
+    },
+    n.prototype.centerToPosition = function(e) {
         if (this._worldMapData) {
             if (!e) return void console.error(new Error("centerToPosition no coords"));
             if (void 0 === e.posX || void 0 === e.posY) return void console.error(new Error("centerToPosition no pos: " + e.constructor.name));
             var t = this._convertGridToSceneCoordinate(e.posX, e.posY);
             this._scene.camera.follow(t), this._loadChunksInView()
         }
-    }, n.prototype.centerOnSubArea = function(e) {
+    },
+    n.prototype.centerOnSubArea = function(e) {
         var t = this.getSubAreaBounds(e);
         return !!t && (this.centerToPosition({
             posX: t.x + t.width / 2,
             posY: t.y + t.height / 2
         }), !0)
-    }, n.prototype.getNearestSubarea = function(e) {
+    },
+    n.prototype.getNearestSubarea = function(e) {
         for (var t, i = window.gui.playerData.position.coordinates, n = 1 / 0, o = 0; o < e.length; o++) {
             var a = e[o],
                 r = this.getSubAreaBounds(a);
@@ -109744,19 +109839,23 @@ function(e, t) {}, function(e, t, i) {
             }
         }
         return t
-    }, n.prototype.centerToMyPosition = function() {
+    },
+    n.prototype.centerToMyPosition = function() {
         if (this._worldMapData) {
             var e = window.gui.playerData.position.coordinates;
             this.centerToPosition(e)
         }
-    }, n.prototype.setDimensions = function(e, t) {
+    },
+    n.prototype.setDimensions = function(e, t) {
         this.dimensions.width = e, this.dimensions.height = t, this.cropPosition.width = e, this.cropPosition.height = t, this.setStyles({
             width: e + "px",
             height: t + "px"
         }), this.setCanvasDimensions(e, t)
-    }, n.prototype.getDisplayedWorldmapId = function() {
+    },
+    n.prototype.getDisplayedWorldmapId = function() {
         return this._worldMapId
-    }, n.prototype.initialize = function(e, t) {
+    },
+    n.prototype.initialize = function(e, t) {
         var i = window.gui.playerData.position.worldmapId;
         if (this._worldMapId === i) return this._isLoadingWorldMapData ? console.error("[WorldMap.initialize]", "Initialisation already launched") : this._display(), t();
         if (this._isLoadingWorldMapData) return console.error("[WorldMap.initialize]", "Initialisation of a world map of another id is already launched", "Asked ", i, "Loading", this._worldMapId), t();
@@ -109787,15 +109886,21 @@ function(e, t) {}, function(e, t, i) {
                 w: m._worldMapWidth,
                 h: m._worldMapHeight,
                 layer: -1
-            }, e), m._prepareGrid(), m._prepareIcons(), m._display(), m._isLoadingWorldMapData = !1, m._scene.camera.setEmitOnZoom(!0), m.updateGridLine(), m.emit("loaded"), t()
-        }, this._scene.renderer, "linear")
-    }, n.prototype.isLoading = function() {
+            },
+            e), m._prepareGrid(), m._prepareIcons(), m._display(), m._isLoadingWorldMapData = !1, m._scene.camera.setEmitOnZoom(!0), m.updateGridLine(), m.emit("loaded"), t()
+        },
+        this._scene.renderer, "linear")
+    },
+    n.prototype.isLoading = function() {
         return this._isLoadingWorldMapData
-    }, n.prototype.getScene = function() {
+    },
+    n.prototype.getScene = function() {
         return this._scene
-    }, n.prototype._display = function() {
+    },
+    n.prototype._display = function() {
         this._loadChunksInView(), _.addScene(this._scene)
-    }, n.prototype._prepareGrid = function() {
+    },
+    n.prototype._prepareGrid = function() {
         null !== this._gridSprite && this._gridSprite.remove();
         var e = this._zoneWidth,
             t = this._zoneHeight,
@@ -109832,37 +109937,44 @@ function(e, t) {}, function(e, t, i) {
                 y0: -t / 2,
                 x1: -e / 2,
                 y1: -t / 4
-            }, {
+            },
+            {
                 x0: -e / 2,
                 y0: -t / 2,
                 x1: -e / 4,
                 y1: -t / 2
-            }, {
+            },
+            {
                 x0: e / 2,
                 y0: t / 4,
                 x1: e / 2,
                 y1: t / 2
-            }, {
+            },
+            {
                 x0: e / 4,
                 y0: t / 2,
                 x1: e / 2,
                 y1: t / 2
-            }, {
+            },
+            {
                 x0: e / 2,
                 y0: -t / 4,
                 x1: e / 2,
                 y1: -t / 2
-            }, {
+            },
+            {
                 x0: e / 2,
                 y0: -t / 2,
                 x1: e / 4,
                 y1: -t / 2
-            }, {
+            },
+            {
                 x0: -e / 2,
                 y0: t / 4,
                 x1: -e / 2,
                 y1: t / 2
-            }, {
+            },
+            {
                 x0: -e / 4,
                 y0: t / 2,
                 x1: -e / 2,
@@ -109881,7 +109993,8 @@ function(e, t) {}, function(e, t, i) {
             layer: 3,
             id: "worldMapHighlight" + this._worldMapId
         }), this._zoneHighlight.hide(), this._zoneHighlightTween = new k(this._zoneHighlight, ["x", "y"])
-    }, n.prototype.setHighlightOn = function(e, t) {
+    },
+    n.prototype.setHighlightOn = function(e, t) {
         if (!this._isLoadingWorldMapData) {
             var i = this._convertGridToSceneCoordinate(e, t);
             this._zoneHighlight.isDisplayed ? ((this._zoneHighlightTween.starting || this._zoneHighlightTween.playing) && this._zoneHighlightTween.stop(), this._zoneHighlightTween.reset()
@@ -109892,12 +110005,15 @@ function(e, t) {}, function(e, t, i) {
                 .to({
                     x: i.x,
                     y: i.y
-                }, 16, F.polyOut, 9)
+                },
+                16, F.polyOut, 9)
                 .start()) : (this._zoneHighlight.show(), this._zoneHighlight.x = i.x, this._zoneHighlight.y = i.y)
         }
-    }, n.prototype.hideHighlight = function() {
+    },
+    n.prototype.hideHighlight = function() {
         this._zoneHighlight && ((this._zoneHighlightTween.starting || this._zoneHighlightTween.playing) && this._zoneHighlightTween.stop(), this._zoneHighlight.hide())
-    }, n.prototype.setGridVisibility = function(e) {
+    },
+    n.prototype.setGridVisibility = function(e) {
         if (this._gridTween) {
             this._gridTween.playing && this._gridTween.stop(), this._gridTween.removeOnFinish();
             var t = this._gridSprite.isDisplayed ? this._gridSprite.alpha : 0;
@@ -109907,7 +110023,8 @@ function(e, t) {}, function(e, t, i) {
                 })
                 .to({
                     alpha: 1
-                }, 4);
+                },
+                4);
             else {
                 this._gridTween.reset()
                     .from({
@@ -109915,7 +110032,8 @@ function(e, t) {}, function(e, t, i) {
                     })
                     .to({
                         alpha: 0
-                    }, 4);
+                    },
+                    4);
                 var i = this._gridSprite;
                 this._gridTween.onFinish(function() {
                     i.hide()
@@ -109928,9 +110046,11 @@ function(e, t) {}, function(e, t, i) {
     n.prototype.getSubAreaAtGridCoordinate = function(e, t) {
         for (var i = this._convertGridCoordinateToCompressedCoordinate(e, t), n = this._subAreaIdPerCoordinate[this._worldMapId][i]; void 0 === n && t >= V;) i -= 1, t--, n = this._subAreaIdPerCoordinate[this._worldMapId][i];
         if (n) return this._subAreaData[n]
-    }, n.prototype.convertGridCoordinateToZoneId = function(e, t) {
+    },
+    n.prototype.convertGridCoordinateToZoneId = function(e, t) {
         return (t - this._topLeftZoneCoordinate.j) * this._nZonesHorizontally + (e - this._topLeftZoneCoordinate.i)
-    }, n.prototype.convertSceneToGridCoordinate = function(e, t) {
+    },
+    n.prototype.convertSceneToGridCoordinate = function(e, t) {
         return this._worldMapData ? {
             i: Math.floor((e - this._worldMapData.origineX) / this._zoneWidth),
             j: Math.floor((t - this._worldMapData.origineY) / this._zoneHeight)
@@ -109938,13 +110058,16 @@ function(e, t) {}, function(e, t, i) {
             i: 0,
             j: 0
         })
-    }, n.prototype.convertCanvasToGridCoordinate = function(e, t) {
+    },
+    n.prototype.convertCanvasToGridCoordinate = function(e, t) {
         var i = this._scene.convertCanvasToSceneCoordinate(e, t);
         return this.convertSceneToGridCoordinate(i.x, i.y)
-    }, n.prototype.convertGridToCanvasCoordinate = function(e, t) {
+    },
+    n.prototype.convertGridToCanvasCoordinate = function(e, t) {
         var i = this._convertGridToSceneCoordinate(e, t);
         return this._scene.convertSceneToCanvasCoordinate(i.x, i.y)
-    }, n.prototype._getZoneGridPositions = function(e) {
+    },
+    n.prototype._getZoneGridPositions = function(e) {
         var t = this._subAreaData[e];
         if (!t) return console.error("SubareaData not found for " + e);
         var i = t.gridPositions[this._worldMapId];
@@ -109956,7 +110079,8 @@ function(e, t) {}, function(e, t, i) {
             if (!i) return console.error("Grid positions missing for subarea " + e)
         }
         return i
-    }, n.prototype.getSubAreaBounds = function(e) {
+    },
+    n.prototype.getSubAreaBounds = function(e) {
         var t = window.gui.playerData.position.coordinates,
             i = this._getZoneGridPositions(e);
         if (i) {
@@ -109965,13 +110089,15 @@ function(e, t) {}, function(e, t, i) {
                     yMin: 0,
                     xMax: 0,
                     yMax: 0
-                }, r = 1 / 0, s = 0; s < n.length; s++) {
+                },
+                r = 1 / 0, s = 0; s < n.length; s++) {
                 for (var c = n[s], l = {
                         xMin: 1 / 0,
                         yMin: 1 / 0,
                         xMax: -(1 / 0),
                         yMax: -(1 / 0)
-                    }, d = 0; d < c.length; d++) {
+                    },
+                    d = 0; d < c.length; d++) {
                     var u = c[d],
                         p = i[u],
                         h = i[u + 1];
@@ -109991,12 +110117,14 @@ function(e, t) {}, function(e, t, i) {
                 height: g
             }
         }
-    }, n.prototype.addSubAreaHighlight = function(e, t) {
+    },
+    n.prototype.addSubAreaHighlight = function(e, t) {
         var i = "subAreaOverlay" + e;
         if (!this._subAreaSprites[e] || this._subAreaSprites[e].id !== i) {
             var n = this._getZoneGridPositions(e);
             if (n) {
-                for (var o = [], a = 1 / 0, r = 1 / 0, s = -(1 / 0), c = -(1 / 0), l = {}, d = 0; d < n.length; d += 2) {
+                for (var o = [], a = 1 / 0, r = 1 / 0, s = -(1 / 0), c = -(1 / 0), l = {},
+                d = 0; d < n.length; d += 2) {
                     var u = n[d],
                         h = n[d + 1],
                         b = u + ":" + h;
@@ -110022,10 +110150,12 @@ function(e, t) {}, function(e, t, i) {
                     })
                     .to({
                         alpha: 1
-                    }, 15, F.polyOut, 3)
+                    },
+                    15, F.polyOut, 3)
                     .to({
                         alpha: .4
-                    }, 15, F.polyIn, 2)
+                    },
+                    15, F.polyIn, 2)
                     .start(!0), new k(this._subAreaSprites[e].highlight, ["red", "green", "blue"])
                     .from({
                         red: .3,
@@ -110036,16 +110166,19 @@ function(e, t) {}, function(e, t, i) {
                         red: 1,
                         green: 1,
                         blue: 1
-                    }, 15, F.polyOut, 3)
+                    },
+                    15, F.polyOut, 3)
                     .to({
                         red: .3,
                         green: .3,
                         blue: .3
-                    }, 15, F.polyIn, 2)
+                    },
+                    15, F.polyIn, 2)
                     .start(!0)
             }
         }
-    }, n.prototype.removeSubAreaHighlight = function(e) {
+    },
+    n.prototype.removeSubAreaHighlight = function(e) {
         if (null !== this._subAreaSprites[e] && void 0 !== this._subAreaSprites[e]) {
             var t = this._subAreaSprites[e];
             delete this._subAreaSprites[e], new k(t, ["alpha"])
@@ -110054,28 +110187,35 @@ function(e, t) {}, function(e, t, i) {
                 })
                 .to({
                     alpha: 0
-                }, 5)
+                },
+                5)
                 .start()
                 .onFinish(function() {
                     t.remove()
                 })
         }
-    }, n.prototype.clearSubAreaHighlights = function(e) {
+    },
+    n.prototype.clearSubAreaHighlights = function(e) {
         for (var t in this._subAreaSprites) e !== Number(t) && this.removeSubAreaHighlight(t)
-    }, n.prototype.move = function(e, t, i, n, o) {
+    },
+n.prototype.move = function(e, t, i, n, o) {
         this._scene.move(e, t, i, n, o), this._loadChunksInView()
-    }, n.prototype.addInertia = function(e, t) {
+    },
+    n.prototype.addInertia = function(e, t) {
         this._scene.camera.addInertia(e, t, .8), this._loadChunksInView()
-    }, n.prototype._getZoomLevel = function(e) {
+    },
+    n.prototype._getZoomLevel = function(e) {
         for (var t, i = this._zoomLevels[0], n = 1; n < this._zoomLevels.length && (t = this._zoomLevels[n], !(e >= 1.2 * t)); n += 1) i = t;
         return i
-    }, n.prototype._loadChunksInView = function() {
+    },
+    n.prototype._loadChunksInView = function() {
         function e(e, t) {
             var i = H._chunkBatchIndexes[e.id];
             return i !== H._chunkBatchCurrent ? (delete H._chunkBatchIndexes[e.id], t()) : void b.loadTexture(e.path, function(i) {
                 var n = H._chunkBatchIndexes[e.id];
                 return delete H._chunkBatchIndexes[e.id], n !== H._chunkBatchCurrent ? (i.release(), t()) : (e.texture = i, H._createChunkGraphic(e), void t())
-            }, H._scene.renderer, "linear")
+            },
+            H._scene.renderer, "linear")
         }
         var t = this._scene.camera.zoomTarget;
         if (void 0 !== t) {
@@ -110132,17 +110272,21 @@ function(e, t) {}, function(e, t, i) {
                 e && console.error("Chunk textures not loaded correctly", e)
             })
         }
-    }, n.prototype._createChunkGraphic = function(e) {
+    },
+    n.prototype._createChunkGraphic = function(e) {
         e.w *= e.texture.element.width / w, e.h *= e.texture.element.height / T, this._chunkSprites[e.id] = new d(e, e.texture)
-    }, n.prototype._clearChunks = function() {
+    },
+    n.prototype._clearChunks = function() {
         for (var e = Object.keys(this._chunkSprites), t = 0; t < e.length; t += 1) {
             var i = this._chunkSprites[e[t]];
             i.remove()
         }
         this._chunkSprites = {}
-    }, n.prototype._convertGridCoordinateToCompressedCoordinate = function(e, t) {
+    },
+    n.prototype._convertGridCoordinateToCompressedCoordinate = function(e, t) {
         return ((e < 0 ? 32768 | 32767 & e : 32767 & e) << 16) + (t < 0 ? 32768 | 32767 & t : 32767 & t)
-    }, n.prototype._convertGridToSceneCoordinate = function(e, t) {
+    },
+    n.prototype._convertGridToSceneCoordinate = function(e, t) {
         if (!this._worldMapData) return console.error(new Error("worldMapData are not ready yet!")), {
             x: 0,
             y: 0
@@ -110153,24 +110297,32 @@ function(e, t) {}, function(e, t, i) {
             x: i,
             y: n
         }
-    }, n.prototype._convertSceneToChunkCoordinate = function(e, t, i) {
+    },
+    n.prototype._convertSceneToChunkCoordinate = function(e, t, i) {
         var n = Math.floor(e * t / w),
             o = Math.floor(e * i / T);
         return {
             k: n,
             l: o
         }
-    }, n.prototype.setCanvasDimensions = function(e, t) {
+    },
+    n.prototype.setCanvasDimensions = function(e, t) {
         this._scene.setCanvasDimensions(e, t), this._loadChunksInView()
-    }, n.prototype.stopRefreshing = function() {
+    },
+    n.prototype.stopRefreshing = function() {
         _.removeScene(this._scene)
-    }, n.prototype.crop = function(e, t, i, n) {
+    },
+    n.prototype.crop = function(e, t, i, n) {
         this.cropPosition.x = e, this.cropPosition.y = t, this.cropPosition.width = i, this.cropPosition.height = n, this._scene.crop(e, t, i, n), this._loadChunksInView()
-    }, n.prototype.resetCropping = function() {
+    },
+    n.prototype.resetCropping = function() {
         this.cropPosition.x = this.cropPosition.y = 0, this.cropPosition.width = this.dimensions.width, this.cropPosition.height = this.dimensions.height, this._scene.resetCropping(), this._loadChunksInView()
-    }, n.prototype.clear = function() {
-        this._scene.clean(), this._scene.clear(), this._worldMapId = 0, this._fullMapSprite = null, this._chunkSprites = {}, this._zoomLevels = [], this._worldMapData = null, this._iconBatchData.clearIconBatch()
-    }, n.prototype._prepareIcons = function() {
+    },
+    n.prototype.clear = function() {
+        this._scene.clean(), this._scene.clear(), this._worldMapId = 0, this._fullMapSprite = null, this._chunkSprites = {},
+        this._zoomLevels = [], this._worldMapData = null, this._iconBatchData.clearIconBatch()
+    },
+    n.prototype._prepareIcons = function() {
         this._iconBatchData.reset(), this._iconBatchData.createIconsFromInfo(this._iconsInfo, this._worldMapId), this._iconBatchData.iconBatch = new S({
             id: "iconWorldMap_" + this._worldMapId,
             x: 0,
@@ -110187,38 +110339,50 @@ function(e, t) {}, function(e, t, i) {
             n = new C(i, i, {
                 color: [1, 1.1, 2, 1],
                 clusterId: i
-            }, this._iconBatchData.iconDimensions.myPosition),
+            },
+            this._iconBatchData.iconDimensions.myPosition),
             o = new E(i, t.x, t.y);
         this._iconBatchData.addCluster(o), o.add(n), n.cluster = o, this._iconBatchData.addIcon(n)
-    }, n.prototype.hasIcon = function(e) {
+    },
+    n.prototype.hasIcon = function(e) {
         return this._iconBatchData.hasIcon(e)
-    }, n.prototype.getIcon = function(e) {
+    },
+    n.prototype.getIcon = function(e) {
         return this._iconBatchData.getIcon(e)
-    }, n.prototype.addIcon = function(e, t) {
+    },
+    n.prototype.addIcon = function(e, t) {
         return this._iconBatchData.createIcon(e, t)
-    }, n.prototype.removeIcon = function(e) {
+    },
+    n.prototype.removeIcon = function(e) {
         this._iconBatchData.removeIcon(e)
-    }, n.prototype.setVisibilityOfIconType = function(e, t) {
+    },
+    n.prototype.setVisibilityOfIconType = function(e, t) {
         this._iconBatchData.setVisibilityOfIconType(e, t)
-    }, n.prototype.setIconPosition = function(e, t, i) {
+    },
+    n.prototype.setIconPosition = function(e, t, i) {
         this._iconBatchData.setIconPosition(e, t, i)
-    }, n.prototype.convertZoneIdToGridCoordinate = function(e) {
+    },
+    n.prototype.convertZoneIdToGridCoordinate = function(e) {
         var t = Math.floor(e / this._nZonesHorizontally),
             i = this._topLeftZoneCoordinate;
         return {
             i: e - t * this._nZonesHorizontally + i.i,
             j: t + i.j
         }
-    }, n.prototype.getSubAreaAtCanvasCoordinate = function(e, t) {
+    },
+    n.prototype.getSubAreaAtCanvasCoordinate = function(e, t) {
         var i = this.convertCanvasToGridCoordinate(e, t);
         return this.getSubAreaAtGridCoordinate(i.i, i.j)
-    }, n.prototype.getIconsAtCanvasCoordinate = function(e, t) {
+    },
+    n.prototype.getIconsAtCanvasCoordinate = function(e, t) {
         var i = this.convertCanvasToGridCoordinate(e, t),
             n = this.convertGridCoordinateToZoneId(i.i, i.j);
         return this._iconBatchData.getClusterIcons(n)
-    }, n.prototype.setupUI = function(e) {
+    },
+    n.prototype.setupUI = function(e) {
         this._setupMapTransform(), this._setupMapTooltip(e)
-    }, n.prototype._setupMapTransform = function() {
+    },
+    n.prototype._setupMapTransform = function() {
         var e = this;
         B(this, "HIGH");
         var t, i = 0,
@@ -110232,13 +110396,15 @@ function(e, t) {}, function(e, t, i) {
         }), this._scene.camera.on("zoomed", function() {
             e.updateGridLine()
         })
-    }, n.prototype.updateGridLine = function() {
+    },
+    n.prototype.updateGridLine = function() {
         this._gridSprite.alpha = this._scene.camera.zoomTarget < .1 ? .3 : 1;
         var e = Math.min(1, G + (1 - this._scene.camera.zoomTarget));
         this._gridSprite.setStrength(e), this._gridSprite.alpha = 1 - Math.min(1, Math.pow(e, 5));
         var t = Math.min(1, Y + (1 - this._scene.camera.zoomTarget));
         this._zoneHighlight.setStrength(t)
-    }, n.prototype._setupMapTooltip = function(e) {
+    },
+    n.prototype._setupMapTooltip = function(e) {
         function t(e) {
             if (h = P(m.rootElement), e = O.getCoordinatesRelativeToBody(e.x, e.y), s = e.x, c = e.y, l = s - h.left, d = c - h.top, f) {
                 var t = null,
@@ -110321,12 +110487,14 @@ function(e, t) {}, function(e, t, i) {
             M = b.tooltipBox,
             g = new W;
         this.on("tap", function() {
-            console.log("tap");
             if (m._worldMapData && !m.isSelecting) {
                 m.isSelecting = !0;
                 var e = m.convertCanvasToGridCoordinate(l, d),
                     t = this.convertGridCoordinateToZoneId(e.i, e.j);
-                e.icons = this._iconBatchData.getClusterIcons(t), b.openContextualMenu("map", e), m.setHighlightOn(e.i, e.j), window.setTimeout(function() {
+                e.icons = this._iconBatchData.getClusterIcons(t),
+                b.openContextualMenu("map", e),
+                m.setHighlightOn(e.i, e.j),
+                window.setTimeout(function() {
                     m.isSelecting = !1
                 }, 500)
             }
@@ -110334,7 +110502,8 @@ function(e, t) {}, function(e, t, i) {
         var _ = R.getContextMenu("map");
         _.on("open", function(e) {
             o(_.worldMapTooltip, e.i, e.j)
-        }), _.on("close", function(e) {
+        }),
+        _.on("close", function(e) {
             "reopen" !== e && m.hideHighlight()
         });
         var A = {},
@@ -110345,11 +110514,15 @@ function(e, t) {}, function(e, t, i) {
         var y = 50;
         this.on("dom.touchstart", function(e) {
             this.stopMovingWorldMap(), t(q(e))
-        }), e.on("positioned", i), e.on("resize", function() {
+        }),
+        e.on("positioned", i), e.on("resize", function() {
             i(), m.updateGridLine()
-        }), L(this, g), this.on("tooltipOn", function() {
+        }),
+        L(this, g),
+        this.on("tooltipOn", function() {
             f = !0, M.closeForRecomputing(), a(), b.wBody.on("dom.touchmove", r)
-        }), this.on("tooltipOut", function() {
+        }),
+        this.on("tooltipOut", function() {
             f = !1, b.wBody.removeListener("dom.touchmove", r);
             var e = g.subAreaData;
             e && m.removeSubAreaHighlight(e.id), m.hideHighlight(), v.playing && v.stop(), e = u = p = null
@@ -120113,18 +120286,29 @@ function(e, t) {}, function(e, t, i) {
         m.setStyles({
             left: "-100px",
             top: "100px"
-        }), m.on("confirm", function(e) {
+        }), 
+        m.on("confirm", function(e) {
             window.dofus.sendMessage("ExchangeObjectMoveMessage", {
                 objectUID: o,
                 quantity: e * (this.fromInventory ? 1 : -1)
             })
-        }), h.on("ExchangeObjectRemovedMessage", this.localizeEvent(n)), h.on("ExchangeObjectAddedMessage", this.localizeEvent(i)), h.on("ExchangeObjectModifiedMessage", this.localizeEvent(i)), this.on("open", function(t) {
-            e.addFilters([a.unlinkedItemsFilter]), e.filterList(), e.resetDisplay(), t && t.displayFakeNpcExchange && (b.fakeNpcExchange = !0, b._displayFakeInventory())
-        }), this.on("opened", function(e) {
+        }), 
+        h.on("ExchangeObjectRemovedMessage", this.localizeEvent(n)),
+        h.on("ExchangeObjectAddedMessage", this.localizeEvent(i)),
+        h.on("ExchangeObjectModifiedMessage", this.localizeEvent(i)),
+        this.on("open", function(t) {
+            e.addFilters([a.unlinkedItemsFilter]),
+            e.filterList(),
+            e.resetDisplay(),
+            t && t.displayFakeNpcExchange && (b.fakeNpcExchange = !0, b._displayFakeInventory())
+        }),
+        this.on("opened", function(e) {
             e && e.displayFakeNpcExchange && b._displayFakeInventory()
-        }), this.on("close", function() {
+        }),
+        this.on("close", function() {
             b.removeFakeItem(), b.fakeNpcExchange = !1, e.removeFilter(a.unlinkedItemsFilter), e.filterList(), m.hide(), t()
-        }), this.on("slot-doubletap", function(e) {
+        }),
+        this.on("slot-doubletap", function(e) {
             var t = e.itemInstance;
             o = t.objectUID;
             var i = e.getQuantity();
@@ -120139,7 +120323,8 @@ function(e, t) {}, function(e, t, i) {
                 min: 1,
                 max: i
             }))
-        }), window.gui.scenarioManager.on("stepChanged", function() {
+        }),
+        window.gui.scenarioManager.on("stepChanged", function() {
             var e = window.gui.scenarioManager.isBehaviourEnabled(p.DISABLE_CLOSE_BTN);
             b.toggleClassName("disableCloseBtn", e)
         })

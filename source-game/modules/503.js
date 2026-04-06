@@ -1,7 +1,8 @@
 function(e, t, i) {
     var n = i(504),
         o = 666;
-    t.RED_CHANNEL = o, t.isChannelSelective = function(e, t) {
+    t.RED_CHANNEL = o, 
+    t.isChannelSelective = function(e, t) {
         switch (e) {
             case n.CHANNEL_ALLIANCE:
             case n.CHANNEL_GUILD:
@@ -13,7 +14,8 @@ function(e, t, i) {
             default:
                 return !1
         }
-    }, t.isChannelSafe = function(e) {
+    }, 
+    t.isChannelSafe = function(e) {
         switch (e) {
             case o:
             case n.CHANNEL_ADMIN:
@@ -25,7 +27,8 @@ function(e, t, i) {
             default:
                 return !1
         }
-    }, t.isHumanChannel = function(e) {
+    }, 
+    t.isHumanChannel = function(e) {
         switch (e) {
             case o:
             case n.PSEUDO_CHANNEL_INFO:

@@ -1,4 +1,5 @@
 function(e, t, i) {
+    // Logger
     function n(e) {
         _[e] || (_[e] = function() {
             _.emit(e, arguments)

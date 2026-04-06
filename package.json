@@ -12,7 +12,9 @@
     "build:game": "node scripts/build-game.mjs",
     "build:apk": "node scripts/build-apk.mjs",
     "debundle": "node scripts/debundle-webpack.mjs",
-    "rebundle": "node scripts/rebundle-webpack.mjs"
+    "rebundle": "node scripts/rebundle-webpack.mjs",
+    "generate:send-protocol": "node scripts/generate-send-protocol.mjs",
+    "generate:receive-protocol": "node scripts/generate-receive-protocol.mjs"
   },
   "engines": {
     "node": ">=14.17.0"

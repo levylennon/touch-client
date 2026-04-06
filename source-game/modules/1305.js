@@ -49,18 +49,29 @@ function(e, t, i) {
         m.setStyles({
             left: "-100px",
             top: "100px"
-        }), m.on("confirm", function(e) {
+        }), 
+        m.on("confirm", function(e) {
             window.dofus.sendMessage("ExchangeObjectMoveMessage", {
                 objectUID: o,
                 quantity: e * (this.fromInventory ? 1 : -1)
             })
-        }), h.on("ExchangeObjectRemovedMessage", this.localizeEvent(n)), h.on("ExchangeObjectAddedMessage", this.localizeEvent(i)), h.on("ExchangeObjectModifiedMessage", this.localizeEvent(i)), this.on("open", function(t) {
-            e.addFilters([a.unlinkedItemsFilter]), e.filterList(), e.resetDisplay(), t && t.displayFakeNpcExchange && (b.fakeNpcExchange = !0, b._displayFakeInventory())
-        }), this.on("opened", function(e) {
+        }), 
+        h.on("ExchangeObjectRemovedMessage", this.localizeEvent(n)),
+        h.on("ExchangeObjectAddedMessage", this.localizeEvent(i)),
+        h.on("ExchangeObjectModifiedMessage", this.localizeEvent(i)),
+        this.on("open", function(t) {
+            e.addFilters([a.unlinkedItemsFilter]),
+            e.filterList(),
+            e.resetDisplay(),
+            t && t.displayFakeNpcExchange && (b.fakeNpcExchange = !0, b._displayFakeInventory())
+        }),
+        this.on("opened", function(e) {
             e && e.displayFakeNpcExchange && b._displayFakeInventory()
-        }), this.on("close", function() {
+        }),
+        this.on("close", function() {
             b.removeFakeItem(), b.fakeNpcExchange = !1, e.removeFilter(a.unlinkedItemsFilter), e.filterList(), m.hide(), t()
-        }), this.on("slot-doubletap", function(e) {
+        }),
+        this.on("slot-doubletap", function(e) {
             var t = e.itemInstance;
             o = t.objectUID;
             var i = e.getQuantity();
@@ -75,7 +86,8 @@ function(e, t, i) {
                 min: 1,
                 max: i
             }))
-        }), window.gui.scenarioManager.on("stepChanged", function() {
+        }),
+        window.gui.scenarioManager.on("stepChanged", function() {
             var e = window.gui.scenarioManager.isBehaviourEnabled(p.DISABLE_CLOSE_BTN);
             b.toggleClassName("disableCloseBtn", e)
         })

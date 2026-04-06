@@ -1,4 +1,5 @@
 function(e, t) {
+    // Shortcut
     function i(e) {
         if (!e) return console.error(new Error("Shortcut: cannot create a new shortcut without data"));
         if (!e._type || !n[e._type]) return console.error(new Error("Shortcut: type " + e._type + " is invalid"));
@@ -16,12 +17,14 @@ function(e, t) {
         ShortcutEmote: ["emoteId"],
         ShortcutSmiley: ["smileyId"]
     };
-    e.exports = i, i.prototype.serialize = function() {
+    e.exports = i,
+    i.prototype.serialize = function() {
         var e = {};
         e._type = this._type, e.slot = this.slotIndex;
         for (var t = n[this._type], i = 0; i < t.length; i++) e[t[i]] = this[t[i]];
         return e
-    }, i.prototype.getHash = function() {
+    }, 
+    i.prototype.getHash = function() {
         switch (this._type) {
             case "ShortcutSpell":
                 return "spell" + this.spellId;
@@ -36,11 +39,14 @@ function(e, t) {
             default:
                 return null
         }
-    }, i.prototype.isPreset = function() {
+    }, 
+    i.prototype.isPreset = function() {
         return "ShortcutObjectPreset" === this._type
-    }, i.prototype.isHandled = function() {
+    }, 
+    i.prototype.isHandled = function() {
         return null !== this.getHash()
-    }, i.prototype.getShortcutBarPanelType = function() {
+    }, 
+    i.prototype.getShortcutBarPanelType = function() {
         switch (this._type) {
             case "ShortcutSpell":
                 return "spell";

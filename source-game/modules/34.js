@@ -20,7 +20,6 @@ function(e, t, i) {
     function r() {
         if (P) return P;
         var e = window.appInfo || {};
-        console.log('e', e);
         return e.server ? e.server : window.developmentMode ? "http://localhost:5555" : "http://192.168.0.2:5555" // "https://dt-proxy-production-login.ankama-games.com"
     }
 
@@ -114,7 +113,10 @@ function(e, t, i) {
         x = window.appInfo && window.appInfo.version,
         B = window.buildVersion,
         D = null;
-    t = e.exports = new M, t.logger = g, t.connectionManager = _, t.sessionId = null;
+    t = e.exports = new M,
+    t.logger = g,
+    t.connectionManager = _,
+    t.sessionId = null;
     var W = [],
         P = "",
         k = !1,

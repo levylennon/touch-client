@@ -1,4 +1,5 @@
 function(e, t, i) {
+    // Movements Actors
     var n = i(1489),
         o = i(1498),
         a = o.compressPath,
@@ -10,19 +11,23 @@ function(e, t, i) {
         u = [23, 24, 25];
     n.prototype._confirmMovement = function(e) {
         window.dofus.sendMessage("GameMapMovementConfirmMessagе", null), this.emit("movementConfirm", e)
-    }, n.prototype.onArrived = function(e) {
+    }, 
+    n.prototype.onArrived = function(e) {
         if (this._confirmMovement(e), this.mapRenderer.removeMovementFeedback(), this.endMovementCallback) {
             var t = this.endMovementCallback;
             this.endMovementCallback = null, t(null, e)
         }
-    }, n.prototype.cancelUserActorMovement = function(e) {
+    }, 
+    n.prototype.cancelUserActorMovement = function(e) {
         if (this.isMovementWaitingForConfirmation) return this.lastMoveRequestTime && !r.isDialogActive() && Date.now() - this.lastMoveRequestTime > d && window.gui.connectionSplashScreen.onStateChange("UNSTABLE"), this.endMovementCallback = e, void(this.isMovementCanceled = !0);
         this.isMovementCanceled = !1;
         var t = this.actorManager.userActor;
         return t.moving ? (this.mapRenderer.removeMovementFeedback(), this.endMovementCallback = null, void t.cancelMovement(e)) : (this.endMovementCallback = e, this.onArrived())
-    }, n.prototype.cancelMoveAndDo = function(e) {
+    }, 
+    n.prototype.cancelMoveAndDo = function(e) {
         return this.actorManager.userActor.moving || this.isMovementWaitingForConfirmation ? this.cancelUserActorMovement(e) : e()
-    }, n.prototype.roleplayUserActorMovement = function(e, t) {
+    }, 
+    n.prototype.roleplayUserActorMovement = function(e, t) {
         var i = this,
             n = e[e.length - 1],
             o = this.actorManager.userActor;
@@ -54,7 +59,8 @@ function(e, t, i) {
         return o.isPathMatchingServerPath(e, c) ? void 0 : 0 !== c.length ? (this.endMovementCallback = null, o.switchPath(c, function() {
             i.emit("arrived", n)
         })) : (o.noMovement(), o.setDisposition(n), this.endMovementCallback = null, this.onArrived(n))
-    }, n.prototype._movePlayerOnMap = function(e, t, i) {
+    }, 
+    n.prototype._movePlayerOnMap = function(e, t, i) {
         i && "function" == typeof i || (i = function() {});
         var n = !1;
         window.gui.playerData.inventory.isOverloaded() && !window.gui.playerData.isMutant() && (n = !0), t = t || !1;
@@ -69,7 +75,10 @@ function(e, t, i) {
             p = this.actorManager.getOccupiedCells(),
             h = o.getPath(s, e, p, d, t);
         if (h.length <= 1) return i(new Error("_movePlayerOnMap noPath:" + s + ":" + e)), null;
-        this.isMovementWaitingForConfirmation = !0, this.lastMoveRequestTime = Date.now(), window.gui.emit("checkServerLag", "roleplayUserActorMovement", "start"), window.dofus.sendMessage("GameMapMovementRequestMessage", {
+        this.isMovementWaitingForConfirmation = !0,
+        this.lastMoveRequestTime = Date.now(),
+        window.gui.emit("checkServerLag", "roleplayUserActorMovement", "start"), 
+        window.dofus.sendMessage("GameMapMovementRequestMessage", {
             keyMovements: a(h),
             mapId: l.id
         });
@@ -85,17 +94,21 @@ function(e, t, i) {
         return m.setAcceleration(1), r.pathTween.removeOnUpdate(), r.onMovementUpdate = function() {
             m.moveTo(r.x, r.y)
         }, r.pathTween.onUpdate(r.onMovementUpdate), this.userPreviousPosition = r.cellId, r.setCellPosition(f), f
-    }, n.prototype.cancelCameraMovement = function() {
+    }, 
+    n.prototype.cancelCameraMovement = function() {
         var e = this.actorManager.userActor;
         e.pathTween.removeOnUpdate(e.onMovementUpdate)
-    }, n.prototype.noMovement = function() {
+    }, 
+    n.prototype.noMovement = function() {
         c.isFightMode || (console.warn("[ISO ENGINE] previous movement request has been refused, canceling movement"), this.onQuickReconnection())
-    }, n.prototype.getChangeMapCellAt = function(e, t, i) {
+    }, 
+    n.prototype.getChangeMapCellAt = function(e, t, i) {
         var n = this.mapScene.convertCanvasToSceneCoordinate(e, t);
         if (!this.mapRenderer.isReady) return -1;
         var o = this.mapRenderer.getCellId(n.x, n.y);
         return this.mapRenderer.getChangeMapFlags(o.cell)[i] ? o.cell : -1
-    }, n.prototype._requestMapChange = function(e, t) {
+    }, 
+    n.prototype._requestMapChange = function(e, t) {
         window.foreground.lock("loadMap"), window.dofus.sendMessage("ChangeMapMessage", {
             mapId: e
         }), this.emit("requestMapChange"), this.launchMapTransition(t);
@@ -105,7 +118,8 @@ function(e, t, i) {
             var e = window.foreground;
             e.unlock("loadMap"), e.hideBorderArrow(), i.cancelMapTransition(t)
         }, l)
-    }, n.prototype.gotoNeighbourMap = function(e, t, i, n) {
+    }, 
+    n.prototype.gotoNeighbourMap = function(e, t, i, n) {
         function o(i, n) {
             i || n !== t || a._requestMapChange(a.mapRenderer.map[e + "NeighbourId"], e)
         }
@@ -115,7 +129,8 @@ function(e, t, i) {
         });
         var r = this._movePlayerOnMap(t, !1, o);
         r === t && window.foreground.showBorderArrow(e, i, n, a.mapRenderer.map[e + "NeighbourId"])
-    }, n.prototype.clearPendingMovement = function() {
+    }, 
+    n.prototype.clearPendingMovement = function() {
         this.isMovementWaitingForConfirmation = !1, this.endMovementCallback = null, this.isMovementCanceled = !1
     }
 }

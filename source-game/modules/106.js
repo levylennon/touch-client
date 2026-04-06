@@ -1,6 +1,10 @@
 function(e, t, i) {
     function n() {
-        this.lastReceivingTime = 0, this.lastPingSent = 0, this.isListening = !1, this.timeout = null, this.alarmLevel = l
+        this.lastReceivingTime = 0,
+        this.lastPingSent = 0,
+        this.isListening = !1,
+        this.timeout = null,
+        this.alarmLevel = l
     }
 
     function o(e) {
@@ -94,7 +98,10 @@ function(e, t, i) {
         h = {
             socialDataRequest: d
         };
-    t.monitor = new n, t.WARNING = d, t.BLOCKING = u, n.prototype.startListening = function() {
+    t.monitor = new n,
+    t.WARNING = d,
+    t.BLOCKING = u,
+    n.prototype.startListening = function() {
         if (!this.isListening) {
             var e = this;
             this._connectionLatency = new a(window.dofus.connectionManager), this._connectionLatency.startListening(), this.isListening = !0, window.dofus.connectionManager.on("BasicPongMessage", this._gotPong.bind(this)), window.gui.on("connected", function() {
