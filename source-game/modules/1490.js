@@ -1,20 +1,38 @@
 function(e, t, i) {
-    function n(e, t) {
+    // MapRenderer
+    function n(mapScene, t) {
         a.call(this);
         var i = this;
-        this.mapId = null, this.map = null, this.mapScene = e, this.background = t, this.grid = new o, this._pingHighlight = {}, A.on("gameContextChanged", this.onGameContextChanged.bind(this)), this.graphics = [], this.statedElements = [], this.interactiveElements = {}, this.identifiedElements = {}, this.objects = {}, this.animatedElements = [], this._paddocksInstanceProperties = [], this._currentPaddockInstance = -1, this.cellHintManager = new m, this.isReady = !1, _.on("FarmSelectionMessage", function(e) {
-            i._currentPaddockInstance = e.farmInstanceId, window.isoEngine.resetLastTap()
-        }), _.on("RealEstatePropertiesMessage", function(e) {
+        this.mapId = null,
+        this.map = null,
+        this.mapScene = mapScene,
+        this.background = t,
+        this.grid = new o,
+        this._pingHighlight = {},
+        A.on("gameContextChanged", this.onGameContextChanged.bind(this)),
+        this.graphics = [],
+        this.statedElements = [],
+        this.interactiveElements = {},
+        this.identifiedElements = {},
+        this.objects = {},
+        this.animatedElements = [],
+        this._paddocksInstanceProperties = [],
+        this._currentPaddockInstance = -1,
+        this.cellHintManager = new m,
+        this.isReady = !1,
+        _.on("FarmSelectionMessage", function(e) {
+            i._currentPaddockInstance = e.farmInstanceId
+             window.isoEngine.resetLastTap()
+        }), 
+        _.on("RealEstatePropertiesMessage", function(e) {
             i._paddocksInstanceProperties = e.farm
         })
     }
     var o = i(1491),
-        a = i(36)
-        .EventEmitter,
-        r = i(56)
-        .inherits,
+        a = i(36).EventEmitter,
+        r = i(56).inherits,
         s = i(913),
-        c = i(13),
+        contants = i(13),
         l = i(1492),
         d = i(700),
         u = i(1174),
@@ -32,10 +50,9 @@ function(e, t, i) {
         y = i(1001),
         z = i(129),
         w = i(1503),
-        T = i(34)
-        .logger,
-        C = c.BACKGROUND_PATH,
-        I = c.FOREGROUND_PATH,
+        Logger = i(34).logger,
+        BACKGROUND_PATH = contants.BACKGROUND_PATH,
+        FOREGROUND_PATH = contants.FOREGROUND_PATH,
         S = {
             r: 255,
             g: 0,
@@ -58,20 +75,27 @@ function(e, t, i) {
             4: "ui/embedded/square_ally.png",
             5: "ui/embedded/square_summoning.png"
         },
-        x = -c.CELL_HEIGHT / 4,
-        B = new w(T);
-    r(n, a), e.exports = n, n.prototype.initialize = function() {
+        x = -contants.CELL_HEIGHT / 4,
+        B = new w(Logger);
+    r(n, a),
+    e.exports = n,
+    n.prototype.initialize = function() {
         b.initialize(), this.cellHintManager.initialize()
-    }, n.prototype.setMap = function(e, t) {
+    },
+    n.prototype.setMap = function(e, t) {
         var i = e.mapData;
         this.map = i, this.mapId = i.id, this.grid.initialize(i.cells, A.isRoleplayMode), this.loadMap(e, t)
-    }, n.prototype.releaseMap = function(e) {
+    },
+    n.prototype.releaseMap = function(e) {
         e !== this.mapId && (window.isoEngine.tacticalMode.hide(), this.mapScene.clean(), this.isReady = !1, this.graphics = [], this.statedElements = [], this.interactiveElements = {}, this.identifiedElements = {}, this.objects = {}, this.animatedElements = [], this._paddocksInstanceProperties = [], this.mapId = null, this.map = null)
-    }, n.prototype.stopAnimatedElements = function() {
+    },
+    n.prototype.stopAnimatedElements = function() {
         for (var e = this.animatedElements, t = 0; t < e.length; t++) e[t].stop()
-    }, n.prototype.startAnimatedElements = function() {
+    },
+    n.prototype.startAnimatedElements = function() {
         for (var e = this.animatedElements, t = 0; t < e.length; t++) e[t].animate()
-    }, n.prototype.loadMap = function(e, t) {
+    }, 
+    n.prototype.loadMap = function(e, t) {
         for (var i = e.mapData, n = e.msg, o = {}, a = n.statedElements, r = 0; r < a.length; r++) o[a[r].elementId] = !0;
         this.graphics = [], this.statedElements = [], this.animatedElements = [];
         var s = new O(this, t);
@@ -88,7 +112,7 @@ function(e, t, i) {
         for (var b, m = i.midgroundLayer, M = Object.keys(m), g = 0; g < M.length; g++)
             for (var _ = M[g], y = m[_], z = 0; z < y.length; z++) {
                 var w = y[z];
-                w.position = parseInt(_, 10), w.layer = c.MAP_LAYER_PLAYGROUND, w.scene = this.mapScene;
+                w.position = parseInt(_, 10), w.layer = contants.MAP_LAYER_PLAYGROUND, w.scene = this.mapScene;
                 var T = w.hue;
                 if (T[0] = 1 + T[0] / 127, T[1] = 1 + T[1] / 127, T[2] = 1 + T[2] / 127, T[3] = 1, w.look)
                     if (w.id && o[w.id]) b = s.loadStatedElement(w), this.statedElements.push(b);
@@ -110,21 +134,21 @@ function(e, t, i) {
             }
         l.finalize(h.width, h.height);
         var S = this,
-            E = C + i.id + ".jpg";
+            E = BACKGROUND_PATH + i.id + ".jpg";
         if (s.nAssetsToLoad += 1, d.loadTexture(E, function(e) {
                 S.background.updateMap(e), s.notifyAssetAsLoaded()
             }, this.mapScene.renderer, "linear"), i.foreground) {
             var L = new u({
-                x: -c.HORIZONTAL_OFFSET,
-                y: -c.VERTICAL_OFFSET,
-                w: c.MAP_SCENE_WIDTH,
-                h: c.MAP_SCENE_HEIGHT,
+                x: -contants.HORIZONTAL_OFFSET,
+                y: -contants.VERTICAL_OFFSET,
+                w: contants.MAP_SCENE_WIDTH,
+                h: contants.MAP_SCENE_HEIGHT,
                 scene: this.mapScene,
-                layer: c.MAP_LAYER_FOREGROUND,
+                layer: contants.MAP_LAYER_FOREGROUND,
                 position: 0
             });
             this.graphics.push(L);
-            var N = I + i.id + ".png";
+            var N = FOREGROUND_PATH + i.id + ".png";
             s.nAssetsToLoad += 1, d.loadTexture(N, function(e) {
                 if ("empty_texture" === e.id) {
                     L.remove();
@@ -221,7 +245,7 @@ function(e, t, i) {
         var t = e.id;
         if (!t) return !1;
         var i = this.interactiveElements[t];
-        return !!i && i.elementTypeId === c.ELEMENT_TYPE_ID.PADDOCK
+        return !!i && i.elementTypeId === contants.ELEMENT_TYPE_ID.PADDOCK
     }, n.prototype.addArrowsOnCellsOneShot = function(e, t, i, n) {
         for (var o = [], a = 0; a < e.length; a++) o[a] = this.getCellSceneCoordinate(e[a]), o[a].x += t || 0, o[a].y += i || 0;
         h.addArrowsOneShot(o, e, n, this.mapScene)
@@ -285,12 +309,12 @@ function(e, t, i) {
             this._pingHighlight[e] && this.deletePingHighlight(e);
             var r = window.isoEngine.mapRenderer.getCellSceneCoordinate(e);
             this._pingHighlight[e] = new u({
-                layer: c.MAP_LAYER_BACKGROUND,
+                layer: contants.MAP_LAYER_BACKGROUND,
                 position: e,
-                x: r.x - c.CELL_WIDTH / 2,
-                y: r.y - c.CELL_HEIGHT / 2,
-                w: c.CELL_WIDTH,
-                h: c.CELL_HEIGHT,
+                x: r.x - contants.CELL_WIDTH / 2,
+                y: r.y - contants.CELL_HEIGHT / 2,
+                w: contants.CELL_WIDTH,
+                h: contants.CELL_HEIGHT,
                 scene: o.mapScene
             });
             var s = q[t];

@@ -122,7 +122,8 @@ function(e, t, i) {
     },
     n.prototype.preloadAreas = function(e) {
         var t = this;
-        this._reset(), this._isStopped = !1, c(e, function(e, i) {
+        this._reset(),
+        this._isStopped = !1, c(e, function(e, i) {
             return e ? t._onError(e) : void t._preload(i, 0)
         })
     },

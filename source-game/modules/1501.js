@@ -1,6 +1,13 @@
 function(e, t, i) {
     function n(e, t) {
-        this.mapRenderer = e, this.onLoadedCallback = t, this.nAssetsLoaded = 0, this.nAssetsToLoad = 0, this._atlas = document.createElement("canvas"), this._atlasContext = this._atlas.getContext("2d"), this.obsolete = !1, null !== u && (u.obsolete = !0);
+        this.mapRenderer = e,
+        this.onLoadedCallback = t,
+        this.nAssetsLoaded = 0,
+        this.nAssetsToLoad = 0,
+        this._atlas = document.createElement("canvas"),
+        this._atlasContext = this._atlas.getContext("2d"),
+        this.obsolete = !1,
+        null !== u && (u.obsolete = !0);
         var i = this;
         u = i
     }
@@ -12,24 +19,28 @@ function(e, t, i) {
         l = i(13),
         d = l.IMG_PATH,
         u = null;
-    e.exports = n, n.prototype.notifyAssetAsLoaded = function() {
+    e.exports = n,
+    n.prototype.notifyAssetAsLoaded = function() {
         if (this.nAssetsLoaded += 1, window.isoEngine.showLoadingProgress(this.nAssetsLoaded / this.nAssetsToLoad), this.nAssetsLoaded === this.nAssetsToLoad) {
             if (this.onLoadedCallback(), this.onLoadedCallback = null, this.obsolete) return;
             this.mapRenderer.isReady = !0, this.mapRenderer.emit("ready"), this.obsolete = !0
         }
-    }, n.prototype.loadStatedElement = function(e) {
+    },
+    n.prototype.loadStatedElement = function(e) {
         var t = new a(e),
             i = this;
         return this.nAssetsToLoad += 1, o.loadAnimationManager(t, "bone", e.look + "/state", function() {
             t.changeState(t.state, !0), i.notifyAssetAsLoaded()
         }), t
-    }, n.prototype.loadAnimatedGraphic = function(e) {
+    },
+    n.prototype.loadAnimatedGraphic = function(e) {
         var t = new s(e),
             i = this;
         return this.nAssetsToLoad += 1, o.loadAnimationManager(t, "bone", e.look + "/motion", function() {
             r.isFightMode ? t.stop() : t.animate(), i.notifyAssetAsLoaded()
         }), t
-    }, n.prototype.loadAtlas = function(e, t) {
+    },
+    n.prototype.loadAtlas = function(e, t) {
         function i() {
             if (s += 1, s === r) {
                 var e = l.mapRenderer.mapScene,
