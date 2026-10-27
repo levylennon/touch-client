@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/LevyLennon/Documents/GitHub/touch-client/**)",
+      "Bash(npm -v)",
+      "Bash(node scripts/gen-vite-src.mjs)",
+      "Bash(npm install *)",
+      "Bash(npx vite *)",
+      "Bash(sed -n '14835,14842p' appData/game/build/script.js)",
+      "Bash(grep -rl '\\\\[-\\\\\\\\/\\\\\\\\\\\\\\\\^\\\\$\\\\*+?' game-src/modules/)",
+      "Bash(grep -n 'replace\\(/\\\\[-' game-src/modules/173.js)",
+      "Read(//tmp/**)",
+      "Bash(npx esbuild *)",
+      "Bash(printf \"import { defineConfig } from 'vite'\\\\nexport default defineConfig\\({ build: { lib: { entry: 'main.js', formats: ['iife'], name: 'x', fileName: \\(\\) => 'out.js' }, minify: false, target: 'es2015', outDir: 'distA', emptyOutDir: true } }\\)\\\\n\")",
+      "Bash(printf \"import { defineConfig } from 'vite'\\\\nexport default defineConfig\\({ build: { lib: { entry: 'main.js', formats: ['iife'], name: 'x', fileName: \\(\\) => 'out.js' }, minify: false, target: 'es2015', outDir: 'distB', emptyOutDir: true, rollupOptions: { output: { strict: false } } } }\\)\\\\n\")",
+      "Bash(printf \"import { defineConfig } from 'vite'\\\\nexport default defineConfig\\({ build: { lib: { entry: 'main.js', formats: ['iife'], name: 'x', fileName: \\(\\) => 'out.js' }, minify: false, target: 'es2015', sourcemap: true, outDir: 'distC', emptyOutDir: true } }\\)\\\\n\")",
+      "Bash(node -e ' *)",
+      "Bash(rm -f game-src/vite.config.mjs)",
+      "Bash(rm -rf tmp-test)",
+      "Bash(npm run *)",
+      "Bash(node --check appData/game/build/script.js)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\LevyLennon\\Documents\\GitHub\\touch-client\\scripts",
+      "c:\\Users\\LevyLennon\\Documents\\GitHub\\touch-client\\game-src",
+      "c:\\Users\\LevyLennon\\Documents\\GitHub\\touch-client\\tmp-test",
+      "c:\\Users\\LevyLennon\\Documents\\GitHub\\touch-client"
+    ]
+  }
+}

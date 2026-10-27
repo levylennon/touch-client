@@ -1,0 +1,8 @@
+function(e, t) {
+    e.exports = {
+        SOCIAL_GROUP_INVITATION_FAILED: 0,
+        SOCIAL_GROUP_INVITATION_SENT: 1,
+        SOCIAL_GROUP_INVITATION_CANCELED: 2,
+        SOCIAL_GROUP_INVITATION_OK: 3
+    }
+}

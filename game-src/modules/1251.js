@@ -1,0 +1,10 @@
+// webpack module 1251
+export default function(e, t) {
+    e.exports = {
+        CRAFT_OPTION_NONE: 0,
+        CRAFT_OPTION_NOT_FREE: 1,
+        CRAFT_OPTION_NOT_FREE_EXCEPT_ON_FAIL: 2,
+        CRAFT_OPTION_RESOURCES_REQUIRED: 4,
+        CRAFT_OPTION_PUBLIC_ON_CONNECTION: 8
+    }
+}

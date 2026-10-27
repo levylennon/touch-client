@@ -1,0 +1,31 @@
+function(e, t) {
+    e.exports = {
+        AMULET: 1,
+        WEAPON: 2,
+        RING: 3,
+        BELT: 4,
+        BOOTS: 5,
+        USABLE_OBJECT: 6,
+        SHIELD: 7,
+        CAPTURING_OBJECT: 8,
+        RESOURCE: 9,
+        HAT: 10,
+        CAPE: 11,
+        PET: 12,
+        DOFUS_OR_TROPHY: 13,
+        QUEST_OBJECT: 14,
+        MUTATION: 15,
+        BOOST_FOOD: 16,
+        BLESSING: 17,
+        CURSE: 18,
+        ROLEPLAY_BUFF: 19,
+        FOLLOWER: 20,
+        MOUNT: 21,
+        LIVING_OBJECT: 22,
+        COSMETIC_WEAPON: 23,
+        COSMETIC_SHIELD: 24,
+        COSMETIC_HAT: 26,
+        COSMETIC_CAPE: 27,
+        COSMETIC_PETS: 28
+    }
+}

@@ -1,0 +1,7 @@
+// webpack module 368
+export default function(e, t, i) {
+    var n = i(105);
+    n.on("DocumentReadingBeginMessage", function(e) {
+        window.gui.transmitMessage(e)
+    })
+}

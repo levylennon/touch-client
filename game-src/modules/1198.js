@@ -1,0 +1,8 @@
+// webpack module 1198
+export default function(e, t) {
+    e.exports = {
+        PRISM_LISTEN_NONE: 0,
+        PRISM_LISTEN_MINE: 1,
+        PRISM_LISTEN_ALL: 2
+    }
+}

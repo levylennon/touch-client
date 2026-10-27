@@ -1,0 +1,7 @@
+// webpack module 866
+export default function(e, t) {
+    e.exports = {
+        GENERAL_SHORTCUT_BAR: 0,
+        SPELL_SHORTCUT_BAR: 1
+    }
+}

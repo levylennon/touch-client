@@ -94,3 +94,7 @@ dist-ssr
 android/
 ios/
 .capacitor/
+
+# Game build artifacts (game-src -> esbuild)
+appData/game/build/script.js.map
+appData/game/build/*.bak

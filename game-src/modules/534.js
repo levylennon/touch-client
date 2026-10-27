@@ -1,0 +1,8 @@
+// webpack module 534
+export default function(e, t) {
+    e.exports = {
+        STATUS_ALIVE_AND_KICKING: 0,
+        STATUS_TOMBSTONE: 1,
+        STATUS_PHANTOM: 2
+    }
+}

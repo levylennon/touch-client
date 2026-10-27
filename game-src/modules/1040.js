@@ -1,0 +1,10 @@
+// webpack module 1040
+export default function(e, t) {
+    e.exports = {
+        TEAM_TYPE_PLAYER: 0,
+        TEAM_TYPE_MONSTER: 1,
+        TEAM_TYPE_MUTANT: 2,
+        TEAM_TYPE_TAXCOLLECTOR: 3,
+        TEAM_TYPE_BAD_PLAYER: 4
+    }
+}

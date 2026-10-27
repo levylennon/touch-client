@@ -1,0 +1,11 @@
+// webpack module 602
+export default function(e, t) {
+    e.exports = {
+        UNAVAILABLE: -1,
+        PLAYER: 0,
+        MODERATOR: 10,
+        GAMEMASTER_PADAWAN: 20,
+        GAMEMASTER: 30,
+        ADMIN: 40
+    }
+}

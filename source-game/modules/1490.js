@@ -163,9 +163,11 @@ function(e, t, i) {
         this.once("ready", function() {
             R && A.isFightMode && window.isoEngine.tacticalMode.show()
         })
-    }, n.prototype.onGameContextChanged = function() {
+    },
+    n.prototype.onGameContextChanged = function() {
         this.removeMovementFeedback(), A.isFightMode ? this.switchGameContextFight() : this.switchGameContextRoleplay()
-    }, n.prototype.switchGameContextFight = function() {
+    },
+    n.prototype.switchGameContextFight = function() {
         this.stopAnimatedElements();
         for (var e = 0; e < this.statedElements.length; e++) {
             var t = this.statedElements[e];
@@ -173,9 +175,11 @@ function(e, t, i) {
         }
         for (var i in this.objects) this.objects[i].remove();
         this.objects = {}, this.map && this.grid.initialize(this.map.cells, !1)
-    }, n.prototype.switchGameContextRoleplay = function() {
+    },
+    n.prototype.switchGameContextRoleplay = function() {
         this.startAnimatedElements(), this.map && this.grid.initialize(this.map.cells, !0)
-    }, n.prototype.addObjects = function(e) {
+    },
+    n.prototype.addObjects = function(e) {
         if (!this.isReady) {
             var t = this,
                 i = this.mapId;
@@ -193,19 +197,22 @@ function(e, t, i) {
                 this.objects[o.cellId] = s
             } else console.error("createObjectGfx: no img for " + JSON.stringify(o))
         }
-    }, n.prototype.removeObjects = function(e) {
+    },
+    n.prototype.removeObjects = function(e) {
         for (var t = 0; t < e.length; t++) {
             var i = e[t],
                 n = this.objects[i];
             n && (n.remove(), delete this.objects[i])
         }
-    }, n.prototype.setInteractiveElements = function(e) {
+    },
+    n.prototype.setInteractiveElements = function(e) {
         function t(e) {
             return e.element === i.elementId
         }
         this.interactiveElements = {}, this.calligraphyElements = {};
         for (var i = {}, n = y[this.mapId] ? y[this.mapId] : [], o = 0, a = e.length; o < a; o++) i = e[o], n.some(t) ? this.calligraphyElements[i.elementId] = i : this.interactiveElements[i.elementId] = i
-    }, n.prototype.updateInteractiveElements = function(e) {
+    },
+    n.prototype.updateInteractiveElements = function(e) {
         function t(e) {
             return e.element === n.elementId
         }
@@ -215,79 +222,99 @@ function(e, t, i) {
                 var r = i[n.elementId];
                 r ? (r.disabledSkills = n.disabledSkills, r.enabledSkills = n.enabledSkills) : console.warn("Interactive element id " + n.elementId + " does not exist.")
             }
-    }, n.prototype.setStatedElements = function(e) {
+    },
+    n.prototype.setStatedElements = function(e) {
         for (var t = 0, i = e.length; t < i; t++) {
             var n = e[t],
                 o = this.identifiedElements[n.elementId];
             o ? o instanceof l && (A.isFightMode ? (o.state = -1, o.changeState(1)) : o.changeState ? o.changeState(n.elementState) : o.state = n.elementState) : console.warn("stated element not identified:" + n.elementId + ", cellId=" + n.elementCellId)
         }
-    }, n.prototype.updateStatedElements = function(e) {
+    },
+    n.prototype.updateStatedElements = function(e) {
         for (var t = this.identifiedElements, i = 0, n = e.length; i < n; i++) {
             var o = e[i],
                 a = t[o.elementId];
             a ? a.changeState ? a.changeState(o.elementState) : (console.warn("Identified element " + o.elementId + " is not a stated element."), a.state = o.elementState) : console.warn("Identified element " + o.elementId + " not found.")
         }
-    }, n.prototype.getCurrentPaddockInstanceProperties = function() {
+    },
+    n.prototype.getCurrentPaddockInstanceProperties = function() {
         if (this._currentPaddockInstance < 0) return null;
         for (var e = 0; e < this._paddocksInstanceProperties.length; e++)
             if (this._paddocksInstanceProperties[e].farmId === this._currentPaddockInstance) return this._paddocksInstanceProperties[e];
         return null
-    }, n.prototype.isCurrentMapPaddockInstance = function(e) {
+    },
+    n.prototype.isCurrentMapPaddockInstance = function(e) {
         if (this._currentPaddockInstance < 0) return !1;
         for (var t = 0; t < this._paddocksInstanceProperties.length; t++)
             if (this._paddocksInstanceProperties[t].farmId === e) return !0;
         return !1
-    }, n.prototype.getPaddocksInstanceProperties = function() {
+    },
+    n.prototype.getPaddocksInstanceProperties = function() {
         return this._paddocksInstanceProperties
-    }, n.prototype.isFarmOnMap = function() {
+    },
+    n.prototype.isFarmOnMap = function() {
         return this._paddocksInstanceProperties.length > 0
-    }, n.prototype.isPaddock = function(e) {
+    },
+    n.prototype.isPaddock = function(e) {
         var t = e.id;
         if (!t) return !1;
         var i = this.interactiveElements[t];
         return !!i && i.elementTypeId === contants.ELEMENT_TYPE_ID.PADDOCK
-    }, n.prototype.addArrowsOnCellsOneShot = function(e, t, i, n) {
+    },
+    n.prototype.addArrowsOnCellsOneShot = function(e, t, i, n) {
         for (var o = [], a = 0; a < e.length; a++) o[a] = this.getCellSceneCoordinate(e[a]), o[a].x += t || 0, o[a].y += i || 0;
         h.addArrowsOneShot(o, e, n, this.mapScene)
-    }, n.prototype.addTapFeedback = function(e, t) {
+    },
+    n.prototype.addTapFeedback = function(e, t) {
         b.addTapFeedback({
             x: e,
             y: t
         })
-    }, n.prototype.addMovementFeedback = function(e) {
+    },
+    n.prototype.addMovementFeedback = function(e) {
         var t = this.getCellSceneCoordinate(e);
         b.addMovementFeedback({
             x: t.x,
             y: t.y,
             position: e
         })
-    }, n.prototype.removeTapFeedback = function() {
+    },
+    n.prototype.removeTapFeedback = function() {
         b.removeTapFeedback()
-    }, n.prototype.removeMovementFeedback = function() {
+    },
+    n.prototype.removeMovementFeedback = function() {
         b.removeMovementFeedback()
-    }, n.prototype.addArrowOnCell = function(e, t, i, n, o) {
+    },
+    n.prototype.addArrowOnCell = function(e, t, i, n, o) {
         var a = this.getCellSceneCoordinate(e);
         a.x += t || 0, a.y += i || 0, h.addArrow(a, e, n, this.mapScene, o)
-    }, n.prototype.addArrowOnGraphic = function(e, t, i, n, o) {
+    },
+    n.prototype.addArrowOnGraphic = function(e, t, i, n, o) {
         if (!e || !e.bbox) return console.warn("addArrowOnGraphic: invalid graphic entity");
         var a = {
             x: (e.bbox[0] + e.bbox[1]) / 2 + (t || 0),
             y: (e.bbox[2] + e.bbox[3]) / 2 + (i || 0)
         };
         h.addArrow(a, null, n, this.mapScene, o)
-    }, n.prototype.addArrowsSequence = function(e, t, i, n) {
+    },
+    n.prototype.addArrowsSequence = function(e, t, i, n) {
         for (var o = [], a = 0; a < e.length; a++) o[a] = this.getCellSceneCoordinate(e[a]), o[a].x += t || 0, o[a].y += i || 0;
         h.addArrowsSequence(o, e, n, this.mapScene)
-    }, n.prototype.removeArrows = function() {
+    },
+    n.prototype.removeArrows = function() {
         h.removeArrows()
-    }, n.prototype.addPingPictoOnCell = function(e, t, i) {
+    },
+    n.prototype.addPingPictoOnCell = function(e, t, i) {
         var n = this.getCellSceneCoordinate(e);
         f.addPingPicto(e, n, e, t, i)
-    }, n.prototype.removePingPicto = function(e) {
+    },
+    n.prototype.removePingPicto = function(e) {
         f.removePingPicto(e)
-    }, n.prototype.removeAllPingPictos = function() {
+    },
+    n.prototype.removeAllPingPictos = function() {
         f.removeAllPingPictos()
-    }, n.prototype.addCellHighlight = function(e, t, i, n) {
+    },
+    n.prototype.addCellHighlight = function(e, t, i, n) {
         i = i || S, n = n || E;
         for (var o = 0, a = t.length; o < a; o += 1) {
             var r = t[o],
@@ -298,7 +325,8 @@ function(e, t, i) {
                 outline: c
             }), e)
         }
-    }, n.prototype.addPingHighlight = function(e, t, i) {
+    },
+    n.prototype.addPingHighlight = function(e, t, i) {
         function n(n) {
             o._pingHighlight[e] ? (o._pingHighlight[e].texture = n, o._pingHighlight[e].forceRefresh()) : n.release(), i && a.openPingBox(e, t)
         }
@@ -320,17 +348,21 @@ function(e, t, i) {
             var s = q[t];
             d.loadTexture(s, n, this.mapScene.renderer)
         }
-    }, n.prototype.deletePingHighlights = function() {
+    },
+    n.prototype.deletePingHighlights = function() {
         var e = this;
         Object.keys(this._pingHighlight)
             .forEach(function(t) {
                 e._pingHighlight[t].remove(), e._pingHighlight[t] = null
             })
-    }, n.prototype.deletePingHighlight = function(e) {
+    },
+    n.prototype.deletePingHighlight = function(e) {
         this._pingHighlight[e] && (this._pingHighlight[e].remove(), this._pingHighlight[e] = null)
-    }, n.prototype.deleteCellHighlight = function(e) {
+    },
+    n.prototype.deleteCellHighlight = function(e) {
         window.background.deleteZoneById(e)
-    }, n.prototype.updateObstacles = function(e) {
+    },
+    n.prototype.updateObstacles = function(e) {
         if (!this.isReady) {
             var t = this,
                 i = this.mapId;
@@ -346,38 +378,49 @@ function(e, t, i) {
                 l = c.l;
             r.state === L ? c.l |= 1 : r.state === N && (c.l &= 254), this.grid.updateCellState(s, c, l), M.updateCellPath(s, c)
         }
-    }, n.prototype.isWalkable = function(e) {
+    },
+    n.prototype.isWalkable = function(e) {
         var t = A.isFightMode ? 5 : 1;
         return 1 === (this.map.cells[e].l & t)
-    }, n.prototype.isFarmCell = function(e) {
+    },
+    n.prototype.isFarmCell = function(e) {
         return 32 === (32 & this.map.cells[e].l)
-    }, n.prototype.isVisibleCell = function(e) {
+    },
+    n.prototype.isVisibleCell = function(e) {
         return 64 === (64 & this.map.cells[e].l)
-    }, n.prototype.getChangeMapFlags = function(e) {
+    },
+    n.prototype.getChangeMapFlags = function(e) {
         return this.map ? B.getChangeMapFlags(this.map.cells, this.mapId, e) : (console.error(new Error("map is null, isReady is " + this.isReady)), {})
-    }, n.prototype.getFirstMapFlag = function(e) {
+    },
+    n.prototype.getFirstMapFlag = function(e) {
         var t = window.gui.scenarioManager,
             i = this.getChangeMapFlags(e);
         return i.left && !t.isBehaviourEnabled(z.DISABLE_LEFT_SLIDE_CHANGEMAP) ? "left" : i.right && !t.isBehaviourEnabled(z.DISABLE_RIGHT_SLIDE_CHANGEMAP) ? "right" : i.top && !t.isBehaviourEnabled(z.DISABLE_TOP_SLIDE_CHANGEMAP) ? "top" : i.bottom && !t.isBehaviourEnabled(z.DISABLE_BOTTOM_SLIDE_CHANGEMAP) ? "bottom" : null
-    }, n.prototype.getCellId = function(e, t) {
+    },
+    n.prototype.getCellId = function(e, t) {
         return this.grid.getCellAtSceneCoordinate({
             x: e,
             y: t
         })
-    }, n.prototype.getCellSceneCoordinate = function(e) {
+    },
+    n.prototype.getCellSceneCoordinate = function(e) {
         var t = s.getCellCoord(e);
         if (this.isReady) {
             if (!this.map) return console.error(new Error("map is null, cannot add cell elevation.")), t;
             t.y -= this.map.cells[e].f || 0
         }
         return t
-    }, n.prototype.hideStatedElements = function() {
+    },
+    n.prototype.hideStatedElements = function() {
         for (var e = 0; e < this.statedElements.length; e++) this.statedElements[e].hide()
-    }, n.prototype.showStatedElements = function() {
+    },
+    n.prototype.showStatedElements = function() {
         for (var e = 0; e < this.statedElements.length; e++) this.statedElements[e].show()
-    }, n.prototype.hideGraphics = function() {
+    },
+    n.prototype.hideGraphics = function() {
         for (var e = 0; e < this.graphics.length; e++) this.graphics[e].hide()
-    }, n.prototype.showGraphics = function() {
+    },
+    n.prototype.showGraphics = function() {
         for (var e = 0; e < this.graphics.length; e++) this.graphics[e].show()
     }
 }
